@@ -4,154 +4,151 @@ import java.util.ArrayList;
 
 public class EmpresaSolicitadora {
 	
-	private String nombre;
-	private String email;
-	private String telefono;
-	private String calle; 
-	private String region;
-	private String ciudad; 
-	private String pais;
-	private String sueldo;
-	private String tipoJornada;
-	private boolean dispMudarse;
-	private boolean dispViajar;
-	private String areaTrabajo;
-	private String puestoDeTrabajo;
+	private String nombreEmpresa;
+	private String emailEmpresa;
+	private String telefonoEmpresa;
+	private String calleEmpresa; 
+	private String regionEmpresa;
+	private String ciudadEmpresa; 
+	private String paisEmpresa;
+	private String sueldoRequerido;
+	private String tipoJornadaRequerido;
+	private boolean dispMudarseRequerido;
+	private boolean dispViajarRequerido;
+	private String areaTrabajoRequerido;
+	private String puestoDeTrabajoRequerido;
+	private String sexoRequerido;
+	private String estadoCivilRequerido;
+	private String edadRequerida;
 	private ArrayList<Solicitantes>mySolicitante;
 	
-	public EmpresaSolicitadora(String nombre, String email, String telefono, String calle, String region, String ciudad,
-			String pais, String sueldo, String tipoJornada, boolean dispMudarse, boolean dispViajar, String areaTrabajo,
-			String puestoDeTrabajo, ArrayList<Solicitantes> mySolicitante) {
+	public EmpresaSolicitadora(String nombreEmpresa, String emailEmpresa, String telefonoEmpresa, String calleEmpresa,
+			String regionEmpresa, String ciudadEmpresa, String paisEmpresa, String sueldoRequerido,
+			String tipoJornadaRequerido, boolean dispMudarseRequerido, boolean dispViajarRequerido,
+			String areaTrabajoRequerido, String puestoDeTrabajoRequerido, String sexoRequerido,
+			String estadoCivilRequerido, String edadRequerida, ArrayList<Solicitantes> mySolicitante) {
 		super();
-		this.nombre = nombre;
-		this.email = email;
-		this.telefono = telefono;
-		this.calle = calle;
-		this.region = region;
-		this.ciudad = ciudad;
-		this.pais = pais;
-		this.sueldo = sueldo;
-		this.tipoJornada = tipoJornada;
-		this.dispMudarse = dispMudarse;
-		this.dispViajar = dispViajar;
-		this.areaTrabajo = areaTrabajo;
-		this.puestoDeTrabajo = puestoDeTrabajo;
+		this.nombreEmpresa = nombreEmpresa;
+		this.emailEmpresa = emailEmpresa;
+		this.telefonoEmpresa = telefonoEmpresa;
+		this.calleEmpresa = calleEmpresa;
+		this.regionEmpresa = regionEmpresa;
+		this.ciudadEmpresa = ciudadEmpresa;
+		this.paisEmpresa = paisEmpresa;
+		this.sueldoRequerido = sueldoRequerido;
+		this.tipoJornadaRequerido = tipoJornadaRequerido;
+		this.dispMudarseRequerido = dispMudarseRequerido;
+		this.dispViajarRequerido = dispViajarRequerido;
+		this.areaTrabajoRequerido = areaTrabajoRequerido;
+		this.puestoDeTrabajoRequerido = puestoDeTrabajoRequerido;
+		this.sexoRequerido = sexoRequerido;
+		this.estadoCivilRequerido = estadoCivilRequerido;
+		this.edadRequerida = edadRequerida;
 		this.mySolicitante = mySolicitante;
 	}
-
-	public String getNombre() {
-		return nombre;
+	public String getNombreEmpresa() {
+		return nombreEmpresa;
 	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombreEmpresa(String nombreEmpresa) {
+		this.nombreEmpresa = nombreEmpresa;
 	}
-
-	public String getEmail() {
-		return email;
+	public String getEmailEmpresa() {
+		return emailEmpresa;
 	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailEmpresa(String emailEmpresa) {
+		this.emailEmpresa = emailEmpresa;
 	}
-
-	public String getTelefono() {
-		return telefono;
+	public String getTelefonoEmpresa() {
+		return telefonoEmpresa;
 	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public void setTelefonoEmpresa(String telefonoEmpresa) {
+		this.telefonoEmpresa = telefonoEmpresa;
 	}
-
-	public String getCalle() {
-		return calle;
+	public String getCalleEmpresa() {
+		return calleEmpresa;
 	}
-
-	public void setCalle(String calle) {
-		this.calle = calle;
+	public void setCalleEmpresa(String calleEmpresa) {
+		this.calleEmpresa = calleEmpresa;
 	}
-
-	public String getRegion() {
-		return region;
+	public String getRegionEmpresa() {
+		return regionEmpresa;
 	}
-
-	public void setRegion(String region) {
-		this.region = region;
+	public void setRegionEmpresa(String regionEmpresa) {
+		this.regionEmpresa = regionEmpresa;
 	}
-
-	public String getCiudad() {
-		return ciudad;
+	public String getCiudadEmpresa() {
+		return ciudadEmpresa;
 	}
-
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
+	public void setCiudadEmpresa(String ciudadEmpresa) {
+		this.ciudadEmpresa = ciudadEmpresa;
 	}
-
-	public String getPais() {
-		return pais;
+	public String getPaisEmpresa() {
+		return paisEmpresa;
 	}
-
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setPaisEmpresa(String paisEmpresa) {
+		this.paisEmpresa = paisEmpresa;
 	}
-
-	public String getSueldo() {
-		return sueldo;
+	public String getSueldoRequerido() {
+		return sueldoRequerido;
 	}
-
-	public void setSueldo(String sueldo) {
-		this.sueldo = sueldo;
+	public void setSueldoRequerido(String sueldoRequerido) {
+		this.sueldoRequerido = sueldoRequerido;
 	}
-
-	public String getTipoJornada() {
-		return tipoJornada;
+	public String getTipoJornadaRequerido() {
+		return tipoJornadaRequerido;
 	}
-
-	public void setTipoJornada(String tipoJornada) {
-		this.tipoJornada = tipoJornada;
+	public void setTipoJornadaRequerido(String tipoJornadaRequerido) {
+		this.tipoJornadaRequerido = tipoJornadaRequerido;
 	}
-
-	public boolean isDispMudarse() {
-		return dispMudarse;
+	public boolean isDispMudarseRequerido() {
+		return dispMudarseRequerido;
 	}
-
-	public void setDispMudarse(boolean dispMudarse) {
-		this.dispMudarse = dispMudarse;
+	public void setDispMudarseRequerido(boolean dispMudarseRequerido) {
+		this.dispMudarseRequerido = dispMudarseRequerido;
 	}
-
-	public boolean isDispViajar() {
-		return dispViajar;
+	public boolean isDispViajarRequerido() {
+		return dispViajarRequerido;
 	}
-
-	public void setDispViajar(boolean dispViajar) {
-		this.dispViajar = dispViajar;
+	public void setDispViajarRequerido(boolean dispViajarRequerido) {
+		this.dispViajarRequerido = dispViajarRequerido;
 	}
-
-	public String getAreaTrabajo() {
-		return areaTrabajo;
+	public String getAreaTrabajoRequerido() {
+		return areaTrabajoRequerido;
 	}
-
-	public void setAreaTrabajo(String areaTrabajo) {
-		this.areaTrabajo = areaTrabajo;
+	public void setAreaTrabajoRequerido(String areaTrabajoRequerido) {
+		this.areaTrabajoRequerido = areaTrabajoRequerido;
 	}
-
-	public String getPuestoDeTrabajo() {
-		return puestoDeTrabajo;
+	public String getPuestoDeTrabajoRequerido() {
+		return puestoDeTrabajoRequerido;
 	}
-
-	public void setPuestoDeTrabajo(String puestoDeTrabajo) {
-		this.puestoDeTrabajo = puestoDeTrabajo;
+	public void setPuestoDeTrabajoRequerido(String puestoDeTrabajoRequerido) {
+		this.puestoDeTrabajoRequerido = puestoDeTrabajoRequerido;
 	}
-
+	public String getSexoRequerido() {
+		return sexoRequerido;
+	}
+	public void setSexoRequerido(String sexoRequerido) {
+		this.sexoRequerido = sexoRequerido;
+	}
+	public String getEstadoCivilRequerido() {
+		return estadoCivilRequerido;
+	}
+	public void setEstadoCivilRequerido(String estadoCivilRequerido) {
+		this.estadoCivilRequerido = estadoCivilRequerido;
+	}
+	public String getEdadRequerida() {
+		return edadRequerida;
+	}
+	public void setEdadRequerida(String edadRequerida) {
+		this.edadRequerida = edadRequerida;
+	}
 	public ArrayList<Solicitantes> getMySolicitante() {
 		return mySolicitante;
 	}
-
 	public void setMySolicitante(ArrayList<Solicitantes> mySolicitante) {
 		this.mySolicitante = mySolicitante;
 	}
-	
-	
+
 	
 	
 }
