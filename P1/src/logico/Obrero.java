@@ -4,36 +4,27 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Universitario extends Solicitantes {
+public class Obrero extends Solicitantes{
 	
-	private String institucion; 
-	private String carrera;
-	
-	public Universitario(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
+	private String listaHabilidades;
+
+
+	public Obrero(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
 			String estadoCivil, String direccion, String pais, Date fechaNacimiento, String salirioSolicitado,
 			boolean dispMudarse, boolean dispViajar, String tipoJornada, String idioma, String areaTrabajoSolicitada,
 			boolean habilitado, boolean licencia, LocalDate fecha, ArrayList<ExperienciaLaboral> exp,
-			String institucion, String carrera) {
+			String listaHabilidades) {
 		super(cedula, nombre, apellido, telefono, email, sexo, estadoCivil, direccion, pais, fechaNacimiento,
 				salirioSolicitado, dispMudarse, dispViajar, tipoJornada, idioma, areaTrabajoSolicitada, habilitado,
 				licencia, fecha, exp);
-		this.institucion = institucion;
-		this.carrera = carrera;
+		this.listaHabilidades = listaHabilidades;
+	}
+	
+	public String getListaHabilidades() {
+		return listaHabilidades;
 	}
 
-	public String getInstitucion() {
-		return institucion;
-	}
-
-	public void setInstitucion(String institucion) {
-		this.institucion = institucion;
-	}
-
-	public String getCarrera() {
-		return carrera;
-	}
-
-	public void setCarrera(String carrera) {
-		this.carrera = carrera;
+	public void setListaHabilidades(String listaHabilidades) {
+		this.listaHabilidades = listaHabilidades;
 	}
 }

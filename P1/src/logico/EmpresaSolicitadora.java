@@ -5,52 +5,42 @@ import java.util.ArrayList;
 public class EmpresaSolicitadora {
 	
 	private String nombreEmpresa;
+	private String id;
 	private String emailEmpresa;
 	private String telefonoEmpresa;
-	private String calleEmpresa; 
-	private String regionEmpresa;
-	private String ciudadEmpresa; 
+	private String direccion; 
 	private String paisEmpresa;
-	private String sueldoRequerido;
-	private String tipoJornadaRequerido;
-	private boolean dispMudarseRequerido;
-	private boolean dispViajarRequerido;
-	private String areaTrabajoRequerido;
-	private String puestoDeTrabajoRequerido;
-	private String sexoRequerido;
-	private String estadoCivilRequerido;
-	private String edadRequerida;
+	private int plaza;
+	private String areaTrabajo;
 	private ArrayList<Solicitantes>mySolicitante;
 	
-	public EmpresaSolicitadora(String nombreEmpresa, String emailEmpresa, String telefonoEmpresa, String calleEmpresa,
-			String regionEmpresa, String ciudadEmpresa, String paisEmpresa, String sueldoRequerido,
-			String tipoJornadaRequerido, boolean dispMudarseRequerido, boolean dispViajarRequerido,
-			String areaTrabajoRequerido, String puestoDeTrabajoRequerido, String sexoRequerido,
-			String estadoCivilRequerido, String edadRequerida, ArrayList<Solicitantes> mySolicitante) {
+
+	public EmpresaSolicitadora(String nombreEmpresa, String id, String emailEmpresa, String telefonoEmpresa,
+			String direccion, String paisEmpresa, int plaza, String areaTrabajo,
+			ArrayList<Solicitantes> mySolicitante) {
 		super();
 		this.nombreEmpresa = nombreEmpresa;
+		this.id = id;
 		this.emailEmpresa = emailEmpresa;
 		this.telefonoEmpresa = telefonoEmpresa;
-		this.calleEmpresa = calleEmpresa;
-		this.regionEmpresa = regionEmpresa;
-		this.ciudadEmpresa = ciudadEmpresa;
+		this.direccion = direccion;
 		this.paisEmpresa = paisEmpresa;
-		this.sueldoRequerido = sueldoRequerido;
-		this.tipoJornadaRequerido = tipoJornadaRequerido;
-		this.dispMudarseRequerido = dispMudarseRequerido;
-		this.dispViajarRequerido = dispViajarRequerido;
-		this.areaTrabajoRequerido = areaTrabajoRequerido;
-		this.puestoDeTrabajoRequerido = puestoDeTrabajoRequerido;
-		this.sexoRequerido = sexoRequerido;
-		this.estadoCivilRequerido = estadoCivilRequerido;
-		this.edadRequerida = edadRequerida;
+		this.plaza = plaza;
+		this.areaTrabajo = areaTrabajo;
 		this.mySolicitante = mySolicitante;
 	}
+	
 	public String getNombreEmpresa() {
 		return nombreEmpresa;
 	}
 	public void setNombreEmpresa(String nombreEmpresa) {
 		this.nombreEmpresa = nombreEmpresa;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getEmailEmpresa() {
 		return emailEmpresa;
@@ -64,23 +54,11 @@ public class EmpresaSolicitadora {
 	public void setTelefonoEmpresa(String telefonoEmpresa) {
 		this.telefonoEmpresa = telefonoEmpresa;
 	}
-	public String getCalleEmpresa() {
-		return calleEmpresa;
+	public String getDireccion() {
+		return direccion;
 	}
-	public void setCalleEmpresa(String calleEmpresa) {
-		this.calleEmpresa = calleEmpresa;
-	}
-	public String getRegionEmpresa() {
-		return regionEmpresa;
-	}
-	public void setRegionEmpresa(String regionEmpresa) {
-		this.regionEmpresa = regionEmpresa;
-	}
-	public String getCiudadEmpresa() {
-		return ciudadEmpresa;
-	}
-	public void setCiudadEmpresa(String ciudadEmpresa) {
-		this.ciudadEmpresa = ciudadEmpresa;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 	public String getPaisEmpresa() {
 		return paisEmpresa;
@@ -88,59 +66,17 @@ public class EmpresaSolicitadora {
 	public void setPaisEmpresa(String paisEmpresa) {
 		this.paisEmpresa = paisEmpresa;
 	}
-	public String getSueldoRequerido() {
-		return sueldoRequerido;
+	public int getPlaza() {
+		return plaza;
 	}
-	public void setSueldoRequerido(String sueldoRequerido) {
-		this.sueldoRequerido = sueldoRequerido;
+	public void setPlaza(int plaza) {
+		this.plaza = plaza;
 	}
-	public String getTipoJornadaRequerido() {
-		return tipoJornadaRequerido;
+	public String getAreaTrabajo() {
+		return areaTrabajo;
 	}
-	public void setTipoJornadaRequerido(String tipoJornadaRequerido) {
-		this.tipoJornadaRequerido = tipoJornadaRequerido;
-	}
-	public boolean isDispMudarseRequerido() {
-		return dispMudarseRequerido;
-	}
-	public void setDispMudarseRequerido(boolean dispMudarseRequerido) {
-		this.dispMudarseRequerido = dispMudarseRequerido;
-	}
-	public boolean isDispViajarRequerido() {
-		return dispViajarRequerido;
-	}
-	public void setDispViajarRequerido(boolean dispViajarRequerido) {
-		this.dispViajarRequerido = dispViajarRequerido;
-	}
-	public String getAreaTrabajoRequerido() {
-		return areaTrabajoRequerido;
-	}
-	public void setAreaTrabajoRequerido(String areaTrabajoRequerido) {
-		this.areaTrabajoRequerido = areaTrabajoRequerido;
-	}
-	public String getPuestoDeTrabajoRequerido() {
-		return puestoDeTrabajoRequerido;
-	}
-	public void setPuestoDeTrabajoRequerido(String puestoDeTrabajoRequerido) {
-		this.puestoDeTrabajoRequerido = puestoDeTrabajoRequerido;
-	}
-	public String getSexoRequerido() {
-		return sexoRequerido;
-	}
-	public void setSexoRequerido(String sexoRequerido) {
-		this.sexoRequerido = sexoRequerido;
-	}
-	public String getEstadoCivilRequerido() {
-		return estadoCivilRequerido;
-	}
-	public void setEstadoCivilRequerido(String estadoCivilRequerido) {
-		this.estadoCivilRequerido = estadoCivilRequerido;
-	}
-	public String getEdadRequerida() {
-		return edadRequerida;
-	}
-	public void setEdadRequerida(String edadRequerida) {
-		this.edadRequerida = edadRequerida;
+	public void setAreaTrabajo(String areaTrabajo) {
+		this.areaTrabajo = areaTrabajo;
 	}
 	public ArrayList<Solicitantes> getMySolicitante() {
 		return mySolicitante;
@@ -148,7 +84,6 @@ public class EmpresaSolicitadora {
 	public void setMySolicitante(ArrayList<Solicitantes> mySolicitante) {
 		this.mySolicitante = mySolicitante;
 	}
-
 	
 	
 }
