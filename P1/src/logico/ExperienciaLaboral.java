@@ -3,9 +3,10 @@ package logico;
 public class ExperienciaLaboral {
 	private String nombreEmpresa;
 	private String areaTrabajo1;
-	private int tiempotrabajoRealizado1;// 5 anos
+	private int tiempotrabajoRealizado1; // 5 anos
 	private String nombreReferente;
 	private String numeroReferente;
+	
 	
 	public ExperienciaLaboral(String nombreEmpresa, String areaTrabajo1, int tiempotrabajoRealizado1,
 			String nombreReferente, String numeroReferente) {

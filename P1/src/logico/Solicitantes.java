@@ -16,13 +16,13 @@ public abstract class Solicitantes {
 	protected String direccion;
 	protected String pais;  //Direccion
 	protected Date fechaNacimiento;
-	protected String salirioSolicitado;
+	protected String salirioSolicitado;//NO 
 	protected boolean dispMudarse;
 	protected boolean dispViajar;
 	protected String tipoJornada; //Tiempo Completo, medio Tiempo 
 	protected String idioma;
 	
-	protected String areaTrabajoSolicitada; //Salud,Educacion,Turismo,Ventas,Comunicacion/Publicidad,Bancaria,Construccion,Technologia,Agricultura
+	
 	protected boolean habilitado; //El solicitante no ha sido escogido
 	
 	protected boolean licencia; //Posee licencia de conducir
@@ -51,7 +51,7 @@ public abstract class Solicitantes {
 		this.dispViajar = dispViajar;
 		this.tipoJornada = tipoJornada;
 		this.idioma = idioma;
-		this.areaTrabajoSolicitada = areaTrabajoSolicitada;
+		
 		this.habilitado = habilitado;
 		this.licencia = licencia;
 		Fecha = fecha;
@@ -178,13 +178,6 @@ public abstract class Solicitantes {
 		this.idioma = idioma;
 	}
 
-	public String getAreaTrabajoSolicitada() {
-		return areaTrabajoSolicitada;
-	}
-
-	public void setAreaTrabajoSolicitada(String areaTrabajoSolicitada) {
-		this.areaTrabajoSolicitada = areaTrabajoSolicitada;
-	}
 
 	public boolean isHabilitado() {
 		return habilitado;
