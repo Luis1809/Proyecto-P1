@@ -3,6 +3,7 @@ package logico;
 import java.util.ArrayList;
 
 public abstract class Solicitudes {
+	protected boolean SatisfechoOimcompleto;
 	protected String sexo;
 	protected String estadoCivil; //Soltero, Casado, Viudo, Divorsiado, Union Libre
 	protected String cuidad;
@@ -16,6 +17,7 @@ public abstract class Solicitudes {
 	protected boolean licencia; //Posee licencia de conducir
 	protected String areadeExp; //Area de experiencia requerida
 	protected String anosExp; //En el area suministrada 
+	protected float porcientoAceptable;
 	protected int plaza; //Numero de trabajadores que se necesitan
 	
 	public Solicitudes(String sexo, String estadoCivil, String cuidad, String pais, String salirioSolicitado,

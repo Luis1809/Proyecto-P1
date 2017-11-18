@@ -17,6 +17,7 @@ public class Bolsa {
 		miEmpresa = new ArrayList<>();
 	}
 	
+	/*
 	public static void GuardarCliente () throws IOException{
 		FileOutputStream f = new FileOutputStream("C:/Users/wichy_000/Documents/Bolsa.dat");
 		ObjectOutputStream oos = new ObjectOutputStream(f);
@@ -36,7 +37,7 @@ public class Bolsa {
 		for(int i=0;i<count;i++)
 			miCliente[i]=((Cliente)oos.readObject());
 		f.close();
-	}
+	}*/
 	
 	public static boolean SolicitanteRepetido (String ced){
 		boolean repetido = true;
@@ -80,10 +81,17 @@ public class Bolsa {
 		return Es;	
 	}
 	
-	public static void RealizarMacheo(Arraylist<EmpresaSolicitadora> EmpSolicitud, Arraylist<Solicitantes> Solicitantes){
+	public static void RealizarMacheo(Solicitudes Solicitud){
 		
-		
-		
+		if(Solicitud instanceof SolicitudesUni){
+			
+		}
+		if(Solicitud instanceof SolicitudesObrero){
+			
+		}
+		if(Solicitud instanceof SolicitudesTecnico){
+	
+		}
 	}
 	
 	public static void insertarSolicitante(Solicitantes solic){
