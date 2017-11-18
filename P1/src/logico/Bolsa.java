@@ -81,14 +81,15 @@ public class Bolsa {
 		return Es;	
 	}
 	
-	public static Solicitantes RealizarMacheo(Solicitudes Solicitud){
+	public static ArrayList<Solicitantes> RealizarMacheo(Solicitudes Solicitud){
 		float porciento=0;
+		int plazas=Solicitud.plaza;
 		ArrayList<Solicitantes> miSolicitudAceptada = new ArrayList<>();
 		for (int i=0; i<miSolicitante.size();i++){
 			porciento=0;
 			
 			//////////////////////////////////////////////////////////////////////////////////////Universidad
-			if(Solicitud instanceof SolicitudesUni && miSolicitante.get(i) instanceof Universitario){
+			if(Solicitud instanceof SolicitudesUni && miSolicitante.get(i) instanceof Universitario && plazas>0){
 				Universitario SolicitanteUni = (Universitario) miSolicitante.get(i);
 				SolicitudesUni solEmp = (SolicitudesUni) Solicitud;
 				if(SolicitanteUni.getCarrera().equalsIgnoreCase(solEmp.getCarrera()) && SolicitanteUni.getAreaInteres().equalsIgnoreCase(solEmp.getAreaInteres())){
@@ -149,12 +150,13 @@ public class Bolsa {
 				}
 				
 				if(porciento>=solEmp.porcientoAceptable){
+					plazas--;
 					miSolicitudAceptada.add(SolicitanteUni);
 				}
 			}
 			
 			//////////////////////////////////////////////////////////////////////////////////////OBRERO
-			if(Solicitud instanceof SolicitudesObrero && miSolicitante.get(i) instanceof Obrero){
+			if(Solicitud instanceof SolicitudesObrero && miSolicitante.get(i) instanceof Obrero && plazas>0){
 				int paso = 0;
 				Obrero SolicitanteObrero = (Obrero) miSolicitante.get(i);
 				SolicitudesObrero solEmp = (SolicitudesObrero) Solicitud;
@@ -217,10 +219,14 @@ public class Bolsa {
 						}	
 					}	
 				}
+				if(porciento>=solEmp.porcientoAceptable){
+					plazas--;
+					miSolicitudAceptada.add(SolicitanteObrero);
+				}
 			}
 			
 			/////////////////////////////////////////////////////////////////////////////////////TECNICO
-			if(Solicitud instanceof SolicitudesTecnico && miSolicitante.get(i) instanceof Tecnico ){	
+			if(Solicitud instanceof SolicitudesTecnico && miSolicitante.get(i) instanceof Tecnico && plazas>0 ){	
 				Tecnico SolicitanteTecnico = (Tecnico) miSolicitante.get(i);
 				SolicitudesTecnico solEmp = (SolicitudesTecnico) Solicitud;
 				if(SolicitanteTecnico.getTecnico().equalsIgnoreCase(solEmp.getTecnico()) && SolicitanteTecnico.getAreaInteres().equalsIgnoreCase(solEmp.getAreaInteres())){
@@ -278,8 +284,13 @@ public class Bolsa {
 						if(SolicitanteTecnico.getInstitucion().equalsIgnoreCase(solEmp.getInstitucion()))
 						porciento+=8.3333;		
 				}
+				if(porciento>=solEmp.porcientoAceptable){
+					plazas--;
+					miSolicitudAceptada.add(SolicitanteTecnico);
+				}
 			}
 		}
+		return miSolicitudAceptada;
 	}
 	
 	public static void insertarSolicitante(Solicitantes solic){
