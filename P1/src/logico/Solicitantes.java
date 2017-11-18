@@ -17,7 +17,7 @@ public abstract class Solicitantes {
 	protected String cuidad; //Ciudad Para la empresa
 	protected String pais;  //Direccion
 	protected Date fechaNacimiento;
-	protected String salirioSolicitado;//NO 
+	protected int salirioSolicitado;//NO 
 	protected boolean dispMudarse;
 	protected boolean dispViajar;
 	protected String tipoJornada; //Tiempo Completo, medio Tiempo 
@@ -30,7 +30,7 @@ public abstract class Solicitantes {
 	
 	public Solicitantes(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
 			String estadoCivil, String direccion, String cuidad, String pais, Date fechaNacimiento,
-			String salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
+			int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
 			ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia, LocalDate fecha,
 			ArrayList<ExperienciaLaboral> exp) {
 		super();
@@ -138,11 +138,11 @@ public abstract class Solicitantes {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getSalirioSolicitado() {
+	public int getSalirioSolicitado() {
 		return salirioSolicitado;
 	}
 
-	public void setSalirioSolicitado(String salirioSolicitado) {
+	public void setSalirioSolicitado(int salirioSolicitado) {
 		this.salirioSolicitado = salirioSolicitado;
 	}
 

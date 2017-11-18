@@ -7,9 +7,9 @@ public class SolicitudesTecnico extends Solicitudes {
 	private String institucion; 
 	private String tecnico; //Cual tecnico se realizo
 	
-	public SolicitudesTecnico(String sexo, String estadoCivil, String cuidad, String pais, String salirioSolicitado,
+	public SolicitudesTecnico(String sexo, String estadoCivil, String cuidad, String pais, int salirioSolicitado,
 			boolean dispMudarse, boolean dispViajar, String tipoJornada, ArrayList<String> idioma, String areaInteres,
-			boolean licencia, String area, String anosExp, int plaza, String institucion, String tecnico) {
+			boolean licencia, String area, int anosExp, int plaza, String institucion, String tecnico) {
 		super(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, tipoJornada, idioma,
 				areaInteres, licencia, area, anosExp, plaza);
 		this.institucion = institucion;

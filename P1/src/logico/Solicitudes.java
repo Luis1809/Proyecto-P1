@@ -8,7 +8,7 @@ public abstract class Solicitudes {
 	protected String estadoCivil; //Soltero, Casado, Viudo, Divorsiado, Union Libre
 	protected String cuidad;
 	protected String pais;  //Direccion
-	protected String salirioSolicitado;//Menor a X 
+	protected int salirioSolicitado;//Menor a X 
 	protected boolean dispMudarse;
 	protected boolean dispViajar;
 	protected String tipoJornada; //Tiempo Completo, medio Tiempo 
@@ -16,13 +16,13 @@ public abstract class Solicitudes {
 	protected String areaInteres; //Area de la empresa, completar esto automaticamente
 	protected boolean licencia; //Posee licencia de conducir
 	protected String areadeExp; //Area de experiencia requerida
-	protected String anosExp; //En el area suministrada 
+	protected int anosExp; //En el area suministrada 
 	protected float porcientoAceptable;
 	protected int plaza; //Numero de trabajadores que se necesitan
 	
-	public Solicitudes(String sexo, String estadoCivil, String cuidad, String pais, String salirioSolicitado,
+	public Solicitudes(String sexo, String estadoCivil, String cuidad, String pais, int salirioSolicitado,
 			boolean dispMudarse, boolean dispViajar, String tipoJornada, ArrayList<String> idioma, String areaInteres,
-			boolean licencia, String area, String anosExp, int plaza) {
+			boolean licencia, String area, int anosExp, int plaza) {
 		super();
 		this.sexo = sexo;
 		this.estadoCivil = estadoCivil;
@@ -64,10 +64,10 @@ public abstract class Solicitudes {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-	public String getSalirioSolicitado() {
+	public int getSalirioSolicitado() {
 		return salirioSolicitado;
 	}
-	public void setSalirioSolicitado(String salirioSolicitado) {
+	public void setSalirioSolicitado(int salirioSolicitado) {
 		this.salirioSolicitado = salirioSolicitado;
 	}
 	public boolean isDispMudarse() {
@@ -112,10 +112,10 @@ public abstract class Solicitudes {
 	public void setAreadeExp(String area) {
 		this.areadeExp = area;
 	}
-	public String getAnosExp() {
+	public int getAnosExp() {
 		return anosExp;
 	}
-	public void setAnosExp(String anosExp) {
+	public void setAnosExp(int anosExp) {
 		this.anosExp = anosExp;
 	}
 	public int getPlaza() {

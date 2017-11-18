@@ -7,9 +7,9 @@ public class SolicitudesUni extends Solicitudes {
 	private String institucion; 
 	private String carrera;
 	
-	public SolicitudesUni(String sexo, String estadoCivil, String cuidad, String pais, String salirioSolicitado,
+	public SolicitudesUni(String sexo, String estadoCivil, String cuidad, String pais, int salirioSolicitado,
 			boolean dispMudarse, boolean dispViajar, String tipoJornada, ArrayList<String> idioma, String areaInteres,
-			boolean licencia, String area, String anosExp, int plaza, String institucion, String carrera) {
+			boolean licencia, String area, int anosExp, int plaza, String institucion, String carrera) {
 		super(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, tipoJornada, idioma,
 				areaInteres, licencia, area, anosExp, plaza);
 		this.institucion = institucion;
