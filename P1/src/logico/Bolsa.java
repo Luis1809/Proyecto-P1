@@ -80,7 +80,11 @@ public class Bolsa {
 		return Es;	
 	}
 	
-	public static Realizar
+	public static void RealizarMacheo(Arraylist<EmpresaSolicitadora> EmpSolicitud, Arraylist<Solicitantes> Solicitantes){
+		
+		
+		
+	}
 	
 	public static void insertarSolicitante(Solicitantes solic){
 		miSolicitante.add(solic);

@@ -14,6 +14,7 @@ public abstract class Solicitantes {
 	protected String sexo;
 	protected String estadoCivil; //Soltero, Casado, Viudo, Divorsiado, Union Libre
 	protected String direccion;
+	protected String cuidad; //Ciudad Para la empresa
 	protected String pais;  //Direccion
 	protected Date fechaNacimiento;
 	protected String salirioSolicitado;//NO 
@@ -28,9 +29,10 @@ public abstract class Solicitantes {
 	protected ArrayList<ExperienciaLaboral> exp;
 	
 	public Solicitantes(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
-			String estadoCivil, String direccion, String pais, Date fechaNacimiento, String salirioSolicitado,
-			boolean dispMudarse, boolean dispViajar, String tipoJornada, ArrayList<String> idioma, String areaInteres,
-			boolean habilitado, boolean licencia, LocalDate fecha, ArrayList<ExperienciaLaboral> exp) {
+			String estadoCivil, String direccion, String cuidad, String pais, Date fechaNacimiento,
+			String salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
+			ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia, LocalDate fecha,
+			ArrayList<ExperienciaLaboral> exp) {
 		super();
 		this.cedula = cedula;
 		this.nombre = nombre;
@@ -40,6 +42,7 @@ public abstract class Solicitantes {
 		this.sexo = sexo;
 		this.estadoCivil = estadoCivil;
 		this.direccion = direccion;
+		this.cuidad = cuidad;
 		this.pais = pais;
 		this.fechaNacimiento = fechaNacimiento;
 		this.salirioSolicitado = salirioSolicitado;
@@ -54,7 +57,6 @@ public abstract class Solicitantes {
 		this.exp = exp;
 	}
 	
-
 	
 	public String getCedula() {
 		return cedula;
@@ -195,9 +197,26 @@ public abstract class Solicitantes {
 	public ArrayList<ExperienciaLaboral> getExp() {
 		return exp;
 	}
-
 	public void setExp(ArrayList<ExperienciaLaboral> exp) {
 		this.exp = exp;
+	}
+	public String getCuidad() {
+		return cuidad;
+	}
+	public void setCuidad(String cuidad) {
+		this.cuidad = cuidad;
+	}
+	public ArrayList<String> getIdioma() {
+		return idioma;
+	}
+	public void setIdioma(ArrayList<String> idioma) {
+		this.idioma = idioma;
+	}
+	public String getAreaInteres() {
+		return areaInteres;
+	}
+	public void setAreaInteres(String areaInteres) {
+		this.areaInteres = areaInteres;
 	}
 		
 	

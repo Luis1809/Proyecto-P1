@@ -9,25 +9,28 @@ public class EmpresaSolicitadora {
 	private String emailEmpresa;
 	private String telefonoEmpresa;
 	private String direccion; 
+	private String ciudad;
 	private String paisEmpresa;
-	private int plaza;
 	private String areaTrabajo;
-	private ArrayList<Solicitantes>mySolicitante;
+	private String RNC;
+	private ArrayList<Solicitudes>miSolicitudes;
+	private ArrayList<Solicitantes>miSolicitantes;
 	
-
 	public EmpresaSolicitadora(String nombreEmpresa, String id, String emailEmpresa, String telefonoEmpresa,
-			String direccion, String paisEmpresa, int plaza, String areaTrabajo,
-			ArrayList<Solicitantes> mySolicitante) {
+			String direccion, String ciudad, String paisEmpresa, String areaTrabajo, String rNC,
+			ArrayList<Solicitudes> miSolicitudes, ArrayList<Solicitantes> miSolicitantes) {
 		super();
 		this.nombreEmpresa = nombreEmpresa;
 		this.id = id;
 		this.emailEmpresa = emailEmpresa;
 		this.telefonoEmpresa = telefonoEmpresa;
 		this.direccion = direccion;
+		this.ciudad = ciudad;
 		this.paisEmpresa = paisEmpresa;
-		this.plaza = plaza;
 		this.areaTrabajo = areaTrabajo;
-		this.mySolicitante = mySolicitante;
+		RNC = rNC;
+		this.miSolicitudes = miSolicitudes;
+		this.miSolicitantes = miSolicitantes;
 	}
 	
 	public String getNombreEmpresa() {
@@ -66,24 +69,38 @@ public class EmpresaSolicitadora {
 	public void setPaisEmpresa(String paisEmpresa) {
 		this.paisEmpresa = paisEmpresa;
 	}
-	public int getPlaza() {
-		return plaza;
-	}
-	public void setPlaza(int plaza) {
-		this.plaza = plaza;
-	}
 	public String getAreaTrabajo() {
 		return areaTrabajo;
 	}
 	public void setAreaTrabajo(String areaTrabajo) {
 		this.areaTrabajo = areaTrabajo;
 	}
-	public ArrayList<Solicitantes> getMySolicitante() {
-		return mySolicitante;
+
+	public String getRNC() {
+		return RNC;
 	}
-	public void setMySolicitante(ArrayList<Solicitantes> mySolicitante) {
-		this.mySolicitante = mySolicitante;
+
+	public void setRNC(String rNC) {
+		RNC = rNC;
 	}
-	
-	
+	public ArrayList<Solicitudes> getMiSolicitudes() {
+		return miSolicitudes;
+	}
+	public void setMiSolicitudes(ArrayList<Solicitudes> miSolicitudes) {
+		this.miSolicitudes = miSolicitudes;
+	}
+	public ArrayList<Solicitantes> getMiSolicitantes() {
+		return miSolicitantes;
+	}
+	public void setMiSolicitantes(ArrayList<Solicitantes> miSolicitantes) {
+		this.miSolicitantes = miSolicitantes;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
 }
