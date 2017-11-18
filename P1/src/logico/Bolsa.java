@@ -17,7 +17,16 @@ public class Bolsa {
 		miEmpresa = new ArrayList<>();
 	}
 	
-	public static boolean SolicitanteRep (String ced){
+	public static boolean SolicitanteRepetido (String ced){
+		boolean repetido = true;
+		Solicitantes s= null; 
+		s= buscarSolicitante(ced);
+		if(s==null)
+			repetido=false;
+		return repetido;
+	}
+	
+	public static boolean EmpresaRepetida (String ced){
 		boolean repetido = true;
 		Solicitantes s= null; 
 		s= buscarSolicitante(ced);
@@ -39,6 +48,19 @@ public class Bolsa {
 		return solic;	
 	}
 	
+	public static EmpresaSolicitadora buscarEmpresa(String nombre, String pais) {
+		EmpresaSolicitadora Es=null;
+
+		if(miEmpresa.size()>0){
+			for(int i=0 ; i<miEmpresa.size();i++){
+				if (miEmpresa.get(i).getNombreEmpresa().equalsIgnoreCase(nombre)&&miEmpresa.get(i).getPaisEmpresa().equalsIgnoreCase(pais)){
+					solic=miSolicitante.get(i);
+				}
+			}
+		}
+		return solic;	
+	}
+	
 	public static void insertarSolicitante(Solicitantes solic){
 		miSolicitante.add(solic);
 	}
@@ -51,6 +73,8 @@ public class Bolsa {
 	public static void eliminarCuenta(EmpresaSolicitadora Es){
 		miEmpresa.remove(Es);
 	}
+	
+	
 	
 	
 	public static void GuardarCliente () throws IOException{
