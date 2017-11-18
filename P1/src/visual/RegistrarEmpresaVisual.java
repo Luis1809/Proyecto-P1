@@ -19,6 +19,8 @@ public class RegistrarEmpresaVisual extends JDialog {
 	private JTextField txtDireccionEmpresa;
 	private JTextField txtTelefonoEmpresa;
 	private JTextField txtEmailEmpresa;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -38,7 +40,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 	 */
 	public RegistrarEmpresaVisual() {
 		setTitle("Registrar Empresa");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 451, 322);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -46,7 +48,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Informacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(10, 11, 414, 206);
+		panel.setBounds(10, 11, 415, 228);
 		contentPanel.add(panel);
 		panel.setLayout(null);
 		
@@ -77,7 +79,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		txtDireccionEmpresa.setColumns(10);
 		
 		txtTelefonoEmpresa = new JTextField();
-		txtTelefonoEmpresa.setBounds(181, 140, 110, 20);
+		txtTelefonoEmpresa.setBounds(181, 140, 113, 20);
 		panel.add(txtTelefonoEmpresa);
 		txtTelefonoEmpresa.setColumns(10);
 		
@@ -85,6 +87,24 @@ public class RegistrarEmpresaVisual extends JDialog {
 		txtEmailEmpresa.setBounds(10, 140, 126, 20);
 		panel.add(txtEmailEmpresa);
 		txtEmailEmpresa.setColumns(10);
+		
+		JLabel lblRnc = new JLabel("Rnc:");
+		lblRnc.setBounds(10, 165, 46, 14);
+		panel.add(lblRnc);
+		
+		JLabel lblId = new JLabel("ID:");
+		lblId.setBounds(181, 171, 46, 14);
+		panel.add(lblId);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 184, 126, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(181, 184, 113, 20);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
