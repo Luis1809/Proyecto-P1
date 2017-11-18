@@ -393,6 +393,7 @@ public class Solicitudes extends JDialog {
 			pProfesional.add(lblCarrera);
 			
 			JComboBox cbxCarrera = new JComboBox();
+			cbxCarrera.setModel(new DefaultComboBoxModel(new String[] {"              <Seleccione>", "             Ing. Telematica", "                 Ing. Civil", "              Ing. Industrial", "            Ing. Mecatronica", "              Ing. Sistemas"}));
 			cbxCarrera.setBounds(82, 39, 226, 26);
 			pProfesional.add(cbxCarrera);
 			
