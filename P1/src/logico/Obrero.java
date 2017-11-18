@@ -5,18 +5,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Obrero extends Solicitantes{
-	
 	private String listaHabilidades;
-
 
 	public Obrero(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
 			String estadoCivil, String direccion, String pais, Date fechaNacimiento, String salirioSolicitado,
-			boolean dispMudarse, boolean dispViajar, String tipoJornada, String idioma, String areaTrabajoSolicitada,
+			boolean dispMudarse, boolean dispViajar, String tipoJornada, ArrayList<String> idioma, String areaInteres,
 			boolean habilitado, boolean licencia, LocalDate fecha, ArrayList<ExperienciaLaboral> exp,
 			String listaHabilidades) {
 		super(cedula, nombre, apellido, telefono, email, sexo, estadoCivil, direccion, pais, fechaNacimiento,
-				salirioSolicitado, dispMudarse, dispViajar, tipoJornada, idioma, areaTrabajoSolicitada, habilitado,
-				licencia, fecha, exp);
+				salirioSolicitado, dispMudarse, dispViajar, tipoJornada, idioma, areaInteres, habilitado, licencia,
+				fecha, exp);
 		this.listaHabilidades = listaHabilidades;
 	}
 	

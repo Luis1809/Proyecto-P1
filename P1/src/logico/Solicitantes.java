@@ -20,20 +20,16 @@ public abstract class Solicitantes {
 	protected boolean dispMudarse;
 	protected boolean dispViajar;
 	protected String tipoJornada; //Tiempo Completo, medio Tiempo 
-	protected String idioma;
-	
-	
+	protected ArrayList<String> idioma;
+	protected String areaInteres; //Area en la cual desea trabajar
 	protected boolean habilitado; //El solicitante no ha sido escogido
-	
 	protected boolean licencia; //Posee licencia de conducir
 	protected LocalDate Fecha;
-	
 	protected ArrayList<ExperienciaLaboral> exp;
 	
-
 	public Solicitantes(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
 			String estadoCivil, String direccion, String pais, Date fechaNacimiento, String salirioSolicitado,
-			boolean dispMudarse, boolean dispViajar, String tipoJornada, String idioma, String areaTrabajoSolicitada,
+			boolean dispMudarse, boolean dispViajar, String tipoJornada, ArrayList<String> idioma, String areaInteres,
 			boolean habilitado, boolean licencia, LocalDate fecha, ArrayList<ExperienciaLaboral> exp) {
 		super();
 		this.cedula = cedula;
@@ -51,12 +47,14 @@ public abstract class Solicitantes {
 		this.dispViajar = dispViajar;
 		this.tipoJornada = tipoJornada;
 		this.idioma = idioma;
-		
+		this.areaInteres = areaInteres;
 		this.habilitado = habilitado;
 		this.licencia = licencia;
 		Fecha = fecha;
 		this.exp = exp;
 	}
+	
+
 	
 	public String getCedula() {
 		return cedula;
@@ -169,15 +167,6 @@ public abstract class Solicitantes {
 	public void setTipoJornada(String tipoJornada) {
 		this.tipoJornada = tipoJornada;
 	}
-
-	public String getIdioma() {
-		return idioma;
-	}
-
-	public void setIdioma(String idioma) {
-		this.idioma = idioma;
-	}
-
 
 	public boolean isHabilitado() {
 		return habilitado;
