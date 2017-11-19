@@ -38,7 +38,7 @@ public class RegistrarEmpleo extends JDialog {
 	 */
 	public RegistrarEmpleo() {
 		setTitle("Registrar Empleo");
-		setBounds(100, 100, 651, 520);
+		setBounds(100, 100, 651, 539);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -46,7 +46,7 @@ public class RegistrarEmpleo extends JDialog {
 		{
 			JPanel panel = new JPanel();
 			panel.setBorder(new TitledBorder(null, "Informacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panel.setBounds(10, 11, 615, 426);
+			panel.setBounds(10, 11, 615, 445);
 			contentPanel.add(panel);
 			panel.setLayout(null);
 			
@@ -127,7 +127,7 @@ public class RegistrarEmpleo extends JDialog {
 			JPanel panel_1 = new JPanel();
 			panel_1.setLayout(null);
 			panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-			panel_1.setBounds(107, 312, 394, 103);
+			panel_1.setBounds(107, 312, 394, 122);
 			panel.add(panel_1);
 			
 			JLabel label = new JLabel("Licencia de conducir:");
@@ -153,6 +153,15 @@ public class RegistrarEmpleo extends JDialog {
 			JCheckBox chkLicenciaDeConducir = new JCheckBox("Si");
 			chkLicenciaDeConducir.setBounds(243, 8, 97, 23);
 			panel_1.add(chkLicenciaDeConducir);
+			
+			JLabel lblEstadoCivil = new JLabel("Estado Civil:");
+			lblEstadoCivil.setBounds(61, 89, 125, 14);
+			panel_1.add(lblEstadoCivil);
+			
+			JComboBox comboBox_1 = new JComboBox();
+			comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
+			comboBox_1.setBounds(214, 89, 102, 20);
+			panel_1.add(comboBox_1);
 			
 			JLabel label_3 = new JLabel("Jornada laboral:");
 			label_3.setBounds(76, 82, 95, 14);
