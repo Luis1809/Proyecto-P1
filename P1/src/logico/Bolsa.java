@@ -11,8 +11,7 @@ public class Bolsa {
 	
 	private static ArrayList<Solicitantes> miSolicitante;
 	private static ArrayList<EmpresaSolicitadora> miEmpresa;
-	//HOLA
-	private String hola;
+
 	public static void init() {
 		miSolicitante = new ArrayList<>();
 		miEmpresa = new ArrayList<>();
