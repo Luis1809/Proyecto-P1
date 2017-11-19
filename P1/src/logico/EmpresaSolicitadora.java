@@ -29,8 +29,8 @@ public class EmpresaSolicitadora {
 		this.paisEmpresa = paisEmpresa;
 		this.areaTrabajo = areaTrabajo;
 		RNC = rNC;
-		this.miSolicitudes = miSolicitudes;
-		this.miSolicitantes = miSolicitantes;
+		this.miSolicitudes = new ArrayList<>();
+		this.miSolicitantes = new ArrayList<>();
 	}
 	
 	public String getNombreEmpresa() {
