@@ -74,7 +74,6 @@ public class Solicitudes extends JDialog {
     private JPanel pTecnico;
     private JPanel pObrero;
     private JScrollPane scrollPaneIdiomas;
-    private JTextField textField;
     
    
 	/**
@@ -441,15 +440,6 @@ public class Solicitudes extends JDialog {
 			scrollPaneIdiomas = new JScrollPane();
 			scrollPaneIdiomas.setBounds(5, 4, 181, 26);
 			panel_1.add(scrollPaneIdiomas);
-			
-			textField = new JTextField();
-			textField.setBounds(583, 361, 86, 20);
-			panel.add(textField);
-			textField.setColumns(10);
-			
-			JLabel lblNewLabel = new JLabel("New label");
-			lblNewLabel.setBounds(616, 324, 46, 14);
-			panel.add(lblNewLabel);
 		}
 		{
 			JPanel buttonPane = new JPanel();
