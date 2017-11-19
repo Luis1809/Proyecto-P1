@@ -89,7 +89,7 @@ public class Bolsa {
 			porciento=0;
 			
 			//////////////////////////////////////////////////////////////////////////////////////Universidad
-			if(Solicitud instanceof SolicitudesUni && miSolicitante.get(i) instanceof Universitario && plazas>0){
+			if(Solicitud instanceof SolicitudesUni && miSolicitante.get(i) instanceof Universitario && plazas>0 &&  miSolicitante.get(i).habilitado==true){
 				Universitario SolicitanteUni = (Universitario) miSolicitante.get(i);
 				SolicitudesUni solEmp = (SolicitudesUni) Solicitud;
 				if(SolicitanteUni.getCarrera().equalsIgnoreCase(solEmp.getCarrera()) && SolicitanteUni.getAreaInteres().equalsIgnoreCase(solEmp.getAreaInteres())){
@@ -152,11 +152,12 @@ public class Bolsa {
 				if(porciento>=solEmp.porcientoAceptable){
 					plazas--;
 					miSolicitudAceptada.add(SolicitanteUni);
+					miSolicitante.get(i).setHabilitado(false);
 				}
 			}
 			
 			//////////////////////////////////////////////////////////////////////////////////////OBRERO
-			if(Solicitud instanceof SolicitudesObrero && miSolicitante.get(i) instanceof Obrero && plazas>0){
+			if(Solicitud instanceof SolicitudesObrero && miSolicitante.get(i) instanceof Obrero && plazas>0 &&  miSolicitante.get(i).habilitado==true){
 				int paso = 0;
 				Obrero SolicitanteObrero = (Obrero) miSolicitante.get(i);
 				SolicitudesObrero solEmp = (SolicitudesObrero) Solicitud;
@@ -222,11 +223,12 @@ public class Bolsa {
 				if(porciento>=solEmp.porcientoAceptable){
 					plazas--;
 					miSolicitudAceptada.add(SolicitanteObrero);
+					miSolicitante.get(i).setHabilitado(false);
 				}
 			}
 			
 			/////////////////////////////////////////////////////////////////////////////////////TECNICO
-			if(Solicitud instanceof SolicitudesTecnico && miSolicitante.get(i) instanceof Tecnico && plazas>0 ){	
+			if(Solicitud instanceof SolicitudesTecnico && miSolicitante.get(i) instanceof Tecnico && plazas>0 &&  miSolicitante.get(i).habilitado==true ){	
 				Tecnico SolicitanteTecnico = (Tecnico) miSolicitante.get(i);
 				SolicitudesTecnico solEmp = (SolicitudesTecnico) Solicitud;
 				if(SolicitanteTecnico.getTecnico().equalsIgnoreCase(solEmp.getTecnico()) && SolicitanteTecnico.getAreaInteres().equalsIgnoreCase(solEmp.getAreaInteres())){
@@ -287,6 +289,7 @@ public class Bolsa {
 				if(porciento>=solEmp.porcientoAceptable){
 					plazas--;
 					miSolicitudAceptada.add(SolicitanteTecnico);
+					miSolicitante.get(i).setHabilitado(false);
 				}
 			}
 		}
