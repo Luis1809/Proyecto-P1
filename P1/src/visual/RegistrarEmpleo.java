@@ -16,6 +16,7 @@ import javax.swing.JCheckBox;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
+import javax.swing.JSpinner;
 
 public class RegistrarEmpleo extends JDialog {
 
@@ -54,31 +55,31 @@ public class RegistrarEmpleo extends JDialog {
 			
 			JPanel panelUniversitario = new JPanel();
 			panelUniversitario.setBorder(new LineBorder(new Color(0, 0, 0)));
-			panelUniversitario.setBounds(76, 159, 464, 142);
+			panelUniversitario.setBounds(76, 159, 242, 142);
 			panel.add(panelUniversitario);
 			panelUniversitario.setLayout(null);
 			
 			JLabel lblInstitucionUniversitario = new JLabel("Institucion:");
-			lblInstitucionUniversitario.setBounds(188, 75, 67, 14);
+			lblInstitucionUniversitario.setBounds(71, 75, 67, 14);
 			panelUniversitario.add(lblInstitucionUniversitario);
 			
 			JLabel lblCarreraUniversitario = new JLabel("Carrera:");
-			lblCarreraUniversitario.setBounds(198, 11, 57, 14);
+			lblCarreraUniversitario.setBounds(81, 11, 57, 14);
 			panelUniversitario.add(lblCarreraUniversitario);
 			
 			JComboBox cbxCarreraUniversitario = new JComboBox();
 			cbxCarreraUniversitario.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Administraci\u00F3n de Empresa\u200B", "Concentraciones:", "Operaciones", "Finanzas", "Estrategia", "Creaci\u00F3n y Desarrollo de Nuevos Negocios", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "Concentraciones:", "\u200BAlimentos y Bebidas", "Mercadeo Hotelero\u200B\u200B", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "Concentraciones\u200B:\u200B\u200B", "Producci\u00F3n Audiovisual", "Comunicaci\u00F3n Corporativa", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "Orientaciones:", "El\u00E9ctrica", "Mec\u00E1nica\u200B", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas y Computaci\u00F3n", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
-			cbxCarreraUniversitario.setBounds(164, 38, 115, 20);
+			cbxCarreraUniversitario.setBounds(47, 38, 115, 20);
 			panelUniversitario.add(cbxCarreraUniversitario);
 			
 			JComboBox cbxInstitucionUniversitario = new JComboBox();
 			cbxInstitucionUniversitario.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", " N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
-			cbxInstitucionUniversitario.setBounds(164, 100, 115, 20);
+			cbxInstitucionUniversitario.setBounds(47, 100, 115, 20);
 			panelUniversitario.add(cbxInstitucionUniversitario);
 			
 			JPanel panelTecnico = new JPanel();
 			panelTecnico.setBorder(new LineBorder(new Color(0, 0, 0)));
-			panelTecnico.setBounds(76, 159, 464, 142);
+			panelTecnico.setBounds(76, 159, 242, 142);
 			panel.add(panelTecnico);
 			panelTecnico.setLayout(null);
 			
@@ -102,7 +103,7 @@ public class RegistrarEmpleo extends JDialog {
 			
 			JPanel panelObrero = new JPanel();
 			panelObrero.setBorder(new LineBorder(new Color(0, 0, 0)));
-			panelObrero.setBounds(76, 159, 464, 142);
+			panelObrero.setBounds(76, 159, 242, 142);
 			panel.add(panelObrero);
 			panelObrero.setLayout(null);
 			
@@ -241,6 +242,37 @@ public class RegistrarEmpleo extends JDialog {
 			comboBox.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
 			comboBox.setBounds(192, 135, 134, 20);
 			panel.add(comboBox);
+			
+			JPanel panelPlazaAreaDeExperiencia = new JPanel();
+			panelPlazaAreaDeExperiencia.setBorder(new LineBorder(new Color(0, 0, 0)));
+			panelPlazaAreaDeExperiencia.setBounds(363, 159, 242, 142);
+			panel.add(panelPlazaAreaDeExperiencia);
+			panelPlazaAreaDeExperiencia.setLayout(null);
+			
+			JLabel lblPlaza = new JLabel("Plaza:");
+			lblPlaza.setBounds(23, 11, 46, 14);
+			panelPlazaAreaDeExperiencia.add(lblPlaza);
+			
+			JLabel lblAreaDeExperiencia = new JLabel("Area De Experiencia:");
+			lblAreaDeExperiencia.setBounds(107, 11, 109, 14);
+			panelPlazaAreaDeExperiencia.add(lblAreaDeExperiencia);
+			
+			JSpinner spnPlaza = new JSpinner();
+			spnPlaza.setBounds(23, 36, 29, 20);
+			panelPlazaAreaDeExperiencia.add(spnPlaza);
+			
+			JComboBox comboBox_2 = new JComboBox();
+			comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
+			comboBox_2.setBounds(117, 36, 99, 20);
+			panelPlazaAreaDeExperiencia.add(comboBox_2);
+			
+			JLabel lblTiempoDeExperiencia = new JLabel("Tiempo De Experiencia");
+			lblTiempoDeExperiencia.setBounds(55, 83, 135, 14);
+			panelPlazaAreaDeExperiencia.add(lblTiempoDeExperiencia);
+			
+			JSpinner spnTiempoDeExperiencia = new JSpinner();
+			spnTiempoDeExperiencia.setBounds(107, 108, 29, 20);
+			panelPlazaAreaDeExperiencia.add(spnTiempoDeExperiencia);
 		}
 		{
 			JPanel buttonPane = new JPanel();
