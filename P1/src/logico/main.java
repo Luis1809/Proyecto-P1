@@ -34,17 +34,18 @@ public class main {
 	    
 		
 		ArrayList<String> idiomas2=new ArrayList<>();
-		ArrayList<ExperienciaLaboral> exp2 =new ArrayList<>();
+		ArrayList<String> ListaHabilidades =new ArrayList<>();
 		
 		idiomas2.add("Arabe");
 		idiomas2.add("Espanol");
-		idiomas2.add("Portugues");
-		idiomas2.add("Chinos");
+	
+		ListaHabilidades.add("Plomero");
+		ListaHabilidades.add("Maestro Constructor");
 		
-		ExperienciaLaboral E2= new ExperienciaLaboral("ATT", "Ventas", 5, "Bernaldo", "809-678-3040");
-		exp2.add(E2);
+		//ExperienciaLaboral E2= new ExperienciaLaboral("ATT", "Ventas", 5, "Bernaldo", "809-678-3040");
+		//exp2.add(E2);
 		
-		Solicitudes sol = new SolicitudesObrero("M", "Soltero", "La vega", "Rep.Dom", 10000, true, true, "Tiempo Completo", idiomas2, "Ventas", true,"Ventas" , 5, 3,exp2  , 30);
+		Solicitudes sol = new SolicitudesObrero("M", "Soltero", "La vega", "Rep.Dom", 10000, true, true, "Tiempo Completo", idiomas2, "Ventas", true,"Ventas" , 5, 3, ListaHabilidades  , 30);
 		
 		
 		
