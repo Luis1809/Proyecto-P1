@@ -18,7 +18,7 @@ public class EmpresaSolicitadora {
 	
 	public EmpresaSolicitadora(String nombreEmpresa, String id, String emailEmpresa, String telefonoEmpresa,
 			String direccion, String ciudad, String paisEmpresa, String areaTrabajo, String rNC,
-			ArrayList<Solicitudes> miSolicitudes, ArrayList<Solicitantes> miSolicitantes) {
+			ArrayList<Solicitudes> miSolicitudes) {
 		super();
 		this.nombreEmpresa = nombreEmpresa;
 		this.id = id;

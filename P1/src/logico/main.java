@@ -14,21 +14,24 @@ public class main {
 		//Solicitante Tecnico
 		ArrayList<String> idiomas=new ArrayList<>();
 		ArrayList<ExperienciaLaboral> exp1 =new ArrayList<>();
+		ArrayList<Solicitudes> misSol =new ArrayList<>();
 		idiomas.add("ingles");
 		idiomas.add("Espanol");
 		ExperienciaLaboral e = new ExperienciaLaboral("La Fabril", "TI", 5, "Jose Maita", "809-849-3030");
 		exp1.add(e);
-		Solicitantes s1= new Tecnico("111-111-1","Ricardo","Santos", "809-100-200", "2000", "M", "Soltero","al lado tuyo","La vega", "Rep.Dom", LocalDate.of(1995, Month.JANUARY, 1), 10000, true, true, "Tiempo Completo", idiomas, "Ventas",false, true, LocalDate.now(), exp1, "Pucmm", "Limpiador");
+		Solicitantes s1= new Tecnico("111-111-1","Ricardo","Santos", "809-100-200", "2000", "M", "Soltero","al lado tuyo","La vega", "Rep. Dom", LocalDate.of(1995, Month.JANUARY, 1), 10000, true, true, "Tiempo Completo", idiomas, "Ventas",false, true, LocalDate.now(), exp1, "Pucmm", "Limpiador");
 		//
 		
 		//Solicitante Universitario
 		ExperienciaLaboral e2 = new ExperienciaLaboral("SAMSUNG", "Desarrollo", 5, "Fernando", "809-849-1030");
 		exp1.add(e2);
-		Solicitantes s2 =new Universitario( "222-222-2","Jan","Rodriguez", "809-302-7070", "4000", "M", "Soltero","En la Esquina","Santiago", "Rep.Dom", LocalDate.of(1998, Month.JANUARY, 6), 10000, true, true, "Tiempo Completo", idiomas, "Ventas",false, true, LocalDate.now(), exp1, "Pucmm","Telematica");
+		Solicitantes s2 =new Universitario( "222-222-2","Jan","Rodriguez", "809-302-7070", "4000", "M", "Soltero","En la Esquina","Santiago", "Rep. Dom", LocalDate.of(1998, Month.JANUARY, 6), 10000, true, true, "Tiempo Completo", idiomas, "Ventas",false, true, LocalDate.now(), exp1, "Pucmm","Telematica");
 		//
 		
 		miBolsa.insertarSolicitante(s1);
 		miBolsa.insertarSolicitante(s2);
+		
+		
 	    
 		//Solicitud Empresa Obrero1
 		ArrayList<String> idiomas2=new ArrayList<>();
@@ -40,7 +43,11 @@ public class main {
 		Solicitudes sol = new SolicitudesObrero("M", "Soltero", "La vega", "Rep.Dom", 10000, true, true, "Tiempo Completo", idiomas2, "Ventas", true,"Ventas" , 5, 3, ListaHabilidades , 30);
 		//
 		
+		misSol.add(sol);
 		
+		EmpresaSolicitadora empresa1 = new EmpresaSolicitadora("T-mobile", "E-1", "Tmobile@gmail.com", "809-573-01010","Cerca del parque Gregorio luperon","Santiago","Rep. Dom", "Ventas", "H-007-1-00-0101", misSol);
+
+		miBolsa.insertarCuenta(empresa1);
 		
 		
 	}
