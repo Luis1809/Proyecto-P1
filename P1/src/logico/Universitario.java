@@ -10,7 +10,7 @@ public class Universitario extends Solicitantes {
 	private String carrera;
 	
 	public Universitario(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
-			String estadoCivil, String direccion, String cuidad, String pais, Date fechaNacimiento,
+			String estadoCivil, String direccion, String cuidad, String pais, LocalDate fechaNacimiento,
 			int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
 			ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia, LocalDate fecha,
 			ArrayList<ExperienciaLaboral> exp, String institucion, String carrera) {

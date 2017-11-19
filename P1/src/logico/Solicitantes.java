@@ -16,7 +16,7 @@ public abstract class Solicitantes {
 	protected String direccion;
 	protected String cuidad; //Ciudad Para la empresa
 	protected String pais;  //Direccion
-	protected Date fechaNacimiento;
+	protected LocalDate fechaNacimiento;
 	protected int salirioSolicitado;//NO 
 	protected boolean dispMudarse;
 	protected boolean dispViajar;
@@ -29,7 +29,7 @@ public abstract class Solicitantes {
 	protected ArrayList<ExperienciaLaboral> exp;
 	
 	public Solicitantes(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
-			String estadoCivil, String direccion, String cuidad, String pais, Date fechaNacimiento,
+			String estadoCivil, String direccion, String cuidad, String pais, LocalDate fechaNacimiento,
 			int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
 			ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia, LocalDate fecha,
 			ArrayList<ExperienciaLaboral> exp) {
@@ -130,11 +130,11 @@ public abstract class Solicitantes {
 		this.pais = pais;
 	}
 
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
