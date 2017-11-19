@@ -22,8 +22,9 @@ public abstract class Solicitudes {
 	
 	public Solicitudes(String sexo, String estadoCivil, String cuidad, String pais, int salirioSolicitado,
 			boolean dispMudarse, boolean dispViajar, String tipoJornada, ArrayList<String> idioma, String areaInteres,
-			boolean licencia, String area, int anosExp, int plaza) {
+			boolean licencia, String area, int anosExp, int plaza, float porcientoAceptable) {
 		super();
+		this.porcientoAceptable=porcientoAceptable;
 		this.sexo = sexo;
 		this.estadoCivil = estadoCivil;
 		this.cuidad = cuidad;

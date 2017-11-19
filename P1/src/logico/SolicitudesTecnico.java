@@ -9,9 +9,9 @@ public class SolicitudesTecnico extends Solicitudes {
 	
 	public SolicitudesTecnico(String sexo, String estadoCivil, String cuidad, String pais, int salirioSolicitado,
 			boolean dispMudarse, boolean dispViajar, String tipoJornada, ArrayList<String> idioma, String areaInteres,
-			boolean licencia, String area, int anosExp, int plaza, String institucion, String tecnico) {
+			boolean licencia, String area, int anosExp, int plaza, String institucion, String tecnico,float porcientoAceptable) {
 		super(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, tipoJornada, idioma,
-				areaInteres, licencia, area, anosExp, plaza);
+				areaInteres, licencia, area, anosExp, plaza, porcientoAceptable);
 		this.institucion = institucion;
 		this.tecnico = tecnico;
 	}
