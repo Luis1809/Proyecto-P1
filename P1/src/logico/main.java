@@ -39,7 +39,7 @@ public class main {
 		idiomas2.add("Arabe");
 		idiomas2.add("Espanol");
 		idiomas2.add("Portugues");
-		idiomas2.add("Chainis");
+		idiomas2.add("Chinos");
 		
 		ExperienciaLaboral E2= new ExperienciaLaboral("ATT", "Ventas", 5, "Bernaldo", "809-678-3040");
 		exp2.add(E2);
