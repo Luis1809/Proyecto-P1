@@ -15,10 +15,12 @@ import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import javax.swing.ButtonGroup;
 
 public class RegistrarEmpleo extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -200,10 +202,12 @@ public class RegistrarEmpleo extends JDialog {
 			panel.add(label_6);
 			
 			JRadioButton radioButton = new JRadioButton("Hombre");
+			buttonGroup.add(radioButton);
 			radioButton.setBounds(344, 12, 82, 23);
 			panel.add(radioButton);
 			
 			JRadioButton radioButton_1 = new JRadioButton("Mujer");
+			buttonGroup.add(radioButton_1);
 			radioButton_1.setBounds(232, 12, 109, 23);
 			panel.add(radioButton_1);
 			
@@ -229,6 +233,7 @@ public class RegistrarEmpleo extends JDialog {
 			panel.add(lblCiudad);
 			
 			JRadioButton rdbtnNa = new JRadioButton("N/A");
+			buttonGroup.add(rdbtnNa);
 			rdbtnNa.setBounds(452, 12, 109, 23);
 			panel.add(rdbtnNa);
 			
