@@ -19,13 +19,13 @@ public class main {
 		idiomas.add("Espanol");
 		ExperienciaLaboral e = new ExperienciaLaboral("La Fabril", "TI", 5, "Jose Maita", "809-849-3030");
 		exp1.add(e);
-		Solicitantes s1= new Tecnico("111-111-1","Ricardo","Santos", "809-100-200", "2000", "M", "Soltero","al lado tuyo","La vega", "Rep. Dom", LocalDate.of(1995, Month.JANUARY, 1), 10000, true, true, "Tiempo Completo", idiomas, "Ventas",false, true, LocalDate.now(), exp1, "Pucmm", "Limpiador");
+		Solicitantes s1= new Tecnico("111-111-1","Ricardo","Santos", "809-100-200", "2000", "M","Peruano", "Soltero","al lado tuyo","La vega", "Rep. Dom", LocalDate.of(1995, Month.JANUARY, 1), 10000, true, true, "Tiempo Completo", idiomas, "Ventas",false, true, LocalDate.now(), exp1, "Pucmm", "Limpiador");
 		//
 		
 		//Solicitante Universitario
 		ExperienciaLaboral e2 = new ExperienciaLaboral("SAMSUNG", "Desarrollo", 5, "Fernando", "809-849-1030");
 		exp1.add(e2);
-		Solicitantes s2 =new Universitario( "222-222-2","Jan","Rodriguez", "809-302-7070", "4000", "M", "Soltero","En la Esquina","Santiago", "Rep. Dom", LocalDate.of(1998, Month.JANUARY, 6), 10000, true, true, "Tiempo Completo", idiomas, "Ventas",false, true, LocalDate.now(), exp1, "Pucmm","Telematica");
+		Solicitantes s2 =new Universitario( "222-222-2","Jan","Rodriguez", "809-302-7070", "4000", "M","Dominicano", "Soltero","En la Esquina","Santiago", "Rep. Dom", LocalDate.of(1998, Month.JANUARY, 6), 10000, true, true, "Tiempo Completo", idiomas, "Ventas",false, true, LocalDate.now(), exp1, "Pucmm","Telematica");
 		//
 		
 		miBolsa.insertarSolicitante(s1);

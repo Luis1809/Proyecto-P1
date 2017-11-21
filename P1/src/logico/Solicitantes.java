@@ -12,6 +12,7 @@ public abstract class Solicitantes {
 	protected String telefono;
 	protected String email;
 	protected String sexo;
+	protected String nacionalidad;
 	protected String estadoCivil; //Soltero, Casado, Viudo, Divorsiado, Union Libre
 	protected String direccion;
 	protected String cuidad; //Ciudad Para la empresa
@@ -29,10 +30,10 @@ public abstract class Solicitantes {
 	protected ArrayList<ExperienciaLaboral> exp;
 	
 	public Solicitantes(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
-			String estadoCivil, String direccion, String cuidad, String pais, LocalDate fechaNacimiento,
-			int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
-			ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia, LocalDate fecha,
-			ArrayList<ExperienciaLaboral> exp) {
+			String nacionalidad, String estadoCivil, String direccion, String cuidad, String pais,
+			LocalDate fechaNacimiento, int salirioSolicitado, boolean dispMudarse, boolean dispViajar,
+			String tipoJornada, ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia,
+			LocalDate fecha, ArrayList<ExperienciaLaboral> exp) {
 		super();
 		this.cedula = cedula;
 		this.nombre = nombre;
@@ -40,6 +41,7 @@ public abstract class Solicitantes {
 		this.telefono = telefono;
 		this.email = email;
 		this.sexo = sexo;
+		this.nacionalidad = nacionalidad;
 		this.estadoCivil = estadoCivil;
 		this.direccion = direccion;
 		this.cuidad = cuidad;
@@ -56,8 +58,7 @@ public abstract class Solicitantes {
 		Fecha = fecha;
 		this.exp = exp;
 	}
-	
-	
+
 	public String getCedula() {
 		return cedula;
 	}
@@ -218,7 +219,10 @@ public abstract class Solicitantes {
 	public void setAreaInteres(String areaInteres) {
 		this.areaInteres = areaInteres;
 	}
-		
-	
-	
+	public String getNacionalidad() {
+		return nacionalidad;
+	}
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
 }
