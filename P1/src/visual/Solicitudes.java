@@ -74,6 +74,8 @@ public class Solicitudes extends JDialog {
     private JPanel pTecnico;
     private JPanel pObrero;
     private JScrollPane scrollPaneIdiomas;
+    private JTextField textField;
+    private JTextField textField_1;
     
    
 	/**
@@ -231,7 +233,7 @@ public class Solicitudes extends JDialog {
 					jornada.add(btnTiempoCompleto);
 				}
 			});
-			btnMedioTiempo.setBounds(318, 350, 123, 23);
+			btnMedioTiempo.setBounds(316, 381, 123, 23);
 			panel.add(btnMedioTiempo);
 			
 			btnTiempoCompleto = new JRadioButton("Tiempo Completo");
@@ -290,12 +292,12 @@ public class Solicitudes extends JDialog {
 			
 			txtNombreReferente = new JTextField();
 			txtNombreReferente.setColumns(10);
-			txtNombreReferente.setBounds(150, 425, 435, 26);
+			txtNombreReferente.setBounds(150, 425, 449, 26);
 			panel.add(txtNombreReferente);
 			
 			txtApellidoReferente = new JTextField();
 			txtApellidoReferente.setColumns(10);
-			txtApellidoReferente.setBounds(150, 460, 435, 26);
+			txtApellidoReferente.setBounds(150, 460, 449, 26);
 			panel.add(txtApellidoReferente);
 			
 			textField_10 = new JTextField();
@@ -322,7 +324,7 @@ public class Solicitudes extends JDialog {
 			
 			JLabel lblNivelEducativo = new JLabel("Nivel educativo:");
 			lblNivelEducativo.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-			lblNivelEducativo.setBounds(752, 41, 115, 16);
+			lblNivelEducativo.setBounds(753, 82, 115, 16);
 			panel.add(lblNivelEducativo);
 				
 			btnProfesional = new JRadioButton("Profesional");
@@ -367,7 +369,7 @@ public class Solicitudes extends JDialog {
 			panel.add(btnObrero);
 			
 			JSeparator separator_4 = new JSeparator();
-			separator_4.setBounds(752, 52, 99, 12);
+			separator_4.setBounds(753, 101, 109, 12);
 			panel.add(separator_4);
 			
 			JButton btnNewButton = new JButton("Agregar");
@@ -440,6 +442,24 @@ public class Solicitudes extends JDialog {
 			scrollPaneIdiomas = new JScrollPane();
 			scrollPaneIdiomas.setBounds(5, 4, 181, 26);
 			panel_1.add(scrollPaneIdiomas);
+			
+			JLabel lblHola = new JLabel("Hola");
+			lblHola.setBounds(656, 324, 46, 14);
+			panel.add(lblHola);
+			
+			textField = new JTextField();
+			textField.setBounds(666, 351, 86, 20);
+			panel.add(textField);
+			textField.setColumns(10);
+			
+			JLabel lblNewLabel = new JLabel("Casa");
+			lblNewLabel.setBounds(656, 385, 46, 14);
+			panel.add(lblNewLabel);
+			
+			textField_1 = new JTextField();
+			textField_1.setBounds(666, 407, 86, 20);
+			panel.add(textField_1);
+			textField_1.setColumns(10);
 		}
 		{
 			JPanel buttonPane = new JPanel();
