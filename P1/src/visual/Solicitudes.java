@@ -21,6 +21,10 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.JCheckBox;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 public class Solicitudes extends JDialog {
 
@@ -47,19 +51,18 @@ public class Solicitudes extends JDialog {
     private String areTrabajo;
     private String nombreReferente;
     private String telReferente;
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
-    private JTextField textField_3;
-    private JTextField textField_5;
-    private JTextField textField_6;
-    private JTextField textField_7;
-    private JTextField textField_8;
-    private JTextField textField_9;
-    private JTextField textField_10;
-    private JTextField textField_11;
-    private JTextField textField_4;
-    private JTextField textField_12;
+    private JTextField txtNombre;
+    private JTextField txtApellido;
+    private JTextField txtCedula;
+    private JTextField txtTelefono;
+    private JTextField txtDireccion;
+    private JTextField txtFechaNacionalidad;
+    private JTextField txtEmail;
+    private JTextField txtInstitucionUni;
+    private JTextField txtInstitucionTecnico;
+    private JTextField txtEmpresa;
+    private JTextField txtNombreReferente;
+    private JTextField txtNumeroReferente;
     
    
 	/**
@@ -80,7 +83,7 @@ public class Solicitudes extends JDialog {
 	 */
 	public Solicitudes() {
 		setResizable(false);
-		setBounds(100, 100, 1045, 696);
+		setBounds(100, 100, 810, 710);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -92,347 +95,377 @@ public class Solicitudes extends JDialog {
 			
 			txtFechaSolicitud = new JTextField();
 			txtFechaSolicitud.setEditable(false);
-			txtFechaSolicitud.setBounds(860, 6, 146, 26);
+			txtFechaSolicitud.setBounds(634, 11, 146, 26);
 			panel.add(txtFechaSolicitud);
 			txtFechaSolicitud.setColumns(10);
 			
 			JLabel lblFecha = new JLabel("Fecha de Solicitud:");
-			lblFecha.setBounds(727, 11, 123, 16);
+			lblFecha.setBounds(501, 16, 123, 16);
 			panel.add(lblFecha);
 			
+			JPanel panel_1 = new JPanel();
+			panel_1.setLayout(null);
+			panel_1.setBorder(new TitledBorder(null, "Datos Personales", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			panel_1.setBounds(198, 48, 582, 207);
+			panel.add(panel_1);
+			
+			JLabel label = new JLabel("Nombres:");
+			label.setBounds(30, 30, 61, 16);
+			panel_1.add(label);
+			
+			txtNombre = new JTextField();
+			txtNombre.setColumns(10);
+			txtNombre.setBounds(101, 28, 177, 20);
+			panel_1.add(txtNombre);
+			
+			JLabel label_1 = new JLabel("Apellidos:");
+			label_1.setBounds(300, 30, 73, 16);
+			panel_1.add(label_1);
+			
+			txtApellido = new JTextField();
+			txtApellido.setColumns(10);
+			txtApellido.setBounds(369, 28, 196, 20);
+			panel_1.add(txtApellido);
+			
+			JLabel label_2 = new JLabel("Cedula:");
+			label_2.setBounds(30, 59, 61, 16);
+			panel_1.add(label_2);
+			
+			txtCedula = new JTextField();
+			txtCedula.setColumns(10);
+			txtCedula.setBounds(101, 57, 177, 20);
+			panel_1.add(txtCedula);
+			
+			JLabel label_3 = new JLabel("Sexo:");
+			label_3.setBounds(300, 118, 61, 16);
+			panel_1.add(label_3);
+			
+			JLabel label_4 = new JLabel("Telefono:");
+			label_4.setBounds(300, 59, 61, 16);
+			panel_1.add(label_4);
+			
+			txtTelefono = new JTextField();
+			txtTelefono.setColumns(10);
+			txtTelefono.setBounds(369, 59, 196, 20);
+			panel_1.add(txtTelefono);
+			
+			JRadioButton btnMasculino = new JRadioButton("Masculino");
+			sexo.add(btnMasculino);
+			btnMasculino.setBounds(367, 115, 93, 23);
+			panel_1.add(btnMasculino);
+			
+			JRadioButton btnFemenino = new JRadioButton("Femenino");
+			sexo.add(btnFemenino);
+			btnFemenino.setBounds(462, 115, 94, 23);
+			panel_1.add(btnFemenino);
+			
+			JLabel label_5 = new JLabel("Estado Civil:");
+			label_5.setBounds(30, 172, 84, 16);
+			panel_1.add(label_5);
+			
+			JLabel label_6 = new JLabel("Direccion:");
+			label_6.setBounds(30, 86, 84, 16);
+			panel_1.add(label_6);
+			
+			txtDireccion = new JTextField();
+			txtDireccion.setColumns(10);
+			txtDireccion.setBounds(101, 86, 177, 20);
+			panel_1.add(txtDireccion);
+			
+			JLabel label_7 = new JLabel("Nacionalidad:");
+			label_7.setBounds(300, 172, 84, 16);
+			panel_1.add(label_7);
+			
+			JComboBox cbxNacionalidad = new JComboBox();
+			cbxNacionalidad.setBounds(395, 172, 170, 20);
+			panel_1.add(cbxNacionalidad);
+			
+			JComboBox cbxEstadoCivil = new JComboBox();
+			cbxEstadoCivil.setBounds(101, 172, 177, 20);
+			panel_1.add(cbxEstadoCivil);
+			
+			JLabel label_8 = new JLabel("Cuidad:");
+			label_8.setBounds(30, 118, 46, 14);
+			panel_1.add(label_8);
+			
+			JComboBox cbxCiudad = new JComboBox();
+			cbxCiudad.setBounds(101, 116, 177, 20);
+			panel_1.add(cbxCiudad);
+			
+			JLabel label_9 = new JLabel("Pais:");
+			label_9.setBounds(30, 147, 46, 14);
+			panel_1.add(label_9);
+			
+			JComboBox cbxPais = new JComboBox();
+			cbxPais.setBounds(101, 145, 177, 20);
+			panel_1.add(cbxPais);
+			
+			JLabel label_10 = new JLabel("Fecha Nacimiento:");
+			label_10.setBounds(300, 147, 107, 14);
+			panel_1.add(label_10);
+			
+			txtFechaNacionalidad = new JTextField();
+			txtFechaNacionalidad.setColumns(10);
+			txtFechaNacionalidad.setBounds(412, 145, 153, 20);
+			panel_1.add(txtFechaNacionalidad);
+			
+			JLabel label_11 = new JLabel("Email:");
+			label_11.setBounds(300, 86, 46, 14);
+			panel_1.add(label_11);
+			
+			txtEmail = new JTextField();
+			txtEmail.setColumns(10);
+			txtEmail.setBounds(369, 86, 196, 20);
+			panel_1.add(txtEmail);
+			
 			JPanel panel_2 = new JPanel();
-			panel_2.setBorder(new TitledBorder(null, "Datos Personales", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panel_2.setBounds(368, 43, 582, 234);
-			panel.add(panel_2);
 			panel_2.setLayout(null);
+			panel_2.setBorder(new TitledBorder(null, "Educacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			panel_2.setBounds(10, 266, 358, 170);
+			panel.add(panel_2);
 			
-			JLabel label_1 = new JLabel("Nombres:");
-			label_1.setBounds(30, 30, 61, 16);
-			panel_2.add(label_1);
+			JPanel pTecnico = new JPanel();
+			pTecnico.setLayout(null);
+			pTecnico.setBounds(6, 64, 314, 100);
+			panel_2.add(pTecnico);
 			
-			textField = new JTextField();
-			textField.setColumns(10);
-			textField.setBounds(101, 28, 464, 20);
-			panel_2.add(textField);
+			JLabel label_14 = new JLabel("Institucion:");
+			label_14.setBounds(6, 6, 84, 16);
+			pTecnico.add(label_14);
 			
-			JLabel label_2 = new JLabel("Apellidos:");
-			label_2.setBounds(30, 57, 73, 16);
-			panel_2.add(label_2);
+			txtInstitucionTecnico = new JTextField();
+			txtInstitucionTecnico.setColumns(10);
+			txtInstitucionTecnico.setBounds(82, 5, 226, 20);
+			pTecnico.add(txtInstitucionTecnico);
 			
-			textField_1 = new JTextField();
-			textField_1.setColumns(10);
-			textField_1.setBounds(101, 55, 464, 20);
-			panel_2.add(textField_1);
+			JLabel label_15 = new JLabel("Tecnico:");
+			label_15.setBounds(6, 47, 61, 16);
+			pTecnico.add(label_15);
 			
-			JLabel label_3 = new JLabel("Cedula:");
-			label_3.setBounds(30, 86, 61, 16);
-			panel_2.add(label_3);
+			JComboBox cbxTecnico = new JComboBox();
+			cbxTecnico.setBounds(82, 45, 226, 20);
+			pTecnico.add(cbxTecnico);
 			
-			textField_2 = new JTextField();
-			textField_2.setColumns(10);
-			textField_2.setBounds(101, 84, 177, 20);
-			panel_2.add(textField_2);
+			JPanel pUniversitario = new JPanel();
+			pUniversitario.setLayout(null);
+			pUniversitario.setBounds(6, 64, 314, 100);
+			panel_2.add(pUniversitario);
 			
-			JLabel label_4 = new JLabel("Sexo:");
-			label_4.setBounds(300, 145, 61, 16);
-			panel_2.add(label_4);
+			JLabel label_12 = new JLabel("Institucion:");
+			label_12.setBounds(6, 6, 84, 16);
+			pUniversitario.add(label_12);
 			
-			JLabel label_5 = new JLabel("Telefono:");
-			label_5.setBounds(300, 86, 61, 16);
-			panel_2.add(label_5);
+			txtInstitucionUni = new JTextField();
+			txtInstitucionUni.setColumns(10);
+			txtInstitucionUni.setBounds(82, 5, 226, 20);
+			pUniversitario.add(txtInstitucionUni);
 			
-			textField_3 = new JTextField();
-			textField_3.setColumns(10);
-			textField_3.setBounds(369, 86, 196, 20);
-			panel_2.add(textField_3);
+			JLabel label_13 = new JLabel("Carrera:");
+			label_13.setBounds(6, 47, 61, 16);
+			pUniversitario.add(label_13);
 			
-			JRadioButton radioButton = new JRadioButton("Masculino");
-			radioButton.setBounds(367, 142, 93, 23);
-			panel_2.add(radioButton);
+			JComboBox cbxCarrera = new JComboBox();
+			cbxCarrera.setBounds(82, 45, 135, 20);
+			pUniversitario.add(cbxCarrera);
 			
-			JRadioButton radioButton_1 = new JRadioButton("Femenino");
-			radioButton_1.setBounds(462, 142, 94, 23);
-			panel_2.add(radioButton_1);
+			JPanel pObrero = new JPanel();
+			pObrero.setLayout(null);
+			pObrero.setBounds(6, 64, 314, 100);
+			panel_2.add(pObrero);
 			
-			JLabel label_6 = new JLabel("Estado Civil:");
-			label_6.setBounds(30, 199, 84, 16);
-			panel_2.add(label_6);
+			JLabel label_16 = new JLabel("Habilidad:");
+			label_16.setBounds(10, 41, 71, 16);
+			pObrero.add(label_16);
 			
-			JLabel lblNacionalidad = new JLabel("Direccion:");
-			lblNacionalidad.setBounds(30, 113, 84, 16);
-			panel_2.add(lblNacionalidad);
+			JComboBox cbxHabilidad = new JComboBox();
+			cbxHabilidad.setBounds(82, 39, 226, 20);
+			pObrero.add(cbxHabilidad);
 			
-			textField_5 = new JTextField();
-			textField_5.setColumns(10);
-			textField_5.setBounds(101, 113, 177, 20);
-			panel_2.add(textField_5);
+			JLabel label_17 = new JLabel("Nivel educativo:");
+			label_17.setFont(new Font("Dialog", Font.BOLD, 13));
+			label_17.setBounds(103, 11, 115, 16);
+			panel_2.add(label_17);
 			
-			JLabel lblNacionalidad_1 = new JLabel("Nacionalidad:");
-			lblNacionalidad_1.setBounds(300, 199, 84, 16);
-			panel_2.add(lblNacionalidad_1);
+			JRadioButton btnProfesional = new JRadioButton("Profesional");
+			nivelEducativo.add(btnProfesional);
+			btnProfesional.setBounds(6, 34, 115, 23);
+			panel_2.add(btnProfesional);
 			
-			JComboBox comboBox = new JComboBox();
-			comboBox.setBounds(395, 199, 170, 20);
-			panel_2.add(comboBox);
+			JRadioButton btnTecnico = new JRadioButton("Tecnico");
+			nivelEducativo.add(btnTecnico);
+			btnTecnico.setBounds(123, 34, 93, 23);
+			panel_2.add(btnTecnico);
 			
-			JComboBox comboBox_5 = new JComboBox();
-			comboBox_5.setBounds(101, 199, 177, 20);
-			panel_2.add(comboBox_5);
+			JRadioButton btnObrero = new JRadioButton("Obrero");
+			nivelEducativo.add(btnObrero);
+			btnObrero.setBounds(218, 34, 76, 23);
+			panel_2.add(btnObrero);
 			
-			JLabel lblNewLabel_1 = new JLabel("Cuidad:");
-			lblNewLabel_1.setBounds(30, 145, 46, 14);
-			panel_2.add(lblNewLabel_1);
-			
-			JComboBox comboBox_6 = new JComboBox();
-			comboBox_6.setBounds(101, 143, 177, 20);
-			panel_2.add(comboBox_6);
-			
-			JLabel lblPais = new JLabel("Pais:");
-			lblPais.setBounds(30, 174, 46, 14);
-			panel_2.add(lblPais);
-			
-			JComboBox comboBox_7 = new JComboBox();
-			comboBox_7.setBounds(101, 172, 177, 20);
-			panel_2.add(comboBox_7);
-			
-			JLabel lblNewLabel = new JLabel("Fecha Nacimiento:");
-			lblNewLabel.setBounds(300, 174, 107, 14);
-			panel_2.add(lblNewLabel);
-			
-			textField_4 = new JTextField();
-			textField_4.setBounds(412, 172, 153, 20);
-			panel_2.add(textField_4);
-			textField_4.setColumns(10);
-			
-			JLabel lblNewLabel_2 = new JLabel("Email:");
-			lblNewLabel_2.setBounds(300, 113, 46, 14);
-			panel_2.add(lblNewLabel_2);
-			
-			textField_12 = new JTextField();
-			textField_12.setBounds(369, 113, 196, 20);
-			panel_2.add(textField_12);
-			textField_12.setColumns(10);
-			
-			JPanel panel_3 = new JPanel();
-			panel_3.setBounds(20, 436, 576, 177);
-			panel.add(panel_3);
-			panel_3.setLayout(null);
-			
-			JLabel label_9 = new JLabel("Experiencia Laboral:");
-			label_9.setFont(new Font("Dialog", Font.BOLD, 13));
-			label_9.setBounds(10, 11, 146, 16);
-			panel_3.add(label_9);
-			
-			JSeparator separator_3 = new JSeparator();
-			separator_3.setBounds(10, 24, 134, 12);
-			panel_3.add(separator_3);
-			
-			JLabel label_10 = new JLabel("Nombre de Empresa:");
-			label_10.setBounds(10, 47, 134, 16);
-			panel_3.add(label_10);
-			
-			textField_6 = new JTextField();
-			textField_6.setColumns(10);
-			textField_6.setBounds(144, 42, 435, 20);
-			panel_3.add(textField_6);
-			
-			JLabel label_11 = new JLabel("Area de Trabajo:");
-			label_11.setBounds(10, 82, 127, 16);
-			panel_3.add(label_11);
-			
-			textField_7 = new JTextField();
-			textField_7.setColumns(10);
-			textField_7.setBounds(144, 77, 435, 20);
-			panel_3.add(textField_7);
-			
-			JLabel label_12 = new JLabel("Nombre de Referente:");
-			label_12.setBounds(10, 115, 146, 16);
-			panel_3.add(label_12);
-			
-			textField_8 = new JTextField();
-			textField_8.setColumns(10);
-			textField_8.setBounds(144, 110, 435, 20);
-			panel_3.add(textField_8);
-			
-			JLabel label_13 = new JLabel("Telefono de Referente:");
-			label_13.setBounds(10, 148, 146, 21);
-			panel_3.add(label_13);
-			
-			textField_9 = new JTextField();
-			textField_9.setColumns(10);
-			textField_9.setBounds(144, 143, 435, 20);
-			panel_3.add(textField_9);
-			
-			JPanel panel_4 = new JPanel();
-			panel_4.setBounds(20, 263, 335, 170);
-			panel.add(panel_4);
-			panel_4.setLayout(null);
-			
-			JPanel panel_5 = new JPanel();
-			panel_5.setLayout(null);
-			panel_5.setBounds(6, 64, 314, 100);
-			panel_4.add(panel_5);
-			
-			JLabel label = new JLabel("Institucion:");
-			label.setBounds(6, 6, 84, 16);
-			panel_5.add(label);
-			
-			textField_10 = new JTextField();
-			textField_10.setColumns(10);
-			textField_10.setBounds(82, 5, 226, 20);
-			panel_5.add(textField_10);
-			
-			JLabel label_14 = new JLabel("Carrera:");
-			label_14.setBounds(6, 47, 61, 16);
-			panel_5.add(label_14);
-			
-			JComboBox comboBox_1 = new JComboBox();
-			comboBox_1.setBounds(82, 45, 135, 20);
-			panel_5.add(comboBox_1);
+			JSeparator separator = new JSeparator();
+			separator.setBounds(103, 25, 109, 12);
+			panel_2.add(separator);
 			
 			JPanel panel_6 = new JPanel();
 			panel_6.setLayout(null);
-			panel_6.setBounds(6, 64, 314, 100);
-			panel_4.add(panel_6);
+			panel_6.setBorder(new TitledBorder(null, "Datos de solicitud", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			panel_6.setBounds(378, 266, 402, 361);
+			panel.add(panel_6);
 			
-			JLabel label_15 = new JLabel("Institucion:");
-			label_15.setBounds(6, 6, 84, 16);
-			panel_6.add(label_15);
+			JLabel label_18 = new JLabel("Disponibilidad de Mudarse:");
+			label_18.setFont(new Font("Dialog", Font.BOLD, 13));
+			label_18.setBounds(27, 35, 192, 16);
+			panel_6.add(label_18);
 			
-			textField_11 = new JTextField();
-			textField_11.setColumns(10);
-			textField_11.setBounds(82, 1, 226, 20);
-			panel_6.add(textField_11);
+			JSeparator separator_1 = new JSeparator();
+			separator_1.setBounds(27, 49, 173, 12);
+			panel_6.add(separator_1);
 			
-			JLabel label_16 = new JLabel("Tecnico:");
-			label_16.setBounds(6, 47, 61, 16);
-			panel_6.add(label_16);
+			JLabel label_19 = new JLabel("Tipo de Jornada:");
+			label_19.setFont(new Font("Dialog", Font.BOLD, 13));
+			label_19.setBounds(229, 35, 148, 16);
+			panel_6.add(label_19);
 			
-			JComboBox comboBox_2 = new JComboBox();
-			comboBox_2.setBounds(82, 39, 226, 20);
-			panel_6.add(comboBox_2);
+			JSeparator separator_2 = new JSeparator();
+			separator_2.setBounds(229, 49, 103, 12);
+			panel_6.add(separator_2);
+			
+			JLabel label_20 = new JLabel("Licencia de conducir:");
+			label_20.setFont(new Font("Dialog", Font.BOLD, 13));
+			label_20.setBounds(27, 89, 160, 16);
+			panel_6.add(label_20);
+			
+			JSeparator separator_3 = new JSeparator();
+			separator_3.setBounds(27, 103, 134, 12);
+			panel_6.add(separator_3);
+			
+			JRadioButton btnDispMudarseY = new JRadioButton("Si");
+			mudarse.add(btnDispMudarseY);
+			btnDispMudarseY.setBounds(37, 58, 54, 23);
+			panel_6.add(btnDispMudarseY);
+			
+			JRadioButton btnDispMudarseN = new JRadioButton("No");
+			mudarse.add(btnDispMudarseN);
+			btnDispMudarseN.setBounds(93, 58, 54, 23);
+			panel_6.add(btnDispMudarseN);
+			
+			JLabel label_21 = new JLabel("Idioma:");
+			label_21.setBounds(27, 142, 61, 16);
+			panel_6.add(label_21);
+			
+			JComboBox cbxIdioma1 = new JComboBox();
+			cbxIdioma1.setEditable(true);
+			cbxIdioma1.setBounds(27, 161, 134, 20);
+			panel_6.add(cbxIdioma1);
+			
+			JRadioButton btnTiempoCompleto = new JRadioButton("Tiempo Completo");
+			jornada.add(btnTiempoCompleto);
+			btnTiempoCompleto.setBounds(238, 87, 139, 23);
+			panel_6.add(btnTiempoCompleto);
+			
+			JRadioButton btnMedioTiempo = new JRadioButton("Medio Tiempo");
+			jornada.add(btnMedioTiempo);
+			btnMedioTiempo.setBounds(239, 58, 138, 23);
+			panel_6.add(btnMedioTiempo);
+			
+			JRadioButton btnLicenciaCN = new JRadioButton("No");
+			conducir.add(btnLicenciaCN);
+			btnLicenciaCN.setBounds(93, 112, 54, 23);
+			panel_6.add(btnLicenciaCN);
+			
+			JRadioButton btnLicenciaCY = new JRadioButton("Si");
+			conducir.add(btnLicenciaCY);
+			btnLicenciaCY.setBounds(37, 112, 54, 23);
+			panel_6.add(btnLicenciaCY);
+			
+			JCheckBox chbIdioma2 = new JCheckBox("A\u00F1adir otro idioma");
+			chbIdioma2.setBounds(27, 188, 134, 23);
+			panel_6.add(chbIdioma2);
+			
+			JComboBox cbxIdioma2 = new JComboBox();
+			cbxIdioma2.setBounds(27, 218, 134, 20);
+			panel_6.add(cbxIdioma2);
+			
+			JCheckBox chbIdioma3 = new JCheckBox("A\u00F1adir otro idioma");
+			chbIdioma3.setBounds(27, 246, 134, 23);
+			panel_6.add(chbIdioma3);
+			
+			JComboBox cbxIdioma3 = new JComboBox();
+			cbxIdioma3.setBounds(27, 276, 134, 20);
+			panel_6.add(cbxIdioma3);
+			
+			JLabel label_22 = new JLabel("Area de interes:");
+			label_22.setBounds(229, 143, 126, 14);
+			panel_6.add(label_22);
+			
+			JComboBox cbxAreaInteres = new JComboBox();
+			cbxAreaInteres.setBounds(229, 161, 126, 20);
+			panel_6.add(cbxAreaInteres);
 			
 			JPanel panel_7 = new JPanel();
 			panel_7.setLayout(null);
-			panel_7.setBounds(6, 64, 314, 100);
-			panel_4.add(panel_7);
+			panel_7.setBorder(new LineBorder(new Color(0, 0, 0)));
+			panel_7.setBounds(10, 436, 358, 191);
+			panel.add(panel_7);
 			
-			JLabel label_17 = new JLabel("Habilidad:");
-			label_17.setBounds(10, 41, 71, 16);
-			panel_7.add(label_17);
-			
-			JComboBox comboBox_3 = new JComboBox();
-			comboBox_3.setBounds(82, 39, 226, 20);
-			panel_7.add(comboBox_3);
-			
-			JLabel label_18 = new JLabel("Nivel educativo:");
-			label_18.setFont(new Font("Dialog", Font.BOLD, 13));
-			label_18.setBounds(103, 11, 115, 16);
-			panel_4.add(label_18);
-			
-			JRadioButton radioButton_2 = new JRadioButton("Profesional");
-			radioButton_2.setBounds(6, 34, 115, 23);
-			panel_4.add(radioButton_2);
-			
-			JRadioButton radioButton_3 = new JRadioButton("Tecnico");
-			radioButton_3.setBounds(123, 34, 93, 23);
-			panel_4.add(radioButton_3);
-			
-			JRadioButton radioButton_4 = new JRadioButton("Obrero");
-			radioButton_4.setBounds(218, 34, 76, 23);
-			panel_4.add(radioButton_4);
+			JLabel label_23 = new JLabel("Experiencia Laboral (Ultimo empleo):");
+			label_23.setFont(new Font("Dialog", Font.BOLD, 13));
+			label_23.setBounds(10, 11, 281, 16);
+			panel_7.add(label_23);
 			
 			JSeparator separator_4 = new JSeparator();
-			separator_4.setBounds(103, 25, 109, 12);
-			panel_4.add(separator_4);
+			separator_4.setBounds(10, 25, 240, 12);
+			panel_7.add(separator_4);
 			
-			JPanel panel_1 = new JPanel();
-			panel_1.setBounds(602, 281, 348, 295);
-			panel.add(panel_1);
-			panel_1.setLayout(null);
+			JLabel label_24 = new JLabel("Nombre de Empresa:");
+			label_24.setBounds(10, 47, 134, 16);
+			panel_7.add(label_24);
 			
-			JLabel label_19 = new JLabel("Disponibilidad de Mudarse:");
-			label_19.setFont(new Font("Dialog", Font.BOLD, 13));
-			label_19.setBounds(10, 16, 192, 16);
-			panel_1.add(label_19);
+			txtEmpresa = new JTextField();
+			txtEmpresa.setColumns(10);
+			txtEmpresa.setBounds(147, 45, 198, 20);
+			panel_7.add(txtEmpresa);
 			
-			JSeparator separator = new JSeparator();
-			separator.setBounds(10, 30, 173, 12);
-			panel_1.add(separator);
+			JLabel label_25 = new JLabel("Area de Trabajo:");
+			label_25.setBounds(10, 101, 110, 16);
+			panel_7.add(label_25);
 			
-			JLabel label_20 = new JLabel("Tipo de Jornada:");
-			label_20.setFont(new Font("Dialog", Font.BOLD, 13));
-			label_20.setBounds(212, 16, 148, 16);
-			panel_1.add(label_20);
+			JLabel label_26 = new JLabel("Nombre de Referente:");
+			label_26.setBounds(10, 130, 127, 16);
+			panel_7.add(label_26);
 			
-			JSeparator separator_1 = new JSeparator();
-			separator_1.setBounds(212, 30, 103, 12);
-			panel_1.add(separator_1);
+			txtNombreReferente = new JTextField();
+			txtNombreReferente.setColumns(10);
+			txtNombreReferente.setBounds(147, 128, 198, 20);
+			panel_7.add(txtNombreReferente);
 			
-			JLabel label_21 = new JLabel("Licencia de conducir:");
-			label_21.setFont(new Font("Dialog", Font.BOLD, 13));
-			label_21.setBounds(10, 70, 160, 16);
-			panel_1.add(label_21);
+			JLabel label_27 = new JLabel("Telefono de Referente:");
+			label_27.setBounds(10, 159, 146, 21);
+			panel_7.add(label_27);
 			
-			JSeparator separator_2 = new JSeparator();
-			separator_2.setBounds(10, 84, 134, 12);
-			panel_1.add(separator_2);
+			txtNumeroReferente = new JTextField();
+			txtNumeroReferente.setColumns(10);
+			txtNumeroReferente.setBounds(147, 159, 198, 20);
+			panel_7.add(txtNumeroReferente);
 			
-			JRadioButton radioButton_5 = new JRadioButton("Si");
-			radioButton_5.setBounds(20, 39, 54, 23);
-			panel_1.add(radioButton_5);
+			JComboBox cbxAreaTrabajo = new JComboBox();
+			cbxAreaTrabajo.setBounds(147, 99, 198, 20);
+			panel_7.add(cbxAreaTrabajo);
 			
-			JRadioButton radioButton_6 = new JRadioButton("No");
-			radioButton_6.setBounds(76, 39, 54, 23);
-			panel_1.add(radioButton_6);
+			JLabel label_28 = new JLabel("Tiempo de experiencia:");
+			label_28.setBounds(10, 76, 134, 14);
+			panel_7.add(label_28);
 			
-			JLabel label_22 = new JLabel("Idioma:");
-			label_22.setBounds(10, 123, 61, 16);
-			panel_1.add(label_22);
-			
-			JComboBox comboBox_4 = new JComboBox();
-			comboBox_4.setEditable(true);
-			comboBox_4.setBounds(10, 142, 134, 20);
-			panel_1.add(comboBox_4);
-			
-			JRadioButton radioButton_7 = new JRadioButton("Tiempo Completo");
-			radioButton_7.setBounds(221, 68, 117, 23);
-			panel_1.add(radioButton_7);
-			
-			JRadioButton radioButton_8 = new JRadioButton("Medio Tiempo");
-			radioButton_8.setBounds(222, 39, 123, 23);
-			panel_1.add(radioButton_8);
-			
-			JRadioButton radioButton_9 = new JRadioButton("No");
-			radioButton_9.setBounds(76, 93, 54, 23);
-			panel_1.add(radioButton_9);
-			
-			JRadioButton radioButton_10 = new JRadioButton("Si");
-			radioButton_10.setBounds(20, 93, 54, 23);
-			panel_1.add(radioButton_10);
-			
-			JCheckBox chckbxNewCheckBox = new JCheckBox("A\u00F1adir otro idioma");
-			chckbxNewCheckBox.setBounds(10, 169, 134, 23);
-			panel_1.add(chckbxNewCheckBox);
-			
-			JComboBox comboBox_8 = new JComboBox();
-			comboBox_8.setBounds(10, 199, 134, 20);
-			panel_1.add(comboBox_8);
-			
-			JCheckBox checkBox = new JCheckBox("A\u00F1adir otro idioma");
-			checkBox.setBounds(10, 227, 134, 23);
-			panel_1.add(checkBox);
-			
-			JComboBox comboBox_9 = new JComboBox();
-			comboBox_9.setBounds(10, 257, 134, 20);
-			panel_1.add(comboBox_9);
+			JSpinner spnTiempoExperiencia = new JSpinner();
+			spnTiempoExperiencia.setModel(new SpinnerNumberModel(1, 1, 50, 1));
+			spnTiempoExperiencia.setBounds(244, 74, 101, 20);
+			panel_7.add(spnTiempoExperiencia);
 		}
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton okButton = new JButton("OK");
+				JButton okButton = new JButton("Registrar");
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
