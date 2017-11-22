@@ -10,7 +10,7 @@ public class Obrero extends Solicitantes{
 	
 	public Obrero(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
 			String nacionalidad, String estadoCivil, String direccion, String cuidad, String pais,
-			LocalDate fechaNacimiento, int salirioSolicitado, boolean dispMudarse, boolean dispViajar,
+			Date fechaNacimiento, int salirioSolicitado, boolean dispMudarse, boolean dispViajar,
 			String tipoJornada, ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia,
 			LocalDate fecha, String nombreEmpresa, String areaTrabajo1, int tiempotrabajoRealizado1,
 			String nombreReferente, String numeroReferente, ArrayList<String> listaHabilidades) {

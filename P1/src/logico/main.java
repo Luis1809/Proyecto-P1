@@ -10,7 +10,7 @@ public class main {
 	public static void main(String[] args) {
 		
 		miBolsa =new Bolsa();
-		
+		/*
 		//Solicitante Tecnico
 		ArrayList<String> idiomas=new ArrayList<>();
 		ArrayList<ExperienciaLaboral> exp1 =new ArrayList<>();
@@ -49,7 +49,7 @@ public class main {
 
 		miBolsa.insertarCuenta(empresa1);
 		
-		
+		*/
 	}
 
 }

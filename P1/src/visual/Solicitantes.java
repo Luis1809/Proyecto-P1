@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -34,6 +35,9 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
 
 public class Solicitantes extends JDialog {
 	ButtonGroup sexoMF =new ButtonGroup();
@@ -63,7 +67,6 @@ public class Solicitantes extends JDialog {
     private JTextField txtCedula;
     private JTextField txtTelefono;
     private JTextField txtDireccion;
-    private JTextField txtFechaNacimiento;
     private JTextField txtEmail;
     private JTextField txtInstitucionTecnico;
     private JTextField txtEmpresa;
@@ -108,6 +111,7 @@ public class Solicitantes extends JDialog {
 	private JSpinner spnSalarioSolicitado;
 	private JCheckBox chckbxAadirOtro;
     private JComboBox cbxHabilidad2;
+    private JDateChooser Jcaldate;
 	/**
 	 * Launch the application.
 	 */
@@ -252,11 +256,6 @@ public class Solicitantes extends JDialog {
 			label_10.setBounds(300, 147, 107, 14);
 			panel_1.add(label_10);
 			
-			txtFechaNacimiento = new JTextField();
-			txtFechaNacimiento.setColumns(10);
-			txtFechaNacimiento.setBounds(412, 145, 153, 20);
-			panel_1.add(txtFechaNacimiento);
-			
 			JLabel label_11 = new JLabel("Email:");
 			label_11.setBounds(300, 86, 46, 14);
 			panel_1.add(label_11);
@@ -265,6 +264,10 @@ public class Solicitantes extends JDialog {
 			txtEmail.setColumns(10);
 			txtEmail.setBounds(369, 86, 196, 20);
 			panel_1.add(txtEmail);
+			
+			Jcaldate = new JDateChooser();
+			Jcaldate.setBounds(418, 141, 147, 20);
+			panel_1.add(Jcaldate);
 			
 			JPanel panel_2 = new JPanel();
 			panel_2.setLayout(null);
@@ -658,8 +661,9 @@ public class Solicitantes extends JDialog {
 								sexo= "Masculino";
 						}
 						
-						//LocalDate fechaNacimiento = (LocalDate) txtFechaNacimiento.getText();
-						LocalDate fechaNacimiento = LocalDate.of(1998, Month.JANUARY, 6);
+						java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
+						//System.out.println(fechaNacimiento);
+						//LocalDate fechaNacimiento = LocalDate.of(1998, Month.JANUARY, 6);
 						
 						//Datos de solicitud
 						boolean dispMudarse=false;
