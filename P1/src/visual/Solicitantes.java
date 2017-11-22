@@ -26,7 +26,7 @@ import java.awt.Color;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
-public class Solicitudes extends JDialog {
+public class Solicitantes extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtFechaSolicitud;
@@ -70,7 +70,7 @@ public class Solicitudes extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			Solicitudes dialog = new Solicitudes();
+			Solicitantes dialog = new Solicitantes();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -81,7 +81,7 @@ public class Solicitudes extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public Solicitudes() {
+	public Solicitantes() {
 		setResizable(false);
 		setBounds(100, 100, 810, 710);
 		getContentPane().setLayout(new BorderLayout());
