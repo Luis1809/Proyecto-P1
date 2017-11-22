@@ -25,6 +25,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
+import javax.swing.text.MaskFormatter;
+
+import logico.Bolsa;
 
 import logico.Obrero;
 import logico.Tecnico;
@@ -38,6 +41,9 @@ import javax.swing.SpinnerNumberModel;
 
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JFormattedTextField;
 
 public class Solicitantes extends JDialog {
 	ButtonGroup sexoMF =new ButtonGroup();
@@ -64,14 +70,14 @@ public class Solicitantes extends JDialog {
 	private final JPanel contentPanel = new JPanel();
     private JTextField txtNombre;
     private JTextField txtApellido;
-    private JTextField txtCedula;
-    private JTextField txtTelefono;
+    private JFormattedTextField txtCedula;
+    private JFormattedTextField txtTelefono;
     private JTextField txtDireccion;
     private JTextField txtEmail;
     private JTextField txtInstitucionTecnico;
     private JTextField txtEmpresa;
     private JTextField txtNombreReferente;
-    private JTextField txtNumeroReferente;
+    private JFormattedTextField txtNumeroReferente;
 	private JTextField txtFechaSolicitud;
 	private JRadioButton btnMasculino;
 	private JRadioButton btnFemenino;
@@ -112,22 +118,9 @@ public class Solicitantes extends JDialog {
 	private JCheckBox chckbxAadirOtro;
     private JComboBox cbxHabilidad2;
     private JDateChooser Jcaldate;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			Solicitantes dialog = new Solicitantes();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Create the dialog.
-	 */
+    private static MaskFormatter formatoCedula;
+	private static MaskFormatter formatoNumero;
+	
 	public Solicitantes() {
 		setResizable(false);
 		setBounds(100, 100, 810, 710);
@@ -162,6 +155,16 @@ public class Solicitantes extends JDialog {
 			panel_1.add(label);
 			
 			txtNombre = new JTextField();
+			txtNombre.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent e) {
+					if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
+						System.out.println("");
+					else {
+						JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Información", JOptionPane.WARNING_MESSAGE);
+						cleanNombre();}
+				}
+			});
 			txtNombre.setColumns(10);
 			txtNombre.setBounds(101, 28, 177, 20);
 			panel_1.add(txtNombre);
@@ -171,15 +174,32 @@ public class Solicitantes extends JDialog {
 			panel_1.add(label_1);
 			
 			txtApellido = new JTextField();
+			txtApellido.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent e) {
+					if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
+						System.out.println("");
+					else {
+						JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Información", JOptionPane.WARNING_MESSAGE);
+						cleanApellido();}
+				}
+			});
 			txtApellido.setColumns(10);
 			txtApellido.setBounds(369, 28, 196, 20);
 			panel_1.add(txtApellido);
+			
+			try{
+				formatoCedula = new MaskFormatter("###-#######-#");//////////////////////////////////////
+				formatoNumero = new MaskFormatter("###-###-####");//////////////////////////////////////
+			}catch (Exception e){
+				e.printStackTrace();
+			}
 			
 			JLabel label_2 = new JLabel("Cedula:");
 			label_2.setBounds(30, 59, 61, 16);
 			panel_1.add(label_2);
 			
-			txtCedula = new JTextField();
+			txtCedula = new JFormattedTextField(formatoCedula);
 			txtCedula.setColumns(10);
 			txtCedula.setBounds(101, 57, 177, 20);
 			panel_1.add(txtCedula);
@@ -192,7 +212,7 @@ public class Solicitantes extends JDialog {
 			label_4.setBounds(300, 59, 61, 16);
 			panel_1.add(label_4);
 			
-			txtTelefono = new JTextField();
+			txtTelefono = new JFormattedTextField(formatoNumero);
 			txtTelefono.setColumns(10);
 			txtTelefono.setBounds(369, 59, 196, 20);
 			panel_1.add(txtTelefono);
@@ -220,13 +240,13 @@ public class Solicitantes extends JDialog {
 			txtDireccion.setBounds(101, 86, 177, 20);
 			panel_1.add(txtDireccion);
 			
-			JLabel label_7 = new JLabel("Nacionalidad:");
-			label_7.setBounds(300, 172, 84, 16);
-			panel_1.add(label_7);
+			JLabel lblPaisDeNacimiento = new JLabel("Pais de Nacimiento:");
+			lblPaisDeNacimiento.setBounds(300, 172, 129, 16);
+			panel_1.add(lblPaisDeNacimiento);
 			
 			cbxNacionalidad = new JComboBox();
-			cbxNacionalidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Afganist\u00E1n\t", "Alemania\t", "Arabia Saudita\t", "Argentina\t", "Australia\t", "B\u00E9lgica\t", "Bolivia\t", "Brasil\t", "Camboya\t", "Canad\u00E1\t", "Chile\t", "China", "Colombia\t", "Corea\t", "Costa Rica", "Cuba\t", "Dinamarca\t", "Ecuador\t", "Egipto\t", "El Salvador\t", "Escocia\t", "Espa\u00F1a", "Estados Unidos\t", "Estonia\t", "Filipinas\t", "Francia\t", "Grecia", "Guatemala\t", "Hait\u00ED\t", "Holanda\t", "Honduras\t", "Indonesia\t", "Inglaterra\t", "Irak\t", "Ir\u00E1n", "Irlanda\t", "Israel\t", "Italia\t", "Jap\u00F3n\t", "Jordania\t", "Laos\t", "Letonia\t", "Lituania\t", "Malasia\t", "Marruecos\t", "M\u00E9xico\t", "Nicaragua\t", "Noruega\t", "Nueva Zelanda", "Panam\u00E1\t", "Paraguay\t", "Per\u00FA\t", "Polonia\t", "Portugal\t", "Puerto Rico", "Republica Dominicana\t", "Rumania\t", "Rusia\t", "Suecia\t", "Suiza\t", "Tailandia\t", "Taiw\u00E1n\t", "Turqu\u00EDa\t", "Ucrania\t", "Uruguay\t", "Venezuela\t", "Vietnam"}));
-			cbxNacionalidad.setBounds(395, 172, 170, 20);
+			cbxNacionalidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Afganist\u00E1n\t", "Alemania\t", "Arabia Saudita\t", "Argentina\t", "Australia\t", "B\u00E9lgica\t", "Bolivia\t", "Brasil\t", "Camboya\t", "Canad\u00E1\t", "Chile\t", "China", "Colombia\t", "Corea\t", "Costa Rica", "Cuba\t", "Dinamarca\t", "Ecuador\t", "Egipto\t", "El Salvador\t", "Escocia\t", "Espa\u00F1a", "Estados Unidos\t", "Estonia\t", "Filipinas\t", "Francia\t", "Grecia", "Guatemala\t", "Hait\u00ED\t", "Holanda\t", "Honduras\t", "Indonesia\t", "Inglaterra\t", "Irak\t", "Ir\u00E1n", "Irlanda\t", "Israel\t", "Italia\t", "Jap\u00F3n\t", "Jordania\t", "Laos\t", "Letonia\t", "Lituania\t", "Malasia\t", "Marruecos\t", "M\u00E9xico\t", "Nicaragua\t", "Noruega\t", "Nueva Zelanda", "Panam\u00E1\t", "Paraguay\t", "Per\u00FA\t", "Polonia\t", "Portugal\t", "Puerto Rico", "Republica Dom.", "Rumania\t", "Rusia\t", "Suecia\t", "Suiza\t", "Tailandia\t", "Taiw\u00E1n\t", "Turqu\u00EDa\t", "Ucrania\t", "Uruguay\t", "Venezuela\t", "Vietnam"}));
+			cbxNacionalidad.setBounds(428, 172, 137, 20);
 			panel_1.add(cbxNacionalidad);
 			
 			cbxEstadoCivil = new JComboBox();
@@ -266,7 +286,7 @@ public class Solicitantes extends JDialog {
 			panel_1.add(txtEmail);
 			
 			Jcaldate = new JDateChooser();
-			Jcaldate.setBounds(418, 141, 147, 20);
+			Jcaldate.setBounds(428, 141, 137, 20);
 			panel_1.add(Jcaldate);
 			
 			JPanel panel_2 = new JPanel();
@@ -288,7 +308,7 @@ public class Solicitantes extends JDialog {
 			cbxHabilidad.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(!cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("Seleccionar"))
-						habilidad.add(cbxHabilidad.getSelectedItem().toString());
+						habilidad.add(0,cbxHabilidad.getSelectedItem().toString());
 				}
 			});
 			cbxHabilidad.setBounds(78, 9, 226, 20);
@@ -310,7 +330,7 @@ public class Solicitantes extends JDialog {
 			cbxHabilidad2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(!cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("Seleccionar"))
-						habilidad.add(cbxHabilidad2.getSelectedItem().toString());
+						habilidad.add(1,cbxHabilidad2.getSelectedItem().toString());
 				}
 			});
 			cbxHabilidad2.setEnabled(false);
@@ -461,9 +481,9 @@ public class Solicitantes extends JDialog {
 			
 			cbxIdioma1 = new JComboBox();
 			cbxIdioma1.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+				public void actionPerformed(ActionEvent e) {	
 					if(!cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("Seleccionar")){
-						idioma.add(cbxIdioma1.getSelectedItem().toString());
+						idioma.add(0, cbxIdioma1.getSelectedItem().toString());
 					}
 				}
 			});
@@ -508,7 +528,7 @@ public class Solicitantes extends JDialog {
 			cbxIdioma2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(!cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("Seleccionar")){
-						idioma.add(cbxIdioma2.getSelectedItem().toString());
+						idioma.add(1, cbxIdioma2.getSelectedItem().toString());
 					}
 				}
 			});
@@ -533,7 +553,7 @@ public class Solicitantes extends JDialog {
 			cbxIdioma3.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(!cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("Seleccionar")){
-						idioma.add(cbxIdioma3.getSelectedItem().toString());
+						idioma.add(2, cbxIdioma1.getSelectedItem().toString());
 					}
 				}
 			});
@@ -607,6 +627,16 @@ public class Solicitantes extends JDialog {
 			panel_7.add(label_26);
 			
 			txtNombreReferente = new JTextField();
+			txtNombreReferente.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent e) {
+					if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
+						System.out.println("");
+					else{
+						JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Información", JOptionPane.WARNING_MESSAGE);
+						cleanNombreReferente();}
+				}
+			});
 			txtNombreReferente.setColumns(10);
 			txtNombreReferente.setBounds(147, 128, 198, 20);
 			panel_7.add(txtNombreReferente);
@@ -615,7 +645,7 @@ public class Solicitantes extends JDialog {
 			label_27.setBounds(10, 159, 146, 21);
 			panel_7.add(label_27);
 			
-			txtNumeroReferente = new JTextField();
+			txtNumeroReferente = new JFormattedTextField(formatoNumero);
 			txtNumeroReferente.setColumns(10);
 			txtNumeroReferente.setBounds(147, 159, 198, 20);
 			panel_7.add(txtNumeroReferente);
@@ -661,7 +691,8 @@ public class Solicitantes extends JDialog {
 								sexo= "Masculino";
 						}
 						
-						java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
+						
+						
 						//System.out.println(fechaNacimiento);
 						//LocalDate fechaNacimiento = LocalDate.of(1998, Month.JANUARY, 6);
 						
@@ -720,24 +751,51 @@ public class Solicitantes extends JDialog {
 						
 						if(btnUniversitario.isSelected()||btnObrero.isSelected()||btnTecnico.isSelected()){
 							if (tipo.equalsIgnoreCase("Universitario")){
-								String carrera = cbxCarrera.getSelectedItem().toString();
-								String institucion = cbxInstitucionUni.getSelectedItem().toString();	
-								Universitario s = new Universitario(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, carrera);
-								//JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
+								if (txtNombre.getText().equalsIgnoreCase("")||txtCedula.getText().equalsIgnoreCase("")||txtApellido.getText().equalsIgnoreCase("")||txtTelefono.getText().equalsIgnoreCase("")||txtEmail.getText().equalsIgnoreCase("")||sexoMF.isSelected(null)||cbxNacionalidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
+										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||Jcaldate.getDate()==null||mudarse.isSelected(null)||jornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||areaInteres.equalsIgnoreCase("<Seleccionar>")||
+										conducir.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||cbxInstitucionUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCarrera.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Información", JOptionPane.WARNING_MESSAGE);}
+								else{
+									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
+									String carrera = cbxCarrera.getSelectedItem().toString();
+									String institucion = cbxInstitucionUni.getSelectedItem().toString();
+									Universitario s = new Universitario(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, carrera);
+									Bolsa.insertarSolicitante(s);
+									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
+									//clean();
+								}
 							}
 							if (tipo.equalsIgnoreCase("Obrero")){
-								//String habilidad = cbxHabilidad.getSelectedItem().toString();
-								Obrero s = new Obrero(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, habilidad);
-								//JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
+								if (txtNombre.getText().equalsIgnoreCase("")||txtCedula.getText().equalsIgnoreCase("")||txtApellido.getText().equalsIgnoreCase("")||txtTelefono.getText().equalsIgnoreCase("")||txtEmail.getText().equalsIgnoreCase("")||sexoMF.isSelected(null)||cbxNacionalidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
+										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||Jcaldate.getDate()==null||mudarse.isSelected(null)||jornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||areaInteres.equalsIgnoreCase("<Seleccionar>")||
+										conducir.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||habilidad.get(0).equalsIgnoreCase("<Seleccionar>")){
+									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Información", JOptionPane.WARNING_MESSAGE);}
+								else{
+									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
+									//String habilidad = cbxHabilidad.getSelectedItem().toString();
+									Obrero s = new Obrero(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, habilidad);
+									Bolsa.insertarSolicitante(s);
+									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
+								}
+								
 							}
 							if (tipo.equalsIgnoreCase("Tecnico")){
-								String tecnico = cbxTecnico.getSelectedItem().toString();
-								String institucion = txtInstitucionTecnico.getText();	
-								Tecnico s = new Tecnico(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, tecnico);
-								//JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
+								if (txtNombre.getText().equalsIgnoreCase("")||txtCedula.getText().equalsIgnoreCase("")||txtApellido.getText().equalsIgnoreCase("")||txtTelefono.getText().equalsIgnoreCase("")||txtEmail.getText().equalsIgnoreCase("")||sexoMF.isSelected(null)||cbxNacionalidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
+										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||Jcaldate.getDate()==null||mudarse.isSelected(null)||jornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||areaInteres.equalsIgnoreCase("<Seleccionar>")||
+										conducir.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||txtInstitucionTecnico.getText().equalsIgnoreCase("")||cbxTecnico.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Información", JOptionPane.WARNING_MESSAGE);}
+								else{
+									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
+									String tecnico = cbxTecnico.getSelectedItem().toString();
+									String institucion = txtInstitucionTecnico.getText();	
+									Tecnico s = new Tecnico(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, tecnico);									
+									Bolsa.insertarSolicitante(s);
+									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);	
+								}
 							}
 						}
-						
+						else 
+							JOptionPane.showMessageDialog(null, "Seleccione un nivel educativo", "Información", JOptionPane.WARNING_MESSAGE);
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -755,5 +813,14 @@ public class Solicitantes extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+	}
+	public void cleanNombre(){
+		txtNombre.setText(""+txtNombre.getText().substring(0, txtNombre.getText().length()-1));
+	}
+	public void cleanApellido(){
+		txtApellido.setText(""+txtApellido.getText().substring(0, txtApellido.getText().length()-1));
+	}
+	public void cleanNombreReferente(){
+		txtNombreReferente.setText(""+txtNombreReferente.getText().substring(0, txtNombreReferente.getText().length()-1));
 	}
 }

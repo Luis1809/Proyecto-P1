@@ -299,13 +299,13 @@ public class Bolsa {
 	public static void insertarSolicitante(Solicitantes solic){
 		miSolicitante.add(solic);
 	}
-	public static void eliminarCliente(Solicitantes solic){
+	public static void eliminarSolicitante(Solicitantes solic){
 		miSolicitante.remove(solic);
 	}
-	public static void insertarCuenta(EmpresaSolicitadora Es){
+	public static void insertarEmpresa(EmpresaSolicitadora Es){
 		miEmpresa.add(Es);
 	}
-	public static void eliminarCuenta(EmpresaSolicitadora Es){
+	public static void eliminarEmpresa(EmpresaSolicitadora Es){
 		miEmpresa.remove(Es);
 	}
 	public static ArrayList<Solicitantes> getMiSolicitante() {
