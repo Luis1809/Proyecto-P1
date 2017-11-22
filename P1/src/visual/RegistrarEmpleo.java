@@ -53,30 +53,6 @@ public class RegistrarEmpleo extends JDialog {
 			contentPanel.add(panel);
 			panel.setLayout(null);
 			
-			JPanel panelUniversitario = new JPanel();
-			panelUniversitario.setBorder(new LineBorder(new Color(0, 0, 0)));
-			panelUniversitario.setBounds(76, 159, 242, 142);
-			panel.add(panelUniversitario);
-			panelUniversitario.setLayout(null);
-			
-			JLabel lblInstitucionUniversitario = new JLabel("Institucion:");
-			lblInstitucionUniversitario.setBounds(71, 75, 67, 14);
-			panelUniversitario.add(lblInstitucionUniversitario);
-			
-			JLabel lblCarreraUniversitario = new JLabel("Carrera:");
-			lblCarreraUniversitario.setBounds(81, 11, 57, 14);
-			panelUniversitario.add(lblCarreraUniversitario);
-			
-			JComboBox cbxCarreraUniversitario = new JComboBox();
-			cbxCarreraUniversitario.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Administraci\u00F3n de Empresa\u200B", "Concentraciones:", "Operaciones", "Finanzas", "Estrategia", "Creaci\u00F3n y Desarrollo de Nuevos Negocios", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "Concentraciones:", "\u200BAlimentos y Bebidas", "Mercadeo Hotelero\u200B\u200B", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "Concentraciones\u200B:\u200B\u200B", "Producci\u00F3n Audiovisual", "Comunicaci\u00F3n Corporativa", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "Orientaciones:", "El\u00E9ctrica", "Mec\u00E1nica\u200B", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas y Computaci\u00F3n", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
-			cbxCarreraUniversitario.setBounds(47, 38, 115, 20);
-			panelUniversitario.add(cbxCarreraUniversitario);
-			
-			JComboBox cbxInstitucionUniversitario = new JComboBox();
-			cbxInstitucionUniversitario.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", " N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
-			cbxInstitucionUniversitario.setBounds(47, 100, 115, 20);
-			panelUniversitario.add(cbxInstitucionUniversitario);
-			
 			JPanel panelTecnico = new JPanel();
 			panelTecnico.setBorder(new LineBorder(new Color(0, 0, 0)));
 			panelTecnico.setBounds(76, 159, 242, 142);
@@ -92,12 +68,12 @@ public class RegistrarEmpleo extends JDialog {
 			panelTecnico.add(lblInstitucion_1);
 			
 			JComboBox cbxGradoTecnico = new JComboBox();
-			cbxGradoTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Administraci\u00F3n de Empresa\u200B", "Concentraciones:", "Operaciones", "Finanzas", "Estrategia", "Creaci\u00F3n y Desarrollo de Nuevos Negocios", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "Concentraciones:", "\u200BAlimentos y Bebidas", "Mercadeo Hotelero\u200B\u200B", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "Concentraciones\u200B:\u200B\u200B", "Producci\u00F3n Audiovisual", "Comunicaci\u00F3n Corporativa", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "Orientaciones:", "El\u00E9ctrica"}));
+			cbxGradoTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Concentraciones:", "Operaciones", "Finanzas", "Estrategia", "Creaci\u00F3n y Desarrollo de Nuevos Negocios", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "Concentraciones:", "\u200BAlimentos y Bebidas", "Mercadeo Hotelero\u200B\u200B", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "Concentraciones\u200B:\u200B\u200B", "Producci\u00F3n Audiovisual", "Comunicaci\u00F3n Corporativa", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "Orientaciones:", "El\u00E9ctrica"}));
 			cbxGradoTecnico.setBounds(174, 36, 111, 20);
 			panelTecnico.add(cbxGradoTecnico);
 			
 			JComboBox cbxInstitucionTecnico = new JComboBox();
-			cbxInstitucionTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", " N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
+			cbxInstitucionTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", " N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
 			cbxInstitucionTecnico.setBounds(174, 97, 111, 20);
 			panelTecnico.add(cbxInstitucionTecnico);
 			
@@ -115,6 +91,30 @@ public class RegistrarEmpleo extends JDialog {
 			cbxHabilidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Maestro Constructor", "Partero"}));
 			cbxHabilidad.setBounds(173, 64, 110, 20);
 			panelObrero.add(cbxHabilidad);
+			
+			JPanel panelUniversitario = new JPanel();
+			panelUniversitario.setBorder(new LineBorder(new Color(0, 0, 0)));
+			panelUniversitario.setBounds(76, 159, 242, 142);
+			panel.add(panelUniversitario);
+			panelUniversitario.setLayout(null);
+			
+			JLabel lblInstitucionUniversitario = new JLabel("Institucion:");
+			lblInstitucionUniversitario.setBounds(71, 75, 67, 14);
+			panelUniversitario.add(lblInstitucionUniversitario);
+			
+			JLabel lblCarreraUniversitario = new JLabel("Carrera:");
+			lblCarreraUniversitario.setBounds(81, 11, 57, 14);
+			panelUniversitario.add(lblCarreraUniversitario);
+			
+			JComboBox cbxCarreraUniversitario = new JComboBox();
+			cbxCarreraUniversitario.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Concentraciones:", "Operaciones", "Finanzas", "Estrategia", "Creaci\u00F3n y Desarrollo de Nuevos Negocios", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "Concentraciones:", "\u200BAlimentos y Bebidas", "Mercadeo Hotelero\u200B\u200B", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "Concentraciones\u200B:\u200B\u200B", "Producci\u00F3n Audiovisual", "Comunicaci\u00F3n Corporativa", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "Orientaciones:", "El\u00E9ctrica", "Mec\u00E1nica\u200B", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas y Computaci\u00F3n", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
+			cbxCarreraUniversitario.setBounds(47, 38, 115, 20);
+			panelUniversitario.add(cbxCarreraUniversitario);
+			
+			JComboBox cbxInstitucionUniversitario = new JComboBox();
+			cbxInstitucionUniversitario.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", " N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
+			cbxInstitucionUniversitario.setBounds(47, 100, 115, 20);
+			panelUniversitario.add(cbxInstitucionUniversitario);
 			{
 				JLabel lblGradoAcademico = new JLabel("Grado Academico:");
 				lblGradoAcademico.setBounds(76, 107, 106, 14);
@@ -122,7 +122,7 @@ public class RegistrarEmpleo extends JDialog {
 			}
 			{
 				JComboBox cbxGradoAcademico = new JComboBox();
-				cbxGradoAcademico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Universitario", "Tecnico", "Obrero"}));
+				cbxGradoAcademico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Universitario", "Tecnico", "Obrero"}));
 				cbxGradoAcademico.setBounds(192, 104, 134, 20);
 				panel.add(cbxGradoAcademico);
 			}
@@ -162,7 +162,7 @@ public class RegistrarEmpleo extends JDialog {
 			panel_1.add(lblEstadoCivil);
 			
 			JComboBox comboBox_1 = new JComboBox();
-			comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
+			comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
 			comboBox_1.setBounds(214, 89, 102, 20);
 			panel_1.add(comboBox_1);
 			
@@ -171,12 +171,12 @@ public class RegistrarEmpleo extends JDialog {
 			panel.add(label_3);
 			
 			JComboBox cbxJornadaLaboral = new JComboBox();
-			cbxJornadaLaboral.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Medio Tiempo", "Tiempo Completo"}));
+			cbxJornadaLaboral.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Medio Tiempo", "Tiempo Completo"}));
 			cbxJornadaLaboral.setBounds(192, 73, 134, 20);
 			panel.add(cbxJornadaLaboral);
 			
 			JComboBox cbxAreaDeInteres = new JComboBox();
-			cbxAreaDeInteres.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
+			cbxAreaDeInteres.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
 			cbxAreaDeInteres.setBounds(192, 42, 134, 20);
 			panel.add(cbxAreaDeInteres);
 			
@@ -189,12 +189,12 @@ public class RegistrarEmpleo extends JDialog {
 			panel.add(label_5);
 			
 			JComboBox cbxIdioma = new JComboBox();
-			cbxIdioma.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Espanol", "Ingles", "frances"}));
+			cbxIdioma.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Patua"}));
 			cbxIdioma.setBounds(399, 69, 141, 20);
 			panel.add(cbxIdioma);
 			
 			JComboBox cbxPais = new JComboBox();
-			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Republica Dominicana"}));
+			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
 			cbxPais.setBounds(399, 42, 141, 20);
 			panel.add(cbxPais);
 			
@@ -225,7 +225,7 @@ public class RegistrarEmpleo extends JDialog {
 			panel.add(chkDeseaAgregarNuevoIdioma);
 			
 			JComboBox cbxSegundoIdioma = new JComboBox();
-			cbxSegundoIdioma.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Espanol", "Ingles", "frances"}));
+			cbxSegundoIdioma.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Espanol", "Ingles", "frances"}));
 			cbxSegundoIdioma.setBounds(399, 132, 141, 20);
 			panel.add(cbxSegundoIdioma);
 			
@@ -239,7 +239,7 @@ public class RegistrarEmpleo extends JDialog {
 			panel.add(rdbtnNa);
 			
 			JComboBox comboBox = new JComboBox();
-			comboBox.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
+			comboBox.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
 			comboBox.setBounds(192, 135, 134, 20);
 			panel.add(comboBox);
 			
@@ -262,7 +262,7 @@ public class RegistrarEmpleo extends JDialog {
 			panelPlazaAreaDeExperiencia.add(spnPlaza);
 			
 			JComboBox comboBox_2 = new JComboBox();
-			comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
+			comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
 			comboBox_2.setBounds(117, 36, 99, 20);
 			panelPlazaAreaDeExperiencia.add(comboBox_2);
 			

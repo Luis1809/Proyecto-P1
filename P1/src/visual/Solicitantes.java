@@ -16,6 +16,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -27,17 +28,13 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 public class Solicitantes extends JDialog {
-
-	private final JPanel contentPanel = new JPanel();
-	private JTextField txtFechaSolicitud;
-	
 	ButtonGroup sexo =new ButtonGroup();
 	ButtonGroup mudarse =new ButtonGroup();
 	ButtonGroup conducir =new ButtonGroup();
 	ButtonGroup jornada =new ButtonGroup();
 	ButtonGroup nivelEducativo =new ButtonGroup();
 	
-	//_____Solicitante_______________________//
+	/*//_____Solicitante_______________________//
 	private String nombreSolicitante;
 	private String apellidoSolicitante;
 	private String cedulaSolicitante;
@@ -50,7 +47,9 @@ public class Solicitantes extends JDialog {
     private String nombreEmpresa;
     private String areTrabajo;
     private String nombreReferente;
-    private String telReferente;
+    private String telReferente;*/
+	
+	private final JPanel contentPanel = new JPanel();
     private JTextField txtNombre;
     private JTextField txtApellido;
     private JTextField txtCedula;
@@ -58,11 +57,40 @@ public class Solicitantes extends JDialog {
     private JTextField txtDireccion;
     private JTextField txtFechaNacionalidad;
     private JTextField txtEmail;
-    private JTextField txtInstitucionUni;
     private JTextField txtInstitucionTecnico;
     private JTextField txtEmpresa;
     private JTextField txtNombreReferente;
     private JTextField txtNumeroReferente;
+	private JTextField txtFechaSolicitud;
+	private JRadioButton btnMasculino;
+	private JRadioButton btnFemenino;
+	private JComboBox cbxNacionalidad;
+	private JComboBox cbxEstadoCivil;
+	private JComboBox cbxCiudad;
+	private JComboBox cbxPais;
+	private JPanel pTecnico;
+	private JPanel pObrero;
+	private JPanel pUniversitario;
+	private JComboBox cbxCarrera;
+	private JComboBox cbxHabilidad;
+	private JComboBox cbxTecnico;
+	private JRadioButton btnUniversitario;
+	private JRadioButton btnTecnico;
+	private JRadioButton btnObrero;
+	private JRadioButton btnDispMudarseY;
+	private JRadioButton btnDispMudarseN;
+	private JComboBox cbxIdioma1;
+	private JComboBox cbxIdioma2;
+	private JComboBox cbxIdioma3;
+	private JRadioButton btnTiempoCompleto;
+	private JRadioButton btnMedioTiempo;
+	private JRadioButton btnLicenciaCY;
+	private JRadioButton btnLicenciaCN;
+	private JCheckBox chbIdioma2;
+	private JCheckBox chbIdioma3;
+	private JComboBox cbxAreaInteres;
+	private JComboBox cbxAreaTrabajo;
+	private JSpinner spnTiempoExperiencia;
     
    
 	/**
@@ -95,6 +123,7 @@ public class Solicitantes extends JDialog {
 			
 			txtFechaSolicitud = new JTextField();
 			txtFechaSolicitud.setEditable(false);
+			txtFechaSolicitud.setText("  "+LocalDate.now().toString());
 			txtFechaSolicitud.setBounds(634, 11, 146, 26);
 			panel.add(txtFechaSolicitud);
 			txtFechaSolicitud.setColumns(10);
@@ -149,12 +178,12 @@ public class Solicitantes extends JDialog {
 			txtTelefono.setBounds(369, 59, 196, 20);
 			panel_1.add(txtTelefono);
 			
-			JRadioButton btnMasculino = new JRadioButton("Masculino");
+			btnMasculino = new JRadioButton("Masculino");
 			sexo.add(btnMasculino);
 			btnMasculino.setBounds(367, 115, 93, 23);
 			panel_1.add(btnMasculino);
 			
-			JRadioButton btnFemenino = new JRadioButton("Femenino");
+			btnFemenino = new JRadioButton("Femenino");
 			sexo.add(btnFemenino);
 			btnFemenino.setBounds(462, 115, 94, 23);
 			panel_1.add(btnFemenino);
@@ -176,11 +205,13 @@ public class Solicitantes extends JDialog {
 			label_7.setBounds(300, 172, 84, 16);
 			panel_1.add(label_7);
 			
-			JComboBox cbxNacionalidad = new JComboBox();
+			cbxNacionalidad = new JComboBox();
+			cbxNacionalidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Afganist\u00E1n\t", "Alemania\t", "Arabia Saudita\t", "Argentina\t", "Australia\t", "B\u00E9lgica\t", "Bolivia\t", "Brasil\t", "Camboya\t", "Canad\u00E1\t", "Chile\t", "China", "Colombia\t", "Corea\t", "Costa Rica", "Cuba\t", "Dinamarca\t", "Ecuador\t", "Egipto\t", "El Salvador\t", "Escocia\t", "Espa\u00F1a", "Estados Unidos\t", "Estonia\t", "Filipinas\t", "Francia\t", "Grecia", "Guatemala\t", "Hait\u00ED\t", "Holanda\t", "Honduras\t", "Indonesia\t", "Inglaterra\t", "Irak\t", "Ir\u00E1n", "Irlanda\t", "Israel\t", "Italia\t", "Jap\u00F3n\t", "Jordania\t", "Laos\t", "Letonia\t", "Lituania\t", "Malasia\t", "Marruecos\t", "M\u00E9xico\t", "Nicaragua\t", "Noruega\t", "Nueva Zelanda", "Panam\u00E1\t", "Paraguay\t", "Per\u00FA\t", "Polonia\t", "Portugal\t", "Puerto Rico", "Republica Dominicana\t", "Rumania\t", "Rusia\t", "Suecia\t", "Suiza\t", "Tailandia\t", "Taiw\u00E1n\t", "Turqu\u00EDa\t", "Ucrania\t", "Uruguay\t", "Venezuela\t", "Vietnam"}));
 			cbxNacionalidad.setBounds(395, 172, 170, 20);
 			panel_1.add(cbxNacionalidad);
 			
-			JComboBox cbxEstadoCivil = new JComboBox();
+			cbxEstadoCivil = new JComboBox();
+			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
 			cbxEstadoCivil.setBounds(101, 172, 177, 20);
 			panel_1.add(cbxEstadoCivil);
 			
@@ -188,7 +219,8 @@ public class Solicitantes extends JDialog {
 			label_8.setBounds(30, 118, 46, 14);
 			panel_1.add(label_8);
 			
-			JComboBox cbxCiudad = new JComboBox();
+			cbxCiudad = new JComboBox();
+			cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
 			cbxCiudad.setBounds(101, 116, 177, 20);
 			panel_1.add(cbxCiudad);
 			
@@ -196,7 +228,8 @@ public class Solicitantes extends JDialog {
 			label_9.setBounds(30, 147, 46, 14);
 			panel_1.add(label_9);
 			
-			JComboBox cbxPais = new JComboBox();
+			cbxPais = new JComboBox();
+			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
 			cbxPais.setBounds(101, 145, 177, 20);
 			panel_1.add(cbxPais);
 			
@@ -221,84 +254,111 @@ public class Solicitantes extends JDialog {
 			JPanel panel_2 = new JPanel();
 			panel_2.setLayout(null);
 			panel_2.setBorder(new TitledBorder(null, "Educacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panel_2.setBounds(10, 266, 358, 170);
+			panel_2.setBounds(10, 266, 358, 154);
 			panel.add(panel_2);
 			
-			JPanel pTecnico = new JPanel();
+			pTecnico = new JPanel();
 			pTecnico.setLayout(null);
-			pTecnico.setBounds(6, 64, 314, 100);
+			pTecnico.setBounds(6, 64, 314, 79);
 			panel_2.add(pTecnico);
 			
 			JLabel label_14 = new JLabel("Institucion:");
-			label_14.setBounds(6, 6, 84, 16);
+			label_14.setBounds(6, 20, 84, 16);
 			pTecnico.add(label_14);
 			
 			txtInstitucionTecnico = new JTextField();
 			txtInstitucionTecnico.setColumns(10);
-			txtInstitucionTecnico.setBounds(82, 5, 226, 20);
+			txtInstitucionTecnico.setBounds(82, 14, 222, 20);
 			pTecnico.add(txtInstitucionTecnico);
 			
 			JLabel label_15 = new JLabel("Tecnico:");
 			label_15.setBounds(6, 47, 61, 16);
 			pTecnico.add(label_15);
 			
-			JComboBox cbxTecnico = new JComboBox();
-			cbxTecnico.setBounds(82, 45, 226, 20);
+			cbxTecnico = new JComboBox();
+			cbxTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Concentraciones:", "Operaciones", "Finanzas", "Estrategia", "Creaci\u00F3n y Desarrollo de Nuevos Negocios", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "Concentraciones:", "\u200BAlimentos y Bebidas", "Mercadeo Hotelero\u200B\u200B", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "Concentraciones\u200B:\u200B\u200B", "Producci\u00F3n Audiovisual", "Comunicaci\u00F3n Corporativa", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "Electronica", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "Orientaciones:"}));
+			cbxTecnico.setBounds(82, 45, 222, 20);
 			pTecnico.add(cbxTecnico);
 			
-			JPanel pUniversitario = new JPanel();
+			pTecnico.setVisible(false);
+			
+			pUniversitario = new JPanel();
 			pUniversitario.setLayout(null);
-			pUniversitario.setBounds(6, 64, 314, 100);
+			pUniversitario.setBounds(6, 64, 314, 79);
 			panel_2.add(pUniversitario);
 			
 			JLabel label_12 = new JLabel("Institucion:");
-			label_12.setBounds(6, 6, 84, 16);
+			label_12.setBounds(6, 20, 84, 16);
 			pUniversitario.add(label_12);
-			
-			txtInstitucionUni = new JTextField();
-			txtInstitucionUni.setColumns(10);
-			txtInstitucionUni.setBounds(82, 5, 226, 20);
-			pUniversitario.add(txtInstitucionUni);
 			
 			JLabel label_13 = new JLabel("Carrera:");
 			label_13.setBounds(6, 47, 61, 16);
 			pUniversitario.add(label_13);
 			
-			JComboBox cbxCarrera = new JComboBox();
-			cbxCarrera.setBounds(82, 45, 135, 20);
+			cbxCarrera = new JComboBox();
+			cbxCarrera.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
+			cbxCarrera.setBounds(82, 45, 222, 20);
 			pUniversitario.add(cbxCarrera);
 			
-			JPanel pObrero = new JPanel();
+			JComboBox cbxInstitucionUni = new JComboBox();
+			cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
+			cbxInstitucionUni.setBounds(82, 14, 222, 20);
+			pUniversitario.add(cbxInstitucionUni);
+			pUniversitario.setVisible(false);
+			
+			pObrero = new JPanel();
 			pObrero.setLayout(null);
-			pObrero.setBounds(6, 64, 314, 100);
+			pObrero.setBounds(6, 64, 314, 79);
 			panel_2.add(pObrero);
 			
 			JLabel label_16 = new JLabel("Habilidad:");
-			label_16.setBounds(10, 41, 71, 16);
+			label_16.setBounds(10, 24, 71, 16);
 			pObrero.add(label_16);
 			
-			JComboBox cbxHabilidad = new JComboBox();
-			cbxHabilidad.setBounds(82, 39, 226, 20);
+			cbxHabilidad = new JComboBox();
+			cbxHabilidad.setBounds(78, 22, 226, 20);
 			pObrero.add(cbxHabilidad);
+			pObrero.setVisible(false);
 			
 			JLabel label_17 = new JLabel("Nivel educativo:");
 			label_17.setFont(new Font("Dialog", Font.BOLD, 13));
 			label_17.setBounds(103, 11, 115, 16);
 			panel_2.add(label_17);
 			
-			JRadioButton btnProfesional = new JRadioButton("Profesional");
-			nivelEducativo.add(btnProfesional);
-			btnProfesional.setBounds(6, 34, 115, 23);
-			panel_2.add(btnProfesional);
+			btnUniversitario = new JRadioButton("Universitario");
+			btnUniversitario.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					pObrero.setVisible(false);
+					pUniversitario.setVisible(true);
+					pTecnico.setVisible(false);
+				}
+			});
+			nivelEducativo.add(btnUniversitario);
+			btnUniversitario.setBounds(32, 34, 115, 23);
+			panel_2.add(btnUniversitario);
 			
-			JRadioButton btnTecnico = new JRadioButton("Tecnico");
+			btnTecnico = new JRadioButton("Tecnico");
+			btnTecnico.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					pObrero.setVisible(false);
+					pUniversitario.setVisible(false);
+					pTecnico.setVisible(true);
+				}
+			});
 			nivelEducativo.add(btnTecnico);
-			btnTecnico.setBounds(123, 34, 93, 23);
+			btnTecnico.setBounds(149, 34, 93, 23);
 			panel_2.add(btnTecnico);
 			
-			JRadioButton btnObrero = new JRadioButton("Obrero");
+			btnObrero = new JRadioButton("Obrero");
+			btnObrero.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					pObrero.setVisible(true);
+					pUniversitario.setVisible(false);
+					pTecnico.setVisible(false);
+				}
+			});
 			nivelEducativo.add(btnObrero);
-			btnObrero.setBounds(218, 34, 76, 23);
+			btnObrero.setBounds(244, 34, 76, 23);
 			panel_2.add(btnObrero);
 			
 			JSeparator separator = new JSeparator();
@@ -338,12 +398,12 @@ public class Solicitantes extends JDialog {
 			separator_3.setBounds(27, 103, 134, 12);
 			panel_6.add(separator_3);
 			
-			JRadioButton btnDispMudarseY = new JRadioButton("Si");
+			btnDispMudarseY = new JRadioButton("Si");
 			mudarse.add(btnDispMudarseY);
 			btnDispMudarseY.setBounds(37, 58, 54, 23);
 			panel_6.add(btnDispMudarseY);
 			
-			JRadioButton btnDispMudarseN = new JRadioButton("No");
+			btnDispMudarseN = new JRadioButton("No");
 			mudarse.add(btnDispMudarseN);
 			btnDispMudarseN.setBounds(93, 58, 54, 23);
 			panel_6.add(btnDispMudarseN);
@@ -352,44 +412,59 @@ public class Solicitantes extends JDialog {
 			label_21.setBounds(27, 142, 61, 16);
 			panel_6.add(label_21);
 			
-			JComboBox cbxIdioma1 = new JComboBox();
+			cbxIdioma1 = new JComboBox();
+			cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
 			cbxIdioma1.setEditable(true);
 			cbxIdioma1.setBounds(27, 161, 134, 20);
 			panel_6.add(cbxIdioma1);
 			
-			JRadioButton btnTiempoCompleto = new JRadioButton("Tiempo Completo");
+			btnTiempoCompleto = new JRadioButton("Tiempo Completo");
 			jornada.add(btnTiempoCompleto);
 			btnTiempoCompleto.setBounds(238, 87, 139, 23);
 			panel_6.add(btnTiempoCompleto);
 			
-			JRadioButton btnMedioTiempo = new JRadioButton("Medio Tiempo");
+			btnMedioTiempo = new JRadioButton("Medio Tiempo");
 			jornada.add(btnMedioTiempo);
 			btnMedioTiempo.setBounds(239, 58, 138, 23);
 			panel_6.add(btnMedioTiempo);
 			
-			JRadioButton btnLicenciaCN = new JRadioButton("No");
+			btnLicenciaCN = new JRadioButton("No");
 			conducir.add(btnLicenciaCN);
 			btnLicenciaCN.setBounds(93, 112, 54, 23);
 			panel_6.add(btnLicenciaCN);
 			
-			JRadioButton btnLicenciaCY = new JRadioButton("Si");
+			btnLicenciaCY = new JRadioButton("Si");
 			conducir.add(btnLicenciaCY);
 			btnLicenciaCY.setBounds(37, 112, 54, 23);
 			panel_6.add(btnLicenciaCY);
 			
-			JCheckBox chbIdioma2 = new JCheckBox("A\u00F1adir otro idioma");
+			chbIdioma2 = new JCheckBox("A\u00F1adir otro idioma");
+			chbIdioma2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					cbxIdioma2.setEnabled(true);
+				}
+			});
 			chbIdioma2.setBounds(27, 188, 134, 23);
 			panel_6.add(chbIdioma2);
 			
-			JComboBox cbxIdioma2 = new JComboBox();
+			cbxIdioma2 = new JComboBox();
+			cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Patua", "Creoles", "Ruso"}));
+			cbxIdioma2.setEnabled(false);
 			cbxIdioma2.setBounds(27, 218, 134, 20);
 			panel_6.add(cbxIdioma2);
 			
-			JCheckBox chbIdioma3 = new JCheckBox("A\u00F1adir otro idioma");
+			chbIdioma3 = new JCheckBox("A\u00F1adir otro idioma");
+			chbIdioma3.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					cbxIdioma3.setEnabled(true);
+				}
+			});
 			chbIdioma3.setBounds(27, 246, 134, 23);
 			panel_6.add(chbIdioma3);
 			
-			JComboBox cbxIdioma3 = new JComboBox();
+			cbxIdioma3 = new JComboBox();
+			cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+			cbxIdioma3.setEnabled(false);
 			cbxIdioma3.setBounds(27, 276, 134, 20);
 			panel_6.add(cbxIdioma3);
 			
@@ -397,7 +472,8 @@ public class Solicitantes extends JDialog {
 			label_22.setBounds(229, 143, 126, 14);
 			panel_6.add(label_22);
 			
-			JComboBox cbxAreaInteres = new JComboBox();
+			cbxAreaInteres = new JComboBox();
+			cbxAreaInteres.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
 			cbxAreaInteres.setBounds(229, 161, 126, 20);
 			panel_6.add(cbxAreaInteres);
 			
@@ -447,7 +523,8 @@ public class Solicitantes extends JDialog {
 			txtNumeroReferente.setBounds(147, 159, 198, 20);
 			panel_7.add(txtNumeroReferente);
 			
-			JComboBox cbxAreaTrabajo = new JComboBox();
+			cbxAreaTrabajo = new JComboBox();
+			cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
 			cbxAreaTrabajo.setBounds(147, 99, 198, 20);
 			panel_7.add(cbxAreaTrabajo);
 			
@@ -455,7 +532,7 @@ public class Solicitantes extends JDialog {
 			label_28.setBounds(10, 76, 134, 14);
 			panel_7.add(label_28);
 			
-			JSpinner spnTiempoExperiencia = new JSpinner();
+			spnTiempoExperiencia = new JSpinner();
 			spnTiempoExperiencia.setModel(new SpinnerNumberModel(1, 1, 50, 1));
 			spnTiempoExperiencia.setBounds(244, 74, 101, 20);
 			panel_7.add(spnTiempoExperiencia);
