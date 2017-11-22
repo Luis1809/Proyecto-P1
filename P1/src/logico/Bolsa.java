@@ -136,11 +136,11 @@ public class Bolsa {
 					else
 						porciento+=8.3333;
 					
-					for(int c=0;c<SolicitanteUni.getExp().size();c++){ /////////////////////////////////////////AreaExp
-						if(SolicitanteUni.getExp().get(c).getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
-								SolicitanteUni.getExp().get(c).getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
-							porciento+=8.3333;
-					}
+					//for(int c=0;c<SolicitanteUni.getExp().size();c++){ /////////////////////////////////////////AreaExp
+						//if(SolicitanteUni.getExp().get(c).getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
+							//	SolicitanteUni.getExp().get(c).getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
+							//porciento+=8.3333;
+					//}
 					
 					if(solEmp.getInstitucion().equalsIgnoreCase("N/A"))////////////////////////Institucion
 						porciento+=8.3333;
@@ -213,11 +213,11 @@ public class Bolsa {
 						else
 							porciento+=9.09;
 						
-						for(int j=0;j<SolicitanteObrero.getExp().size();j++){ /////////////////////////////////////////AreaExp
-							if(SolicitanteObrero.getExp().get(j).getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
-									SolicitanteObrero.getExp().get(j).getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
-								porciento+=9.09;
-						}	
+						//for(int j=0;j<SolicitanteObrero.getExp().size();j++){ /////////////////////////////////////////AreaExp
+						//	if(SolicitanteObrero.getExp().get(j).getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
+							//		SolicitanteObrero.getExp().get(j).getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
+								//porciento+=9.09;
+						//}	
 					}	
 				}
 				if(porciento>=solEmp.porcientoAceptable){
@@ -274,11 +274,11 @@ public class Bolsa {
 					else
 						porciento+=8.3333;
 					
-					for(int m=0;m<SolicitanteTecnico.getExp().size();m++){ /////////////////////////////////////////AreaExp
-						if(SolicitanteTecnico.getExp().get(m).getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
-								SolicitanteTecnico.getExp().get(m).getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
-							porciento+=8.3333;
-					}
+				//	for(int m=0;m<SolicitanteTecnico.getExp().size();m++){ /////////////////////////////////////////AreaExp
+					//	if(SolicitanteTecnico.getExp().get(m).getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
+						//		SolicitanteTecnico.getExp().get(m).getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
+							//porciento+=8.3333;
+					//}
 					
 					if(solEmp.getInstitucion().equalsIgnoreCase("N/A"))////////////////////////Institucion
 						porciento+=8.3333;

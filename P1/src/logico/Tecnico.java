@@ -13,15 +13,16 @@ public class Tecnico extends Solicitantes {
 			String nacionalidad, String estadoCivil, String direccion, String cuidad, String pais,
 			LocalDate fechaNacimiento, int salirioSolicitado, boolean dispMudarse, boolean dispViajar,
 			String tipoJornada, ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia,
-			LocalDate fecha, ArrayList<ExperienciaLaboral> exp, String institucion, String tecnico) {
+			LocalDate fecha, String nombreEmpresa, String areaTrabajo1, int tiempotrabajoRealizado1,
+			String nombreReferente, String numeroReferente, String institucion, String tecnico) {
 		super(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais,
 				fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, tipoJornada, idioma, areaInteres,
-				habilitado, licencia, fecha, exp);
+				habilitado, licencia, fecha, nombreEmpresa, areaTrabajo1, tiempotrabajoRealizado1, nombreReferente,
+				numeroReferente);
 		this.institucion = institucion;
 		this.tecnico = tecnico;
 	}
 
-	
 	public String getInstitucion() {
 		return institucion;
 	}

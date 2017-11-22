@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public abstract class Solicitantes {
-	
+
 	protected String cedula;
 	protected String nombre;
 	protected String apellido;
@@ -27,13 +27,18 @@ public abstract class Solicitantes {
 	protected boolean habilitado; //El solicitante no ha sido escogido
 	protected boolean licencia; //Posee licencia de conducir
 	protected LocalDate Fecha;
-	protected ArrayList<ExperienciaLaboral> exp;
+	protected String nombreEmpresa;
+	protected String areaTrabajo1;
+	protected int tiempotrabajoRealizado1; // 5 anos
+	protected String nombreReferente;
+	protected String numeroReferente;
 	
 	public Solicitantes(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
 			String nacionalidad, String estadoCivil, String direccion, String cuidad, String pais,
 			LocalDate fechaNacimiento, int salirioSolicitado, boolean dispMudarse, boolean dispViajar,
 			String tipoJornada, ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia,
-			LocalDate fecha, ArrayList<ExperienciaLaboral> exp) {
+			LocalDate fecha, String nombreEmpresa, String areaTrabajo1, int tiempotrabajoRealizado1,
+			String nombreReferente, String numeroReferente) {
 		super();
 		this.cedula = cedula;
 		this.nombre = nombre;
@@ -56,8 +61,13 @@ public abstract class Solicitantes {
 		this.habilitado = habilitado;
 		this.licencia = licencia;
 		Fecha = fecha;
-		this.exp = exp;
+		this.nombreEmpresa = nombreEmpresa;
+		this.areaTrabajo1 = areaTrabajo1;
+		this.tiempotrabajoRealizado1 = tiempotrabajoRealizado1;
+		this.nombreReferente = nombreReferente;
+		this.numeroReferente = numeroReferente;
 	}
+	
 
 	public String getCedula() {
 		return cedula;
@@ -195,12 +205,6 @@ public abstract class Solicitantes {
 		Fecha = fecha;
 	}
 
-	public ArrayList<ExperienciaLaboral> getExp() {
-		return exp;
-	}
-	public void setExp(ArrayList<ExperienciaLaboral> exp) {
-		this.exp = exp;
-	}
 	public String getCuidad() {
 		return cuidad;
 	}
@@ -224,5 +228,55 @@ public abstract class Solicitantes {
 	}
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
+	}
+
+
+	public String getNombreEmpresa() {
+		return nombreEmpresa;
+	}
+
+
+	public void setNombreEmpresa(String nombreEmpresa) {
+		this.nombreEmpresa = nombreEmpresa;
+	}
+
+
+	public String getAreaTrabajo1() {
+		return areaTrabajo1;
+	}
+
+
+	public void setAreaTrabajo1(String areaTrabajo1) {
+		this.areaTrabajo1 = areaTrabajo1;
+	}
+
+
+	public int getTiempotrabajoRealizado1() {
+		return tiempotrabajoRealizado1;
+	}
+
+
+	public void setTiempotrabajoRealizado1(int tiempotrabajoRealizado1) {
+		this.tiempotrabajoRealizado1 = tiempotrabajoRealizado1;
+	}
+
+
+	public String getNombreReferente() {
+		return nombreReferente;
+	}
+
+
+	public void setNombreReferente(String nombreReferente) {
+		this.nombreReferente = nombreReferente;
+	}
+
+
+	public String getNumeroReferente() {
+		return numeroReferente;
+	}
+
+
+	public void setNumeroReferente(String numeroReferente) {
+		this.numeroReferente = numeroReferente;
 	}
 }
