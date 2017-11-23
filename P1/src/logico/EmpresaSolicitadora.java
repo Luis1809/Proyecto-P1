@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class EmpresaSolicitadora {
 	
 	private String nombreEmpresa;
-	private String id;
 	private String emailEmpresa;
 	private String telefonoEmpresa;
 	private String direccion; 
@@ -16,12 +15,10 @@ public class EmpresaSolicitadora {
 	private ArrayList<Solicitudes>miSolicitudes;
 	private ArrayList<Solicitantes>miSolicitantes;
 	
-	public EmpresaSolicitadora(String nombreEmpresa, String id, String emailEmpresa, String telefonoEmpresa,
-			String direccion, String ciudad, String paisEmpresa, String areaTrabajo, String rNC,
-			ArrayList<Solicitudes> miSolicitudes) {
+	public EmpresaSolicitadora(String nombreEmpresa, String emailEmpresa, String telefonoEmpresa,
+			String direccion, String ciudad, String paisEmpresa, String areaTrabajo, String rNC) {
 		super();
 		this.nombreEmpresa = nombreEmpresa;
-		this.id = id;
 		this.emailEmpresa = emailEmpresa;
 		this.telefonoEmpresa = telefonoEmpresa;
 		this.direccion = direccion;
@@ -38,12 +35,6 @@ public class EmpresaSolicitadora {
 	}
 	public void setNombreEmpresa(String nombreEmpresa) {
 		this.nombreEmpresa = nombreEmpresa;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 	public String getEmailEmpresa() {
 		return emailEmpresa;
