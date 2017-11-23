@@ -45,7 +45,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JFormattedTextField;
 
-public class Solicitantes extends JDialog {
+public class SolicitantesVisual extends JDialog {
 	ButtonGroup sexoMF =new ButtonGroup();
 	ButtonGroup mudarse =new ButtonGroup();
 	ButtonGroup conducir =new ButtonGroup();
@@ -121,7 +121,7 @@ public class Solicitantes extends JDialog {
     private static MaskFormatter formatoCedula;
 	private static MaskFormatter formatoNumero;
 	
-	public Solicitantes() {
+	public SolicitantesVisual() {
 		setResizable(false);
 		setBounds(100, 100, 810, 710);
 		getContentPane().setLayout(new BorderLayout());
