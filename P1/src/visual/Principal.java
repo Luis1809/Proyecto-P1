@@ -20,6 +20,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Insets;
 
 public class Principal extends JFrame {
 
@@ -70,19 +72,31 @@ public class Principal extends JFrame {
 		setTitle("Bolsa laboral V1.0");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 845, 550);
+		setBounds(100, 100, 886, 340);
 		dim = super.getToolkit().getScreenSize();
 		super.setSize(dim.width, (dim.height-50));
 		setLocationRelativeTo(null);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(224, 255, 255));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
+		menuBar.setBorderPainted(false);
+		menuBar.setBounds(0, 0, 1360, 31);
+		contentPane.add(menuBar);
+		menuBar.setBackground(new Color(178, 34, 34));
+		menuBar.setForeground(new Color(220, 20, 60));
 		
 		JMenu mnNewMenu = new JMenu("Registro");
+		mnNewMenu.setBackground(new Color(0, 0, 0));
+		mnNewMenu.setForeground(new Color(255, 255, 255));
 		mnNewMenu.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Solicitantes");
+		mntmNewMenuItem.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SolicitantesVisual md = new SolicitantesVisual();
@@ -94,6 +108,7 @@ public class Principal extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Empresas");
+		mntmNewMenuItem_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegistrarEmpresaVisual ev = new RegistrarEmpresaVisual();
@@ -103,9 +118,5 @@ public class Principal extends JFrame {
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
 	}
 }

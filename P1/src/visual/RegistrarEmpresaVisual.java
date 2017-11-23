@@ -26,6 +26,8 @@ import javax.swing.JSpinner;
 import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFormattedTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class RegistrarEmpresaVisual extends JDialog {
 
@@ -137,6 +139,16 @@ public class RegistrarEmpresaVisual extends JDialog {
 		panel_1.add(lblNombreEmpresa);
 		
 		txtNombreEmpresa = new JTextField();
+		txtNombreEmpresa.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
+					System.out.println("");
+				else {
+					JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Información", JOptionPane.WARNING_MESSAGE);
+					cleanNombre();}
+			}
+		});
 		txtNombreEmpresa.setBounds(66, 29, 151, 20);
 		panel_1.add(txtNombreEmpresa);
 		txtNombreEmpresa.setColumns(10);
@@ -217,5 +229,9 @@ public class RegistrarEmpresaVisual extends JDialog {
 	cbxArea.setSelectedIndex(0);
 	cbxPais.setSelectedIndex(0);
 	cbxCiudad.setSelectedIndex(0);
+	}
+	
+	public void cleanNombre(){
+		txtNombreEmpresa.setText(""+txtNombreEmpresa.getText().substring(0, txtNombreEmpresa.getText().length()-1));
 	}
 }

@@ -597,7 +597,7 @@ public class SolicitantesVisual extends JDialog {
 			JPanel panel_7 = new JPanel();
 			panel_7.setLayout(null);
 			panel_7.setBorder(new LineBorder(new Color(0, 0, 0)));
-			panel_7.setBounds(10, 436, 358, 191);
+			panel_7.setBounds(10, 431, 358, 196);
 			panel.add(panel_7);
 			
 			JLabel label_23 = new JLabel("Experiencia Laboral (Ultimo empleo):");
