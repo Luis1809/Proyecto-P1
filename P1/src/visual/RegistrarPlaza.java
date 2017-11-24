@@ -102,6 +102,9 @@ public class RegistrarPlaza extends JDialog {
 	private JPanel pObrero;
 	private JPanel pUniversitario;
 	private JPanel pTecnico;
+	private JCheckBox chbAnadirIdioma3;
+	private JCheckBox chbAnadirIdioma2;
+	private JCheckBox chbOtroObrero;
 	
 	public RegistrarPlaza() {
 		setResizable(false);
@@ -153,7 +156,7 @@ public class RegistrarPlaza extends JDialog {
 		cbxHabilidad.setBounds(82, 11, 226, 20);
 		pObrero.add(cbxHabilidad);
 		
-		JCheckBox chbOtroObrero = new JCheckBox("Otro?");
+		chbOtroObrero = new JCheckBox("Otro?");
 		chbOtroObrero.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chbOtroObrero.isSelected())
@@ -463,7 +466,7 @@ public class RegistrarPlaza extends JDialog {
 		btnLicenciaY.setBounds(37, 112, 54, 23);
 		panel_1.add(btnLicenciaY);
 		
-		JCheckBox chbAnadirIdioma2 = new JCheckBox("A\u00F1adir otro idioma");
+		chbAnadirIdioma2 = new JCheckBox("A\u00F1adir otro idioma");
 		chbAnadirIdioma2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chbAnadirIdioma2.isSelected())
@@ -490,7 +493,7 @@ public class RegistrarPlaza extends JDialog {
 		cbxIdioma2.setBounds(210, 109, 134, 20);
 		panel_1.add(cbxIdioma2);
 		
-		JCheckBox chbAnadirIdioma3 = new JCheckBox("A\u00F1adir otro idioma");
+		chbAnadirIdioma3 = new JCheckBox("A\u00F1adir otro idioma");
 		chbAnadirIdioma3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chbAnadirIdioma3.isSelected())
@@ -747,8 +750,8 @@ public class RegistrarPlaza extends JDialog {
 						if(btnUniversitario.isSelected()||btnObrero.isSelected()||btnTecnico.isSelected()){
 							if (tipo.equalsIgnoreCase("Universitario")){
 								if (cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCiudadSolicitada.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
-										cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
-										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxInstitucionUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCarreraUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
+										cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma2.isSelected()||
+										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma3.isSelected()||cbxInstitucionUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCarreraUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
 										){
 									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Información", JOptionPane.WARNING_MESSAGE);}
 								else{
@@ -762,8 +765,8 @@ public class RegistrarPlaza extends JDialog {
 							}
 							if (tipo.equalsIgnoreCase("Obrero")){
 								if (cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCiudadSolicitada.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
-										cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
-										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar")||cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar")
+										cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma2.isSelected()||
+										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma3.isSelected()||cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar")||cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar")&&chbOtroObrero.isSelected()
 										){
 									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Información", JOptionPane.WARNING_MESSAGE);}
 								else{
@@ -771,13 +774,12 @@ public class RegistrarPlaza extends JDialog {
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
 									//clean();
-								}
-								
+								}	
 							}
 							if (tipo.equalsIgnoreCase("Tecnico")){
 								if (cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCiudadSolicitada.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
-										cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
-										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxTecnico.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+										cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma2.isSelected()||
+										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma3.isSelected()||cbxTecnico.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
 									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Información", JOptionPane.WARNING_MESSAGE);}
 								else{
 									String tecnico = cbxTecnico.getSelectedItem().toString();	
