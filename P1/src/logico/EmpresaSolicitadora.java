@@ -13,7 +13,7 @@ public class EmpresaSolicitadora {
 	private String areaTrabajo;
 	private String RNC;
 	private ArrayList<Solicitudes>miSolicitudes;
-	private ArrayList<Solicitantes>miSolicitantes;
+	//private ArrayList<Solicitantes>miSolicitantes;
 	
 	public EmpresaSolicitadora(String nombreEmpresa, String emailEmpresa, String telefonoEmpresa,
 			String direccion, String ciudad, String paisEmpresa, String areaTrabajo, String rNC) {
@@ -27,7 +27,12 @@ public class EmpresaSolicitadora {
 		this.areaTrabajo = areaTrabajo;
 		RNC = rNC;
 		this.miSolicitudes = new ArrayList<>();
-		this.miSolicitantes = new ArrayList<>();
+		//this.miSolicitantes = new ArrayList<>();
+	}
+	
+	
+	public void insertarSolicitante(Solicitudes solic){
+		miSolicitudes.add(solic);
 	}
 	
 	public String getNombreEmpresa() {
@@ -79,12 +84,6 @@ public class EmpresaSolicitadora {
 	}
 	public void setMiSolicitudes(ArrayList<Solicitudes> miSolicitudes) {
 		this.miSolicitudes = miSolicitudes;
-	}
-	public ArrayList<Solicitantes> getMiSolicitantes() {
-		return miSolicitantes;
-	}
-	public void setMiSolicitantes(ArrayList<Solicitantes> miSolicitantes) {
-		this.miSolicitantes = miSolicitantes;
 	}
 
 	public String getCiudad() {

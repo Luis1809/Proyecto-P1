@@ -194,8 +194,12 @@ public class RegistrarEmpresaVisual extends JDialog {
 						EmpresaSolicitadora Es = new EmpresaSolicitadora(nombreEmpresa, emailEmpresa, telefonoEmpresa, direccion, ciudad, paisEmpresa, areaTrabajo, rNC);
 						
 						if (nombreEmpresa.equalsIgnoreCase("") || emailEmpresa.equalsIgnoreCase("") || telefonoEmpresa.equalsIgnoreCase("(   ) -   -    ")|| direccion.equalsIgnoreCase("")|| ciudad.equalsIgnoreCase("<Seleccionar>")
-								|| paisEmpresa.equalsIgnoreCase("<Seleccionar>")||areaTrabajo.equalsIgnoreCase("<Selecccionar>")||rNC.equalsIgnoreCase("")){
-							JOptionPane.showMessageDialog(null, "Completar todas las casillas", "Información", JOptionPane.WARNING_MESSAGE);
+								|| paisEmpresa.equalsIgnoreCase("<Seleccionar>")||areaTrabajo.equalsIgnoreCase("<Selecccionar>")||rNC.equalsIgnoreCase("         ")
+								||Bolsa.EmpresaRepetida(rNC)==true){
+							if (Bolsa.EmpresaRepetida(rNC)==true)
+								JOptionPane.showMessageDialog(null, "La empresa ya ha sido ingresado, verifique el RNC", "Información", JOptionPane.WARNING_MESSAGE);
+							else
+								JOptionPane.showMessageDialog(null, "Completar todas las casillas", "Información", JOptionPane.WARNING_MESSAGE);
 							//System.out.println(telefonoEmpresa);
 						}
 						else{

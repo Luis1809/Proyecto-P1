@@ -48,10 +48,10 @@ public class Bolsa {
 		return repetido;
 	}
 	
-	public static boolean EmpresaRepetida (String ced){
+	public static boolean EmpresaRepetida (String RNC){
 		boolean repetido = true;
-		Solicitantes s= null; 
-		s= buscarSolicitante(ced);
+		EmpresaSolicitadora s= null; 
+		s= buscarEmpresa(RNC);
 		if(s==null)
 			repetido=false;
 		return repetido;
@@ -280,11 +280,6 @@ public class Bolsa {
 							//porciento+=8.3333;
 					//}
 					
-					if(solEmp.getInstitucion().equalsIgnoreCase("N/A"))////////////////////////Institucion
-						porciento+=8.3333;
-					else
-						if(SolicitanteTecnico.getInstitucion().equalsIgnoreCase(solEmp.getInstitucion()))
-						porciento+=8.3333;		
 				}
 				if(porciento>=solEmp.porcientoAceptable){
 					plazas--;
