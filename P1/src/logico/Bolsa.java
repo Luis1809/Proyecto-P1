@@ -69,11 +69,11 @@ public class Bolsa {
 		return solic;	
 	}
 	
-	public static EmpresaSolicitadora buscarEmpresa(String nombre, String pais) {
+	public static EmpresaSolicitadora buscarEmpresa(String RNC) {
 		EmpresaSolicitadora Es=null;
 		if(miEmpresa.size()>0){
 			for(int i=0 ; i<miEmpresa.size();i++){
-				if (miEmpresa.get(i).getNombreEmpresa().equalsIgnoreCase(nombre)&&miEmpresa.get(i).getPaisEmpresa().equalsIgnoreCase(pais)){
+				if (miEmpresa.get(i).getRNC().equalsIgnoreCase(RNC)){
 					Es=miEmpresa.get(i);
 				}
 			}
