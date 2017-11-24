@@ -120,41 +120,43 @@ public class SolicitantesVisual extends JDialog {
     private JDateChooser Jcaldate;
     private static MaskFormatter formatoCedula;
 	private static MaskFormatter formatoNumero;
+	private JPanel panel_Principal;
+	private JPanel panel_Secundario;
+	private JPanel panel_3;
+	private JLabel lblIngresarSolicitante;
 	
 	public SolicitantesVisual() {
 		setResizable(false);
-		setBounds(100, 100, 810, 710);
+		setBounds(100, 100, 810, 542);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(new BorderLayout(0, 0));
 		{
 			JPanel panel = new JPanel();
+			panel.setBackground(new Color(255, 255, 255));
 			contentPanel.add(panel, BorderLayout.CENTER);
 			panel.setLayout(null);
 			
-			txtFechaSolicitud = new JTextField();
-			txtFechaSolicitud.setEditable(false);
-			txtFechaSolicitud.setText("  "+LocalDate.now().toString());
-			txtFechaSolicitud.setBounds(634, 11, 146, 26);
-			panel.add(txtFechaSolicitud);
-			txtFechaSolicitud.setColumns(10);
-			
-			JLabel lblFecha = new JLabel("Fecha de Solicitud:");
-			lblFecha.setBounds(501, 16, 123, 16);
-			panel.add(lblFecha);
+			panel_Principal = new JPanel();
+			panel_Principal.setBackground(new Color(255, 255, 255));
+			panel_Principal.setBounds(10, 63, 774, 397);
+			panel.add(panel_Principal);
+			panel_Principal.setLayout(null);
 			
 			JPanel panel_1 = new JPanel();
+			panel_1.setBackground(new Color(255, 255, 255));
+			panel_1.setBounds(178, 11, 582, 207);
+			panel_Principal.add(panel_1);
 			panel_1.setLayout(null);
 			panel_1.setBorder(new TitledBorder(null, "Datos Personales", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panel_1.setBounds(198, 48, 582, 207);
-			panel.add(panel_1);
 			
 			JLabel label = new JLabel("Nombres:");
 			label.setBounds(30, 30, 61, 16);
 			panel_1.add(label);
 			
 			txtNombre = new JTextField();
+			txtNombre.setBackground(new Color(211, 211, 211));
 			txtNombre.addKeyListener(new KeyAdapter() {
 				@Override
 				public void keyPressed(KeyEvent e) {
@@ -174,6 +176,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_1.add(label_1);
 			
 			txtApellido = new JTextField();
+			txtApellido.setBackground(new Color(211, 211, 211));
 			txtApellido.addKeyListener(new KeyAdapter() {
 				@Override
 				public void keyPressed(KeyEvent e) {
@@ -188,18 +191,12 @@ public class SolicitantesVisual extends JDialog {
 			txtApellido.setBounds(369, 28, 196, 20);
 			panel_1.add(txtApellido);
 			
-			try{
-				formatoCedula = new MaskFormatter("###-#######-#");//////////////////////////////////////
-				formatoNumero = new MaskFormatter("(###) -###-####");//////////////////////////////////////
-			}catch (Exception e){
-				e.printStackTrace();
-			}
-			
 			JLabel label_2 = new JLabel("Cedula:");
 			label_2.setBounds(30, 59, 61, 16);
 			panel_1.add(label_2);
 			
 			txtCedula = new JFormattedTextField(formatoCedula);
+			txtCedula.setBackground(new Color(211, 211, 211));
 			txtCedula.setColumns(10);
 			txtCedula.setBounds(101, 57, 177, 20);
 			panel_1.add(txtCedula);
@@ -213,16 +210,19 @@ public class SolicitantesVisual extends JDialog {
 			panel_1.add(label_4);
 			
 			txtTelefono = new JFormattedTextField(formatoNumero);
+			txtTelefono.setBackground(new Color(211, 211, 211));
 			txtTelefono.setColumns(10);
 			txtTelefono.setBounds(369, 59, 196, 20);
 			panel_1.add(txtTelefono);
 			
 			btnMasculino = new JRadioButton("Masculino");
+			btnMasculino.setBackground(new Color(255, 255, 255));
 			sexoMF.add(btnMasculino);
 			btnMasculino.setBounds(367, 115, 93, 23);
 			panel_1.add(btnMasculino);
 			
 			btnFemenino = new JRadioButton("Femenino");
+			btnFemenino.setBackground(new Color(255, 255, 255));
 			sexoMF.add(btnFemenino);
 			btnFemenino.setBounds(462, 115, 94, 23);
 			panel_1.add(btnFemenino);
@@ -236,6 +236,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_1.add(label_6);
 			
 			txtDireccion = new JTextField();
+			txtDireccion.setBackground(new Color(211, 211, 211));
 			txtDireccion.setColumns(10);
 			txtDireccion.setBounds(101, 86, 177, 20);
 			panel_1.add(txtDireccion);
@@ -245,11 +246,13 @@ public class SolicitantesVisual extends JDialog {
 			panel_1.add(lblPaisDeNacimiento);
 			
 			cbxNacionalidad = new JComboBox();
+			cbxNacionalidad.setBackground(new Color(211, 211, 211));
 			cbxNacionalidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Afganist\u00E1n\t", "Alemania\t", "Arabia Saudita\t", "Argentina\t", "Australia\t", "B\u00E9lgica\t", "Bolivia\t", "Brasil\t", "Camboya\t", "Canad\u00E1\t", "Chile\t", "China", "Colombia\t", "Corea\t", "Costa Rica", "Cuba\t", "Dinamarca\t", "Ecuador\t", "Egipto\t", "El Salvador\t", "Escocia\t", "Espa\u00F1a", "Estados Unidos\t", "Estonia\t", "Filipinas\t", "Francia\t", "Grecia", "Guatemala\t", "Hait\u00ED\t", "Holanda\t", "Honduras\t", "Indonesia\t", "Inglaterra\t", "Irak\t", "Ir\u00E1n", "Irlanda\t", "Israel\t", "Italia\t", "Jap\u00F3n\t", "Jordania\t", "Laos\t", "Letonia\t", "Lituania\t", "Malasia\t", "Marruecos\t", "M\u00E9xico\t", "Nicaragua\t", "Noruega\t", "Nueva Zelanda", "Panam\u00E1\t", "Paraguay\t", "Per\u00FA\t", "Polonia\t", "Portugal\t", "Puerto Rico", "Republica Dom.", "Rumania\t", "Rusia\t", "Suecia\t", "Suiza\t", "Tailandia\t", "Taiw\u00E1n\t", "Turqu\u00EDa\t", "Ucrania\t", "Uruguay\t", "Venezuela\t", "Vietnam"}));
 			cbxNacionalidad.setBounds(428, 172, 137, 20);
 			panel_1.add(cbxNacionalidad);
 			
 			cbxEstadoCivil = new JComboBox();
+			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
 			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
 			cbxEstadoCivil.setBounds(101, 172, 177, 20);
 			panel_1.add(cbxEstadoCivil);
@@ -259,6 +262,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_1.add(label_8);
 			
 			cbxCiudad = new JComboBox();
+			cbxCiudad.setBackground(new Color(211, 211, 211));
 			cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
 			cbxCiudad.setBounds(101, 116, 177, 20);
 			panel_1.add(cbxCiudad);
@@ -268,6 +272,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_1.add(label_9);
 			
 			cbxPais = new JComboBox();
+			cbxPais.setBackground(new Color(211, 211, 211));
 			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
 			cbxPais.setBounds(101, 145, 177, 20);
 			panel_1.add(cbxPais);
@@ -281,6 +286,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_1.add(label_11);
 			
 			txtEmail = new JTextField();
+			txtEmail.setBackground(new Color(211, 211, 211));
 			txtEmail.setColumns(10);
 			txtEmail.setBounds(369, 86, 196, 20);
 			panel_1.add(txtEmail);
@@ -290,12 +296,14 @@ public class SolicitantesVisual extends JDialog {
 			panel_1.add(Jcaldate);
 			
 			JPanel panel_2 = new JPanel();
+			panel_2.setBackground(new Color(255, 255, 255));
+			panel_2.setBounds(10, 229, 358, 154);
+			panel_Principal.add(panel_2);
 			panel_2.setLayout(null);
 			panel_2.setBorder(new TitledBorder(null, "Educacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panel_2.setBounds(10, 266, 358, 154);
-			panel.add(panel_2);
 			
 			pObrero = new JPanel();
+			pObrero.setBackground(new Color(255, 255, 255));
 			pObrero.setLayout(null);
 			pObrero.setBounds(6, 64, 314, 79);
 			panel_2.add(pObrero);
@@ -305,6 +313,8 @@ public class SolicitantesVisual extends JDialog {
 			pObrero.add(label_16);
 			
 			cbxHabilidad = new JComboBox();
+			cbxHabilidad.setBackground(new Color(211, 211, 211));
+			cbxHabilidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vededor"}));
 			cbxHabilidad.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(!cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("Seleccionar"))
@@ -315,6 +325,7 @@ public class SolicitantesVisual extends JDialog {
 			pObrero.add(cbxHabilidad);
 			
 			chckbxAadirOtro = new JCheckBox("Mas?");
+			chckbxAadirOtro.setBackground(new Color(255, 255, 255));
 			chckbxAadirOtro.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(chckbxAadirOtro.isSelected())
@@ -327,6 +338,7 @@ public class SolicitantesVisual extends JDialog {
 			pObrero.add(chckbxAadirOtro);
 			
 			cbxHabilidad2 = new JComboBox();
+			cbxHabilidad2.setBackground(new Color(211, 211, 211));
 			cbxHabilidad2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(!cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("Seleccionar"))
@@ -393,6 +405,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_2.add(label_17);
 			
 			btnUniversitario = new JRadioButton("Universitario");
+			btnUniversitario.setBackground(new Color(255, 255, 255));
 			btnUniversitario.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					pObrero.setVisible(false);
@@ -405,6 +418,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_2.add(btnUniversitario);
 			
 			btnTecnico = new JRadioButton("Tecnico");
+			btnTecnico.setBackground(new Color(255, 255, 255));
 			btnTecnico.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					pObrero.setVisible(false);
@@ -417,6 +431,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_2.add(btnTecnico);
 			
 			btnObrero = new JRadioButton("Obrero");
+			btnObrero.setBackground(new Color(255, 255, 255));
 			btnObrero.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					pObrero.setVisible(true);
@@ -432,11 +447,34 @@ public class SolicitantesVisual extends JDialog {
 			separator.setBounds(103, 25, 109, 12);
 			panel_2.add(separator);
 			
+			JLabel lblFecha = new JLabel("Fecha de Solicitud:");
+			lblFecha.setBounds(10, 10, 123, 16);
+			panel_Principal.add(lblFecha);
+			
+			txtFechaSolicitud = new JTextField();
+			txtFechaSolicitud.setBounds(20, 37, 146, 26);
+			panel_Principal.add(txtFechaSolicitud);
+			txtFechaSolicitud.setEditable(false);
+			txtFechaSolicitud.setText("  "+LocalDate.now().toString());
+			txtFechaSolicitud.setColumns(10);
+			
+			try{
+				formatoCedula = new MaskFormatter("###-#######-#");//////////////////////////////////////
+				formatoNumero = new MaskFormatter("(###) -###-####");//////////////////////////////////////
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			
+			panel_Secundario = new JPanel();
+			panel_Secundario.setBounds(10, 63, 774, 397);
+			panel.add(panel_Secundario);
+			panel_Secundario.setLayout(null);
+			
 			JPanel panel_6 = new JPanel();
+			panel_6.setBounds(2, 2, 402, 361);
+			panel_Secundario.add(panel_6);
 			panel_6.setLayout(null);
 			panel_6.setBorder(new TitledBorder(null, "Datos de solicitud", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panel_6.setBounds(378, 266, 402, 361);
-			panel.add(panel_6);
 			
 			JLabel label_18 = new JLabel("Disponibilidad de Mudarse:");
 			label_18.setFont(new Font("Dialog", Font.BOLD, 13));
@@ -595,10 +633,10 @@ public class SolicitantesVisual extends JDialog {
 			panel_6.add(btnViajarN);
 			
 			JPanel panel_7 = new JPanel();
+			panel_7.setBounds(414, 7, 353, 196);
+			panel_Secundario.add(panel_7);
 			panel_7.setLayout(null);
 			panel_7.setBorder(new LineBorder(new Color(0, 0, 0)));
-			panel_7.setBounds(10, 431, 358, 196);
-			panel.add(panel_7);
 			
 			JLabel label_23 = new JLabel("Experiencia Laboral (Ultimo empleo):");
 			label_23.setFont(new Font("Dialog", Font.BOLD, 13));
@@ -663,9 +701,22 @@ public class SolicitantesVisual extends JDialog {
 			spnTiempoExperiencia.setModel(new SpinnerNumberModel(1, 1, 50, 1));
 			spnTiempoExperiencia.setBounds(244, 74, 101, 20);
 			panel_7.add(spnTiempoExperiencia);
+			
+			panel_3 = new JPanel();
+			panel_3.setLayout(null);
+			panel_3.setBackground(new Color(220, 20, 60));
+			panel_3.setBounds(0, 0, 794, 50);
+			panel.add(panel_3);
+			
+			lblIngresarSolicitante = new JLabel("Ingresar Solicitante");
+			lblIngresarSolicitante.setForeground(Color.WHITE);
+			lblIngresarSolicitante.setFont(new Font("Cambria", Font.PLAIN, 27));
+			lblIngresarSolicitante.setBounds(285, 0, 231, 46);
+			panel_3.add(lblIngresarSolicitante);
 		}
 		{
 			JPanel buttonPane = new JPanel();
+			buttonPane.setBackground(new Color(220, 20, 60));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
@@ -809,6 +860,28 @@ public class SolicitantesVisual extends JDialog {
 						dispose();
 					}
 				});
+				
+				panel_Secundario.setVisible(false);
+				
+				JButton btnPag = new JButton("Pagina Anterior <");
+				btnPag.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						panel_Principal.setVisible(true);
+						panel_Secundario.setVisible(false);
+					}
+				});
+				btnPag.setActionCommand("Cancel");
+				buttonPane.add(btnPag);
+				
+				JButton btnPag_1 = new JButton("> Pagina Siguiente ");
+				btnPag_1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						panel_Principal.setVisible(false);
+						panel_Secundario.setVisible(true);
+					}
+				});
+				btnPag_1.setActionCommand("Cancel");
+				buttonPane.add(btnPag_1);
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}

@@ -89,13 +89,13 @@ public class Principal extends JFrame {
 		menuBar.setBackground(new Color(178, 34, 34));
 		menuBar.setForeground(new Color(220, 20, 60));
 		
-		JMenu mnNewMenu = new JMenu("Registro");
+		JMenu mnNewMenu = new JMenu("Ingresar datos");
 		mnNewMenu.setBackground(new Color(0, 0, 0));
 		mnNewMenu.setForeground(new Color(255, 255, 255));
 		mnNewMenu.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Solicitantes");
+		JMenuItem mntmNewMenuItem = new JMenuItem("Solicitantes         ");
 		mntmNewMenuItem.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -118,5 +118,23 @@ public class Principal extends JFrame {
 			}
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		JMenu mnNewMenu_2 = new JMenu("Solicitudes");
+		mnNewMenu_2.setForeground(new Color(255, 255, 255));
+		mnNewMenu_2.setBackground(new Color(0, 0, 0));
+		mnNewMenu_2.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		menuBar.add(mnNewMenu_2);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Nueva solicitud");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RegistrarPlaza rp = new RegistrarPlaza();
+				rp.setModal(true);
+				rp.setLocationRelativeTo(null);
+				rp.setVisible(true);
+			}
+		});
+		mntmNewMenuItem_2.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		mnNewMenu_2.add(mntmNewMenuItem_2);
 	}
 }
