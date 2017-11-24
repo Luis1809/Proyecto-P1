@@ -138,6 +138,33 @@ public class RegistrarPlaza extends JDialog {
 		panel_4.setBackground(new Color(255, 255, 255));
 		panel_4.setLayout(null);
 		
+		pUniversitario = new JPanel();
+		pUniversitario.setBackground(new Color(255, 255, 255));
+		pUniversitario.setBounds(10, 64, 318, 73);
+		panel_4.add(pUniversitario);
+		pUniversitario.setLayout(null);
+		
+		JLabel label_3 = new JLabel("Institucion:");
+		label_3.setBounds(10, 17, 84, 16);
+		pUniversitario.add(label_3);
+		
+		cbxInstitucionUni = new JComboBox();
+		cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
+		cbxInstitucionUni.setBackground(new Color(211, 211, 211));
+		cbxInstitucionUni.setBounds(86, 11, 222, 20);
+		pUniversitario.add(cbxInstitucionUni);
+		
+		JLabel label_9 = new JLabel("Carrera:");
+		label_9.setBounds(10, 44, 61, 16);
+		pUniversitario.add(label_9);
+		
+		cbxCarreraUni = new JComboBox();
+		cbxCarreraUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
+		cbxCarreraUni.setBackground(new Color(211, 211, 211));
+		cbxCarreraUni.setBounds(86, 42, 222, 20);
+		pUniversitario.add(cbxCarreraUni);
+		pUniversitario.setVisible(false);
+		
 		pObrero = new JPanel();
 		pObrero.setBackground(new Color(255, 255, 255));
 		pObrero.setBounds(10, 64, 318, 73);
@@ -239,33 +266,6 @@ public class RegistrarPlaza extends JDialog {
 		btnObrero.setBounds(233, 34, 76, 23);
 		panel_4.add(btnObrero);
 		pTecnico.setVisible(false);
-		
-		pUniversitario = new JPanel();
-		pUniversitario.setBackground(new Color(255, 255, 255));
-		pUniversitario.setBounds(10, 64, 318, 73);
-		panel_4.add(pUniversitario);
-		pUniversitario.setLayout(null);
-		
-		JLabel label_3 = new JLabel("Institucion:");
-		label_3.setBounds(10, 17, 84, 16);
-		pUniversitario.add(label_3);
-		
-		cbxInstitucionUni = new JComboBox();
-		cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
-		cbxInstitucionUni.setBackground(new Color(211, 211, 211));
-		cbxInstitucionUni.setBounds(86, 11, 222, 20);
-		pUniversitario.add(cbxInstitucionUni);
-		
-		JLabel label_9 = new JLabel("Carrera:");
-		label_9.setBounds(10, 44, 61, 16);
-		pUniversitario.add(label_9);
-		
-		cbxCarreraUni = new JComboBox();
-		cbxCarreraUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
-		cbxCarreraUni.setBackground(new Color(211, 211, 211));
-		cbxCarreraUni.setBounds(86, 42, 222, 20);
-		pUniversitario.add(cbxCarreraUni);
-		pUniversitario.setVisible(false);
 		{
 			JPanel panelinfo = new JPanel();
 			panelinfo.setBounds(313, 11, 329, 148);
@@ -572,7 +572,7 @@ public class RegistrarPlaza extends JDialog {
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_2.setLayout(null);
 		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(0, 47, 677, 108);
+		panel_2.setBounds(0, 47, 675, 108);
 		contentPanel.add(panel_2);
 		
 		JLabel lblIngreseRnc = new JLabel("Ingrese el RNC :");

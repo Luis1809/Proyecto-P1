@@ -136,5 +136,17 @@ public class Principal extends JFrame {
 		});
 		mntmNewMenuItem_2.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mnNewMenu_2.add(mntmNewMenuItem_2);
+		
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Matching");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Macheo A = new Macheo();
+				A.setModal(true);
+				A.setLocationRelativeTo(null);
+				A.setVisible(true);
+			}
+		});
+		mntmNewMenuItem_3.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		mnNewMenu_2.add(mntmNewMenuItem_3);
 	}
 }
