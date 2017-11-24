@@ -32,12 +32,14 @@ import javax.swing.SpinnerNumberModel;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 public class RegistrarPlaza extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField txtPocientoAceptable;
+	private JSpinner txtPocientoAceptable;
 	private JTextField txtnombreEmpresa;
 	private JTextField txtciudadEmpresa;
 	private JFormattedTextField txttelefonoEmpresa;
@@ -48,7 +50,6 @@ public class RegistrarPlaza extends JDialog {
 	private JButton btnPag_1;
 	private final ButtonGroup btnGroupSexo = new ButtonGroup();
 	private final ButtonGroup btnGroupNivelEducativo = new ButtonGroup();
-	private JTextField txtIntitucionTecnico;
 	private static MaskFormatter formatoCedula;
     private static MaskFormatter formatoNumero;
 	private static MaskFormatter formatoRNC;
@@ -85,10 +86,13 @@ public class RegistrarPlaza extends JDialog {
 	private JButton btnBuscar;
 	private EmpresaSolicitadora miEmpresa;
 	private JTextField txtAreaEmpresa;
+	private final ButtonGroup btnGroupMudarse = new ButtonGroup();
+	private final ButtonGroup btnGroupLicencia = new ButtonGroup();
+	private final ButtonGroup btnGroupViajar = new ButtonGroup();
+	private final ButtonGroup btnGroupJornada = new ButtonGroup();
 	
 	public RegistrarPlaza() {
 		setResizable(false);
-		setTitle("Registrar Empleo");
 		setBounds(100, 100, 681, 598);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
@@ -124,11 +128,11 @@ public class RegistrarPlaza extends JDialog {
 		lblPorcientoAceptable.setBounds(24, 34, 126, 14);
 		panelPlazaAreaDeExperiencia.add(lblPorcientoAceptable);
 		
-		txtPocientoAceptable = new JTextField();
+		txtPocientoAceptable = new JSpinner();
+		txtPocientoAceptable.setModel(new SpinnerNumberModel(1, 1, 100, 1));
 		txtPocientoAceptable.setBackground(new Color(211, 211, 211));
 		txtPocientoAceptable.setBounds(157, 31, 126, 20);
 		panelPlazaAreaDeExperiencia.add(txtPocientoAceptable);
-		txtPocientoAceptable.setColumns(10);
 		
 		JLabel lblPlaza = new JLabel("Plazas:");
 		lblPlaza.setBounds(24, 68, 46, 14);
@@ -177,11 +181,13 @@ public class RegistrarPlaza extends JDialog {
 		panel_1.add(separator_2);
 		
 		btnMudarseY = new JRadioButton("Si");
+		btnGroupMudarse.add(btnMudarseY);
 		btnMudarseY.setBackground(new Color(255, 255, 255));
 		btnMudarseY.setBounds(37, 58, 54, 23);
 		panel_1.add(btnMudarseY);
 		
 		btnMudarseN = new JRadioButton("No");
+		btnGroupMudarse.add(btnMudarseN);
 		btnMudarseN.setBackground(new Color(255, 255, 255));
 		btnMudarseN.setBounds(93, 58, 54, 23);
 		panel_1.add(btnMudarseN);
@@ -191,17 +197,20 @@ public class RegistrarPlaza extends JDialog {
 		panel_1.add(label_4);
 		
 		cbxIdioma1 = new JComboBox();
+		cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
 		cbxIdioma1.setBackground(new Color(211, 211, 211));
 		cbxIdioma1.setEditable(true);
 		cbxIdioma1.setBounds(210, 52, 134, 20);
 		panel_1.add(cbxIdioma1);
 		
 		btnLicenciaN = new JRadioButton("No");
+		btnGroupLicencia.add(btnLicenciaN);
 		btnLicenciaN.setBackground(new Color(255, 255, 255));
 		btnLicenciaN.setBounds(93, 112, 54, 23);
 		panel_1.add(btnLicenciaN);
 		
 		btnLicenciaY = new JRadioButton("Si");
+		btnGroupLicencia.add(btnLicenciaY);
 		btnLicenciaY.setBackground(new Color(255, 255, 255));
 		btnLicenciaY.setBounds(37, 112, 54, 23);
 		panel_1.add(btnLicenciaY);
@@ -220,6 +229,7 @@ public class RegistrarPlaza extends JDialog {
 		panel_1.add(chbAnadirIdioma2);
 		
 		cbxIdioma2 = new JComboBox();
+		cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
 		cbxIdioma2.setBackground(new Color(211, 211, 211));
 		cbxIdioma2.setEnabled(false);
 		cbxIdioma2.setBounds(210, 109, 134, 20);
@@ -239,6 +249,7 @@ public class RegistrarPlaza extends JDialog {
 		panel_1.add(chbAnadirIdioma3);
 		
 		cbxIdioma3 = new JComboBox();
+		cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
 		cbxIdioma3.setBackground(new Color(211, 211, 211));
 		cbxIdioma3.setEnabled(false);
 		cbxIdioma3.setBounds(210, 167, 134, 20);
@@ -249,11 +260,13 @@ public class RegistrarPlaza extends JDialog {
 		panel_1.add(label_8);
 		
 		bntDispViajarY = new JRadioButton("Si");
+		btnGroupViajar.add(bntDispViajarY);
 		bntDispViajarY.setBackground(new Color(255, 255, 255));
 		bntDispViajarY.setBounds(37, 164, 54, 23);
 		panel_1.add(bntDispViajarY);
 		
 		bntDispViajarN = new JRadioButton("No");
+		btnGroupViajar.add(bntDispViajarN);
 		bntDispViajarN.setBackground(new Color(255, 255, 255));
 		bntDispViajarN.setBounds(93, 164, 54, 23);
 		panel_1.add(bntDispViajarN);
@@ -267,11 +280,13 @@ public class RegistrarPlaza extends JDialog {
 		panel_1.add(separator_1);
 		
 		btnMedioTiempo = new JRadioButton("Medio Tiempo");
+		btnGroupJornada.add(btnMedioTiempo);
 		btnMedioTiempo.setBackground(new Color(255, 255, 255));
 		btnMedioTiempo.setBounds(33, 213, 120, 23);
 		panel_1.add(btnMedioTiempo);
 		
 		btnTiempoCompleto = new JRadioButton("Tiempo Completo");
+		btnGroupJornada.add(btnTiempoCompleto);
 		btnTiempoCompleto.setBackground(new Color(255, 255, 255));
 		btnTiempoCompleto.setBounds(167, 213, 126, 23);
 		panel_1.add(btnTiempoCompleto);
@@ -301,6 +316,74 @@ public class RegistrarPlaza extends JDialog {
 		panel_principal.add(panel_4);
 		panel_4.setBackground(new Color(255, 255, 255));
 		panel_4.setLayout(null);
+		
+		JPanel pUniversitario = new JPanel();
+		pUniversitario.setBackground(new Color(255, 255, 255));
+		pUniversitario.setBounds(10, 64, 318, 73);
+		panel_4.add(pUniversitario);
+		pUniversitario.setLayout(null);
+		
+		JLabel label_3 = new JLabel("Institucion:");
+		label_3.setBounds(10, 17, 84, 16);
+		pUniversitario.add(label_3);
+		
+		cbxInstitucionUni = new JComboBox();
+		cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", " N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
+		cbxInstitucionUni.setBackground(new Color(211, 211, 211));
+		cbxInstitucionUni.setBounds(86, 11, 222, 20);
+		pUniversitario.add(cbxInstitucionUni);
+		
+		JLabel label_9 = new JLabel("Carrera:");
+		label_9.setBounds(10, 44, 61, 16);
+		pUniversitario.add(label_9);
+		
+		cbxCarreraUni = new JComboBox();
+		cbxCarreraUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
+		cbxCarreraUni.setBackground(new Color(211, 211, 211));
+		cbxCarreraUni.setBounds(86, 42, 222, 20);
+		pUniversitario.add(cbxCarreraUni);
+		
+		JPanel pTecnico = new JPanel();
+		pTecnico.setBackground(new Color(255, 255, 255));
+		pTecnico.setBounds(10, 64, 318, 73);
+		panel_4.add(pTecnico);
+		pTecnico.setLayout(null);
+		
+		JLabel lblTecnico = new JLabel("Tecnico:");
+		lblTecnico.setBounds(10, 27, 61, 16);
+		pTecnico.add(lblTecnico);
+		
+		cbxTecnico = new JComboBox();
+		cbxTecnico.setBackground(new Color(211, 211, 211));
+		cbxTecnico.setBounds(86, 25, 222, 20);
+		pTecnico.add(cbxTecnico);
+		
+		JLabel label = new JLabel("Nivel educativo:");
+		label.setFont(new Font("Dialog", Font.BOLD, 13));
+		label.setBounds(92, 11, 115, 16);
+		panel_4.add(label);
+		
+		JSeparator separator_4 = new JSeparator();
+		separator_4.setBounds(92, 25, 109, 12);
+		panel_4.add(separator_4);
+		
+		btnUniversitario = new JRadioButton("Universitario");
+		btnGroupNivelEducativo.add(btnUniversitario);
+		btnUniversitario.setBackground(Color.WHITE);
+		btnUniversitario.setBounds(21, 34, 115, 23);
+		panel_4.add(btnUniversitario);
+		
+		btnTecnico = new JRadioButton("Tecnico");
+		btnGroupNivelEducativo.add(btnTecnico);
+		btnTecnico.setBackground(Color.WHITE);
+		btnTecnico.setBounds(138, 34, 93, 23);
+		panel_4.add(btnTecnico);
+		
+		btnObrero = new JRadioButton("Obrero");
+		btnGroupNivelEducativo.add(btnObrero);
+		btnObrero.setBackground(Color.WHITE);
+		btnObrero.setBounds(233, 34, 76, 23);
+		panel_4.add(btnObrero);
 		
 		JPanel pObrero = new JPanel();
 		pObrero.setBackground(new Color(255, 255, 255));
@@ -335,81 +418,6 @@ public class RegistrarPlaza extends JDialog {
 		cbxHabilidad2.setBackground(new Color(211, 211, 211));
 		cbxHabilidad2.setBounds(82, 42, 226, 20);
 		pObrero.add(cbxHabilidad2);
-		
-		JPanel pTecnico = new JPanel();
-		pTecnico.setBackground(new Color(255, 255, 255));
-		pTecnico.setBounds(10, 64, 318, 73);
-		panel_4.add(pTecnico);
-		pTecnico.setLayout(null);
-		
-		JLabel label_10 = new JLabel("Institucion:");
-		label_10.setBounds(10, 17, 84, 16);
-		pTecnico.add(label_10);
-		
-		JLabel lblTecnico = new JLabel("Tecnico:");
-		lblTecnico.setBounds(10, 44, 61, 16);
-		pTecnico.add(lblTecnico);
-		
-		cbxTecnico = new JComboBox();
-		cbxTecnico.setBackground(new Color(211, 211, 211));
-		cbxTecnico.setBounds(86, 42, 222, 20);
-		pTecnico.add(cbxTecnico);
-		
-		txtIntitucionTecnico = new JTextField();
-		txtIntitucionTecnico.setBounds(86, 11, 222, 20);
-		pTecnico.add(txtIntitucionTecnico);
-		txtIntitucionTecnico.setColumns(10);
-		
-		JPanel pUniversitario = new JPanel();
-		pUniversitario.setBackground(new Color(255, 255, 255));
-		pUniversitario.setBounds(10, 64, 318, 73);
-		panel_4.add(pUniversitario);
-		pUniversitario.setLayout(null);
-		
-		JLabel label_3 = new JLabel("Institucion:");
-		label_3.setBounds(10, 17, 84, 16);
-		pUniversitario.add(label_3);
-		
-		cbxInstitucionUni = new JComboBox();
-		cbxInstitucionUni.setBackground(new Color(211, 211, 211));
-		cbxInstitucionUni.setBounds(86, 11, 222, 20);
-		pUniversitario.add(cbxInstitucionUni);
-		
-		JLabel label_9 = new JLabel("Carrera:");
-		label_9.setBounds(10, 44, 61, 16);
-		pUniversitario.add(label_9);
-		
-		cbxCarreraUni = new JComboBox();
-		cbxCarreraUni.setBackground(new Color(211, 211, 211));
-		cbxCarreraUni.setBounds(86, 42, 222, 20);
-		pUniversitario.add(cbxCarreraUni);
-		
-		JLabel label = new JLabel("Nivel educativo:");
-		label.setFont(new Font("Dialog", Font.BOLD, 13));
-		label.setBounds(92, 11, 115, 16);
-		panel_4.add(label);
-		
-		JSeparator separator_4 = new JSeparator();
-		separator_4.setBounds(92, 25, 109, 12);
-		panel_4.add(separator_4);
-		
-		btnUniversitario = new JRadioButton("Universitario");
-		btnGroupNivelEducativo.add(btnUniversitario);
-		btnUniversitario.setBackground(Color.WHITE);
-		btnUniversitario.setBounds(21, 34, 115, 23);
-		panel_4.add(btnUniversitario);
-		
-		btnTecnico = new JRadioButton("Tecnico");
-		btnGroupNivelEducativo.add(btnTecnico);
-		btnTecnico.setBackground(Color.WHITE);
-		btnTecnico.setBounds(138, 34, 93, 23);
-		panel_4.add(btnTecnico);
-		
-		btnObrero = new JRadioButton("Obrero");
-		btnGroupNivelEducativo.add(btnObrero);
-		btnObrero.setBackground(Color.WHITE);
-		btnObrero.setBounds(233, 34, 76, 23);
-		panel_4.add(btnObrero);
 		{
 			JPanel panelinfo = new JPanel();
 			panelinfo.setBounds(313, 11, 329, 148);
@@ -445,6 +453,7 @@ public class RegistrarPlaza extends JDialog {
 			panelinfo.add(label_12);
 			
 			cbxCuidadSolicitada = new JComboBox();
+			cbxCuidadSolicitada.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
 			cbxCuidadSolicitada.setBackground(new Color(211, 211, 211));
 			cbxCuidadSolicitada.setBounds(104, 51, 207, 20);
 			panelinfo.add(cbxCuidadSolicitada);
@@ -454,6 +463,7 @@ public class RegistrarPlaza extends JDialog {
 			panelinfo.add(label_1_1);
 			
 			cbxPais = new JComboBox();
+			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
 			cbxPais.setBackground(new Color(211, 211, 211));
 			cbxPais.setBounds(104, 80, 207, 20);
 			panelinfo.add(cbxPais);
@@ -463,6 +473,7 @@ public class RegistrarPlaza extends JDialog {
 			panelinfo.add(label_2_1);
 			
 			cbxEstadoCivil = new JComboBox();
+			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
 			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
 			cbxEstadoCivil.setBounds(104, 107, 207, 20);
 			panelinfo.add(cbxEstadoCivil);
@@ -480,6 +491,7 @@ public class RegistrarPlaza extends JDialog {
 		panellaborlal.add(label_2);
 		
 		cbxAreaTrabajo = new JComboBox();
+		cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
 		cbxAreaTrabajo.setBackground(new Color(211, 211, 211));
 		cbxAreaTrabajo.setBounds(127, 34, 142, 20);
 		panellaborlal.add(cbxAreaTrabajo);
@@ -500,10 +512,10 @@ public class RegistrarPlaza extends JDialog {
 		panel_2.setBounds(0, 47, 677, 108);
 		contentPanel.add(panel_2);
 		
-		JLabel lblIngreseRnc = new JLabel("Ingrese RNC :");
+		JLabel lblIngreseRnc = new JLabel("Ingrese el RNC :");
 		lblIngreseRnc.setBackground(new Color(255, 255, 255));
 		lblIngreseRnc.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblIngreseRnc.setBounds(24, 11, 177, 28);
+		lblIngreseRnc.setBounds(10, 11, 191, 28);
 		panel_2.add(lblIngreseRnc);
 		
 		txtRNC = new JFormattedTextField(formatoRNC);

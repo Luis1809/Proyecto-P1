@@ -550,34 +550,6 @@ public class SolicitantesVisual extends JDialog {
 			panel_2.setLayout(null);
 			panel_2.setBorder(new TitledBorder(null, "Educacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			
-			pTecnico = new JPanel();
-			pTecnico.setBackground(new Color(255, 255, 255));
-			pTecnico.setLayout(null);
-			pTecnico.setBounds(6, 64, 314, 79);
-			panel_2.add(pTecnico);
-			
-			JLabel label_14 = new JLabel("Institucion:");
-			label_14.setBounds(6, 20, 84, 16);
-			pTecnico.add(label_14);
-			
-			txtInstitucionTecnico = new JTextField();
-			txtInstitucionTecnico.setBackground(new Color(211, 211, 211));
-			txtInstitucionTecnico.setColumns(10);
-			txtInstitucionTecnico.setBounds(82, 14, 222, 20);
-			pTecnico.add(txtInstitucionTecnico);
-			
-			JLabel label_15 = new JLabel("Tecnico:");
-			label_15.setBounds(6, 47, 61, 16);
-			pTecnico.add(label_15);
-			
-			cbxTecnico = new JComboBox();
-			cbxTecnico.setBackground(new Color(211, 211, 211));
-			cbxTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Concentraciones:", "Operaciones", "Finanzas", "Estrategia", "Creaci\u00F3n y Desarrollo de Nuevos Negocios", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "Concentraciones:", "\u200BAlimentos y Bebidas", "Mercadeo Hotelero\u200B\u200B", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "Concentraciones\u200B:\u200B\u200B", "Producci\u00F3n Audiovisual", "Comunicaci\u00F3n Corporativa", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "Electronica", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "Orientaciones:"}));
-			cbxTecnico.setBounds(82, 45, 222, 20);
-			pTecnico.add(cbxTecnico);
-			
-			pTecnico.setVisible(false);
-			
 			pUniversitario = new JPanel();
 			pUniversitario.setBackground(new Color(255, 255, 255));
 			pUniversitario.setLayout(null);
@@ -604,6 +576,33 @@ public class SolicitantesVisual extends JDialog {
 			cbxInstitucionUni.setBounds(82, 14, 222, 20);
 			pUniversitario.add(cbxInstitucionUni);
 			pUniversitario.setVisible(false);
+			
+			pTecnico = new JPanel();
+			pTecnico.setBackground(new Color(255, 255, 255));
+			pTecnico.setLayout(null);
+			pTecnico.setBounds(6, 64, 314, 79);
+			panel_2.add(pTecnico);
+			
+			JLabel label_14 = new JLabel("Institucion:");
+			label_14.setBounds(6, 20, 84, 16);
+			pTecnico.add(label_14);
+			
+			txtInstitucionTecnico = new JTextField();
+			txtInstitucionTecnico.setBackground(new Color(211, 211, 211));
+			txtInstitucionTecnico.setColumns(10);
+			txtInstitucionTecnico.setBounds(82, 14, 222, 20);
+			pTecnico.add(txtInstitucionTecnico);
+			
+			JLabel label_15 = new JLabel("Tecnico:");
+			label_15.setBounds(6, 47, 61, 16);
+			pTecnico.add(label_15);
+			
+			cbxTecnico = new JComboBox();
+			cbxTecnico.setBackground(new Color(211, 211, 211));
+			cbxTecnico.setBounds(82, 45, 222, 20);
+			pTecnico.add(cbxTecnico);
+			
+			pTecnico.setVisible(false);
 			
 			pObrero = new JPanel();
 			pObrero.setBackground(new Color(255, 255, 255));
