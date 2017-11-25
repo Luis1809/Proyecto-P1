@@ -17,6 +17,10 @@ import javax.swing.border.LineBorder;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+
+import logico.Bolsa;
+import logico.EmpresaSolicitadora;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
@@ -27,14 +31,16 @@ import javax.swing.JSeparator;
 public class Macheo extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtNombreEmpresa;
+	private JTextField txtCiudadEmpresa;
 	private JTable table;
-	private JTextField textField_2;
-	private JTextField textField_4;
+	private JTextField txtSalarioSolicitado;
+	private JTextField txtPlaza;
 	private JTextField textField_6;
-	private JTextField textField_3;
-	private JTextField textField_5;
+	private JTextField txtPorcientoAceptable;
+	private JTextField txtCiudadSolicitud;
+	private JFormattedTextField txtRNC;
+	private JFormattedTextField txtTelefono;
 
 	/**
 	 * Launch the application.
@@ -91,15 +97,27 @@ public class Macheo extends JDialog {
 				panel_1.add(label);
 			}
 			{
-				JFormattedTextField formattedTextField = new JFormattedTextField();
-				formattedTextField.setForeground(Color.BLACK);
-				formattedTextField.setColumns(10);
-				formattedTextField.setBackground(new Color(211, 211, 211));
-				formattedTextField.setBounds(164, 18, 158, 20);
-				panel_1.add(formattedTextField);
+				txtRNC = new JFormattedTextField();
+				txtRNC.setForeground(Color.BLACK);
+				txtRNC.setColumns(10);
+				txtRNC.setBackground(new Color(211, 211, 211));
+				txtRNC.setBounds(164, 18, 158, 20);
+				panel_1.add(txtRNC);
 			}
 			{
 				JButton button = new JButton("Buscar");
+				button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+					String RNC;	
+					RNC=txtRNC.getText();
+						cargarDatos(RNC);
+						
+						
+						
+						
+					}
+				});
 				button.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				button.setActionCommand("OK");
 				button.setBounds(218, 42, 104, 27);
@@ -112,13 +130,13 @@ public class Macheo extends JDialog {
 				panel_1.add(label);
 			}
 			{
-				textField = new JTextField();
-				textField.setForeground(Color.BLACK);
-				textField.setEditable(false);
-				textField.setColumns(10);
-				textField.setBackground(new Color(211, 211, 211));
-				textField.setBounds(438, 18, 177, 20);
-				panel_1.add(textField);
+				txtNombreEmpresa = new JTextField();
+				txtNombreEmpresa.setForeground(Color.BLACK);
+				txtNombreEmpresa.setEditable(false);
+				txtNombreEmpresa.setColumns(10);
+				txtNombreEmpresa.setBackground(new Color(211, 211, 211));
+				txtNombreEmpresa.setBounds(438, 18, 177, 20);
+				panel_1.add(txtNombreEmpresa);
 			}
 			{
 				JLabel label = new JLabel("Telefono:");
@@ -127,13 +145,13 @@ public class Macheo extends JDialog {
 				panel_1.add(label);
 			}
 			{
-				textField_1 = new JTextField();
-				textField_1.setForeground(Color.BLACK);
-				textField_1.setEditable(false);
-				textField_1.setColumns(10);
-				textField_1.setBackground(new Color(211, 211, 211));
-				textField_1.setBounds(438, 45, 177, 20);
-				panel_1.add(textField_1);
+				txtCiudadEmpresa = new JTextField();
+				txtCiudadEmpresa.setForeground(Color.BLACK);
+				txtCiudadEmpresa.setEditable(false);
+				txtCiudadEmpresa.setColumns(10);
+				txtCiudadEmpresa.setBackground(new Color(211, 211, 211));
+				txtCiudadEmpresa.setBounds(438, 45, 177, 20);
+				panel_1.add(txtCiudadEmpresa);
 			}
 			{
 				JLabel label = new JLabel("Ciudad:");
@@ -142,13 +160,13 @@ public class Macheo extends JDialog {
 				panel_1.add(label);
 			}
 			{
-				JFormattedTextField formattedTextField = new JFormattedTextField();
-				formattedTextField.setForeground(Color.BLACK);
-				formattedTextField.setEditable(false);
-				formattedTextField.setColumns(10);
-				formattedTextField.setBackground(new Color(211, 211, 211));
-				formattedTextField.setBounds(438, 73, 177, 20);
-				panel_1.add(formattedTextField);
+				txtTelefono = new JFormattedTextField();
+				txtTelefono.setForeground(Color.BLACK);
+				txtTelefono.setEditable(false);
+				txtTelefono.setColumns(10);
+				txtTelefono.setBackground(new Color(211, 211, 211));
+				txtTelefono.setBounds(438, 73, 177, 20);
+				panel_1.add(txtTelefono);
 			}
 		}
 		{
@@ -177,29 +195,29 @@ public class Macheo extends JDialog {
 		contentPanel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		textField_2 = new JTextField();
-		textField_2.setForeground(new Color(0, 0, 0));
-		textField_2.setEditable(false);
-		textField_2.setColumns(10);
-		textField_2.setBackground(new Color(255, 255, 255));
-		textField_2.setBounds(506, 93, 140, 20);
-		panel_1.add(textField_2);
+		txtSalarioSolicitado = new JTextField();
+		txtSalarioSolicitado.setForeground(new Color(0, 0, 0));
+		txtSalarioSolicitado.setEditable(false);
+		txtSalarioSolicitado.setColumns(10);
+		txtSalarioSolicitado.setBackground(new Color(255, 255, 255));
+		txtSalarioSolicitado.setBounds(506, 93, 140, 20);
+		panel_1.add(txtSalarioSolicitado);
 		
-		textField_4 = new JTextField();
-		textField_4.setForeground(new Color(0, 0, 0));
-		textField_4.setEditable(false);
-		textField_4.setColumns(10);
-		textField_4.setBackground(new Color(255, 255, 255));
-		textField_4.setBounds(130, 93, 188, 20);
-		panel_1.add(textField_4);
+		txtPlaza = new JTextField();
+		txtPlaza.setForeground(new Color(0, 0, 0));
+		txtPlaza.setEditable(false);
+		txtPlaza.setColumns(10);
+		txtPlaza.setBackground(new Color(255, 255, 255));
+		txtPlaza.setBounds(130, 93, 188, 20);
+		panel_1.add(txtPlaza);
 		
 		JLabel lblSolicitudDe = new JLabel("Solicitud de:");
 		lblSolicitudDe.setBounds(13, 34, 110, 14);
 		panel_1.add(lblSolicitudDe);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(130, 31, 188, 20);
-		panel_1.add(comboBox);
+		JComboBox cbxSolicitudTipo = new JComboBox();
+		cbxSolicitudTipo.setBounds(130, 31, 188, 20);
+		panel_1.add(cbxSolicitudTipo);
 		
 		JLabel label_5 = new JLabel("Fecha:");
 		label_5.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -227,21 +245,21 @@ public class Macheo extends JDialog {
 		label_4.setBounds(13, 66, 126, 14);
 		panel_1.add(label_4);
 		
-		textField_3 = new JTextField();
-		textField_3.setEditable(false);
-		textField_3.setBounds(140, 62, 178, 20);
-		panel_1.add(textField_3);
-		textField_3.setColumns(10);
+		txtPorcientoAceptable = new JTextField();
+		txtPorcientoAceptable.setEditable(false);
+		txtPorcientoAceptable.setBounds(140, 62, 178, 20);
+		panel_1.add(txtPorcientoAceptable);
+		txtPorcientoAceptable.setColumns(10);
 		
 		JLabel lblCiudadSolicitada = new JLabel("Ciudad Solicitada:");
 		lblCiudadSolicitada.setBounds(336, 66, 102, 14);
 		panel_1.add(lblCiudadSolicitada);
 		
-		textField_5 = new JTextField();
-		textField_5.setEditable(false);
-		textField_5.setBounds(473, 63, 173, 20);
-		panel_1.add(textField_5);
-		textField_5.setColumns(10);
+		txtCiudadSolicitud = new JTextField();
+		txtCiudadSolicitud.setEditable(false);
+		txtCiudadSolicitud.setBounds(473, 63, 173, 20);
+		panel_1.add(txtCiudadSolicitud);
+		txtCiudadSolicitud.setColumns(10);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(220, 20, 60));
@@ -264,5 +282,25 @@ public class Macheo extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+	}
+
+	protected void cargarDatos(String RNC) {
+		EmpresaSolicitadora emp;
+		emp=Bolsa.buscarEmpresa(RNC);
+		
+		
+		String ciudad=emp.getCiudad();
+		String nombre= emp.getNombreEmpresa();
+	    String pais=	emp.getPaisEmpresa();
+	    String tel=emp.getTelefonoEmpresa();;	
+		txtCiudadEmpresa.setText(ciudad);
+		txtNombreEmpresa.setText(nombre);
+		txtTelefono.setText(tel);
+	
+	
+	
+		
+		// TODO Auto-generated method stub
+		
 	}
 }
