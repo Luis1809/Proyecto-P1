@@ -45,6 +45,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JFormattedTextField;
 import javax.swing.UIManager;
+import javax.swing.ImageIcon;
 
 public class SolicitantesVisual extends JDialog {
 	ButtonGroup sexoMF =new ButtonGroup();
@@ -52,7 +53,7 @@ public class SolicitantesVisual extends JDialog {
 	ButtonGroup conducir =new ButtonGroup();
 	ButtonGroup jornada =new ButtonGroup();
 	ButtonGroup nivelEducativo =new ButtonGroup();
-	
+	String h;
 	/*//_____Solicitante_______________________//
 	private String nombreSolicitante;
 	private String apellidoSolicitante;
@@ -67,7 +68,7 @@ public class SolicitantesVisual extends JDialog {
     private String areTrabajo;
     private String nombreReferente;
     private String telReferente;*/
-	
+	private ArrayList<String> habi=new ArrayList<>();
 	private final JPanel contentPanel = new JPanel();
     private JTextField txtNombre;
     private JTextField txtApellido;
@@ -82,32 +83,32 @@ public class SolicitantesVisual extends JDialog {
 	private JTextField txtFechaSolicitud;
 	private JRadioButton btnMasculino;
 	private JRadioButton btnFemenino;
-	private JComboBox cbxNacionalidad;
-	private JComboBox cbxEstadoCivil;
-	private JComboBox cbxCiudad;
-	private JComboBox cbxPais;
+	private JComboBox<?> cbxNacionalidad;
+	private JComboBox<?> cbxEstadoCivil;
+	private JComboBox<?> cbxCiudad;
+	private JComboBox<?> cbxPais;
 	private JPanel pTecnico;
 	private JPanel pObrero;
 	private JPanel pUniversitario;
 	private JComboBox cbxCarrera;
-	private JComboBox cbxHabilidad;
+	private JComboBox<?> cbxHabilidad;
 	private JComboBox cbxTecnico;
 	private JRadioButton btnUniversitario;
 	private JRadioButton btnTecnico;
 	private JRadioButton btnObrero;
 	private JRadioButton btnDispMudarseY;
 	private JRadioButton btnDispMudarseN;
-	private JComboBox cbxIdioma1;
-	private JComboBox cbxIdioma2;
-	private JComboBox cbxIdioma3;
+	private JComboBox<?> cbxIdioma1;
+	private JComboBox<?> cbxIdioma2;
+	private JComboBox<?> cbxIdioma3;
 	private JRadioButton btnTiempoCompleto;
 	private JRadioButton btnMedioTiempo;
 	private JRadioButton btnLicenciaCY;
 	private JRadioButton btnLicenciaCN;
 	private JCheckBox chbIdioma2;
 	private JCheckBox chbIdioma3;
-	private JComboBox cbxAreaInteres;
-	private JComboBox cbxAreaTrabajo;
+	private JComboBox<?> cbxAreaInteres;
+	private JComboBox<?> cbxAreaTrabajo;
 	private JSpinner spnTiempoExperiencia;
 	private JComboBox cbxInstitucionUni;
 	private ArrayList<String> idioma = new ArrayList<>();
@@ -117,7 +118,7 @@ public class SolicitantesVisual extends JDialog {
 	private JRadioButton btnViajarY;
 	private JSpinner spnSalarioSolicitado;
 	private JCheckBox chckbxAadirOtro;
-    private JComboBox cbxHabilidad2;
+    private JComboBox<?> cbxHabilidad2;
     private JDateChooser Jcaldate;
     private static MaskFormatter formatoCedula;
 	private static MaskFormatter formatoNumero;
@@ -129,11 +130,16 @@ public class SolicitantesVisual extends JDialog {
 	private JPanel panel_4;
 	private JButton btnPag;
 	private JButton btnPag_1;
+	private JPanel panelHombre;
+	private JPanel panelMujer;
+	private JLabel label_7;
 	
 	
 	public SolicitantesVisual() {
+		
+		
 		setResizable(false);
-		setBounds(100, 100, 799, 513);
+		setBounds(100, 100, 804, 524);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(null);
@@ -155,7 +161,7 @@ public class SolicitantesVisual extends JDialog {
 			
 			panel_Secundario = new JPanel();
 			panel_Secundario.setBackground(new Color(255, 255, 255));
-			panel_Secundario.setBounds(10, 87, 774, 329);
+			panel_Secundario.setBounds(10, 80, 774, 329);
 			panel.add(panel_Secundario);
 			panel_Secundario.setLayout(null);
 			
@@ -303,6 +309,10 @@ public class SolicitantesVisual extends JDialog {
 			panel_6.add(label_22);
 			
 			cbxAreaInteres = new JComboBox();
+			cbxAreaInteres.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			cbxAreaInteres.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
 			cbxAreaInteres.setBounds(27, 222, 126, 20);
 			panel_6.add(cbxAreaInteres);
@@ -393,6 +403,10 @@ public class SolicitantesVisual extends JDialog {
 			panel_7.add(txtNumeroReferente);
 			
 			cbxAreaTrabajo = new JComboBox();
+			cbxAreaTrabajo.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
 			cbxAreaTrabajo.setBounds(147, 99, 198, 20);
 			panel_7.add(cbxAreaTrabajo);
@@ -487,12 +501,40 @@ public class SolicitantesVisual extends JDialog {
 			panel_1.add(txtTelefono);
 			
 			btnMasculino = new JRadioButton("Masculino");
+			btnMasculino.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					
+					if(btnMasculino.isSelected()){
+						panelHombre.setVisible(true);
+						
+						panelMujer.setVisible(false);
+						
+						
+					}
+				}
+			});
 			btnMasculino.setBackground(new Color(255, 255, 255));
 			sexoMF.add(btnMasculino);
 			btnMasculino.setBounds(97, 113, 93, 23);
 			panel_1.add(btnMasculino);
 			
 			btnFemenino = new JRadioButton("Femenino");
+			btnFemenino.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					
+					
+					if(btnFemenino.isSelected()){
+						panelMujer.setVisible(true);
+						
+						panelHombre.setVisible(false);
+						
+						
+						
+					}
+				}
+			});
 			btnFemenino.setBackground(new Color(255, 255, 255));
 			sexoMF.add(btnFemenino);
 			btnFemenino.setBounds(192, 113, 94, 23);
@@ -531,6 +573,10 @@ public class SolicitantesVisual extends JDialog {
 			panel_1.add(lblPaisDeNacimiento);
 			
 			cbxNacionalidad = new JComboBox();
+			cbxNacionalidad.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			cbxNacionalidad.setBounds(147, 143, 137, 20);
 			panel_1.add(cbxNacionalidad);
 			cbxNacionalidad.setBackground(new Color(211, 211, 211));
@@ -558,8 +604,14 @@ public class SolicitantesVisual extends JDialog {
 			cbxHabilidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
 			cbxHabilidad.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					
+				
 					if(!cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("Seleccionar"))
+						h=cbxHabilidad.getSelectedItem().toString();
 						habilidad.add(0,cbxHabilidad.getSelectedItem().toString());
+					
+					
+					
 				}
 			});
 			cbxHabilidad.setBounds(82, 14, 226, 20);
@@ -569,10 +621,26 @@ public class SolicitantesVisual extends JDialog {
 			chckbxAadirOtro.setBackground(new Color(255, 255, 255));
 			chckbxAadirOtro.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					if(chckbxAadirOtro.isSelected())
+					
+					verificarHabilidad();
+					if(chckbxAadirOtro.isSelected()){
 						cbxHabilidad2.setEnabled(true);
-					else
+					}else if(!chckbxAadirOtro.isSelected()){
 						cbxHabilidad2.setEnabled(false);
+						
+					}
+				}
+
+				private void verificarHabilidad() {
+				if(cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase(h)){
+					
+					JOptionPane.showMessageDialog(null,"No Puede Selecionar la misma Habilidad");
+					
+					
+					
+					
+				}
+					
 				}
 			});
 			chckbxAadirOtro.setBounds(6, 47, 63, 23);
@@ -706,6 +774,10 @@ public class SolicitantesVisual extends JDialog {
 			panel_4.add(label_8);
 			
 			cbxCiudad = new JComboBox();
+			cbxCiudad.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			cbxCiudad.setBounds(81, 11, 177, 20);
 			panel_4.add(cbxCiudad);
 			cbxCiudad.setBackground(new Color(211, 211, 211));
@@ -716,6 +788,10 @@ public class SolicitantesVisual extends JDialog {
 			panel_4.add(label_9);
 			
 			cbxPais = new JComboBox();
+			cbxPais.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			cbxPais.setBounds(81, 47, 177, 20);
 			panel_4.add(cbxPais);
 			cbxPais.setBackground(new Color(211, 211, 211));
@@ -726,10 +802,34 @@ public class SolicitantesVisual extends JDialog {
 			panel_4.add(label_5);
 			
 			cbxEstadoCivil = new JComboBox();
+			cbxEstadoCivil.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			cbxEstadoCivil.setBounds(81, 83, 177, 20);
 			panel_4.add(cbxEstadoCivil);
 			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
 			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
+			
+			panelHombre = new JPanel();
+			panelHombre.setBounds(15, 50, 152, 136);
+			panel_Principal.add(panelHombre);
+			panelHombre.setLayout(null);
+			
+			JLabel lblNewLabel_1 = new JLabel("");
+			lblNewLabel_1.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/imagenes/hombre.png")));
+			lblNewLabel_1.setBounds(15, 0, 137, 136);
+			panelHombre.add(lblNewLabel_1);
+			
+			panelMujer = new JPanel();
+			panelMujer.setLayout(null);
+			panelMujer.setBounds(15, 50, 152, 136);
+			panel_Principal.add(panelMujer);
+			
+			label_7 = new JLabel("");
+			label_7.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/imagenes/mujer.png")));
+			label_7.setBounds(15, 0, 137, 136);
+			panelMujer.add(label_7);
 			
 			txtFechaSolicitud = new JTextField();
 			txtFechaSolicitud.setBounds(637, 56, 146, 26);
@@ -781,7 +881,6 @@ public class SolicitantesVisual extends JDialog {
 							if(btnMasculino.isSelected())
 								sexo= "Masculino";
 						}
-						
 						
 						
 						//System.out.println(fechaNacimiento);
@@ -859,6 +958,8 @@ public class SolicitantesVisual extends JDialog {
 									Bolsa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
 									//clean();
+									limpiar();
+									
 								}
 							}
 							if (tipo.equalsIgnoreCase("Obrero")){
@@ -873,6 +974,8 @@ public class SolicitantesVisual extends JDialog {
 									Obrero s = new Obrero(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, habilidad);
 									Bolsa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
+									limpiar();
+									
 								}
 								
 							}
@@ -889,11 +992,39 @@ public class SolicitantesVisual extends JDialog {
 									Tecnico s = new Tecnico(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, tecnico);									
 									Bolsa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);	
+									limpiar();
+									
 								}
 							}
 						}
 						else 
 							JOptionPane.showMessageDialog(null, "Seleccione un nivel educativo", "Información", JOptionPane.WARNING_MESSAGE);
+					}
+
+					private void limpiar() {
+					     txtEmpresa.setText("");
+						 txtInstitucionTecnico.setText("");
+						 cbxAreaTrabajo.removeAll();
+						 txtNombreReferente.setText("");
+						 txtNombreReferente.setText("");
+						 txtNombre.setText("");
+					     txtApellido.setText("");
+						 txtTelefono.setText("");;
+						 txtEmail.setText("");
+						 txtCedula.setText("");
+						 txtDireccion.setText("");
+						 cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+				         cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+						 cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Patua", "Creoles", "Ruso"}));
+						 cbxHabilidad2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
+						 cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
+						 cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
+						 cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
+						 cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));	
+						 cbxNacionalidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Afganist\u00E1n\t", "Alemania\t", "Arabia Saudita\t", "Argentina\t", "Australia\t", "B\u00E9lgica\t", "Bolivia\t", "Brasil\t", "Camboya\t", "Canad\u00E1\t", "Chile\t", "China", "Colombia\t", "Corea\t", "Costa Rica", "Cuba\t", "Dinamarca\t", "Ecuador\t", "Egipto\t", "El Salvador\t", "Escocia\t", "Espa\u00F1a", "Estados Unidos\t", "Estonia\t", "Filipinas\t", "Francia\t", "Grecia", "Guatemala\t", "Hait\u00ED\t", "Holanda\t", "Honduras\t", "Indonesia\t", "Inglaterra\t", "Irak\t", "Ir\u00E1n", "Irlanda\t", "Israel\t", "Italia\t", "Jap\u00F3n\t", "Jordania\t", "Laos\t", "Letonia\t", "Lituania\t", "Malasia\t", "Marruecos\t", "M\u00E9xico\t", "Nicaragua\t", "Noruega\t", "Nueva Zelanda", "Panam\u00E1\t", "Paraguay\t", "Per\u00FA\t", "Polonia\t", "Portugal\t", "Puerto Rico", "Republica Dom.", "Rumania\t", "Rusia\t", "Suecia\t", "Suiza\t", "Tailandia\t", "Taiw\u00E1n\t", "Turqu\u00EDa\t", "Ucrania\t", "Uruguay\t", "Venezuela\t", "Vietnam"}));
+						 cbxHabilidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
+						 cbxAreaInteres.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));		
+						
 					}
 				});
 				okButton.setActionCommand("OK");
