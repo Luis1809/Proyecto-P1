@@ -84,12 +84,14 @@ public class Bolsa {
 	}
 	
 
-	public static EmpresaSolicitadora buscarSolicitud(String RNC) {
-		EmpresaSolicitadora Es=null;
+	public static Solicitudes buscarSolicitud(int ID) {
+		Solicitudes Es=null;
 		if(miEmpresa.size()>0){
 			for(int i=0 ; i<miEmpresa.size();i++){
-				if (miEmpresa.get(i).getRNC().equalsIgnoreCase(RNC)){
-					Es=miEmpresa.get(i);
+				for(int a=0; a<miEmpresa.get(i).getMiSolicitudes().size();a++){
+					if (miEmpresa.get(i).getMiSolicitudes().get(a).getId()==(ID)){
+						Es=miEmpresa.get(i).getMiSolicitudes().get(a);
+					}
 				}
 			}
 		}

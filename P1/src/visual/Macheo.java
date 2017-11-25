@@ -274,7 +274,7 @@ public class Macheo extends JDialog {
 		cbxID.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(cbxID.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
-					Solicitudes solicitud = Bolsa.buscarSolicitud(cbxID.getSelectedItem().toString());
+					Solicitudes solicitud = Bolsa.buscarSolicitud((int)cbxID.getSelectedItem());
 					txtPorcientoAceptable.setText(Integer.toString((int) solicitud.getPorcientoAceptable()));
 					txtPlaza.setText(Integer.toString((int) solicitud.getPlaza()));
 					txtCiudadSolicitud.setText(solicitud.getCuidad());
