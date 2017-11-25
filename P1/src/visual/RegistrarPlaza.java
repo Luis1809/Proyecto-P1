@@ -110,10 +110,11 @@ public class RegistrarPlaza extends JDialog {
 	private JLabel label_10;
 	private JPanel panelHombre;
 	private JLabel label_11;
+	private JPanel panel;
 	
 	public RegistrarPlaza() {
 		setResizable(false);
-		setBounds(100, 100, 692, 601);
+		setBounds(100, 100, 1042, 911);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -132,7 +133,7 @@ public class RegistrarPlaza extends JDialog {
 		panel_principal = new JPanel();
 		panel_principal.setBorder(new TitledBorder(null, "Formulario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_principal.setBackground(new Color(255, 255, 255));
-		panel_principal.setBounds(10, 198, 655, 334);
+		panel_principal.setBounds(10, 500, 655, 334);
 		contentPanel.add(panel_principal);
 		panel_principal.setLayout(null);
 		
@@ -374,16 +375,6 @@ public class RegistrarPlaza extends JDialog {
 			panelinfo.add(cbxEstadoCivil);
 		}
 		
-		panelHombre = new JPanel();
-		panelHombre.setBounds(15, 32, 280, 124);
-		panel_principal.add(panelHombre);
-		panelHombre.setLayout(null);
-		
-		label_11 = new JLabel("");
-		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/hombre.png")));
-		label_11.setBounds(66, 0, 214, 124);
-		panelHombre.add(label_11);
-		
 		JPanel panellaborlal = new JPanel();
 		panellaborlal.setBounds(5, 164, 290, 154);
 		panel_principal.add(panellaborlal);
@@ -414,12 +405,23 @@ public class RegistrarPlaza extends JDialog {
 		spnTiempoExp.setBounds(159, 73, 110, 20);
 		panellaborlal.add(spnTiempoExp);
 		
+		panelHombre = new JPanel();
+		panelHombre.setBounds(15, 32, 280, 124);
+		panel_principal.add(panelHombre);
+		panelHombre.setLayout(null);
+		
+		label_11 = new JLabel("");
+		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/hombre.png")));
+		label_11.setBounds(66, 0, 214, 124);
+		panelHombre.add(label_11);
+		
 		panelMujer = new JPanel();
 		panelMujer.setBounds(15, 32, 280, 124);
 		panel_principal.add(panelMujer);
 		panelMujer.setLayout(null);
 		
 		label_10 = new JLabel("");
+		label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
 		//label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
 		label_10.setBounds(66, 0, 214, 124);
 		panelMujer.add(label_10);
@@ -745,6 +747,16 @@ public class RegistrarPlaza extends JDialog {
 		txtFecha.setColumns(10);
 		txtFecha.setBounds(470, 166, 146, 26);
 		contentPanel.add(txtFecha);
+		
+		panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBounds(15, 32, 280, 124);
+		contentPanel.add(panel);
+		
+		JLabel label_13 = new JLabel("");
+		label_13.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/red.png")));
+		label_13.setBounds(66, 0, 214, 124);
+		panel.add(label_13);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(220, 20, 60));
