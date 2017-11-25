@@ -707,6 +707,7 @@ public class SolicitantesVisual extends JDialog {
 			pTecnico.add(label_15);
 			
 			cbxTecnico = new JComboBox();
+			cbxTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Electronica", "Informatica", "Telecomunicaciones", "Contabilidad", "Auditoria", "Mercadeo", "Software"}));
 			cbxTecnico.setBackground(new Color(211, 211, 211));
 			cbxTecnico.setBounds(82, 45, 222, 20);
 			pTecnico.add(cbxTecnico);
