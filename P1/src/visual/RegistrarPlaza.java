@@ -842,7 +842,7 @@ public class RegistrarPlaza extends JDialog {
 								else{
 									String carrera = cbxCarreraUni.getSelectedItem().toString();
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
-									SolicitudesUni s = new SolicitudesUni(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp, plazas, institucion, carrera, porcientoAceptable);
+									SolicitudesUni s = new SolicitudesUni(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp,porcientoAceptable, plazas, institucion, carrera);
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
 									clean();
@@ -855,7 +855,7 @@ public class RegistrarPlaza extends JDialog {
 										){
 									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaci�n", JOptionPane.WARNING_MESSAGE);}
 								else{
-									SolicitudesObrero s = new SolicitudesObrero(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp, plazas, habilidad, porcientoAceptable);
+									SolicitudesObrero s = new SolicitudesObrero(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo,porcientoAceptable, tiempoExp, plazas, habilidad);
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
 									clean();
@@ -868,7 +868,7 @@ public class RegistrarPlaza extends JDialog {
 									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaci�n", JOptionPane.WARNING_MESSAGE);}
 								else{
 									String tecnico = cbxTecnico.getSelectedItem().toString();	
-									SolicitudesTecnico s = new SolicitudesTecnico(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp, plazas, tecnico, porcientoAceptable);						
+									SolicitudesTecnico s = new SolicitudesTecnico(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo,porcientoAceptable, tiempoExp, plazas, tecnico);						
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);	
 									clean();

@@ -3,7 +3,8 @@ package logico;
 import java.util.ArrayList;
 
 public abstract class Solicitudes {
-	protected boolean SatisfechoOimcompleto;
+	
+	protected boolean Satisfecho;
 	protected String sexo;
 	protected String estadoCivil; //Soltero, Casado, Viudo, Divorsiado, Union Libre
 	protected String cuidad;
@@ -19,12 +20,14 @@ public abstract class Solicitudes {
 	protected int anosExp; //En el area suministrada 
 	protected float porcientoAceptable;
 	protected int plaza; //Numero de trabajadores que se necesitan
+	protected ArrayList<Solicitantes> miSolicitantes;
 	
-	public Solicitudes(String sexo, String estadoCivil, String cuidad, String pais, int salirioSolicitado,
-			boolean dispMudarse, boolean dispViajar, String tipoJornada, ArrayList<String> idioma, String areaInteres,
-			boolean licencia, String area, int anosExp, int plaza, float porcientoAceptable) {
+	public Solicitudes(String sexo, String estadoCivil, String cuidad, String pais,
+			int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
+			ArrayList<String> idioma, String areaInteres, boolean licencia, String areadeExp, int anosExp,
+			float porcientoAceptable, int plaza) {
 		super();
-		this.porcientoAceptable=porcientoAceptable;
+		this.Satisfecho = false;
 		this.sexo = sexo;
 		this.estadoCivil = estadoCivil;
 		this.cuidad = cuidad;
@@ -36,10 +39,13 @@ public abstract class Solicitudes {
 		this.idioma = idioma;
 		this.areaInteres = areaInteres;
 		this.licencia = licencia;
-		this.areadeExp = area;
+		this.areadeExp = areadeExp;
 		this.anosExp = anosExp;
+		this.porcientoAceptable = porcientoAceptable;
 		this.plaza = plaza;
+		this.miSolicitantes = new ArrayList<>();
 	}
+	
 	
 	public String getSexo() {
 		return sexo;
@@ -125,5 +131,32 @@ public abstract class Solicitudes {
 	public void setPlaza(int plaza) {
 		this.plaza = plaza;
 	}
+
 	
+
+	public float getPorcientoAceptable() {
+		return porcientoAceptable;
+	}
+
+	public void setPorcientoAceptable(float porcientoAceptable) {
+		this.porcientoAceptable = porcientoAceptable;
+	}
+
+	public ArrayList<Solicitantes> getMiSolicitantes() {
+		return miSolicitantes;
+	}
+
+	public void setMiSolicitantes(ArrayList<Solicitantes> miSolicitantes) {
+		this.miSolicitantes = miSolicitantes;
+	}
+
+
+	public boolean isSatisfecho() {
+		return Satisfecho;
+	}
+
+
+	public void setSatisfecho(boolean satisfecho) {
+		Satisfecho = satisfecho;
+	}
 }

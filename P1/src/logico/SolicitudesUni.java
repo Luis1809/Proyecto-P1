@@ -9,12 +9,14 @@ public class SolicitudesUni extends Solicitudes {
 	
 	public SolicitudesUni(String sexo, String estadoCivil, String cuidad, String pais, int salirioSolicitado,
 			boolean dispMudarse, boolean dispViajar, String tipoJornada, ArrayList<String> idioma, String areaInteres,
-			boolean licencia, String area, int anosExp, int plaza, String institucion, String carrera,float porcientoAceptable) {
+			boolean licencia, String areadeExp, int anosExp, float porcientoAceptable, int plaza, String institucion,
+			String carrera) {
 		super(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, tipoJornada, idioma,
-				areaInteres, licencia, area, anosExp, plaza,porcientoAceptable);
+				areaInteres, licencia, areadeExp, anosExp, porcientoAceptable, plaza);
 		this.institucion = institucion;
 		this.carrera = carrera;
 	}
+	
 
 	public String getInstitucion() {
 		return institucion;
