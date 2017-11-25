@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 
 
 public class RegistrarPlaza extends JDialog {
@@ -105,10 +106,14 @@ public class RegistrarPlaza extends JDialog {
 	private JCheckBox chbAnadirIdioma3;
 	private JCheckBox chbAnadirIdioma2;
 	private JCheckBox chbOtroObrero;
+	private JPanel panelMujer;
+	private JLabel label_10;
+	private JPanel panelHombre;
+	private JLabel label_11;
 	
 	public RegistrarPlaza() {
 		setResizable(false);
-		setBounds(100, 100, 681, 598);
+		setBounds(100, 100, 1109, 598);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -275,12 +280,26 @@ public class RegistrarPlaza extends JDialog {
 			panelinfo.setLayout(null);
 			
 			btnMasculino = new JRadioButton("Masculino");
+			btnMasculino.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					panelMujer.setVisible(false);
+					panelHombre.setVisible(true);
+				}
+			});
 			btnGroupSexo.add(btnMasculino);
 			btnMasculino.setBackground(new Color(255, 255, 255));
 			btnMasculino.setBounds(181, 25, 85, 23);
 			panelinfo.add(btnMasculino);
 			
 			btnFemenino = new JRadioButton("Femenino");
+			btnFemenino.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					panelMujer.setVisible(true);
+					panelHombre.setVisible(false);
+				}
+			});
 			btnGroupSexo.add(btnFemenino);
 			btnFemenino.setBackground(new Color(255, 255, 255));
 			btnFemenino.setBounds(100, 25, 85, 23);
@@ -291,6 +310,14 @@ public class RegistrarPlaza extends JDialog {
 			panelinfo.add(label_7_1);
 			
 			btnNoAplica = new JRadioButton("N/A");
+			btnNoAplica.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					
+					panelMujer.setVisible(false);
+					panelHombre.setVisible(false);
+				}
+			});
 			btnGroupSexo.add(btnNoAplica);
 			btnNoAplica.setBackground(new Color(255, 255, 255));
 			btnNoAplica.setBounds(268, 25, 55, 23);
@@ -327,6 +354,16 @@ public class RegistrarPlaza extends JDialog {
 			panelinfo.add(cbxEstadoCivil);
 		}
 		
+		panelHombre = new JPanel();
+		panelHombre.setBounds(15, 32, 280, 124);
+		panel_principal.add(panelHombre);
+		panelHombre.setLayout(null);
+		
+		label_11 = new JLabel("");
+		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/imagenes/hombre.png")));
+		label_11.setBounds(66, 0, 214, 124);
+		panelHombre.add(label_11);
+		
 		JPanel panellaborlal = new JPanel();
 		panellaborlal.setBounds(5, 164, 290, 154);
 		panel_principal.add(panellaborlal);
@@ -352,6 +389,16 @@ public class RegistrarPlaza extends JDialog {
 		spnTiempoExp.setModel(new SpinnerNumberModel(1, 1, 50, 1));
 		spnTiempoExp.setBounds(159, 73, 110, 20);
 		panellaborlal.add(spnTiempoExp);
+		
+		panelMujer = new JPanel();
+		panelMujer.setBounds(15, 32, 280, 124);
+		panel_principal.add(panelMujer);
+		panelMujer.setLayout(null);
+		
+		label_10 = new JLabel("");
+		label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/imagenes/mujer.png")));
+		label_10.setBounds(66, 0, 214, 124);
+		panelMujer.add(label_10);
 		
 		panel_secundario = new JPanel();
 		panel_secundario.setBackground(new Color(255, 255, 255));
