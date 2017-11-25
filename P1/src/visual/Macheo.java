@@ -198,7 +198,7 @@ public class Macheo extends JDialog {
 		txtSalarioSolicitado.setEditable(false);
 		txtSalarioSolicitado.setColumns(10);
 		txtSalarioSolicitado.setBackground(new Color(255, 255, 255));
-		txtSalarioSolicitado.setBounds(506, 93, 140, 20);
+		txtSalarioSolicitado.setBounds(473, 93, 173, 20);
 		panel_1.add(txtSalarioSolicitado);
 		
 		txtPlaza = new JTextField();
@@ -206,7 +206,7 @@ public class Macheo extends JDialog {
 		txtPlaza.setEditable(false);
 		txtPlaza.setColumns(10);
 		txtPlaza.setBackground(new Color(255, 255, 255));
-		txtPlaza.setBounds(125, 93, 61, 20);
+		txtPlaza.setBounds(473, 31, 173, 20);
 		panel_1.add(txtPlaza);
 		
 		JLabel lblSolicitudDe = new JLabel("Solicitud de:");
@@ -221,12 +221,12 @@ public class Macheo extends JDialog {
 				}
 			}
 		});
-		cbxSolicitudTipo.setBounds(125, 31, 193, 20);
+		cbxSolicitudTipo.setBounds(125, 31, 186, 20);
 		panel_1.add(cbxSolicitudTipo);
 		
 		JLabel label_5 = new JLabel("Fecha:");
 		label_5.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_5.setBounds(494, 13, 46, 14);
+		label_5.setBounds(473, 6, 46, 14);
 		panel_1.add(label_5);
 		
 		textField_6 = new JTextField();
@@ -235,7 +235,7 @@ public class Macheo extends JDialog {
 		textField_6.setEditable(false);
 		textField_6.setColumns(10);
 		textField_6.setBackground(new Color(255, 255, 255));
-		textField_6.setBounds(550, 11, 86, 20);
+		textField_6.setBounds(536, 3, 110, 23);
 		panel_1.add(textField_6);
 		
 		JLabel label_1 = new JLabel("Salario solicitado (Mensual):");
@@ -243,16 +243,16 @@ public class Macheo extends JDialog {
 		panel_1.add(label_1);
 		
 		JLabel label_3 = new JLabel("Plazas:");
-		label_3.setBounds(13, 96, 46, 14);
+		label_3.setBounds(336, 34, 46, 14);
 		panel_1.add(label_3);
 		
 		JLabel label_4 = new JLabel("Porciento aceptable:");
-		label_4.setBounds(13, 62, 126, 14);
+		label_4.setBounds(13, 96, 126, 14);
 		panel_1.add(label_4);
 		
 		txtPorcientoAceptable = new JTextField();
 		txtPorcientoAceptable.setEditable(false);
-		txtPorcientoAceptable.setBounds(125, 62, 71, 20);
+		txtPorcientoAceptable.setBounds(125, 93, 186, 20);
 		panel_1.add(txtPorcientoAceptable);
 		txtPorcientoAceptable.setColumns(10);
 		
@@ -267,7 +267,7 @@ public class Macheo extends JDialog {
 		txtCiudadSolicitud.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("ID:");
-		lblNewLabel.setBounds(219, 68, 56, 14);
+		lblNewLabel.setBounds(13, 59, 56, 14);
 		panel_1.add(lblNewLabel);
 		
 		cbxID = new JComboBox();
@@ -282,7 +282,7 @@ public class Macheo extends JDialog {
 				}
 			}
 		});
-		cbxID.setBounds(262, 62, 56, 20);
+		cbxID.setBounds(125, 62, 186, 20);
 		panel_1.add(cbxID);
 		{
 			JPanel buttonPane = new JPanel();
