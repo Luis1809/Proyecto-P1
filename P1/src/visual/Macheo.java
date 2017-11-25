@@ -267,7 +267,7 @@ public class Macheo extends JDialog {
 		txtCiudadSolicitud.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("ID:");
-		lblNewLabel.setBounds(13, 59, 56, 14);
+		lblNewLabel.setBounds(13, 64, 56, 14);
 		panel_1.add(lblNewLabel);
 		
 		cbxID = new JComboBox();
