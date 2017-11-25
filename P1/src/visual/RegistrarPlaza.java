@@ -111,10 +111,11 @@ public class RegistrarPlaza extends JDialog {
 	private JPanel panelHombre;
 	private JLabel label_11;
 	private JPanel panelNa;
+	private JLabel label_13;
 	
 	public RegistrarPlaza() {
 		setResizable(false);
-		setBounds(100, 100, 1042, 911);
+		setBounds(100, 100, 678, 594);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -133,9 +134,19 @@ public class RegistrarPlaza extends JDialog {
 		panel_principal = new JPanel();
 		panel_principal.setBorder(new TitledBorder(null, "Formulario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_principal.setBackground(new Color(255, 255, 255));
-		panel_principal.setBounds(10, 500, 655, 334);
+		panel_principal.setBounds(10, 198, 655, 334);
 		contentPanel.add(panel_principal);
 		panel_principal.setLayout(null);
+		
+		panelNa = new JPanel();
+		panelNa.setBounds(12, 17, 280, 138);
+		panel_principal.add(panelNa);
+		panelNa.setLayout(null);
+		
+		label_13 = new JLabel("");
+		label_13.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/red.png")));
+		label_13.setBounds(66, 0, 214, 124);
+		panelNa.add(label_13);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -161,7 +172,7 @@ public class RegistrarPlaza extends JDialog {
 		});
 		cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
 		cbxInstitucionUni.setBackground(new Color(211, 211, 211));
-		cbxInstitucionUni.setBounds(86, 11, 222, 20);
+		cbxInstitucionUni.setBounds(86, 11, 222, 23);
 		pUniversitario.add(cbxInstitucionUni);
 		
 		JLabel label_9 = new JLabel("Carrera:");
@@ -175,7 +186,7 @@ public class RegistrarPlaza extends JDialog {
 		});
 		cbxCarreraUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
 		cbxCarreraUni.setBackground(new Color(211, 211, 211));
-		cbxCarreraUni.setBounds(86, 42, 222, 20);
+		cbxCarreraUni.setBounds(86, 42, 222, 23);
 		pUniversitario.add(cbxCarreraUni);
 		pUniversitario.setVisible(false);
 		
@@ -291,7 +302,7 @@ public class RegistrarPlaza extends JDialog {
 			btnMasculino = new JRadioButton("Masculino");
 			btnMasculino.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					
+					panelNa.setVisible(false);
 					panelMujer.setVisible(false);
 					panelHombre.setVisible(true);
 				}
@@ -304,7 +315,7 @@ public class RegistrarPlaza extends JDialog {
 			btnFemenino = new JRadioButton("Femenino");
 			btnFemenino.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					
+					panelNa.setVisible(false);
 					panelMujer.setVisible(true);
 					panelHombre.setVisible(false);
 				}
@@ -343,7 +354,7 @@ public class RegistrarPlaza extends JDialog {
 			});
 			cbxCiudadSolicitada.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
 			cbxCiudadSolicitada.setBackground(new Color(211, 211, 211));
-			cbxCiudadSolicitada.setBounds(104, 51, 207, 20);
+			cbxCiudadSolicitada.setBounds(104, 51, 207, 23);
 			panelinfo.add(cbxCiudadSolicitada);
 			
 			JLabel label_1_1 = new JLabel("Pais:");
@@ -357,7 +368,7 @@ public class RegistrarPlaza extends JDialog {
 			});
 			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
 			cbxPais.setBackground(new Color(211, 211, 211));
-			cbxPais.setBounds(104, 80, 207, 20);
+			cbxPais.setBounds(104, 80, 207, 23);
 			panelinfo.add(cbxPais);
 			
 			JLabel label_2_1 = new JLabel("Estado Civil:");
@@ -371,7 +382,7 @@ public class RegistrarPlaza extends JDialog {
 			});
 			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
 			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
-			cbxEstadoCivil.setBounds(104, 107, 207, 20);
+			cbxEstadoCivil.setBounds(104, 107, 207, 23);
 			panelinfo.add(cbxEstadoCivil);
 		}
 		
@@ -393,7 +404,7 @@ public class RegistrarPlaza extends JDialog {
 		});
 		cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
 		cbxAreaTrabajo.setBackground(new Color(211, 211, 211));
-		cbxAreaTrabajo.setBounds(127, 34, 142, 20);
+		cbxAreaTrabajo.setBounds(127, 34, 142, 23);
 		panellaborlal.add(cbxAreaTrabajo);
 		
 		JLabel label_5 = new JLabel("Tiempo de experiencia:");
@@ -406,24 +417,24 @@ public class RegistrarPlaza extends JDialog {
 		panellaborlal.add(spnTiempoExp);
 		
 		panelHombre = new JPanel();
-		panelHombre.setBounds(15, 32, 280, 124);
+		panelHombre.setBounds(12, 17, 280, 138);
 		panel_principal.add(panelHombre);
 		panelHombre.setLayout(null);
 		
 		label_11 = new JLabel("");
 		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/hombre.png")));
-		label_11.setBounds(66, 0, 214, 124);
+		label_11.setBounds(66, 3, 214, 124);
 		panelHombre.add(label_11);
 		
 		panelMujer = new JPanel();
-		panelMujer.setBounds(15, 32, 280, 124);
+		panelMujer.setBounds(12, 17, 280, 138);
 		panel_principal.add(panelMujer);
 		panelMujer.setLayout(null);
 		
 		label_10 = new JLabel("");
 		label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
 		//label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
-		label_10.setBounds(66, 0, 214, 124);
+		label_10.setBounds(66, 3, 214, 124);
 		panelMujer.add(label_10);
 		
 		panel_secundario = new JPanel();
@@ -524,7 +535,7 @@ public class RegistrarPlaza extends JDialog {
 		cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
 		cbxIdioma1.setBackground(new Color(211, 211, 211));
 		cbxIdioma1.setEditable(true);
-		cbxIdioma1.setBounds(210, 52, 134, 20);
+		cbxIdioma1.setBounds(210, 52, 134, 23);
 		panel_1.add(cbxIdioma1);
 		
 		btnLicenciaN = new JRadioButton("No");
@@ -563,7 +574,7 @@ public class RegistrarPlaza extends JDialog {
 		cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
 		cbxIdioma2.setBackground(new Color(211, 211, 211));
 		cbxIdioma2.setEnabled(false);
-		cbxIdioma2.setBounds(210, 109, 134, 20);
+		cbxIdioma2.setBounds(210, 109, 134, 23);
 		panel_1.add(cbxIdioma2);
 		
 		chbAnadirIdioma3 = new JCheckBox("A\u00F1adir otro idioma");
@@ -590,7 +601,7 @@ public class RegistrarPlaza extends JDialog {
 		cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
 		cbxIdioma3.setBackground(new Color(211, 211, 211));
 		cbxIdioma3.setEnabled(false);
-		cbxIdioma3.setBounds(210, 167, 134, 20);
+		cbxIdioma3.setBounds(210, 167, 134, 23);
 		panel_1.add(cbxIdioma3);
 		
 		JLabel label_8 = new JLabel("Disponibilidad de viajar:");
@@ -747,16 +758,6 @@ public class RegistrarPlaza extends JDialog {
 		txtFecha.setColumns(10);
 		txtFecha.setBounds(470, 166, 146, 26);
 		contentPanel.add(txtFecha);
-		
-		panelNa = new JPanel();
-		panelNa.setLayout(null);
-		panelNa.setBounds(700, 32, 280, 124);
-		contentPanel.add(panelNa);
-		
-		JLabel label_13 = new JLabel("");
-		label_13.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/red.png")));
-		label_13.setBounds(66, 0, 214, 124);
-		panelNa.add(label_13);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(220, 20, 60));
