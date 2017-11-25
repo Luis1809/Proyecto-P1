@@ -669,7 +669,7 @@ public class RegistrarPlaza extends JDialog {
 		txtRNC.setForeground(new Color(0, 0, 0));
 		txtRNC.setColumns(10);
 		txtRNC.setBackground(new Color(211, 211, 211));
-		txtRNC.setBounds(164, 18, 158, 20);
+		txtRNC.setBounds(164, 18, 158, 23);
 		panel_2.add(txtRNC);
 		
 		btnBuscar = new JButton("Buscar");
@@ -706,7 +706,7 @@ public class RegistrarPlaza extends JDialog {
 		txtnombreEmpresa.setEditable(false);
 		txtnombreEmpresa.setForeground(new Color(0, 0, 0));
 		txtnombreEmpresa.setBackground(new Color(211, 211, 211));
-		txtnombreEmpresa.setBounds(438, 18, 177, 20);
+		txtnombreEmpresa.setBounds(438, 18, 177, 23);
 		panel_2.add(txtnombreEmpresa);
 		txtnombreEmpresa.setColumns(10);
 		
@@ -719,7 +719,7 @@ public class RegistrarPlaza extends JDialog {
 		txtciudadEmpresa.setEditable(false);
 		txtciudadEmpresa.setForeground(new Color(0, 0, 0));
 		txtciudadEmpresa.setBackground(new Color(211, 211, 211));
-		txtciudadEmpresa.setBounds(438, 45, 177, 20);
+		txtciudadEmpresa.setBounds(438, 45, 177, 23);
 		panel_2.add(txtciudadEmpresa);
 		txtciudadEmpresa.setColumns(10);
 		
@@ -733,7 +733,7 @@ public class RegistrarPlaza extends JDialog {
 		txttelefonoEmpresa.setForeground(Color.BLACK);
 		txttelefonoEmpresa.setColumns(10);
 		txttelefonoEmpresa.setBackground(new Color(211, 211, 211));
-		txttelefonoEmpresa.setBounds(438, 73, 177, 20);
+		txttelefonoEmpresa.setBounds(438, 73, 177, 23);
 		panel_2.add(txttelefonoEmpresa);
 		
 		JPanel panel_3 = new JPanel();
