@@ -20,6 +20,9 @@ import javax.swing.border.TitledBorder;
 
 import logico.Bolsa;
 import logico.EmpresaSolicitadora;
+import logico.SolicitudesObrero;
+import logico.SolicitudesTecnico;
+import logico.SolicitudesUni;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -42,23 +45,9 @@ public class Macheo extends JDialog {
 	private JTextField txtCiudadSolicitud;
 	private JFormattedTextField txtRNC;
 	private JFormattedTextField txtTelefono;
+	private JComboBox cbxSolicitudTipo;
+	private EmpresaSolicitadora emp;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			Macheo dialog = new Macheo();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Create the dialog.
-	 */
 	public Macheo() {
 		setTitle("Datos");
 		setResizable(false);
@@ -113,11 +102,8 @@ public class Macheo extends JDialog {
 						
 					String RNC;	
 					RNC=txtRNC.getText();
-						cargarDatos(RNC);
-						
-						
-						
-						
+					cargarDatos(RNC);
+					loadSolicitudes();
 					}
 				});
 				button.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -217,7 +203,7 @@ public class Macheo extends JDialog {
 		lblSolicitudDe.setBounds(13, 34, 110, 14);
 		panel_1.add(lblSolicitudDe);
 		
-		JComboBox cbxSolicitudTipo = new JComboBox();
+		cbxSolicitudTipo = new JComboBox();
 		cbxSolicitudTipo.setBounds(130, 31, 188, 20);
 		panel_1.add(cbxSolicitudTipo);
 		
@@ -289,10 +275,7 @@ public class Macheo extends JDialog {
 	}
 
 	protected void cargarDatos(String RNC) {
-		EmpresaSolicitadora emp;
 		emp=Bolsa.buscarEmpresa(RNC);
-		
-		
 		String ciudad=emp.getCiudad();
 		String nombre= emp.getNombreEmpresa();
 	    String pais=	emp.getPaisEmpresa();
@@ -300,11 +283,28 @@ public class Macheo extends JDialog {
 		txtCiudadEmpresa.setText(ciudad);
 		txtNombreEmpresa.setText(nombre);
 		txtTelefono.setText(tel);
-	
-	
-	
-		
 		// TODO Auto-generated method stub
-		
+	}
+	
+
+	private void loadSolicitudes() {
+		String tipo = "";
+		cbxSolicitudTipo.insertItemAt("<Seleccionar>", 0);
+		for (int i = 0; i < emp.getMiSolicitudes().size();i++) {
+			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesUni){
+				SolicitudesUni uni = (SolicitudesUni) emp.getMiSolicitudes().get(i);
+				tipo = uni.getCarrera();
+			}
+			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesTecnico){
+				SolicitudesTecnico tec = (SolicitudesTecnico) emp.getMiSolicitudes().get(i);
+				tipo = tec.getTecnico();
+			}
+			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesObrero){
+				SolicitudesObrero obre = (SolicitudesObrero) emp.getMiSolicitudes().get(i);
+				tipo = obre.getListaHabilidades().get(0);
+			}
+			cbxSolicitudTipo.addItem(new String(tipo));	
+		}
+		cbxSolicitudTipo.setSelectedIndex(0);
 	}
 }
