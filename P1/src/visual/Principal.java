@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import logico.Bolsa;
@@ -23,6 +24,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 
 public class Principal extends JFrame {
 
@@ -33,6 +35,21 @@ public class Principal extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		
+		
+		//look and feel
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		JDialog.setDefaultLookAndFeelDecorated(true);
+		
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
+		
+		//look and feel
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
