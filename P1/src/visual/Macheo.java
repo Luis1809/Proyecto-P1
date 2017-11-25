@@ -101,7 +101,7 @@ public class Macheo extends JDialog {
 				txtRNC.setForeground(Color.BLACK);
 				txtRNC.setColumns(10);
 				txtRNC.setBackground(new Color(211, 211, 211));
-				txtRNC.setBounds(164, 18, 158, 20);
+				txtRNC.setBounds(164, 18, 158, 23);
 				panel_1.add(txtRNC);
 			}
 			{
@@ -133,7 +133,7 @@ public class Macheo extends JDialog {
 				txtNombreEmpresa.setEditable(false);
 				txtNombreEmpresa.setColumns(10);
 				txtNombreEmpresa.setBackground(new Color(211, 211, 211));
-				txtNombreEmpresa.setBounds(476, 11, 177, 20);
+				txtNombreEmpresa.setBounds(476, 11, 177, 23);
 				panel_1.add(txtNombreEmpresa);
 			}
 			{
@@ -148,7 +148,7 @@ public class Macheo extends JDialog {
 				txtCiudadEmpresa.setEditable(false);
 				txtCiudadEmpresa.setColumns(10);
 				txtCiudadEmpresa.setBackground(new Color(211, 211, 211));
-				txtCiudadEmpresa.setBounds(476, 38, 177, 20);
+				txtCiudadEmpresa.setBounds(476, 38, 177, 23);
 				panel_1.add(txtCiudadEmpresa);
 			}
 			{
@@ -163,7 +163,7 @@ public class Macheo extends JDialog {
 				txtTelefono.setEditable(false);
 				txtTelefono.setColumns(10);
 				txtTelefono.setBackground(new Color(211, 211, 211));
-				txtTelefono.setBounds(476, 66, 177, 20);
+				txtTelefono.setBounds(476, 66, 177, 23);
 				panel_1.add(txtTelefono);
 			}
 		}
@@ -198,7 +198,7 @@ public class Macheo extends JDialog {
 		txtSalarioSolicitado.setEditable(false);
 		txtSalarioSolicitado.setColumns(10);
 		txtSalarioSolicitado.setBackground(new Color(255, 255, 255));
-		txtSalarioSolicitado.setBounds(473, 93, 173, 20);
+		txtSalarioSolicitado.setBounds(473, 93, 173, 23);
 		panel_1.add(txtSalarioSolicitado);
 		
 		txtPlaza = new JTextField();
@@ -206,7 +206,7 @@ public class Macheo extends JDialog {
 		txtPlaza.setEditable(false);
 		txtPlaza.setColumns(10);
 		txtPlaza.setBackground(new Color(255, 255, 255));
-		txtPlaza.setBounds(473, 31, 173, 20);
+		txtPlaza.setBounds(473, 31, 173, 23);
 		panel_1.add(txtPlaza);
 		
 		JLabel lblSolicitudDe = new JLabel("Solicitud de:");
@@ -216,12 +216,12 @@ public class Macheo extends JDialog {
 		cbxSolicitudTipo = new JComboBox();
 		cbxSolicitudTipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(cbxSolicitudTipo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+				if(!cbxSolicitudTipo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
 					loadID(cbxSolicitudTipo.getSelectedItem().toString());
 				}
 			}
 		});
-		cbxSolicitudTipo.setBounds(125, 31, 186, 20);
+		cbxSolicitudTipo.setBounds(125, 31, 186, 23);
 		panel_1.add(cbxSolicitudTipo);
 		
 		JLabel label_5 = new JLabel("Fecha:");
@@ -252,7 +252,7 @@ public class Macheo extends JDialog {
 		
 		txtPorcientoAceptable = new JTextField();
 		txtPorcientoAceptable.setEditable(false);
-		txtPorcientoAceptable.setBounds(125, 93, 186, 20);
+		txtPorcientoAceptable.setBounds(125, 93, 186, 23);
 		panel_1.add(txtPorcientoAceptable);
 		txtPorcientoAceptable.setColumns(10);
 		
@@ -262,7 +262,7 @@ public class Macheo extends JDialog {
 		
 		txtCiudadSolicitud = new JTextField();
 		txtCiudadSolicitud.setEditable(false);
-		txtCiudadSolicitud.setBounds(473, 63, 173, 20);
+		txtCiudadSolicitud.setBounds(473, 63, 173, 23);
 		panel_1.add(txtCiudadSolicitud);
 		txtCiudadSolicitud.setColumns(10);
 		
@@ -273,8 +273,8 @@ public class Macheo extends JDialog {
 		cbxID = new JComboBox();
 		cbxID.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(cbxID.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
-					Solicitudes solicitud = Bolsa.buscarSolicitud((int)cbxID.getSelectedItem());
+				if(!cbxID.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+					Solicitudes solicitud = Bolsa.buscarSolicitud(Integer.parseInt(cbxID.getSelectedItem().toString()));
 					txtPorcientoAceptable.setText(Integer.toString((int) solicitud.getPorcientoAceptable()));
 					txtPlaza.setText(Integer.toString((int) solicitud.getPlaza()));
 					txtCiudadSolicitud.setText(solicitud.getCuidad());
@@ -282,7 +282,7 @@ public class Macheo extends JDialog {
 				}
 			}
 		});
-		cbxID.setBounds(125, 62, 186, 20);
+		cbxID.setBounds(125, 62, 186, 23);
 		panel_1.add(cbxID);
 		{
 			JPanel buttonPane = new JPanel();
@@ -325,6 +325,7 @@ public class Macheo extends JDialog {
 
 	private void loadSolicitudes() {
 		String tipo = "";
+		boolean ingresar=true;
 		cbxSolicitudTipo.insertItemAt("<Seleccionar>", 0);
 		for (int i = 0; i < emp.getMiSolicitudes().size();i++) {
 			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesUni){
@@ -339,7 +340,14 @@ public class Macheo extends JDialog {
 				SolicitudesObrero obre = (SolicitudesObrero) emp.getMiSolicitudes().get(i);
 				tipo = obre.getListaHabilidades().get(0);
 			}
-			cbxSolicitudTipo.addItem(new String(tipo));	
+			
+			for(int a=0;a<cbxSolicitudTipo.getItemCount();a++){
+				if(tipo.equalsIgnoreCase(cbxSolicitudTipo.getItemAt(i).toString()))
+					ingresar=false;
+			}
+			if (ingresar=true)
+				cbxSolicitudTipo.addItem(new String(tipo));	
+			ingresar=true;
 		}
 		cbxSolicitudTipo.setSelectedIndex(0);
 	}
@@ -350,18 +358,18 @@ public class Macheo extends JDialog {
 			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesUni){
 				SolicitudesUni uni = (SolicitudesUni) emp.getMiSolicitudes().get(i);
 				if (dedicacion.equalsIgnoreCase(uni.getCarrera()))
-					cbxID.addItem(new String(Integer.toString(uni.getId())));
+					cbxID.addItem(new String(String.valueOf(uni.getId())));
 			}
 			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesTecnico){
 				SolicitudesTecnico tec = (SolicitudesTecnico) emp.getMiSolicitudes().get(i);
 				if (dedicacion.equalsIgnoreCase(tec.getTecnico()))
-					cbxID.addItem(new String(Integer.toString(tec.getId())));
+					cbxID.addItem(new String(String.valueOf(tec.getId())));
 				
 			}
 			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesObrero){
 				SolicitudesObrero obre = (SolicitudesObrero) emp.getMiSolicitudes().get(i);
 				if (dedicacion.equalsIgnoreCase(obre.getListaHabilidades().get(0)))
-					cbxID.addItem(new String(Integer.toString(obre.getId())));
+					cbxID.addItem(new String(String.valueOf(obre.getId())));
 				
 			}	
 		}
