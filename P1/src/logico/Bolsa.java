@@ -81,7 +81,7 @@ public class Bolsa {
 		return Es;	
 	}
 	
-	public ArrayList<Solicitantes> RealizarMacheo(Solicitudes Solicitud, String RNC){
+	public static void RealizarMacheo(Solicitudes Solicitud, String RNC){
 		float porciento=0;
 		int plazas=Solicitud.plaza;
 		EmpresaSolicitadora miEmpresaMACHEO = buscarEmpresa(RNC);
@@ -154,8 +154,7 @@ public class Bolsa {
 				
 				if(porciento>=solEmp.porcientoAceptable){
 					plazas--;
-					//miEmpresaMACHEO.getMiSolicitudes().get(index)
-					//miSolicitudAceptada.add(SolicitanteUni);
+					Solicitud.miSolicitantes.add(miSolicitante.get(i));
 					miSolicitante.get(i).setHabilitado(false);
 				}
 			}
@@ -217,16 +216,17 @@ public class Bolsa {
 						else
 							porciento+=9.09;
 						
-						//for(int j=0;j<SolicitanteObrero.getExp().size();j++){ /////////////////////////////////////////AreaExp
-						//	if(SolicitanteObrero.getExp().get(j).getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
-							//		SolicitanteObrero.getExp().get(j).getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
-								//porciento+=9.09;
-						//}	
+						/////////////////////////////////////////AreaExp
+						if(SolicitanteObrero.getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
+								SolicitanteObrero.getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
+							porciento+=9.09;
+						
+						
 					}	
 				}
 				if(porciento>=solEmp.porcientoAceptable){
 					plazas--;
-					//miSolicitudAceptada.add(SolicitanteObrero);
+					Solicitud.miSolicitantes.add(miSolicitante.get(i));
 					miSolicitante.get(i).setHabilitado(false);
 				}
 			}
@@ -278,22 +278,22 @@ public class Bolsa {
 					else
 						porciento+=8.3333;
 					
-				//	for(int m=0;m<SolicitanteTecnico.getExp().size();m++){ /////////////////////////////////////////AreaExp
-					//	if(SolicitanteTecnico.getExp().get(m).getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
-						//		SolicitanteTecnico.getExp().get(m).getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
-							//porciento+=8.3333;
-					//}
+					/////////////////////////////////////////AreaExp
+					if(SolicitanteTecnico.getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
+							SolicitanteTecnico.getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
+						porciento+=8.3333;
 					
 				}
 				if(porciento>=Solicitud.porcientoAceptable){
 					plazas--;
-					//miSolicitudAceptada.add(SolicitanteTecnico);
+					Solicitud.miSolicitantes.add(miSolicitante.get(i));
 					miSolicitante.get(i).setHabilitado(false);
-				}
+				}	
 			}
 		}
-		//return miSolicitudAceptada;
-		return null;
+		if(plazas==0){
+			Solicitud.setSatisfecho(true);
+		}
 	}
 	
 	public static void insertarSolicitante(Solicitantes solic){
