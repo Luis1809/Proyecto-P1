@@ -139,7 +139,7 @@ public class SolicitantesVisual extends JDialog {
 		
 		
 		setResizable(false);
-		setBounds(100, 100, 804, 793);
+		setBounds(100, 100, 804, 505);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(null);
@@ -161,7 +161,7 @@ public class SolicitantesVisual extends JDialog {
 			
 			panel_Secundario = new JPanel();
 			panel_Secundario.setBackground(new Color(255, 255, 255));
-			panel_Secundario.setBounds(10, 500, 774, 329);
+			panel_Secundario.setBounds(10, 80, 774, 329);
 			panel.add(panel_Secundario);
 			panel_Secundario.setLayout(null);
 			
@@ -811,6 +811,16 @@ public class SolicitantesVisual extends JDialog {
 			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
 			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
 			
+			panelHombre = new JPanel();
+			panelHombre.setBounds(15, 50, 152, 136);
+			panel_Principal.add(panelHombre);
+			panelHombre.setLayout(null);
+			
+			JLabel lblNewLabel_1 = new JLabel("");
+			lblNewLabel_1.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/hombre.png")));
+			lblNewLabel_1.setBounds(15, 0, 137, 136);
+			panelHombre.add(lblNewLabel_1);
+			
 			panelMujer = new JPanel();
 			panelMujer.setLayout(null);
 			panelMujer.setBounds(15, 50, 152, 136);
@@ -820,16 +830,6 @@ public class SolicitantesVisual extends JDialog {
 			mujer.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/mujer.png")));
 			mujer.setBounds(6, 6, 146, 124);
 			panelMujer.add(mujer);
-			
-			panelHombre = new JPanel();
-			panelHombre.setBounds(6, 0, 152, 136);
-			panelMujer.add(panelHombre);
-			panelHombre.setLayout(null);
-			
-			JLabel lblNewLabel_1 = new JLabel("");
-			lblNewLabel_1.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/hombre.png")));
-			lblNewLabel_1.setBounds(15, 0, 137, 136);
-			panelHombre.add(lblNewLabel_1);
 			
 			txtFechaSolicitud = new JTextField();
 			txtFechaSolicitud.setBounds(637, 56, 146, 26);
@@ -861,6 +861,7 @@ public class SolicitantesVisual extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("Registrar");
+				okButton.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/ok-appproval-aceptacion.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						//Datos Personales
@@ -1033,6 +1034,7 @@ public class SolicitantesVisual extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancelar");
+				cancelButton.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/boton-cancelar.png")));
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();

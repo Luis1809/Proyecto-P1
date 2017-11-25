@@ -28,6 +28,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFormattedTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 
 public class RegistrarEmpresaVisual extends JDialog {
 
@@ -145,7 +146,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 				if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
 					System.out.println("");
 				else {
-					JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Información", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Informaciï¿½n", JOptionPane.WARNING_MESSAGE);
 					cleanNombre();}
 			}
 		});
@@ -177,6 +178,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton btnRegistrar = new JButton("Registrar");
+				btnRegistrar.setIcon(new ImageIcon(RegistrarEmpresaVisual.class.getResource("/imagenes/ok-appproval-aceptacion.png")));
 				btnRegistrar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						String nombreEmpresa = txtNombreEmpresa.getText();
@@ -197,14 +199,14 @@ public class RegistrarEmpresaVisual extends JDialog {
 								|| paisEmpresa.equalsIgnoreCase("<Seleccionar>")||areaTrabajo.equalsIgnoreCase("<Selecccionar>")||rNC.equalsIgnoreCase("         ")
 								||Bolsa.EmpresaRepetida(rNC)==true){
 							if (Bolsa.EmpresaRepetida(rNC)==true)
-								JOptionPane.showMessageDialog(null, "La empresa ya ha sido ingresado, verifique el RNC", "Información", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(null, "La empresa ya ha sido ingresado, verifique el RNC", "Informaciï¿½n", JOptionPane.WARNING_MESSAGE);
 							else
-								JOptionPane.showMessageDialog(null, "Completar todas las casillas", "Información", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(null, "Completar todas las casillas", "Informaciï¿½n", JOptionPane.WARNING_MESSAGE);
 							//System.out.println(telefonoEmpresa);
 						}
 						else{
 						Bolsa.insertarEmpresa(Es);
-						JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Operaciï¿½n satisfactoria", "Informaciï¿½n", JOptionPane.INFORMATION_MESSAGE);
 						clean();}
 					}
 				});
@@ -213,7 +215,8 @@ public class RegistrarEmpresaVisual extends JDialog {
 				getRootPane().setDefaultButton(btnRegistrar);
 			}
 			{
-				JButton btnCancel = new JButton("Cancel");
+				JButton btnCancel = new JButton("Cancelar");
+				btnCancel.setIcon(new ImageIcon(RegistrarEmpresaVisual.class.getResource("/imagenes/boton-cancelar.png")));
 				btnCancel.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();

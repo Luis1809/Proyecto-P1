@@ -27,6 +27,7 @@ import javax.swing.UIManager;
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.JSeparator;
+import javax.swing.ImageIcon;
 
 public class Macheo extends JDialog {
 
@@ -106,6 +107,7 @@ public class Macheo extends JDialog {
 			}
 			{
 				JButton button = new JButton("Buscar");
+				button.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/buscador-de-lupa (1).png")));
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
@@ -267,12 +269,14 @@ public class Macheo extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/ok-appproval-aceptacion.png")));
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/boton-cancelar.png")));
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();

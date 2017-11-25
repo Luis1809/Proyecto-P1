@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Insets;
+import javax.swing.ImageIcon;
 
 public class Principal extends JFrame {
 
@@ -45,7 +46,7 @@ public class Principal extends JFrame {
 					frame.addWindowListener( new WindowAdapter() {
 					@Override
 					public void  windowClosing(WindowEvent we){
-						JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestros servicios.", "Información", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestros servicios.", "Informaciï¿½n", JOptionPane.INFORMATION_MESSAGE);
 					
 						//try {
 							//Controladora.GuardarCliente();
@@ -90,6 +91,7 @@ public class Principal extends JFrame {
 		menuBar.setForeground(new Color(220, 20, 60));
 		
 		JMenu mnNewMenu = new JMenu("Ingresar datos");
+		mnNewMenu.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/usuario (1).png")));
 		mnNewMenu.setBackground(new Color(0, 0, 0));
 		mnNewMenu.setForeground(new Color(255, 255, 255));
 		mnNewMenu.setFont(new Font("Segoe UI", Font.PLAIN, 18));
@@ -120,6 +122,7 @@ public class Principal extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
 		JMenu mnNewMenu_2 = new JMenu("Solicitudes");
+		mnNewMenu_2.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/transaccion (1).png")));
 		mnNewMenu_2.setForeground(new Color(255, 255, 255));
 		mnNewMenu_2.setBackground(new Color(0, 0, 0));
 		mnNewMenu_2.setFont(new Font("Segoe UI", Font.PLAIN, 18));
