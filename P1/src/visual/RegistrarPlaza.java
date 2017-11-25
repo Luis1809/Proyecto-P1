@@ -750,7 +750,7 @@ public class RegistrarPlaza extends JDialog {
 		
 		panelNa = new JPanel();
 		panelNa.setLayout(null);
-		panelNa.setBounds(717, 193, 280, 124);
+		panelNa.setBounds(700, 32, 280, 124);
 		contentPanel.add(panelNa);
 		
 		JLabel label_13 = new JLabel("");
