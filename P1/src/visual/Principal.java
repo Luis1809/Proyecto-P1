@@ -37,8 +37,6 @@ public class Principal extends JFrame {
 	 */
 	public static void main(String[] args) {
 		
-		
-		
 		//look and feel
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		JDialog.setDefaultLookAndFeelDecorated(true);
