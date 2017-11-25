@@ -172,7 +172,7 @@ public class Principal extends JFrame {
 		mnNewMenu_2.add(mntmNewMenuItem_3);
 		
 		ClockFace clockFace_1 = new ClockFace();
-		clockFace_1.setBounds(20, 214, 150, 150);
+		clockFace_1.setBounds(10, 33, 150, 150);
 		contentPane.add(clockFace_1);
 	}
 }

@@ -81,7 +81,7 @@ public class Bolsa {
 		return Es;	
 	}
 	
-	public static ArrayList<Solicitantes> RealizarMacheo(Solicitudes Solicitud, String RNC){
+	public ArrayList<Solicitantes> RealizarMacheo(Solicitudes Solicitud, String RNC){
 		float porciento=0;
 		int plazas=Solicitud.plaza;
 		EmpresaSolicitadora miEmpresaMACHEO = buscarEmpresa(RNC);
@@ -226,7 +226,7 @@ public class Bolsa {
 				}
 				if(porciento>=solEmp.porcientoAceptable){
 					plazas--;
-					miSolicitudAceptada.add(SolicitanteObrero);
+					//miSolicitudAceptada.add(SolicitanteObrero);
 					miSolicitante.get(i).setHabilitado(false);
 				}
 			}
@@ -287,12 +287,13 @@ public class Bolsa {
 				}
 				if(porciento>=Solicitud.porcientoAceptable){
 					plazas--;
-					miSolicitudAceptada.add(SolicitanteTecnico);
+					//miSolicitudAceptada.add(SolicitanteTecnico);
 					miSolicitante.get(i).setHabilitado(false);
 				}
 			}
 		}
-		return miSolicitudAceptada;
+		//return miSolicitudAceptada;
+		return null;
 	}
 	
 	public static void insertarSolicitante(Solicitantes solic){
