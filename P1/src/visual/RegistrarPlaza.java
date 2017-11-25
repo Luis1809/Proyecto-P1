@@ -110,7 +110,7 @@ public class RegistrarPlaza extends JDialog {
 	private JLabel label_10;
 	private JPanel panelHombre;
 	private JLabel label_11;
-	private JPanel panel;
+	private JPanel panelNa;
 	
 	public RegistrarPlaza() {
 		setResizable(false);
@@ -748,15 +748,15 @@ public class RegistrarPlaza extends JDialog {
 		txtFecha.setBounds(470, 166, 146, 26);
 		contentPanel.add(txtFecha);
 		
-		panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBounds(15, 32, 280, 124);
-		contentPanel.add(panel);
+		panelNa = new JPanel();
+		panelNa.setLayout(null);
+		panelNa.setBounds(647, 198, 280, 124);
+		contentPanel.add(panelNa);
 		
 		JLabel label_13 = new JLabel("");
 		label_13.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/red.png")));
 		label_13.setBounds(66, 0, 214, 124);
-		panel.add(label_13);
+		panelNa.add(label_13);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(220, 20, 60));
