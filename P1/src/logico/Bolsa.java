@@ -11,10 +11,12 @@ public class Bolsa {
 	
 	private static ArrayList<Solicitantes> miSolicitante;
 	private static ArrayList<EmpresaSolicitadora> miEmpresa;
+	private static int solic;
 
 	public static void init() {
 		miSolicitante = new ArrayList<>();
 		miEmpresa = new ArrayList<>();
+		solic=0;
 	}
 	
 	/*
@@ -70,6 +72,19 @@ public class Bolsa {
 	}
 	
 	public static EmpresaSolicitadora buscarEmpresa(String RNC) {
+		EmpresaSolicitadora Es=null;
+		if(miEmpresa.size()>0){
+			for(int i=0 ; i<miEmpresa.size();i++){
+				if (miEmpresa.get(i).getRNC().equalsIgnoreCase(RNC)){
+					Es=miEmpresa.get(i);
+				}
+			}
+		}
+		return Es;	
+	}
+	
+
+	public static EmpresaSolicitadora buscarSolicitud(String RNC) {
 		EmpresaSolicitadora Es=null;
 		if(miEmpresa.size()>0){
 			for(int i=0 ; i<miEmpresa.size();i++){
@@ -319,5 +334,13 @@ public class Bolsa {
 	}
 	public static void setMiEmpresa(ArrayList<EmpresaSolicitadora> miEmpresa) {
 		Bolsa.miEmpresa = miEmpresa;
+	}
+
+	public static int getSolic() {
+		return solic;
+	}
+
+	public static void setSolic(int solic) {
+		Bolsa.solic = solic;
 	}
 }

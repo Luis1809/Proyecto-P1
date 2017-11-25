@@ -20,6 +20,7 @@ public abstract class Solicitudes {
 	protected int anosExp; //En el area suministrada 
 	protected float porcientoAceptable;
 	protected int plaza; //Numero de trabajadores que se necesitan
+	protected int id;
 	protected ArrayList<Solicitantes> miSolicitantes;
 	
 	public Solicitudes(String sexo, String estadoCivil, String cuidad, String pais,
@@ -44,6 +45,7 @@ public abstract class Solicitudes {
 		this.porcientoAceptable = porcientoAceptable;
 		this.plaza = plaza;
 		this.miSolicitantes = new ArrayList<>();
+		this.id = 0;
 	}
 	
 	
@@ -158,5 +160,15 @@ public abstract class Solicitudes {
 
 	public void setSatisfecho(boolean satisfecho) {
 		Satisfecho = satisfecho;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }
