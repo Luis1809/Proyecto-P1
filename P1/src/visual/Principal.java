@@ -25,7 +25,7 @@ import java.awt.Color;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
-import org.edisoncor.gui.varios.ClockFace;
+
 
 public class Principal extends JFrame {
 
