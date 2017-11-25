@@ -380,7 +380,7 @@ public class RegistrarPlaza extends JDialog {
 		panelHombre.setLayout(null);
 		
 		label_11 = new JLabel("");
-		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/imagenes/hombre.png")));
+		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/hombre.png")));
 		label_11.setBounds(66, 0, 214, 124);
 		panelHombre.add(label_11);
 		
@@ -420,7 +420,7 @@ public class RegistrarPlaza extends JDialog {
 		panelMujer.setLayout(null);
 		
 		label_10 = new JLabel("");
-		label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/imagenes/mujer.png")));
+		//label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
 		label_10.setBounds(66, 0, 214, 124);
 		panelMujer.add(label_10);
 		
@@ -663,7 +663,7 @@ public class RegistrarPlaza extends JDialog {
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (txtRNC.getText().toString().equalsIgnoreCase("")||Bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
-					JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Información", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informaciï¿½n", JOptionPane.WARNING_MESSAGE);
 				}
 				else{
 				miEmpresa = Bolsa.buscarEmpresa(txtRNC.getText().toString());
@@ -824,13 +824,13 @@ public class RegistrarPlaza extends JDialog {
 										cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma2.isSelected()||
 										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma3.isSelected()||cbxInstitucionUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCarreraUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
 										){
-									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Información", JOptionPane.WARNING_MESSAGE);}
+									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaciï¿½n", JOptionPane.WARNING_MESSAGE);}
 								else{
 									String carrera = cbxCarreraUni.getSelectedItem().toString();
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
 									SolicitudesUni s = new SolicitudesUni(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp, plazas, institucion, carrera, porcientoAceptable);
 									miEmpresa.insertarSolicitante(s);
-									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
+									JOptionPane.showMessageDialog(null, "Operaciï¿½n satisfactoria", "Informaciï¿½n", JOptionPane.INFORMATION_MESSAGE);
 									clean();
 								}
 							}
@@ -839,11 +839,11 @@ public class RegistrarPlaza extends JDialog {
 										cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma2.isSelected()||
 										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma3.isSelected()||cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar")||cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar")&&chbOtroObrero.isSelected()
 										){
-									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Información", JOptionPane.WARNING_MESSAGE);}
+									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaciï¿½n", JOptionPane.WARNING_MESSAGE);}
 								else{
 									SolicitudesObrero s = new SolicitudesObrero(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp, plazas, habilidad, porcientoAceptable);
 									miEmpresa.insertarSolicitante(s);
-									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
+									JOptionPane.showMessageDialog(null, "Operaciï¿½n satisfactoria", "Informaciï¿½n", JOptionPane.INFORMATION_MESSAGE);
 									clean();
 								}	
 							}
@@ -851,18 +851,18 @@ public class RegistrarPlaza extends JDialog {
 								if (cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCiudadSolicitada.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
 										cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma2.isSelected()||
 										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma3.isSelected()||cbxTecnico.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
-									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Información", JOptionPane.WARNING_MESSAGE);}
+									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaciï¿½n", JOptionPane.WARNING_MESSAGE);}
 								else{
 									String tecnico = cbxTecnico.getSelectedItem().toString();	
 									SolicitudesTecnico s = new SolicitudesTecnico(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp, plazas, tecnico, porcientoAceptable);						
 									miEmpresa.insertarSolicitante(s);
-									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);	
+									JOptionPane.showMessageDialog(null, "Operaciï¿½n satisfactoria", "Informaciï¿½n", JOptionPane.INFORMATION_MESSAGE);	
 									clean();
 								}
 							}
 						}
 						else 
-							JOptionPane.showMessageDialog(null, "Seleccione un nivel educativo", "Información", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(null, "Seleccione un nivel educativo", "Informaciï¿½n", JOptionPane.WARNING_MESSAGE);
 					}
 				});
 				btnRegistrar.setActionCommand("OK");
