@@ -322,7 +322,7 @@ public class RegistrarPlaza extends JDialog {
 			btnNoAplica.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
-					
+					panelNa.setVisible(true);
 					panelMujer.setVisible(false);
 					panelHombre.setVisible(false);
 				}
@@ -750,7 +750,7 @@ public class RegistrarPlaza extends JDialog {
 		
 		panelNa = new JPanel();
 		panelNa.setLayout(null);
-		panelNa.setBounds(647, 198, 280, 124);
+		panelNa.setBounds(717, 193, 280, 124);
 		contentPanel.add(panelNa);
 		
 		JLabel label_13 = new JLabel("");
