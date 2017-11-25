@@ -239,6 +239,7 @@ public class RegistrarPlaza extends JDialog {
 		pTecnico.add(lblTecnico);
 		
 		cbxTecnico = new JComboBox();
+		cbxTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Soldadura", "Informatica", "Telecomunicaciones", "Contabilidad", "Auditoria", "Mercadeo", "Software"}));
 		cbxTecnico.setBackground(new Color(211, 211, 211));
 		cbxTecnico.setBounds(86, 25, 222, 20);
 		pTecnico.add(cbxTecnico);
@@ -844,8 +845,6 @@ public class RegistrarPlaza extends JDialog {
 									String carrera = cbxCarreraUni.getSelectedItem().toString();
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
 									SolicitudesUni s = new SolicitudesUni(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp,porcientoAceptable, plazas, institucion, carrera);
-									Bolsa.setSolic(Bolsa.getSolic()+1);
-									s.setId(Bolsa.getSolic());
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
 									clean();
@@ -859,8 +858,6 @@ public class RegistrarPlaza extends JDialog {
 									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaci�n", JOptionPane.WARNING_MESSAGE);}
 								else{
 									SolicitudesObrero s = new SolicitudesObrero(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo,porcientoAceptable, tiempoExp, plazas, habilidad);
-									Bolsa.setSolic(Bolsa.getSolic()+1);
-									s.setId(Bolsa.getSolic());
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
 									clean();
@@ -874,8 +871,6 @@ public class RegistrarPlaza extends JDialog {
 								else{
 									String tecnico = cbxTecnico.getSelectedItem().toString();	
 									SolicitudesTecnico s = new SolicitudesTecnico(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo,porcientoAceptable, tiempoExp, plazas, tecnico);						
-									Bolsa.setSolic(Bolsa.getSolic()+1);
-									s.setId(Bolsa.getSolic());
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);	
 									clean();

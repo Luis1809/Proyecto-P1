@@ -139,7 +139,7 @@ public class SolicitantesVisual extends JDialog {
 		
 		
 		setResizable(false);
-		setBounds(100, 100, 794, 511);
+		setBounds(100, 100, 794, 508);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(null);
@@ -224,8 +224,7 @@ public class SolicitantesVisual extends JDialog {
 				}
 			});
 			cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
-			cbxIdioma1.setEditable(true);
-			cbxIdioma1.setBounds(243, 165, 134, 22);
+			cbxIdioma1.setBounds(243, 165, 134, 23);
 			panel_6.add(cbxIdioma1);
 			
 			btnTiempoCompleto = new JRadioButton("Tiempo Completo");
@@ -275,7 +274,7 @@ public class SolicitantesVisual extends JDialog {
 			});
 			cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Patua", "Creoles", "Ruso"}));
 			cbxIdioma2.setEnabled(false);
-			cbxIdioma2.setBounds(243, 222, 134, 22);
+			cbxIdioma2.setBounds(243, 222, 134, 23);
 			panel_6.add(cbxIdioma2);
 			
 			chbIdioma3 = new JCheckBox("A\u00F1adir otro idioma");
@@ -301,7 +300,7 @@ public class SolicitantesVisual extends JDialog {
 			});
 			cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
 			cbxIdioma3.setEnabled(false);
-			cbxIdioma3.setBounds(243, 281, 134, 22);
+			cbxIdioma3.setBounds(243, 281, 134, 23);
 			panel_6.add(cbxIdioma3);
 			
 			JLabel label_22 = new JLabel("Area de interes:");
@@ -314,7 +313,7 @@ public class SolicitantesVisual extends JDialog {
 				}
 			});
 			cbxAreaInteres.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
-			cbxAreaInteres.setBounds(27, 222, 126, 22);
+			cbxAreaInteres.setBounds(27, 222, 126, 23);
 			panel_6.add(cbxAreaInteres);
 			
 			JLabel lblSalarioSolicitado = new JLabel("Salario solicitado (Mensual):");
@@ -408,7 +407,7 @@ public class SolicitantesVisual extends JDialog {
 				}
 			});
 			cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
-			cbxAreaTrabajo.setBounds(147, 99, 198, 22);
+			cbxAreaTrabajo.setBounds(147, 99, 198, 23);
 			panel_7.add(cbxAreaTrabajo);
 			
 			JLabel label_28 = new JLabel("Tiempo de experiencia:");
@@ -557,7 +556,7 @@ public class SolicitantesVisual extends JDialog {
 			txtEmail = new JTextField();
 			txtEmail.setBackground(new Color(211, 211, 211));
 			txtEmail.setColumns(10);
-			txtEmail.setBounds(369, 86, 196, 23);
+			txtEmail.setBounds(369, 86, 196, 24);
 			panel_1.add(txtEmail);
 			
 			JLabel label_10 = new JLabel("Fecha Nacimiento:");
@@ -577,7 +576,7 @@ public class SolicitantesVisual extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
-			cbxNacionalidad.setBounds(147, 143, 137, 22);
+			cbxNacionalidad.setBounds(147, 143, 137, 23);
 			panel_1.add(cbxNacionalidad);
 			cbxNacionalidad.setBackground(new Color(211, 211, 211));
 			cbxNacionalidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Afganist\u00E1n\t", "Alemania\t", "Arabia Saudita\t", "Argentina\t", "Australia\t", "B\u00E9lgica\t", "Bolivia\t", "Brasil\t", "Camboya\t", "Canad\u00E1\t", "Chile\t", "China", "Colombia\t", "Corea\t", "Costa Rica", "Cuba\t", "Dinamarca\t", "Ecuador\t", "Egipto\t", "El Salvador\t", "Escocia\t", "Espa\u00F1a", "Estados Unidos\t", "Estonia\t", "Filipinas\t", "Francia\t", "Grecia", "Guatemala\t", "Hait\u00ED\t", "Holanda\t", "Honduras\t", "Indonesia\t", "Inglaterra\t", "Irak\t", "Ir\u00E1n", "Irlanda\t", "Israel\t", "Italia\t", "Jap\u00F3n\t", "Jordania\t", "Laos\t", "Letonia\t", "Lituania\t", "Malasia\t", "Marruecos\t", "M\u00E9xico\t", "Nicaragua\t", "Noruega\t", "Nueva Zelanda", "Panam\u00E1\t", "Paraguay\t", "Per\u00FA\t", "Polonia\t", "Portugal\t", "Puerto Rico", "Republica Dom.", "Rumania\t", "Rusia\t", "Suecia\t", "Suiza\t", "Tailandia\t", "Taiw\u00E1n\t", "Turqu\u00EDa\t", "Ucrania\t", "Uruguay\t", "Venezuela\t", "Vietnam"}));
@@ -614,7 +613,7 @@ public class SolicitantesVisual extends JDialog {
 					
 				}
 			});
-			cbxHabilidad.setBounds(82, 14, 226, 22);
+			cbxHabilidad.setBounds(82, 14, 226, 23);
 			pObrero.add(cbxHabilidad);
 			
 			chckbxAadirOtro = new JCheckBox("Otro?");
@@ -656,7 +655,7 @@ public class SolicitantesVisual extends JDialog {
 				}
 			});
 			cbxHabilidad2.setEnabled(false);
-			cbxHabilidad2.setBounds(82, 45, 226, 22);
+			cbxHabilidad2.setBounds(82, 45, 226, 23);
 			pObrero.add(cbxHabilidad2);
 			pObrero.setVisible(false);
 			
@@ -778,7 +777,7 @@ public class SolicitantesVisual extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
-			cbxCiudad.setBounds(81, 11, 177, 22);
+			cbxCiudad.setBounds(81, 11, 177, 23);
 			panel_4.add(cbxCiudad);
 			cbxCiudad.setBackground(new Color(211, 211, 211));
 			cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
@@ -792,7 +791,7 @@ public class SolicitantesVisual extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
-			cbxPais.setBounds(81, 47, 177, 22);
+			cbxPais.setBounds(81, 47, 177, 23);
 			panel_4.add(cbxPais);
 			cbxPais.setBackground(new Color(211, 211, 211));
 			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
@@ -806,24 +805,24 @@ public class SolicitantesVisual extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
-			cbxEstadoCivil.setBounds(81, 83, 177, 22);
+			cbxEstadoCivil.setBounds(81, 83, 177, 23);
 			panel_4.add(cbxEstadoCivil);
 			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
 			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
 			
 			panelHombre = new JPanel();
-			panelHombre.setBounds(15, 50, 152, 136);
+			panelHombre.setBounds(15, 20, 152, 159);
 			panel_Principal.add(panelHombre);
 			panelHombre.setLayout(null);
 			
 			JLabel lblNewLabel_1 = new JLabel("");
 			lblNewLabel_1.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/hombre.png")));
-			lblNewLabel_1.setBounds(15, 0, 137, 136);
+			lblNewLabel_1.setBounds(6, 6, 137, 136);
 			panelHombre.add(lblNewLabel_1);
 			
 			panelMujer = new JPanel();
 			panelMujer.setLayout(null);
-			panelMujer.setBounds(15, 50, 152, 136);
+			panelMujer.setBounds(15, 20, 152, 158);
 			panel_Principal.add(panelMujer);
 			
 			mujer = new JLabel("");

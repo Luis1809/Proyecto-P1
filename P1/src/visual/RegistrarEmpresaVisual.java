@@ -43,7 +43,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 	private static MaskFormatter formatoRNC;
 	private JComboBox cbxPais;
 	private JComboBox cbxArea;
-	private JComboBox cbxCiudad;
+	private JComboBox cbxCiudad;   
 	
 	public RegistrarEmpresaVisual() {
 		setResizable(false);
@@ -76,7 +76,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		panel.add(lblRnc);
 		
 		txtRNC = new JFormattedTextField(formatoRNC);
-		txtRNC.setBounds(71, 39, 148, 20);
+		txtRNC.setBounds(71, 39, 148, 23);
 		panel.add(txtRNC);
 		txtRNC.setColumns(10);
 		
@@ -86,7 +86,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		
 		cbxCiudad = new JComboBox();
 		cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
-		cbxCiudad.setBounds(70, 95, 190, 20);
+		cbxCiudad.setBounds(70, 95, 195, 23);
 		panel.add(cbxCiudad);
 		
 		JLabel lblDireccion = new JLabel("Direccion:");
@@ -94,7 +94,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		panel.add(lblDireccion);
 		
 		txtDireccionEmpresa = new JTextField();
-		txtDireccionEmpresa.setBounds(70, 67, 148, 20);
+		txtDireccionEmpresa.setBounds(70, 67, 148, 23);
 		panel.add(txtDireccionEmpresa);
 		txtDireccionEmpresa.setColumns(10);
 		
@@ -104,7 +104,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		
 		cbxPais = new JComboBox();
 		cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
-		cbxPais.setBounds(282, 39, 156, 20);
+		cbxPais.setBounds(282, 39, 156, 23);
 		panel.add(cbxPais);
 		
 		JLabel lblArea = new JLabel("Area:");
@@ -150,7 +150,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 					cleanNombre();}
 			}
 		});
-		txtNombreEmpresa.setBounds(66, 29, 151, 20);
+		txtNombreEmpresa.setBounds(66, 29, 151, 23);
 		panel_1.add(txtNombreEmpresa);
 		txtNombreEmpresa.setColumns(10);
 		
@@ -159,7 +159,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		panel_1.add(lblTelefono);
 		
 		txtTelefonoEmpresa = new JFormattedTextField(formatoNumero);
-		txtTelefonoEmpresa.setBounds(297, 29, 124, 20);
+		txtTelefonoEmpresa.setBounds(297, 29, 124, 23);
 		panel_1.add(txtTelefonoEmpresa);
 		txtTelefonoEmpresa.setColumns(10);
 		
@@ -168,7 +168,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		panel_1.add(lblEmail);
 		
 		txtEmailEmpresa = new JTextField();
-		txtEmailEmpresa.setBounds(66, 57, 151, 20);
+		txtEmailEmpresa.setBounds(66, 57, 151, 23);
 		panel_1.add(txtEmailEmpresa);
 		txtEmailEmpresa.setColumns(10);
 		{
