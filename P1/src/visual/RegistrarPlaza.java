@@ -68,9 +68,9 @@ public class RegistrarPlaza extends JDialog {
 	private JSpinner spnSalarioSolicitado;
 	private JRadioButton btnMudarseY;
 	private JRadioButton btnMudarseN;
-	private JComboBox cbxIdioma1;
-	private JComboBox cbxIdioma2;
-	private JComboBox cbxIdioma3;
+	private JComboBox<?> cbxIdioma1;
+	private JComboBox<?> cbxIdioma2;
+	private JComboBox<?> cbxIdioma3;
 	private JRadioButton btnLicenciaN;
 	private JRadioButton btnLicenciaY;
 	private JRadioButton bntDispViajarY;
@@ -80,18 +80,18 @@ public class RegistrarPlaza extends JDialog {
 	private JComboBox cbxHabilidad;
 	private JComboBox cbxHabilidad2;
 	private JComboBox cbxTecnico;
-	private JComboBox cbxInstitucionUni;
-	private JComboBox cbxCarreraUni;
+	private JComboBox<?> cbxInstitucionUni;
+	private JComboBox<?> cbxCarreraUni;
 	private JRadioButton btnUniversitario;
 	private JRadioButton btnTecnico;
 	private JRadioButton btnObrero;
 	private JRadioButton btnMasculino;
 	private JRadioButton btnFemenino;
 	private JRadioButton btnNoAplica;
-	private JComboBox cbxCiudadSolicitada;
-	private JComboBox cbxPais;
-	private JComboBox cbxEstadoCivil;
-	private JComboBox cbxAreaTrabajo;
+	private JComboBox<?> cbxCiudadSolicitada;
+	private JComboBox<?> cbxPais;
+	private JComboBox<?> cbxEstadoCivil;
+	private JComboBox<?> cbxAreaTrabajo;
 	private JSpinner spnTiempoExp;
 	private JButton btnBuscar;
 	private EmpresaSolicitadora miEmpresa;
@@ -113,7 +113,7 @@ public class RegistrarPlaza extends JDialog {
 	
 	public RegistrarPlaza() {
 		setResizable(false);
-		setBounds(100, 100, 1109, 598);
+		setBounds(100, 100, 692, 601);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -154,6 +154,10 @@ public class RegistrarPlaza extends JDialog {
 		pUniversitario.add(label_3);
 		
 		cbxInstitucionUni = new JComboBox();
+		cbxInstitucionUni.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
 		cbxInstitucionUni.setBackground(new Color(211, 211, 211));
 		cbxInstitucionUni.setBounds(86, 11, 222, 20);
@@ -164,6 +168,10 @@ public class RegistrarPlaza extends JDialog {
 		pUniversitario.add(label_9);
 		
 		cbxCarreraUni = new JComboBox();
+		cbxCarreraUni.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		cbxCarreraUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
 		cbxCarreraUni.setBackground(new Color(211, 211, 211));
 		cbxCarreraUni.setBounds(86, 42, 222, 20);
@@ -328,6 +336,10 @@ public class RegistrarPlaza extends JDialog {
 			panelinfo.add(label_12);
 			
 			cbxCiudadSolicitada = new JComboBox();
+			cbxCiudadSolicitada.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			cbxCiudadSolicitada.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
 			cbxCiudadSolicitada.setBackground(new Color(211, 211, 211));
 			cbxCiudadSolicitada.setBounds(104, 51, 207, 20);
@@ -338,6 +350,10 @@ public class RegistrarPlaza extends JDialog {
 			panelinfo.add(label_1_1);
 			
 			cbxPais = new JComboBox();
+			cbxPais.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
 			cbxPais.setBackground(new Color(211, 211, 211));
 			cbxPais.setBounds(104, 80, 207, 20);
@@ -348,6 +364,10 @@ public class RegistrarPlaza extends JDialog {
 			panelinfo.add(label_2_1);
 			
 			cbxEstadoCivil = new JComboBox();
+			cbxEstadoCivil.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
 			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
 			cbxEstadoCivil.setBounds(104, 107, 207, 20);
@@ -376,6 +396,10 @@ public class RegistrarPlaza extends JDialog {
 		panellaborlal.add(label_2);
 		
 		cbxAreaTrabajo = new JComboBox();
+		cbxAreaTrabajo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
 		cbxAreaTrabajo.setBackground(new Color(211, 211, 211));
 		cbxAreaTrabajo.setBounds(127, 34, 142, 20);
@@ -807,7 +831,7 @@ public class RegistrarPlaza extends JDialog {
 									SolicitudesUni s = new SolicitudesUni(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp, plazas, institucion, carrera, porcientoAceptable);
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
-									//clean();
+									clean();
 								}
 							}
 							if (tipo.equalsIgnoreCase("Obrero")){
@@ -820,7 +844,7 @@ public class RegistrarPlaza extends JDialog {
 									SolicitudesObrero s = new SolicitudesObrero(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp, plazas, habilidad, porcientoAceptable);
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);
-									//clean();
+									clean();
 								}	
 							}
 							if (tipo.equalsIgnoreCase("Tecnico")){
@@ -833,7 +857,7 @@ public class RegistrarPlaza extends JDialog {
 									SolicitudesTecnico s = new SolicitudesTecnico(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp, plazas, tecnico, porcientoAceptable);						
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operación satisfactoria", "Información", JOptionPane.INFORMATION_MESSAGE);	
-									//clean();
+									clean();
 								}
 							}
 						}
@@ -881,5 +905,30 @@ public class RegistrarPlaza extends JDialog {
 				buttonPane.add(btncancel);
 			}
 		}
+	}
+
+	protected void clean() {
+	     //	txt
+		txtAreaEmpresa.setText("");
+		txtciudadEmpresa.setText("");
+		txtFecha.setText("");
+		txtnombreEmpresa.setText("");
+		txtRNC.setText("");
+		txttelefonoEmpresa.setText("");
+	
+		//comboBox
+		cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
+		cbxCiudadSolicitada.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
+		cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
+		cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
+		cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
+		cbxCarreraUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
+		cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+		cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+		cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+		
+		
+		
+		
 	}
 }
