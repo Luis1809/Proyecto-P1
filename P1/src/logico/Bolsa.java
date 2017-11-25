@@ -81,10 +81,10 @@ public class Bolsa {
 		return Es;	
 	}
 	
-	public static ArrayList<Solicitantes> RealizarMacheo(Solicitudes Solicitud){
+	public static ArrayList<Solicitantes> RealizarMacheo(Solicitudes Solicitud, String RNC){
 		float porciento=0;
 		int plazas=Solicitud.plaza;
-		ArrayList<Solicitantes> miSolicitudAceptada = new ArrayList<>();
+		EmpresaSolicitadora miEmpresaMACHEO = buscarEmpresa(RNC);
 		for (int i=0; i<miSolicitante.size();i++){
 			porciento=0;
 			
@@ -97,18 +97,21 @@ public class Bolsa {
 					if(solEmp.getSexo().equalsIgnoreCase("N/A"))///////////////////Sexo
 						porciento+=8.3333;
 					else
-					if(SolicitanteUni.getSexo().equalsIgnoreCase(solEmp.getSexo()))
-						porciento+=8.3333;
+						if(SolicitanteUni.getSexo().equalsIgnoreCase(solEmp.getSexo()))
+							porciento+=8.3333;
+					
 					if(solEmp.getEstadoCivil().equalsIgnoreCase("N/A"))///////////////////EstadoCivil
 						porciento+=8.3333;
 					else
 						if(SolicitanteUni.getEstadoCivil().equalsIgnoreCase(solEmp.getEstadoCivil()))
-						porciento+=8.3333;
+							porciento+=8.3333;
+					
 					if(solEmp.getCuidad().equalsIgnoreCase("N/A"))////////////////////////Cuidad
 						porciento+=8.3333;
 					else
 						if(SolicitanteUni.getCuidad().equalsIgnoreCase(solEmp.getCuidad()))
-						porciento+=8.3333;
+							porciento+=8.3333;
+					
 					if(SolicitanteUni.getPais().equalsIgnoreCase(solEmp.getPais()))////////////////////////Pais
 						porciento+=8.3333;
 					if(SolicitanteUni.getSalirioSolicitado()<=solEmp.getSalirioSolicitado())//////////SalarioSolicitado
@@ -136,11 +139,11 @@ public class Bolsa {
 					else
 						porciento+=8.3333;
 					
-					//for(int c=0;c<SolicitanteUni.getExp().size();c++){ /////////////////////////////////////////AreaExp
-						//if(SolicitanteUni.getExp().get(c).getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
-							//	SolicitanteUni.getExp().get(c).getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
-							//porciento+=8.3333;
-					//}
+					 /////////////////////////////////////////AreaExp
+					if(SolicitanteUni.getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
+						SolicitanteUni.getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
+						porciento+=8.3333;
+					
 					
 					if(solEmp.getInstitucion().equalsIgnoreCase("N/A"))////////////////////////Institucion
 						porciento+=8.3333;
@@ -151,7 +154,8 @@ public class Bolsa {
 				
 				if(porciento>=solEmp.porcientoAceptable){
 					plazas--;
-					miSolicitudAceptada.add(SolicitanteUni);
+					//miEmpresaMACHEO.getMiSolicitudes().get(index)
+					//miSolicitudAceptada.add(SolicitanteUni);
 					miSolicitante.get(i).setHabilitado(false);
 				}
 			}
@@ -281,7 +285,7 @@ public class Bolsa {
 					//}
 					
 				}
-				if(porciento>=solEmp.porcientoAceptable){
+				if(porciento>=Solicitud.porcientoAceptable){
 					plazas--;
 					miSolicitudAceptada.add(SolicitanteTecnico);
 					miSolicitante.get(i).setHabilitado(false);
