@@ -817,7 +817,7 @@ public class SolicitantesVisual extends JDialog {
 			panelHombre.setLayout(null);
 			
 			JLabel lblNewLabel_1 = new JLabel("");
-			lblNewLabel_1.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/imagenes/hombre.png")));
+			lblNewLabel_1.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/hombre.png")));
 			lblNewLabel_1.setBounds(15, 0, 137, 136);
 			panelHombre.add(lblNewLabel_1);
 			
@@ -827,7 +827,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_Principal.add(panelMujer);
 			
 			label_7 = new JLabel("");
-			label_7.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/imagenes/mujer.png")));
+			label_7.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/mujer.png")));
 			label_7.setBounds(15, 0, 137, 136);
 			panelMujer.add(label_7);
 			
