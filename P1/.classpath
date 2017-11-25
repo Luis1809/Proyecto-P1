@@ -3,5 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="/Users/ricardodelacruz/Documents/workspace/Bancop/librerias/edisoncorSX.jar"/>
+	<classpathentry kind="lib" path="/Users/ricardodelacruz/Documents/workspace/Bancop/librerias/swingx.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

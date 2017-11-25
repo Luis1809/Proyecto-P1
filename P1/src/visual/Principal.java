@@ -25,6 +25,7 @@ import java.awt.Color;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import org.edisoncor.gui.varios.ClockFace;
 
 public class Principal extends JFrame {
 
@@ -130,6 +131,7 @@ public class Principal extends JFrame {
 		mntmNewMenuItem_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				RegistrarEmpresaVisual ev = new RegistrarEmpresaVisual();
 				ev.setModal(true);
 				ev.setLocationRelativeTo(null);
@@ -168,5 +170,9 @@ public class Principal extends JFrame {
 		});
 		mntmNewMenuItem_3.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mnNewMenu_2.add(mntmNewMenuItem_3);
+		
+		ClockFace clockFace = new ClockFace();
+		clockFace.setBounds(10, 43, 155, 150);
+		contentPane.add(clockFace);
 	}
 }
