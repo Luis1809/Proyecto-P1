@@ -171,8 +171,8 @@ public class Principal extends JFrame {
 		mntmNewMenuItem_3.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mnNewMenu_2.add(mntmNewMenuItem_3);
 		
-		ClockFace clockFace_1 = new ClockFace();
-		clockFace_1.setBounds(10, 33, 150, 150);
-		contentPane.add(clockFace_1);
+		ClockFace clockFace = new ClockFace();
+		clockFace.setBounds(0, 30, 150, 150);
+		contentPane.add(clockFace);
 	}
 }
