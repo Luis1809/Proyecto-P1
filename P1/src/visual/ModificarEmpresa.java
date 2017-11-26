@@ -132,8 +132,8 @@ public class ModificarEmpresa extends JDialog {
 			
 
 				    String nom=emp.getNombreEmpresa();
-			        String direc=	emp.getDireccion();
-					String emai=	emp.getEmailEmpresa();
+			        String direc=emp.getDireccion();
+					String emai=emp.getEmailEmpresa();
 					String tel=	emp.getTelefonoEmpresa();
 			        txtDireccionEmpresa.setText(direc);
 			        txtEmailEmpresa.setText(emai);

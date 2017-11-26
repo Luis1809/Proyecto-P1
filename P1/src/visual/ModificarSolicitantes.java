@@ -146,7 +146,7 @@ public class ModificarSolicitantes extends JDialog {
 		
 		
 		setResizable(false);
-		setBounds(100, 100, 794, 947);
+		setBounds(100, 100, 794, 579);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(null);
@@ -168,7 +168,7 @@ public class ModificarSolicitantes extends JDialog {
 			
 			panel_secundario = new JPanel();
 			panel_secundario.setBackground(new Color(255, 255, 255));
-			panel_secundario.setBounds(10, 525, 774, 329);
+			panel_secundario.setBounds(10, 147, 774, 329);
 			panel.add(panel_secundario);
 			panel_secundario.setLayout(null);
 			
@@ -908,6 +908,10 @@ public class ModificarSolicitantes extends JDialog {
 				s=	Bolsa.buscarSolicitante(txtBuscarCedula.getText());
 					if(s!=null){
 						
+						
+					panel_principal.setVisible(true);	
+					panel_secundario.setVisible(false);
+					
 					txtCedula.setText(s.getCedula());
 					txtApellido.setText(s.getApellido());	
 					txtDireccion.setText(s.getDireccion());
@@ -924,49 +928,51 @@ public class ModificarSolicitantes extends JDialog {
 					for (int i = 0; i < area.length; i++) {
 						String string = area[i];
 						
-						if(s.getAreaInteres().equalsIgnoreCase(string))
-							cbxAreaInteres.setSelectedIndex(i);;
+						if(s.getAreaTrabajo1().equalsIgnoreCase(string))
+							cbxAreaTrabajo.setSelectedIndex(i);;
 						
 						
 						
 					}for (int i = 0; i < estadoVicil.length; i++) {
 						String string = estadoVicil[i];
 						if(s.getEstadoCivil().equalsIgnoreCase(string))
-							cbxAreaInteres.setSelectedIndex(i);;
+							cbxEstadoCivil.setSelectedIndex(i);;
 						
 					}for (int i = 0; i < idioma1.length; i++) {
 						String string = idioma1[i];
+						cbxIdioma1.setSelectedIndex(i);
 						
-						///////Aqui me falta//////
 						
-							cbxAreaInteres.setSelectedIndex(i);;
+					}//for (int i = 0; i < idioma2.length; i++) {
+					//	String string = idioma2[i];
+					//	cbxIdioma2.setSelectedIndex(i);
+					//}for (int i = 0; i < idioma3.length; i++) {
+					//	String string = idioma3[i];
 						
-					}for (int i = 0; i < idioma2.length; i++) {
-						String string = idioma2[i];
-						
-					}for (int i = 0; i < idioma3.length; i++) {
-						String string = idioma3[i];
-						
-					}for (int i = 0; i < areaInteres.length; i++) {
+					//}
+					for (int i = 0; i < areaInteres.length; i++) {
 						String string = areaInteres[i];
-						
+						cbxAreaInteres.setSelectedIndex(i);
 					}for (int i = 0; i < nacionalidad.length; i++) {
 						String string = nacionalidad[i];
-						
+						cbxNacionalidad.setSelectedIndex(i);
 					}for (int i = 0; i < carrera.length; i++) {
 						String string = carrera[i];
-						
+						cbxCarrera.setSelectedIndex(i);
 					}for (int i = 0; i < isntitucion.length; i++) {
 						String string = isntitucion[i];
-						
+						cbxInstitucionUni.setSelectedIndex(i);
 					}for (int i = 0; i < tecnico.length; i++) {
 						String string = tecnico[i];
+						cbxTecnico.setSelectedIndex(i);
 						
 					}for (int i = 0; i < Ciudad.length; i++) {
 						String string = Ciudad[i];
-						
+						cbxCiudad.setSelectedIndex(i);
 					}for (int i = 0; i < pais.length; i++) {
 						String string = pais[i];
+						cbxPais.setSelectedIndex(i);
+						
 						
 					}
 					
