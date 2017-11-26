@@ -12,6 +12,8 @@ import javax.swing.text.MaskFormatter;
 
 import logico.Bolsa;
 import logico.EmpresaSolicitadora;
+import logico.Solicitantes;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -48,7 +50,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 	public RegistrarEmpresaVisual() {
 		setResizable(false);
 		setTitle("Registrar Empresa");
-		setBounds(100, 100, 473, 389);
+		setBounds(100, 100, 463, 382);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setForeground(new Color(255, 255, 255));
 		contentPanel.setBackground(new Color(255, 255, 255));
@@ -67,7 +69,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Informacion General", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(10, 57, 448, 147);
+		panel.setBounds(10, 62, 446, 147);
 		contentPanel.add(panel);
 		panel.setLayout(null);
 		
@@ -86,7 +88,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		
 		cbxCiudad = new JComboBox();
 		cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
-		cbxCiudad.setBounds(70, 95, 195, 23);
+		cbxCiudad.setBounds(70, 95, 148, 23);
 		panel.add(cbxCiudad);
 		
 		JLabel lblDireccion = new JLabel("Direccion:");
@@ -99,27 +101,27 @@ public class RegistrarEmpresaVisual extends JDialog {
 		txtDireccionEmpresa.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Pais:");
-		lblNewLabel_1.setBounds(238, 42, 66, 14);
+		lblNewLabel_1.setBounds(231, 42, 66, 14);
 		panel.add(lblNewLabel_1);
 		
 		cbxPais = new JComboBox();
 		cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
-		cbxPais.setBounds(282, 39, 156, 23);
+		cbxPais.setBounds(282, 38, 156, 25);
 		panel.add(cbxPais);
 		
 		JLabel lblArea = new JLabel("Area:");
-		lblArea.setBounds(237, 70, 38, 14);
+		lblArea.setBounds(230, 70, 38, 14);
 		panel.add(lblArea);
 		
 		cbxArea = new JComboBox();
 		cbxArea.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
-		cbxArea.setBounds(282, 70, 158, 23);
+		cbxArea.setBounds(282, 67, 156, 23);
 		panel.add(cbxArea);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
 		panel_2.setBackground(new Color(220, 20, 60));
-		panel_2.setBounds(0, 0, 467, 50);
+		panel_2.setBounds(0, 0, 463, 50);
 		contentPanel.add(panel_2);
 		
 		JLabel lblIngresarEmpresa = new JLabel("Ingresar Empresa");
@@ -131,7 +133,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Datos de la empresa", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1.setBounds(10, 215, 448, 102);
+		panel_1.setBounds(10, 214, 446, 102);
 		contentPanel.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -155,11 +157,11 @@ public class RegistrarEmpresaVisual extends JDialog {
 		txtNombreEmpresa.setColumns(10);
 		
 		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setBounds(237, 32, 74, 14);
+		lblTelefono.setBounds(223, 32, 64, 14);
 		panel_1.add(lblTelefono);
 		
 		txtTelefonoEmpresa = new JFormattedTextField(formatoNumero);
-		txtTelefonoEmpresa.setBounds(297, 29, 124, 23);
+		txtTelefonoEmpresa.setBounds(285, 27, 148, 23);
 		panel_1.add(txtTelefonoEmpresa);
 		txtTelefonoEmpresa.setColumns(10);
 		
@@ -176,44 +178,6 @@ public class RegistrarEmpresaVisual extends JDialog {
 			buttonPane.setBackground(new Color(220, 20, 60));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton btnRegistrar = new JButton("Registrar");
-				btnRegistrar.setIcon(new ImageIcon(RegistrarEmpresaVisual.class.getResource("/imagenes/ok-appproval-aceptacion.png")));
-				btnRegistrar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						String nombreEmpresa = txtNombreEmpresa.getText();
-						String telefonoEmpresa = txtTelefonoEmpresa.getText();
-						String emailEmpresa = txtEmailEmpresa.getText();
-						
-						String rNC= txtRNC.getText();
-						String areaTrabajo= cbxArea.getSelectedItem().toString();
-						String ciudad = cbxCiudad.getSelectedItem().toString();
-						String paisEmpresa = cbxPais.getSelectedItem().toString();
-								
-						String direccion = txtDireccionEmpresa.getText();
-					
-						
-						EmpresaSolicitadora Es = new EmpresaSolicitadora(nombreEmpresa, emailEmpresa, telefonoEmpresa, direccion, ciudad, paisEmpresa, areaTrabajo, rNC);
-						
-						if (nombreEmpresa.equalsIgnoreCase("") || emailEmpresa.equalsIgnoreCase("") || telefonoEmpresa.equalsIgnoreCase("(   ) -   -    ")|| direccion.equalsIgnoreCase("")|| ciudad.equalsIgnoreCase("<Seleccionar>")
-								|| paisEmpresa.equalsIgnoreCase("<Seleccionar>")||areaTrabajo.equalsIgnoreCase("<Selecccionar>")||rNC.equalsIgnoreCase("         ")
-								||Bolsa.EmpresaRepetida(rNC)==true){
-							if (Bolsa.EmpresaRepetida(rNC)==true)
-								JOptionPane.showMessageDialog(null, "La empresa ya ha sido ingresado, verifique el RNC", "Informaci�n", JOptionPane.WARNING_MESSAGE);
-							else
-								JOptionPane.showMessageDialog(null, "Completar todas las casillas", "Informaci�n", JOptionPane.WARNING_MESSAGE);
-							//System.out.println(telefonoEmpresa);
-						}
-						else{
-						Bolsa.insertarEmpresa(Es);
-						JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
-						clean();}
-					}
-				});
-				btnRegistrar.setActionCommand("OK");
-				buttonPane.add(btnRegistrar);
-				getRootPane().setDefaultButton(btnRegistrar);
-			}
 			{
 				JButton btnCancel = new JButton("Cancelar");
 				btnCancel.setIcon(new ImageIcon(RegistrarEmpresaVisual.class.getResource("/imagenes/boton-cancelar.png")));

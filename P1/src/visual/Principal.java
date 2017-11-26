@@ -168,5 +168,19 @@ public class Principal extends JFrame {
 		});
 		mntmNewMenuItem_3.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mnNewMenu_2.add(mntmNewMenuItem_3);
+		
+		JMenu mnModificar = new JMenu("Modificar Datos");
+		mnModificar.setForeground(Color.WHITE);
+		mnModificar.setFont(new Font("Dialog", Font.PLAIN, 18));
+		mnModificar.setBackground(Color.BLACK);
+		menuBar.add(mnModificar);
+		
+		JMenuItem menuItem = new JMenuItem("Solicitantes         ");
+		menuItem.setFont(new Font("Dialog", Font.PLAIN, 16));
+		mnModificar.add(menuItem);
+		
+		JMenuItem menuItem_1 = new JMenuItem("Empresas");
+		menuItem_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		mnModificar.add(menuItem_1);
 	}
 }
