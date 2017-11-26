@@ -131,219 +131,113 @@ public class RegistrarPlaza extends JDialog {
 			e.printStackTrace();
 		}
 		
-		panel_secundario = new JPanel();
-		panel_secundario.setBackground(new Color(255, 255, 255));
-		panel_secundario.setBounds(0, 198, 675, 313);
-		contentPanel.add(panel_secundario);
-		panel_secundario.setLayout(null);
-		panel_secundario.setVisible(false);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_2.setLayout(null);
+		panel_2.setBackground(Color.WHITE);
+		panel_2.setBounds(0, 47, 675, 108);
+		contentPanel.add(panel_2);
 		
+		JLabel lblIngreseRnc = new JLabel("Ingrese el RNC :");
+		lblIngreseRnc.setBackground(new Color(255, 255, 255));
+		lblIngreseRnc.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblIngreseRnc.setBounds(10, 11, 191, 28);
+		panel_2.add(lblIngreseRnc);
 		
-		JPanel panelPlazaAreaDeExperiencia = new JPanel();
-		panelPlazaAreaDeExperiencia.setBounds(372, 21, 293, 256);
-		panel_secundario.add(panelPlazaAreaDeExperiencia);
-		panelPlazaAreaDeExperiencia.setBackground(new Color(255, 255, 255));
-		panelPlazaAreaDeExperiencia.setBorder(new TitledBorder(null, "Solicitud", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panelPlazaAreaDeExperiencia.setLayout(null);
+		txtRNC = new JFormattedTextField(formatoRNC);
+		txtRNC.setForeground(new Color(0, 0, 0));
+		txtRNC.setColumns(10);
+		txtRNC.setBackground(new Color(211, 211, 211));
+		txtRNC.setBounds(164, 18, 158, 23);
+		panel_2.add(txtRNC);
 		
-		JLabel lblPorcientoAceptable = new JLabel("Porciento aceptable:");
-		lblPorcientoAceptable.setBounds(24, 34, 126, 14);
-		panelPlazaAreaDeExperiencia.add(lblPorcientoAceptable);
-		
-		spnPocientoAceptable = new JSpinner();
-		spnPocientoAceptable.setModel(new SpinnerNumberModel(1, 1, 100, 1));
-		spnPocientoAceptable.setBackground(new Color(211, 211, 211));
-		spnPocientoAceptable.setBounds(157, 31, 126, 23);
-		panelPlazaAreaDeExperiencia.add(spnPocientoAceptable);
-		
-		JLabel lblPlaza = new JLabel("Plazas:");
-		lblPlaza.setBounds(24, 68, 46, 14);
-		panelPlazaAreaDeExperiencia.add(lblPlaza);
-		
-		spnPlaza = new JSpinner();
-		spnPlaza.setForeground(new Color(255, 248, 220));
-		spnPlaza.setBackground(new Color(255, 248, 220));
-		spnPlaza.setModel(new SpinnerNumberModel(1, 1, 100, 1));
-		spnPlaza.setBounds(157, 62, 126, 23);
-		panelPlazaAreaDeExperiencia.add(spnPlaza);
-		
-		JLabel label_6 = new JLabel("Area de interes:");
-		label_6.setBounds(24, 99, 126, 14);
-		panelPlazaAreaDeExperiencia.add(label_6);
-		
-		JLabel label_7 = new JLabel("Salario solicitado (Mensual):");
-		label_7.setBounds(24, 135, 173, 14);
-		panelPlazaAreaDeExperiencia.add(label_7);
-		
-		spnSalarioSolicitado = new JSpinner();
-		spnSalarioSolicitado.setBackground(new Color(255, 248, 220));
-		spnSalarioSolicitado.setModel(new SpinnerNumberModel(10000, 10000, 1000000, 500));
-		spnSalarioSolicitado.setBounds(24, 160, 126, 23);
-		panelPlazaAreaDeExperiencia.add(spnSalarioSolicitado);
-		
-		txtAreaEmpresa = new JTextField();
-		txtAreaEmpresa.setEditable(false);
-		txtAreaEmpresa.setBounds(157, 93, 126, 23);
-		panelPlazaAreaDeExperiencia.add(txtAreaEmpresa);
-		txtAreaEmpresa.setColumns(10);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 21, 358, 256);
-		panel_secundario.add(panel_1);
-		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setLayout(null);
-		panel_1.setBorder(new TitledBorder(null, "Datos de solicitud", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(27, 49, 157, 12);
-		panel_1.add(separator);
-		
-		JSeparator separator_2 = new JSeparator();
-		separator_2.setBounds(27, 104, 126, 12);
-		panel_1.add(separator_2);
-		
-		btnMudarseY = new JRadioButton("Si");
-		btnGroupMudarse.add(btnMudarseY);
-		btnMudarseY.setBackground(new Color(255, 255, 255));
-		btnMudarseY.setBounds(37, 58, 54, 23);
-		panel_1.add(btnMudarseY);
-		
-		btnMudarseN = new JRadioButton("No");
-		btnGroupMudarse.add(btnMudarseN);
-		btnMudarseN.setBackground(new Color(255, 255, 255));
-		btnMudarseN.setBounds(93, 58, 54, 23);
-		panel_1.add(btnMudarseN);
-		
-		JLabel label_4 = new JLabel("Idioma:");
-		label_4.setBounds(210, 32, 61, 16);
-		panel_1.add(label_4);
-		
-		cbxIdioma1 = new JComboBox();
-		cbxIdioma1.addActionListener(new ActionListener() {
+		btnBuscar = new JButton("Buscar");
+		btnBuscar.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/buscador-de-lupa (1).png")));
+		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("Seleccionar")){
-					idioma.add(0, cbxIdioma1.getSelectedItem().toString());
+				if (txtRNC.getText().toString().equalsIgnoreCase("")||Bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
+					JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informaci�n", JOptionPane.WARNING_MESSAGE);
+				}
+				else{
+				//panel_principal.setEnabled(false);
+				miEmpresa = Bolsa.buscarEmpresa(txtRNC.getText().toString());
+				txtnombreEmpresa.setText(miEmpresa.getNombreEmpresa());
+				txtciudadEmpresa.setText(miEmpresa.getCiudad());
+				txttelefonoEmpresa.setText(miEmpresa.getTelefonoEmpresa());
+				txtAreaEmpresa.setText(miEmpresa.getAreaTrabajo());
+				
+				
+			
+				
 				}
 			}
 		});
-		cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
-		cbxIdioma1.setBackground(new Color(211, 211, 211));
-		cbxIdioma1.setBounds(210, 52, 134, 23);
-		panel_1.add(cbxIdioma1);
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnBuscar.setActionCommand("OK");
+		btnBuscar.setBounds(218, 42, 104, 27);
+		panel_2.add(btnBuscar);
 		
-		btnLicenciaN = new JRadioButton("No");
-		btnGroupLicencia.add(btnLicenciaN);
-		btnLicenciaN.setBackground(new Color(255, 255, 255));
-		btnLicenciaN.setBounds(93, 112, 54, 23);
-		panel_1.add(btnLicenciaN);
+		JLabel lblNewLabel = new JLabel("Nombre:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel.setBounds(360, 20, 68, 14);
+		panel_2.add(lblNewLabel);
 		
-		btnLicenciaY = new JRadioButton("Si");
-		btnGroupLicencia.add(btnLicenciaY);
-		btnLicenciaY.setBackground(new Color(255, 255, 255));
-		btnLicenciaY.setBounds(37, 112, 54, 23);
-		panel_1.add(btnLicenciaY);
+		txtnombreEmpresa = new JTextField();
+		txtnombreEmpresa.setEditable(false);
+		txtnombreEmpresa.setForeground(new Color(0, 0, 0));
+		txtnombreEmpresa.setBackground(new Color(211, 211, 211));
+		txtnombreEmpresa.setBounds(438, 18, 177, 23);
+		panel_2.add(txtnombreEmpresa);
+		txtnombreEmpresa.setColumns(10);
 		
-		chbAnadirIdioma2 = new JCheckBox("A\u00F1adir otro idioma");
-		chbAnadirIdioma2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(chbAnadirIdioma2.isSelected())
-					cbxIdioma2.setEnabled(true);
-				else 
-					cbxIdioma2.setEnabled(false);
-			}
-		});
-		chbAnadirIdioma2.setBackground(new Color(255, 255, 255));
-		chbAnadirIdioma2.setBounds(210, 79, 134, 23);
-		panel_1.add(chbAnadirIdioma2);
+		JLabel lblNewLabel_1 = new JLabel("Telefono:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(360, 75, 81, 14);
+		panel_2.add(lblNewLabel_1);
 		
-		cbxIdioma2 = new JComboBox();
-		cbxIdioma2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(!cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("Seleccionar")){
-					idioma.add(1, cbxIdioma2.getSelectedItem().toString());
-				}
-			}
-		});
-		cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
-		cbxIdioma2.setBackground(new Color(211, 211, 211));
-		cbxIdioma2.setEnabled(false);
-		cbxIdioma2.setBounds(210, 109, 134, 23);
-		panel_1.add(cbxIdioma2);
+		txtciudadEmpresa = new JTextField();
+		txtciudadEmpresa.setEditable(false);
+		txtciudadEmpresa.setForeground(new Color(0, 0, 0));
+		txtciudadEmpresa.setBackground(new Color(211, 211, 211));
+		txtciudadEmpresa.setBounds(438, 45, 177, 23);
+		panel_2.add(txtciudadEmpresa);
+		txtciudadEmpresa.setColumns(10);
 		
-		chbAnadirIdioma3 = new JCheckBox("A\u00F1adir otro idioma");
-		chbAnadirIdioma3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(chbAnadirIdioma3.isSelected())
-					cbxIdioma3.setEnabled(true);
-				else 
-					cbxIdioma3.setEnabled(false);
-			}
-		});
-		chbAnadirIdioma3.setBackground(new Color(255, 255, 255));
-		chbAnadirIdioma3.setBounds(210, 137, 134, 23);
-		panel_1.add(chbAnadirIdioma3);
+		JLabel lblNewLabel_2 = new JLabel("Ciudad:");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(360, 49, 93, 14);
+		panel_2.add(lblNewLabel_2);
 		
-		cbxIdioma3 = new JComboBox();
-		cbxIdioma3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(!cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("Seleccionar")){
-					idioma.add(2, cbxIdioma1.getSelectedItem().toString());
-				}
-			}
-		});
-		cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
-		cbxIdioma3.setBackground(new Color(211, 211, 211));
-		cbxIdioma3.setEnabled(false);
-		cbxIdioma3.setBounds(210, 167, 134, 23);
-		panel_1.add(cbxIdioma3);
+		txttelefonoEmpresa = new JFormattedTextField();
+		txttelefonoEmpresa.setEditable(false);
+		txttelefonoEmpresa.setForeground(Color.BLACK);
+		txttelefonoEmpresa.setColumns(10);
+		txttelefonoEmpresa.setBackground(new Color(211, 211, 211));
+		txttelefonoEmpresa.setBounds(438, 73, 177, 23);
+		panel_2.add(txttelefonoEmpresa);
 		
-		JLabel label_8 = new JLabel("Disponibilidad de viajar:");
-		label_8.setBounds(27, 146, 173, 14);
-		panel_1.add(label_8);
+		JPanel panel_3 = new JPanel();
+		panel_3.setLayout(null);
+		panel_3.setBackground(new Color(220, 20, 60));
+		panel_3.setBounds(0, 0, 677, 48);
+		contentPanel.add(panel_3);
 		
-		bntDispViajarY = new JRadioButton("Si");
-		btnGroupViajar.add(bntDispViajarY);
-		bntDispViajarY.setBackground(new Color(255, 255, 255));
-		bntDispViajarY.setBounds(37, 164, 54, 23);
-		panel_1.add(bntDispViajarY);
+		JLabel lblIngresarSolicitud = new JLabel("Ingresar solicitud");
+		lblIngresarSolicitud.setForeground(Color.WHITE);
+		lblIngresarSolicitud.setFont(new Font("Cambria", Font.PLAIN, 27));
+		lblIngresarSolicitud.setBounds(234, 0, 316, 46);
+		panel_3.add(lblIngresarSolicitud);
 		
-		bntDispViajarN = new JRadioButton("No");
-		btnGroupViajar.add(bntDispViajarN);
-		bntDispViajarN.setBackground(new Color(255, 255, 255));
-		bntDispViajarN.setBounds(93, 164, 54, 23);
-		panel_1.add(bntDispViajarN);
+		JLabel label_12 = new JLabel("Fecha de Solicitud:");
+		label_12.setBounds(356, 171, 123, 16);
+		contentPanel.add(label_12);
 		
-		JSeparator separator_3 = new JSeparator();
-		separator_3.setBounds(27, 161, 134, 12);
-		panel_1.add(separator_3);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(27, 205, 134, 12);
-		panel_1.add(separator_1);
-		
-		btnMedioTiempo = new JRadioButton("Medio Tiempo");
-		btnGroupJornada.add(btnMedioTiempo);
-		btnMedioTiempo.setBackground(new Color(255, 255, 255));
-		btnMedioTiempo.setBounds(33, 213, 120, 23);
-		panel_1.add(btnMedioTiempo);
-		
-		btnTiempoCompleto = new JRadioButton("Tiempo Completo");
-		btnGroupJornada.add(btnTiempoCompleto);
-		btnTiempoCompleto.setBackground(new Color(255, 255, 255));
-		btnTiempoCompleto.setBounds(167, 213, 126, 23);
-		panel_1.add(btnTiempoCompleto);
-		
-		JLabel lblTipoDeJornada = new JLabel("Tipo de jornada laboral:");
-		lblTipoDeJornada.setBounds(27, 190, 173, 14);
-		panel_1.add(lblTipoDeJornada);
-		
-		JLabel lblLicenciaDeConducir = new JLabel("Licencia de conducir:");
-		lblLicenciaDeConducir.setBounds(27, 90, 173, 14);
-		panel_1.add(lblLicenciaDeConducir);
-		
-		JLabel lblDisponibilidadDeMudarse = new JLabel("Disponibilidad de mudarse:");
-		lblDisponibilidadDeMudarse.setBounds(27, 35, 173, 14);
-		panel_1.add(lblDisponibilidadDeMudarse);
+		txtFecha = new JTextField();
+		txtFecha.setText("  "+LocalDate.now().toString());
+		txtFecha.setEditable(false);
+		txtFecha.setColumns(10);
+		txtFecha.setBounds(470, 166, 146, 26);
+		contentPanel.add(txtFecha);
 		
 		panel_principal = new JPanel();
 		panel_principal.setBorder(new TitledBorder(null, "Formulario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -368,6 +262,68 @@ public class RegistrarPlaza extends JDialog {
 		panel_principal.add(panel_4);
 		panel_4.setBackground(new Color(255, 255, 255));
 		panel_4.setLayout(null);
+		
+		pObrero = new JPanel();
+		pObrero.setBackground(new Color(255, 255, 255));
+		pObrero.setBounds(10, 64, 318, 73);
+		panel_4.add(pObrero);
+		pObrero.setLayout(null);
+		
+		pObrero.setVisible(false);
+		
+		JLabel label_1 = new JLabel("Habilidad:");
+		label_1.setBounds(6, 17, 71, 16);
+		pObrero.add(label_1);
+		
+		cbxHabilidad = new JComboBox();
+		cbxHabilidad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+					if(cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase(cbxHabilidad2.getSelectedItem().toString())){
+						cbxHabilidad.setSelectedIndex(0);
+						JOptionPane.showMessageDialog(null, "La habilidad ya ha sido agregada", "Informacion", JOptionPane.WARNING_MESSAGE);}
+			
+					else
+						habilidad.add(0,cbxHabilidad.getSelectedItem().toString());
+			}
+		}
+		});
+		cbxHabilidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
+		cbxHabilidad.setBackground(new Color(211, 211, 211));
+		cbxHabilidad.setBounds(82, 11, 226, 20);
+		pObrero.add(cbxHabilidad);
+		
+		chbOtroObrero = new JCheckBox("Otro?");
+		chbOtroObrero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chbOtroObrero.isSelected())
+					cbxHabilidad2.setEnabled(true);
+				else
+					cbxHabilidad2.setEnabled(false);
+					cbxHabilidad2.setSelectedIndex(0);
+			}
+		});
+		chbOtroObrero.setBackground(Color.WHITE);
+		chbOtroObrero.setBounds(6, 44, 63, 23);
+		pObrero.add(chbOtroObrero);
+		
+		cbxHabilidad2 = new JComboBox();
+		cbxHabilidad2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>"))
+					if(cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase(cbxHabilidad.getSelectedItem().toString())){
+						cbxHabilidad2.setSelectedIndex(0);
+						JOptionPane.showMessageDialog(null, "La habilidad ya ha sido agregada", "Informacion", JOptionPane.WARNING_MESSAGE);}
+			
+					else
+					habilidad.add(1,cbxHabilidad2.getSelectedItem().toString());
+			}
+		});
+		cbxHabilidad2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
+		cbxHabilidad2.setEnabled(false);
+		cbxHabilidad2.setBackground(new Color(211, 211, 211));
+		cbxHabilidad2.setBounds(82, 42, 226, 20);
+		pObrero.add(cbxHabilidad2);
 		
 		pUniversitario = new JPanel();
 		pUniversitario.setBackground(new Color(255, 255, 255));
@@ -403,44 +359,6 @@ public class RegistrarPlaza extends JDialog {
 		cbxCarreraUni.setBounds(86, 42, 222, 23);
 		pUniversitario.add(cbxCarreraUni);
 		pUniversitario.setVisible(false);
-		
-		pObrero = new JPanel();
-		pObrero.setBackground(new Color(255, 255, 255));
-		pObrero.setBounds(10, 64, 318, 73);
-		panel_4.add(pObrero);
-		pObrero.setLayout(null);
-		
-		pObrero.setVisible(false);
-		
-		JLabel label_1 = new JLabel("Habilidad:");
-		label_1.setBounds(6, 17, 71, 16);
-		pObrero.add(label_1);
-		
-		cbxHabilidad = new JComboBox();
-		cbxHabilidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
-		cbxHabilidad.setBackground(new Color(211, 211, 211));
-		cbxHabilidad.setBounds(82, 11, 226, 20);
-		pObrero.add(cbxHabilidad);
-		
-		chbOtroObrero = new JCheckBox("Otro?");
-		chbOtroObrero.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(chbOtroObrero.isSelected())
-					cbxHabilidad2.setEnabled(true);
-				else
-					cbxHabilidad2.setEnabled(false);
-			}
-		});
-		chbOtroObrero.setBackground(Color.WHITE);
-		chbOtroObrero.setBounds(6, 44, 63, 23);
-		pObrero.add(chbOtroObrero);
-		
-		cbxHabilidad2 = new JComboBox();
-		cbxHabilidad2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
-		cbxHabilidad2.setEnabled(false);
-		cbxHabilidad2.setBackground(new Color(211, 211, 211));
-		cbxHabilidad2.setBounds(82, 42, 226, 20);
-		pObrero.add(cbxHabilidad2);
 		
 		pTecnico = new JPanel();
 		pTecnico.setBackground(new Color(255, 255, 255));
@@ -558,9 +476,9 @@ public class RegistrarPlaza extends JDialog {
 			btnNoAplica.setBounds(268, 25, 55, 23);
 			panelinfo.add(btnNoAplica);
 			
-			JLabel label_12 = new JLabel("Cuidad:");
-			label_12.setBounds(10, 53, 46, 14);
-			panelinfo.add(label_12);
+			JLabel label_12_1 = new JLabel("Cuidad:");
+			label_12_1.setBounds(10, 53, 46, 14);
+			panelinfo.add(label_12_1);
 			
 			cbxCiudadSolicitada = new JComboBox();
 			cbxCiudadSolicitada.addActionListener(new ActionListener() {
@@ -652,113 +570,242 @@ public class RegistrarPlaza extends JDialog {
 		label_10.setBounds(66, 3, 214, 124);
 		panelMujer.add(label_10);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_2.setLayout(null);
-		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(0, 47, 675, 108);
-		contentPanel.add(panel_2);
+		panel_secundario = new JPanel();
+		panel_secundario.setBackground(new Color(255, 255, 255));
+		panel_secundario.setBounds(0, 198, 675, 313);
+		contentPanel.add(panel_secundario);
+		panel_secundario.setLayout(null);
+		panel_secundario.setVisible(false);
 		
-		JLabel lblIngreseRnc = new JLabel("Ingrese el RNC :");
-		lblIngreseRnc.setBackground(new Color(255, 255, 255));
-		lblIngreseRnc.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblIngreseRnc.setBounds(10, 11, 191, 28);
-		panel_2.add(lblIngreseRnc);
 		
-		txtRNC = new JFormattedTextField(formatoRNC);
-		txtRNC.setForeground(new Color(0, 0, 0));
-		txtRNC.setColumns(10);
-		txtRNC.setBackground(new Color(211, 211, 211));
-		txtRNC.setBounds(164, 18, 158, 23);
-		panel_2.add(txtRNC);
+		JPanel panelPlazaAreaDeExperiencia = new JPanel();
+		panelPlazaAreaDeExperiencia.setBounds(372, 21, 293, 256);
+		panel_secundario.add(panelPlazaAreaDeExperiencia);
+		panelPlazaAreaDeExperiencia.setBackground(new Color(255, 255, 255));
+		panelPlazaAreaDeExperiencia.setBorder(new TitledBorder(null, "Solicitud", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panelPlazaAreaDeExperiencia.setLayout(null);
 		
-		btnBuscar = new JButton("Buscar");
-		btnBuscar.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/buscador-de-lupa (1).png")));
-		btnBuscar.addActionListener(new ActionListener() {
+		JLabel lblPorcientoAceptable = new JLabel("Porciento aceptable:");
+		lblPorcientoAceptable.setBounds(24, 34, 126, 14);
+		panelPlazaAreaDeExperiencia.add(lblPorcientoAceptable);
+		
+		spnPocientoAceptable = new JSpinner();
+		spnPocientoAceptable.setModel(new SpinnerNumberModel(1, 1, 100, 1));
+		spnPocientoAceptable.setBackground(new Color(211, 211, 211));
+		spnPocientoAceptable.setBounds(157, 31, 126, 23);
+		panelPlazaAreaDeExperiencia.add(spnPocientoAceptable);
+		
+		JLabel lblPlaza = new JLabel("Plazas:");
+		lblPlaza.setBounds(24, 68, 46, 14);
+		panelPlazaAreaDeExperiencia.add(lblPlaza);
+		
+		spnPlaza = new JSpinner();
+		spnPlaza.setForeground(new Color(255, 248, 220));
+		spnPlaza.setBackground(new Color(255, 248, 220));
+		spnPlaza.setModel(new SpinnerNumberModel(1, 1, 100, 1));
+		spnPlaza.setBounds(157, 62, 126, 23);
+		panelPlazaAreaDeExperiencia.add(spnPlaza);
+		
+		JLabel label_6 = new JLabel("Area de interes:");
+		label_6.setBounds(24, 99, 126, 14);
+		panelPlazaAreaDeExperiencia.add(label_6);
+		
+		JLabel label_7 = new JLabel("Salario solicitado (Mensual):");
+		label_7.setBounds(24, 135, 173, 14);
+		panelPlazaAreaDeExperiencia.add(label_7);
+		
+		spnSalarioSolicitado = new JSpinner();
+		spnSalarioSolicitado.setBackground(new Color(255, 248, 220));
+		spnSalarioSolicitado.setModel(new SpinnerNumberModel(10000, 10000, 1000000, 500));
+		spnSalarioSolicitado.setBounds(24, 160, 126, 23);
+		panelPlazaAreaDeExperiencia.add(spnSalarioSolicitado);
+		
+		txtAreaEmpresa = new JTextField();
+		txtAreaEmpresa.setEditable(false);
+		txtAreaEmpresa.setBounds(157, 93, 126, 23);
+		panelPlazaAreaDeExperiencia.add(txtAreaEmpresa);
+		txtAreaEmpresa.setColumns(10);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(10, 21, 358, 256);
+		panel_secundario.add(panel_1);
+		panel_1.setBackground(new Color(255, 255, 255));
+		panel_1.setLayout(null);
+		panel_1.setBorder(new TitledBorder(null, "Datos de solicitud", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(27, 49, 157, 12);
+		panel_1.add(separator);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setBounds(27, 104, 126, 12);
+		panel_1.add(separator_2);
+		
+		btnMudarseY = new JRadioButton("Si");
+		btnGroupMudarse.add(btnMudarseY);
+		btnMudarseY.setBackground(new Color(255, 255, 255));
+		btnMudarseY.setBounds(37, 58, 54, 23);
+		panel_1.add(btnMudarseY);
+		
+		btnMudarseN = new JRadioButton("No");
+		btnGroupMudarse.add(btnMudarseN);
+		btnMudarseN.setBackground(new Color(255, 255, 255));
+		btnMudarseN.setBounds(93, 58, 54, 23);
+		panel_1.add(btnMudarseN);
+		
+		JLabel label_4 = new JLabel("Idioma:");
+		label_4.setBounds(210, 32, 61, 16);
+		panel_1.add(label_4);
+		
+		cbxIdioma1 = new JComboBox();
+		cbxIdioma1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (txtRNC.getText().toString().equalsIgnoreCase("")||Bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
-					JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informaci�n", JOptionPane.WARNING_MESSAGE);
-				}
-				else{
-				//panel_principal.setEnabled(false);
-				miEmpresa = Bolsa.buscarEmpresa(txtRNC.getText().toString());
-				txtnombreEmpresa.setText(miEmpresa.getNombreEmpresa());
-				txtciudadEmpresa.setText(miEmpresa.getCiudad());
-				txttelefonoEmpresa.setText(miEmpresa.getTelefonoEmpresa());
-				txtAreaEmpresa.setText(miEmpresa.getAreaTrabajo());
-				
-				
-			
-				
+				if(!cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+					if(cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase(cbxIdioma2.getSelectedItem().toString())||
+							cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase(cbxIdioma3.getSelectedItem().toString())){
+						cbxIdioma1.setSelectedIndex(0);
+						JOptionPane.showMessageDialog(null, "El idioma ya ha sido agregado", "Informacion", JOptionPane.WARNING_MESSAGE);}
+					
+						
+					else
+					idioma.add(0, cbxIdioma1.getSelectedItem().toString());
 				}
 			}
 		});
-		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnBuscar.setActionCommand("OK");
-		btnBuscar.setBounds(218, 42, 104, 27);
-		panel_2.add(btnBuscar);
+		cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+		cbxIdioma1.setBackground(new Color(211, 211, 211));
+		cbxIdioma1.setBounds(210, 52, 134, 23);
+		panel_1.add(cbxIdioma1);
 		
-		JLabel lblNewLabel = new JLabel("Nombre:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel.setBounds(360, 20, 68, 14);
-		panel_2.add(lblNewLabel);
+		btnLicenciaN = new JRadioButton("No");
+		btnGroupLicencia.add(btnLicenciaN);
+		btnLicenciaN.setBackground(new Color(255, 255, 255));
+		btnLicenciaN.setBounds(93, 112, 54, 23);
+		panel_1.add(btnLicenciaN);
 		
-		txtnombreEmpresa = new JTextField();
-		txtnombreEmpresa.setEditable(false);
-		txtnombreEmpresa.setForeground(new Color(0, 0, 0));
-		txtnombreEmpresa.setBackground(new Color(211, 211, 211));
-		txtnombreEmpresa.setBounds(438, 18, 177, 23);
-		panel_2.add(txtnombreEmpresa);
-		txtnombreEmpresa.setColumns(10);
+		btnLicenciaY = new JRadioButton("Si");
+		btnGroupLicencia.add(btnLicenciaY);
+		btnLicenciaY.setBackground(new Color(255, 255, 255));
+		btnLicenciaY.setBounds(37, 112, 54, 23);
+		panel_1.add(btnLicenciaY);
 		
-		JLabel lblNewLabel_1 = new JLabel("Telefono:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_1.setBounds(360, 75, 81, 14);
-		panel_2.add(lblNewLabel_1);
+		chbAnadirIdioma2 = new JCheckBox("A\u00F1adir otro idioma");
+		chbAnadirIdioma2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chbAnadirIdioma2.isSelected())
+					cbxIdioma2.setEnabled(true);
+				else 
+					cbxIdioma2.setEnabled(false);
+					cbxIdioma2.setSelectedIndex(0);
+			}
+		});
+		chbAnadirIdioma2.setBackground(new Color(255, 255, 255));
+		chbAnadirIdioma2.setBounds(210, 79, 134, 23);
+		panel_1.add(chbAnadirIdioma2);
 		
-		txtciudadEmpresa = new JTextField();
-		txtciudadEmpresa.setEditable(false);
-		txtciudadEmpresa.setForeground(new Color(0, 0, 0));
-		txtciudadEmpresa.setBackground(new Color(211, 211, 211));
-		txtciudadEmpresa.setBounds(438, 45, 177, 23);
-		panel_2.add(txtciudadEmpresa);
-		txtciudadEmpresa.setColumns(10);
+		cbxIdioma2 = new JComboBox();
+		cbxIdioma2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+					if(cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase(cbxIdioma1.getSelectedItem().toString())||
+							cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase(cbxIdioma3.getSelectedItem().toString())){
+						cbxIdioma2.setSelectedIndex(0);
+						JOptionPane.showMessageDialog(null, "El idioma ya ha sido agregado", "Informacion", JOptionPane.WARNING_MESSAGE);}
+					
+						
+					else
+					idioma.add(1, cbxIdioma2.getSelectedItem().toString());
+				}
+			}
+		});
+		cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+		cbxIdioma2.setBackground(new Color(211, 211, 211));
+		cbxIdioma2.setEnabled(false);
+		cbxIdioma2.setBounds(210, 109, 134, 23);
+		panel_1.add(cbxIdioma2);
 		
-		JLabel lblNewLabel_2 = new JLabel("Ciudad:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_2.setBounds(360, 49, 93, 14);
-		panel_2.add(lblNewLabel_2);
+		chbAnadirIdioma3 = new JCheckBox("A\u00F1adir otro idioma");
+		chbAnadirIdioma3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chbAnadirIdioma3.isSelected())
+					cbxIdioma3.setEnabled(true);
+				else 
+					cbxIdioma3.setEnabled(false);
+					cbxIdioma3.setSelectedIndex(0);
+			}
+		});
+		chbAnadirIdioma3.setBackground(new Color(255, 255, 255));
+		chbAnadirIdioma3.setBounds(210, 137, 134, 23);
+		panel_1.add(chbAnadirIdioma3);
 		
-		txttelefonoEmpresa = new JFormattedTextField();
-		txttelefonoEmpresa.setEditable(false);
-		txttelefonoEmpresa.setForeground(Color.BLACK);
-		txttelefonoEmpresa.setColumns(10);
-		txttelefonoEmpresa.setBackground(new Color(211, 211, 211));
-		txttelefonoEmpresa.setBounds(438, 73, 177, 23);
-		panel_2.add(txttelefonoEmpresa);
+		cbxIdioma3 = new JComboBox();
+		cbxIdioma3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+					if(cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase(cbxIdioma1.getSelectedItem().toString())||
+							cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase(cbxIdioma2.getSelectedItem().toString())){
+						cbxIdioma3.setSelectedIndex(0);
+						JOptionPane.showMessageDialog(null, "El idioma ya ha sido agregado", "Informacion", JOptionPane.WARNING_MESSAGE);}
+					
+						
+					else
+					idioma.add(2, cbxIdioma1.getSelectedItem().toString());
+				}
+			}
+		});
+		cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+		cbxIdioma3.setBackground(new Color(211, 211, 211));
+		cbxIdioma3.setEnabled(false);
+		cbxIdioma3.setBounds(210, 167, 134, 23);
+		panel_1.add(cbxIdioma3);
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setLayout(null);
-		panel_3.setBackground(new Color(220, 20, 60));
-		panel_3.setBounds(0, 0, 677, 48);
-		contentPanel.add(panel_3);
+		JLabel label_8 = new JLabel("Disponibilidad de viajar:");
+		label_8.setBounds(27, 146, 173, 14);
+		panel_1.add(label_8);
 		
-		JLabel lblIngresarSolicitud = new JLabel("Ingresar solicitud");
-		lblIngresarSolicitud.setForeground(Color.WHITE);
-		lblIngresarSolicitud.setFont(new Font("Cambria", Font.PLAIN, 27));
-		lblIngresarSolicitud.setBounds(234, 0, 316, 46);
-		panel_3.add(lblIngresarSolicitud);
+		bntDispViajarY = new JRadioButton("Si");
+		btnGroupViajar.add(bntDispViajarY);
+		bntDispViajarY.setBackground(new Color(255, 255, 255));
+		bntDispViajarY.setBounds(37, 164, 54, 23);
+		panel_1.add(bntDispViajarY);
 		
-		JLabel label_12 = new JLabel("Fecha de Solicitud:");
-		label_12.setBounds(356, 171, 123, 16);
-		contentPanel.add(label_12);
+		bntDispViajarN = new JRadioButton("No");
+		btnGroupViajar.add(bntDispViajarN);
+		bntDispViajarN.setBackground(new Color(255, 255, 255));
+		bntDispViajarN.setBounds(93, 164, 54, 23);
+		panel_1.add(bntDispViajarN);
 		
-		txtFecha = new JTextField();
-		txtFecha.setText("  "+LocalDate.now().toString());
-		txtFecha.setEditable(false);
-		txtFecha.setColumns(10);
-		txtFecha.setBounds(470, 166, 146, 26);
-		contentPanel.add(txtFecha);
+		JSeparator separator_3 = new JSeparator();
+		separator_3.setBounds(27, 161, 134, 12);
+		panel_1.add(separator_3);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(27, 205, 134, 12);
+		panel_1.add(separator_1);
+		
+		btnMedioTiempo = new JRadioButton("Medio Tiempo");
+		btnGroupJornada.add(btnMedioTiempo);
+		btnMedioTiempo.setBackground(new Color(255, 255, 255));
+		btnMedioTiempo.setBounds(33, 213, 120, 23);
+		panel_1.add(btnMedioTiempo);
+		
+		btnTiempoCompleto = new JRadioButton("Tiempo Completo");
+		btnGroupJornada.add(btnTiempoCompleto);
+		btnTiempoCompleto.setBackground(new Color(255, 255, 255));
+		btnTiempoCompleto.setBounds(167, 213, 126, 23);
+		panel_1.add(btnTiempoCompleto);
+		
+		JLabel lblTipoDeJornada = new JLabel("Tipo de jornada laboral:");
+		lblTipoDeJornada.setBounds(27, 190, 173, 14);
+		panel_1.add(lblTipoDeJornada);
+		
+		JLabel lblLicenciaDeConducir = new JLabel("Licencia de conducir:");
+		lblLicenciaDeConducir.setBounds(27, 90, 173, 14);
+		panel_1.add(lblLicenciaDeConducir);
+		
+		JLabel lblDisponibilidadDeMudarse = new JLabel("Disponibilidad de mudarse:");
+		lblDisponibilidadDeMudarse.setBounds(27, 35, 173, 14);
+		panel_1.add(lblDisponibilidadDeMudarse);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(220, 20, 60));
@@ -952,7 +999,9 @@ public class RegistrarPlaza extends JDialog {
 		cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
 		cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
 		cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
-		
+		cbxCarreraUni.setSelectedIndex(0);
+		cbxInstitucionUni.setSelectedIndex(0);
+		cbxTecnico.setSelectedIndex(0);
 		panel_principal.setVisible(true);
 		panel_secundario.setVisible(false);
 		
