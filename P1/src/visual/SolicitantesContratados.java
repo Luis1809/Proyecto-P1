@@ -14,6 +14,10 @@ import javax.swing.text.MaskFormatter;
 
 import logico.Bolsa;
 import logico.EmpresaSolicitadora;
+import logico.Obrero;
+import logico.Solicitantes;
+import logico.Tecnico;
+import logico.Universitario;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,6 +29,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 
 public class SolicitantesContratados extends JDialog {
@@ -32,7 +37,6 @@ public class SolicitantesContratados extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtnombreEmpresa;
 	private JTextField txtciudadEmpresa;
-	private JTable table;
 	private JFormattedTextField txtRNC;
 	private JFormattedTextField txttelefonoEmpresa;
 	private static MaskFormatter formatoCedula;
@@ -41,11 +45,13 @@ public class SolicitantesContratados extends JDialog {
 	private static Object[] fila;
 	private static DefaultTableModel model;
 	private EmpresaSolicitadora miEmpresa;
+	private JTable table;
 
 	public SolicitantesContratados() {
 		setResizable(false);
 		setBounds(100, 100, 678, 510);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
@@ -89,6 +95,7 @@ public class SolicitantesContratados extends JDialog {
 				txtnombreEmpresa.setText(miEmpresa.getNombreEmpresa());
 				txtciudadEmpresa.setText(miEmpresa.getCiudad());
 				txttelefonoEmpresa.setText(miEmpresa.getTelefonoEmpresa());	
+				loadTable();
 				}
 			}
 		});
@@ -149,21 +156,23 @@ public class SolicitantesContratados extends JDialog {
 		panel_1.add(lblSolicitantesContratados);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 155, 672, 293);
+		panel_2.setBackground(Color.WHITE);
+		//panel_2.setBounds(10, 166, 652, 271);
 		contentPanel.add(panel_2);
-		panel_2.setLayout(null);
+		String[] columnName = {"Categoria","Solicitud","Cedula","Nombre","Edad","Telefono","Porciento", "Fecha"};
+		model = new DefaultTableModel();
+		model.setColumnIdentifiers(columnName);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 652, 271);
-		panel_2.add(scrollPane);
+		contentPanel.add(scrollPane);
+		scrollPane.setBounds(10, 166, 652, 271);
 		
-		table = new JTable();
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setForeground(Color.WHITE);
-		table.setBackground(new Color(220, 20, 60));
-		table.setModel(model);
-	
-		scrollPane.setViewportView(table);
+			table = new JTable();
+			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			table.setForeground(Color.WHITE);
+			table.setBackground(new Color(220, 20, 60));
+			table.setModel(model);
+			scrollPane.setViewportView(table);//
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -180,5 +189,65 @@ public class SolicitantesContratados extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 			}
 		}
+	}
+	public void loadTable() {
+		int a=0;
+		model.setRowCount(0);
+		fila = new Object[model.getColumnCount()];
+		for (int b=0; b<miEmpresa.getMiSolicitudes().size();b++){
+			for (int i = 0; i < miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().size(); i++) {
+				String tipo="";
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Universitario)
+					tipo="Universitario";
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Obrero)
+					tipo="Obrero";
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Tecnico)
+					tipo="Tecnico";
+				
+				fila[0]=tipo;
+				String profesion="";
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Universitario)
+					profesion = (String) ((Universitario) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i)).getCarrera();
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Obrero)
+					profesion = (String) ((Obrero) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i)).getListaHabilidades().get(0);
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Tecnico)
+					profesion = (String) ((Tecnico) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i)).getInstitucion();
+				 
+				fila[1]= profesion;
+				fila[2] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getCedula();
+				fila[3] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre()+miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getApellido();
+				fila[4] = mayorEdad(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i));
+				fila[5] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getTelefono();
+				fila[6] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()+"%";
+				fila[7] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getFecha();
+				model.addRow(fila);
+					
+			}
+		}
+	}
+	public int mayorEdad(Solicitantes vac){
+		 Calendar today = Calendar.getInstance();
+		    Calendar birthDate = Calendar.getInstance();
+		    int age = 0;
+
+		    birthDate.setTime(vac.getFechaNacimiento());
+		    if (birthDate.after(today)) {
+		        throw new IllegalArgumentException("Verifique su fecha de nacimiento");
+		    }
+
+		    age = today.get(Calendar.YEAR) - birthDate.get(Calendar.YEAR);
+
+		    // If birth date is greater than todays date (after 2 days adjustment of leap year) then decrement age one year   
+		    if ( (birthDate.get(Calendar.DAY_OF_YEAR) - today.get(Calendar.DAY_OF_YEAR) > 3) ||
+		            (birthDate.get(Calendar.MONTH) > today.get(Calendar.MONTH ))){
+		        age--;
+
+		     // If birth date and todays date are of same month and birth day of month is greater than todays day of month then decrement age
+		    }else if ((birthDate.get(Calendar.MONTH) == today.get(Calendar.MONTH )) &&
+		              (birthDate.get(Calendar.DAY_OF_MONTH) > today.get(Calendar.DAY_OF_MONTH ))){
+		        age--;
+		    }
+	
+		    return age;
 	}
 }

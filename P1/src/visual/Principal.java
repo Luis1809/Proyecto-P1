@@ -62,7 +62,7 @@ public class Principal extends JFrame {
 					frame.addWindowListener( new WindowAdapter() {
 					@Override
 					public void  windowClosing(WindowEvent we){
-						JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestros servicios.", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestros servicios.", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 					
 						//try {
 							//Controladora.GuardarCliente();
@@ -171,7 +171,7 @@ public class Principal extends JFrame {
 		
 		JMenu mnModificar = new JMenu("Modificar Datos");
 		mnModificar.setForeground(Color.WHITE);
-		mnModificar.setFont(new Font("Dialog", Font.PLAIN, 18));
+		mnModificar.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		mnModificar.setBackground(Color.BLACK);
 		menuBar.add(mnModificar);
 		
@@ -185,7 +185,7 @@ public class Principal extends JFrame {
 				
 			}
 		});
-		menuItem.setFont(new Font("Dialog", Font.PLAIN, 16));
+		menuItem.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mnModificar.add(menuItem);
 		
 		JMenuItem menuItem_1 = new JMenuItem("Empresas");
@@ -201,13 +201,17 @@ public class Principal extends JFrame {
 				
 			}
 		});
-		menuItem_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		menuItem_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mnModificar.add(menuItem_1);
 		
-		JMenu mnNewMenu_1 = new JMenu("Contrataciones");
+		JMenu mnNewMenu_1 = new JMenu("Reportes");
+		mnNewMenu_1.setForeground(Color.WHITE);
+		mnNewMenu_1.setBackground(Color.BLACK);
+		mnNewMenu_1.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Empleados contratados");
+		mntmNewMenuItem_4.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SolicitantesContratados p=new SolicitantesContratados();
