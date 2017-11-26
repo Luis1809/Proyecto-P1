@@ -109,7 +109,7 @@ public class Macheo extends JDialog {
 				button.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/buscador-de-lupa (1).png")));
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+					cbxSolicitudTipo.removeAllItems();
 					String RNC;	
 					RNC=txtRNC.getText();
 					cargarDatos(RNC);
@@ -216,6 +216,7 @@ public class Macheo extends JDialog {
 		cbxSolicitudTipo = new JComboBox();
 		cbxSolicitudTipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cbxID.removeAllItems();
 				if(!cbxSolicitudTipo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
 					loadID(cbxSolicitudTipo.getSelectedItem().toString());
 				}
@@ -341,9 +342,12 @@ public class Macheo extends JDialog {
 				tipo = obre.getListaHabilidades().get(0);
 			}
 			
+			System.out.println(cbxSolicitudTipo.getItemCount());
 			for(int a=0;a<cbxSolicitudTipo.getItemCount();a++){
-				if(tipo.equalsIgnoreCase(cbxSolicitudTipo.getItemAt(i).toString()))
-					ingresar=false;
+				if(tipo.equalsIgnoreCase(cbxSolicitudTipo.getItemAt(a).toString())){
+					//System.out.println("tipo:" + tipo);
+					//System.out.println("itemat:" +cbxSolicitudTipo.getItemAt(a).toString());
+					ingresar=false;}
 			}
 			if (ingresar=true)
 				cbxSolicitudTipo.addItem(new String(tipo));	

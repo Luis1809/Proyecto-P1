@@ -1035,6 +1035,8 @@ public class SolicitantesVisual extends JDialog {
 						 btnGroupNivelEducativo.clearSelection();
 						 btnGroupSexo.clearSelection();
 						 btnGroupViajar.clearSelection();
+						 btnPag.setEnabled(false);
+						 btnPag_1.setEnabled(true);
 						
 					}
 				});

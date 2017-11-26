@@ -153,7 +153,7 @@ public class RegistrarPlaza extends JDialog {
 		spnPocientoAceptable = new JSpinner();
 		spnPocientoAceptable.setModel(new SpinnerNumberModel(1, 1, 100, 1));
 		spnPocientoAceptable.setBackground(new Color(211, 211, 211));
-		spnPocientoAceptable.setBounds(157, 31, 126, 20);
+		spnPocientoAceptable.setBounds(157, 31, 126, 23);
 		panelPlazaAreaDeExperiencia.add(spnPocientoAceptable);
 		
 		JLabel lblPlaza = new JLabel("Plazas:");
@@ -164,7 +164,7 @@ public class RegistrarPlaza extends JDialog {
 		spnPlaza.setForeground(new Color(255, 248, 220));
 		spnPlaza.setBackground(new Color(255, 248, 220));
 		spnPlaza.setModel(new SpinnerNumberModel(1, 1, 100, 1));
-		spnPlaza.setBounds(157, 62, 126, 20);
+		spnPlaza.setBounds(157, 62, 126, 23);
 		panelPlazaAreaDeExperiencia.add(spnPlaza);
 		
 		JLabel label_6 = new JLabel("Area de interes:");
@@ -178,12 +178,12 @@ public class RegistrarPlaza extends JDialog {
 		spnSalarioSolicitado = new JSpinner();
 		spnSalarioSolicitado.setBackground(new Color(255, 248, 220));
 		spnSalarioSolicitado.setModel(new SpinnerNumberModel(10000, 10000, 1000000, 500));
-		spnSalarioSolicitado.setBounds(24, 160, 126, 20);
+		spnSalarioSolicitado.setBounds(24, 160, 126, 23);
 		panelPlazaAreaDeExperiencia.add(spnSalarioSolicitado);
 		
 		txtAreaEmpresa = new JTextField();
 		txtAreaEmpresa.setEditable(false);
-		txtAreaEmpresa.setBounds(157, 93, 126, 20);
+		txtAreaEmpresa.setBounds(157, 93, 126, 23);
 		panelPlazaAreaDeExperiencia.add(txtAreaEmpresa);
 		txtAreaEmpresa.setColumns(10);
 		
@@ -680,6 +680,7 @@ public class RegistrarPlaza extends JDialog {
 					JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informaci�n", JOptionPane.WARNING_MESSAGE);
 				}
 				else{
+				//panel_principal.setEnabled(false);
 				miEmpresa = Bolsa.buscarEmpresa(txtRNC.getText().toString());
 				txtnombreEmpresa.setText(miEmpresa.getNombreEmpresa());
 				txtciudadEmpresa.setText(miEmpresa.getCiudad());
@@ -838,8 +839,11 @@ public class RegistrarPlaza extends JDialog {
 								if (cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCiudadSolicitada.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
 										cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma2.isSelected()||
 										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbAnadirIdioma3.isSelected()||cbxInstitucionUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCarreraUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
-										){
-									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaci�n", JOptionPane.WARNING_MESSAGE);}
+										||txtciudadEmpresa.getText().equalsIgnoreCase("")){
+									if(txtciudadEmpresa.getText().equalsIgnoreCase(""))
+										JOptionPane.showMessageDialog(null, "Ingrese una empresa", "Informacion", JOptionPane.WARNING_MESSAGE);
+									else	
+										JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informacion", JOptionPane.WARNING_MESSAGE);}
 								else{
 									String carrera = cbxCarreraUni.getSelectedItem().toString();
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
@@ -958,5 +962,8 @@ public class RegistrarPlaza extends JDialog {
 		btnGroupNivelEducativo.clearSelection();
 		btnGroupSexo.clearSelection();
 		btnGroupViajar.clearSelection();
+		
+		btnPag.setEnabled(false);
+		btnPag_1.setEnabled(true);
 	}
 }
