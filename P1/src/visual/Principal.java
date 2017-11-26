@@ -176,10 +176,29 @@ public class Principal extends JFrame {
 		menuBar.add(mnModificar);
 		
 		JMenuItem menuItem = new JMenuItem("Solicitantes         ");
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModificarSolicitantes m=new ModificarSolicitantes();
+				m.setModal(true);
+				m.setVisible(true);
+				
+			}
+		});
 		menuItem.setFont(new Font("Dialog", Font.PLAIN, 16));
 		mnModificar.add(menuItem);
 		
 		JMenuItem menuItem_1 = new JMenuItem("Empresas");
+		menuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModificarEmpresa emp=new ModificarEmpresa();
+				emp.setModal(true);
+				emp.setVisible(true);
+				
+				
+				
+				
+			}
+		});
 		menuItem_1.setFont(new Font("Dialog", Font.PLAIN, 16));
 		mnModificar.add(menuItem_1);
 	}

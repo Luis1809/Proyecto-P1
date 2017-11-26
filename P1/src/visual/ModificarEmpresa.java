@@ -31,6 +31,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
+
 public class ModificarEmpresa extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -49,7 +50,7 @@ public class ModificarEmpresa extends JDialog {
 	public ModificarEmpresa() {
 		setResizable(false);
 		setTitle("Registrar Empresa");
-		setBounds(100, 100, 530, 389);
+		setBounds(100, 100, 530, 448);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setForeground(new Color(255, 255, 255));
 		contentPanel.setBackground(new Color(255, 255, 255));
@@ -68,7 +69,7 @@ public class ModificarEmpresa extends JDialog {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Informacion General", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(10, 62, 519, 147);
+		panel.setBounds(10, 124, 519, 147);
 		contentPanel.add(panel);
 		panel.setLayout(null);
 		
@@ -118,7 +119,80 @@ public class ModificarEmpresa extends JDialog {
 		cbxArea.setBounds(352, 67, 158, 23);
 		panel.add(cbxArea);
 		
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBackground(new Color(220, 20, 60));
+		panel_2.setBounds(0, 0, 529, 50);
+		contentPanel.add(panel_2);
+		
+		JLabel lblIngresarEmpresa = new JLabel("Ingresar Empresa");
+		lblIngresarEmpresa.setForeground(Color.WHITE);
+		lblIngresarEmpresa.setFont(new Font("Cambria", Font.PLAIN, 27));
+		lblIngresarEmpresa.setBounds(134, 0, 231, 46);
+		panel_2.add(lblIngresarEmpresa);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 255, 255));
+		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Datos de la empresa", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBounds(10, 274, 519, 102);
+		contentPanel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNombreEmpresa = new JLabel("Nombre:");
+		lblNombreEmpresa.setBounds(10, 32, 95, 14);
+		panel_1.add(lblNombreEmpresa);
+		
+		txtNombreEmpresa = new JTextField();
+		txtNombreEmpresa.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
+					System.out.println("");
+				else {
+					JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Informaci�n", JOptionPane.WARNING_MESSAGE);
+					cleanNombre();}
+			}
+		});
+		txtNombreEmpresa.setBounds(66, 29, 151, 23);
+		panel_1.add(txtNombreEmpresa);
+		txtNombreEmpresa.setColumns(10);
+		
+		JLabel lblTelefono = new JLabel("Telefono:");
+		lblTelefono.setBounds(287, 32, 74, 14);
+		panel_1.add(lblTelefono);
+		
+		txtTelefonoEmpresa = new JFormattedTextField(formatoNumero);
+		txtTelefonoEmpresa.setBounds(358, 27, 145, 23);
+		panel_1.add(txtTelefonoEmpresa);
+		txtTelefonoEmpresa.setColumns(10);
+		
+		JLabel lblEmail = new JLabel("Email:");
+		lblEmail.setBounds(10, 57, 46, 14);
+		panel_1.add(lblEmail);
+		
+		txtEmailEmpresa = new JTextField();
+		txtEmailEmpresa.setBounds(66, 57, 151, 23);
+		panel_1.add(txtEmailEmpresa);
+		txtEmailEmpresa.setColumns(10);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(Color.WHITE);
+		panel_3.setBounds(10, 62, 514, 50);
+		contentPanel.add(panel_3);
+		panel_3.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("RNC:");
+		lblNewLabel_2.setBounds(12, 10, 38, 16);
+		panel_3.add(lblNewLabel_2);
+		
+		JFormattedTextField txtBuscarRNC = new JFormattedTextField(formatoRNC);
+		txtBuscarRNC.setColumns(10);
+		txtBuscarRNC.setBounds(69, 6, 148, 23);
+		panel_3.add(txtBuscarRNC);
+		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(219, 4, 101, 29);
+		panel_3.add(btnBuscar);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -126,7 +200,7 @@ public class ModificarEmpresa extends JDialog {
 					
 					EmpresaSolicitadora emp = null;	
 						
-					emp=Bolsa.buscarEmpresa(txtRNC.getText().toString());
+					emp=Bolsa.buscarEmpresa(txtBuscarRNC.getText().toString());
 			        if (emp!=null) {
 				
 			
@@ -193,64 +267,6 @@ public class ModificarEmpresa extends JDialog {
 
 		
 		});
-		btnBuscar.setBounds(215, 36, 101, 29);
-		panel.add(btnBuscar);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBackground(new Color(220, 20, 60));
-		panel_2.setBounds(0, 0, 529, 50);
-		contentPanel.add(panel_2);
-		
-		JLabel lblIngresarEmpresa = new JLabel("Ingresar Empresa");
-		lblIngresarEmpresa.setForeground(Color.WHITE);
-		lblIngresarEmpresa.setFont(new Font("Cambria", Font.PLAIN, 27));
-		lblIngresarEmpresa.setBounds(134, 0, 231, 46);
-		panel_2.add(lblIngresarEmpresa);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Datos de la empresa", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1.setBounds(10, 215, 519, 102);
-		contentPanel.add(panel_1);
-		panel_1.setLayout(null);
-		
-		JLabel lblNombreEmpresa = new JLabel("Nombre:");
-		lblNombreEmpresa.setBounds(10, 32, 95, 14);
-		panel_1.add(lblNombreEmpresa);
-		
-		txtNombreEmpresa = new JTextField();
-		txtNombreEmpresa.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
-					System.out.println("");
-				else {
-					JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Informaci�n", JOptionPane.WARNING_MESSAGE);
-					cleanNombre();}
-			}
-		});
-		txtNombreEmpresa.setBounds(66, 29, 151, 23);
-		panel_1.add(txtNombreEmpresa);
-		txtNombreEmpresa.setColumns(10);
-		
-		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setBounds(287, 32, 74, 14);
-		panel_1.add(lblTelefono);
-		
-		txtTelefonoEmpresa = new JFormattedTextField(formatoNumero);
-		txtTelefonoEmpresa.setBounds(358, 27, 145, 23);
-		panel_1.add(txtTelefonoEmpresa);
-		txtTelefonoEmpresa.setColumns(10);
-		
-		JLabel lblEmail = new JLabel("Email:");
-		lblEmail.setBounds(10, 57, 46, 14);
-		panel_1.add(lblEmail);
-		
-		txtEmailEmpresa = new JTextField();
-		txtEmailEmpresa.setBounds(66, 57, 151, 23);
-		panel_1.add(txtEmailEmpresa);
-		txtEmailEmpresa.setColumns(10);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(220, 20, 60));
