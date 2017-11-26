@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Lib"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="/Users/ricardodelacruz/Documents/workspace/Bancop/librerias/edisoncorSX.jar"/>
-	<classpathentry kind="lib" path="/Users/ricardodelacruz/Documents/workspace/Bancop/librerias/swingx.jar"/>
+	<classpathentry kind="lib" path="Lib/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="Lib/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="Lib/jfreechart-1.0.19-experimental.jar"/>
+	<classpathentry kind="lib" path="Lib/jfreechart-1.0.19-swt.jar"/>
+	<classpathentry kind="lib" path="Lib/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="Lib/jfreesvg-2.0.jar"/>
+	<classpathentry kind="lib" path="Lib/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="Lib/orsoncharts-1.4-eval-nofx.jar"/>
+	<classpathentry kind="lib" path="Lib/orsonpdf-1.6-eval.jar"/>
+	<classpathentry kind="lib" path="Lib/servlet.jar"/>
+	<classpathentry kind="lib" path="Lib/swtgraphics2d.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

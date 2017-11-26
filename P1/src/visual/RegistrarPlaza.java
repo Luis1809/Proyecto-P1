@@ -401,11 +401,7 @@ public class RegistrarPlaza extends JDialog {
 				txtnombreEmpresa.setText(miEmpresa.getNombreEmpresa());
 				txtciudadEmpresa.setText(miEmpresa.getCiudad());
 				txttelefonoEmpresa.setText(miEmpresa.getTelefonoEmpresa());
-				txtAreaEmpresa.setText(miEmpresa.getAreaTrabajo());
-				
-				
-			
-				
+				txtAreaEmpresa.setText(miEmpresa.getAreaTrabajo());		
 				}
 			}
 		});

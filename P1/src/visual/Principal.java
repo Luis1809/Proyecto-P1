@@ -180,6 +180,7 @@ public class Principal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ModificarSolicitantes m=new ModificarSolicitantes();
 				m.setModal(true);
+				m.setLocationRelativeTo(null);
 				m.setVisible(true);
 				
 			}
@@ -192,6 +193,7 @@ public class Principal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ModificarEmpresa emp=new ModificarEmpresa();
 				emp.setModal(true);
+				emp.setLocationRelativeTo(null);
 				emp.setVisible(true);
 				
 				
@@ -201,5 +203,19 @@ public class Principal extends JFrame {
 		});
 		menuItem_1.setFont(new Font("Dialog", Font.PLAIN, 16));
 		mnModificar.add(menuItem_1);
+		
+		JMenu mnNewMenu_1 = new JMenu("Contrataciones");
+		menuBar.add(mnNewMenu_1);
+		
+		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Empleados contratados");
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SolicitantesContratados p=new SolicitantesContratados();
+				p.setModal(true);
+				p.setLocationRelativeTo(null);
+				p.setVisible(true);
+			}
+		});
+		mnNewMenu_1.add(mntmNewMenuItem_4);
 	}
 }

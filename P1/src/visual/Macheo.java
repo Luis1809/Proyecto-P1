@@ -118,6 +118,7 @@ public class Macheo extends JDialog {
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					cbxID.removeAllItems();
+					okButton.setEnabled(false);
 					String RNC;	
 					RNC=txtRNC.getText();
 					cargarDatos(RNC);
