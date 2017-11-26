@@ -849,7 +849,7 @@ public class RegistrarPlaza extends JDialog {
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
 									SolicitudesUni s = new SolicitudesUni(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp,porcientoAceptable, plazas, institucion, carrera);
 									Bolsa.setSolic(Bolsa.getSolic()+1);
-									s.setId(Bolsa.getSolic());
+									s.setId(String.valueOf(Bolsa.getSolic())+" "+s.getCarrera());
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
 									clean();
@@ -864,7 +864,7 @@ public class RegistrarPlaza extends JDialog {
 								else{
 									SolicitudesObrero s = new SolicitudesObrero(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo,porcientoAceptable, tiempoExp, plazas, habilidad);
 									Bolsa.setSolic(Bolsa.getSolic()+1);
-									s.setId(Bolsa.getSolic());
+									s.setId(String.valueOf(Bolsa.getSolic())+" "+s.getListaHabilidades().get(0));
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
 									clean();
@@ -879,7 +879,7 @@ public class RegistrarPlaza extends JDialog {
 									String tecnico = cbxTecnico.getSelectedItem().toString();
 									SolicitudesTecnico s = new SolicitudesTecnico(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo,porcientoAceptable, tiempoExp, plazas, tecnico);						
 									Bolsa.setSolic(Bolsa.getSolic()+1);
-									s.setId(Bolsa.getSolic());
+									s.setId(String.valueOf(Bolsa.getSolic())+" "+s.getTecnico());
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);	
 									clean();

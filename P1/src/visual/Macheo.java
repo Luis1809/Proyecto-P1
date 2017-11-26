@@ -16,11 +16,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
 import logico.Bolsa;
 import logico.EmpresaSolicitadora;
+
 import logico.Solicitudes;
 import logico.SolicitudesObrero;
 import logico.SolicitudesTecnico;
@@ -47,10 +50,14 @@ public class Macheo extends JDialog {
 	private JTextField txtCiudadSolicitud;
 	private JFormattedTextField txtRNC;
 	private JFormattedTextField txtTelefono;
-	private JComboBox cbxSolicitudTipo;
 	private EmpresaSolicitadora emp;
 	private static MaskFormatter formatoRNC;
 	private JComboBox cbxID;
+	private JTable tblCuentas;
+	private static Object[] fila;
+	private static DefaultTableModel model;
+	private JButton okButton;
+	private JTextField txtEstadoSolicitud;
 
 	public Macheo() {
 		setTitle("Datos");
@@ -109,7 +116,7 @@ public class Macheo extends JDialog {
 				button.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/buscador-de-lupa (1).png")));
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-					cbxSolicitudTipo.removeAllItems();
+					cbxID.removeAllItems();
 					String RNC;	
 					RNC=txtRNC.getText();
 					cargarDatos(RNC);
@@ -174,13 +181,20 @@ public class Macheo extends JDialog {
 			panel_1.setBackground(Color.WHITE);
 			panel_1.setBounds(6, 285, 656, 186);
 			contentPanel.add(panel_1);
+			String[] columnName = {"Solicitud","Cedula","Nombre","Telefono","Fecha"};
+			model = new DefaultTableModel();
+			model.setColumnIdentifiers(columnName);
 			{
 				JScrollPane scrollPane = new JScrollPane();
 				scrollPane.setViewportBorder(new LineBorder(new Color(0, 0, 0)));
 				scrollPane.setBounds(7, 18, 641, 157);
 				panel_1.add(scrollPane);
 				{
-					table = new JTable();
+					table= new JTable();
+					table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+					table.setForeground(Color.WHITE);
+					table.setBackground(new Color(220, 20, 60));
+					table.setModel(model);
 					scrollPane.setViewportView(table);
 				}
 			}
@@ -206,24 +220,12 @@ public class Macheo extends JDialog {
 		txtPlaza.setEditable(false);
 		txtPlaza.setColumns(10);
 		txtPlaza.setBackground(new Color(255, 255, 255));
-		txtPlaza.setBounds(473, 31, 173, 23);
+		txtPlaza.setBounds(125, 62, 186, 23);
 		panel_1.add(txtPlaza);
 		
 		JLabel lblSolicitudDe = new JLabel("Solicitud de:");
 		lblSolicitudDe.setBounds(13, 34, 110, 14);
 		panel_1.add(lblSolicitudDe);
-		
-		cbxSolicitudTipo = new JComboBox();
-		cbxSolicitudTipo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				cbxID.removeAllItems();
-				if(!cbxSolicitudTipo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
-					loadID(cbxSolicitudTipo.getSelectedItem().toString());
-				}
-			}
-		});
-		cbxSolicitudTipo.setBounds(125, 31, 186, 23);
-		panel_1.add(cbxSolicitudTipo);
 		
 		JLabel label_5 = new JLabel("Fecha:");
 		label_5.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -239,12 +241,12 @@ public class Macheo extends JDialog {
 		textField_6.setBounds(536, 3, 110, 23);
 		panel_1.add(textField_6);
 		
-		JLabel label_1 = new JLabel("Salario solicitado (Mensual):");
-		label_1.setBounds(336, 96, 173, 14);
-		panel_1.add(label_1);
+		JLabel lblSalarioSolicitado = new JLabel("Salario solicitado:");
+		lblSalarioSolicitado.setBounds(336, 96, 173, 14);
+		panel_1.add(lblSalarioSolicitado);
 		
 		JLabel label_3 = new JLabel("Plazas:");
-		label_3.setBounds(336, 34, 46, 14);
+		label_3.setBounds(13, 65, 46, 14);
 		panel_1.add(label_3);
 		
 		JLabel label_4 = new JLabel("Porciento aceptable:");
@@ -267,31 +269,51 @@ public class Macheo extends JDialog {
 		panel_1.add(txtCiudadSolicitud);
 		txtCiudadSolicitud.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("ID:");
-		lblNewLabel.setBounds(13, 64, 56, 14);
-		panel_1.add(lblNewLabel);
-		
 		cbxID = new JComboBox();
 		cbxID.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!cbxID.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
-					Solicitudes solicitud = Bolsa.buscarSolicitud(Integer.parseInt(cbxID.getSelectedItem().toString()));
+					Solicitudes solicitud = Bolsa.buscarSolicitud((cbxID.getSelectedItem().toString()));
+					if(solicitud!=null){
 					txtPorcientoAceptable.setText(Integer.toString((int) solicitud.getPorcientoAceptable()));
 					txtPlaza.setText(Integer.toString((int) solicitud.getPlaza()));
 					txtCiudadSolicitud.setText(solicitud.getCuidad());
 					txtSalarioSolicitado.setText(Integer.toString((int) solicitud.getSalirioSolicitado()));
+					okButton.setEnabled(true);
+					}
+				else
+					okButton.setEnabled(false);
 				}
 			}
 		});
-		cbxID.setBounds(125, 62, 186, 23);
+		cbxID.setBounds(125, 31, 186, 23);
 		panel_1.add(cbxID);
+		
+		JLabel lblNewLabel = new JLabel("Solicitud:");
+		lblNewLabel.setBounds(336, 34, 87, 14);
+		panel_1.add(lblNewLabel);
+		
+		txtEstadoSolicitud = new JTextField();
+		txtEstadoSolicitud.setEditable(false);
+		txtEstadoSolicitud.setBounds(473, 33, 173, 23);
+		panel_1.add(txtEstadoSolicitud);
+		txtEstadoSolicitud.setColumns(10);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(220, 20, 60));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton okButton = new JButton("OK");
+				okButton = new JButton("Match");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Solicitudes s = Bolsa.buscarSolicitud((cbxID.getSelectedItem().toString()));
+						String RNC = emp.getRNC();
+						Bolsa.RealizarMacheo(s, RNC);
+						loadTable(cbxID.getSelectedItem().toString());
+					}
+				});
+				okButton.setEnabled(false);
 				okButton.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/ok-appproval-aceptacion.png")));
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
@@ -327,56 +349,47 @@ public class Macheo extends JDialog {
 	private void loadSolicitudes() {
 		String tipo = "";
 		boolean ingresar=true;
-		cbxSolicitudTipo.insertItemAt("<Seleccionar>", 0);
-		for (int i = 0; i < emp.getMiSolicitudes().size();i++) {
-			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesUni){
-				SolicitudesUni uni = (SolicitudesUni) emp.getMiSolicitudes().get(i);
-				tipo = uni.getCarrera();
-			}
-			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesTecnico){
-				SolicitudesTecnico tec = (SolicitudesTecnico) emp.getMiSolicitudes().get(i);
-				tipo = tec.getTecnico();
-			}
-			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesObrero){
-				SolicitudesObrero obre = (SolicitudesObrero) emp.getMiSolicitudes().get(i);
-				tipo = obre.getListaHabilidades().get(0);
-			}
-			
-			System.out.println(cbxSolicitudTipo.getItemCount());
-			for(int a=0;a<cbxSolicitudTipo.getItemCount();a++){
-				if(tipo.equalsIgnoreCase(cbxSolicitudTipo.getItemAt(a).toString())){
-					//System.out.println("tipo:" + tipo);
-					//System.out.println("itemat:" +cbxSolicitudTipo.getItemAt(a).toString());
-					ingresar=false;}
-			}
-			if (ingresar=true)
-				cbxSolicitudTipo.addItem(new String(tipo));	
-			ingresar=true;
-		}
-		cbxSolicitudTipo.setSelectedIndex(0);
-	}
-	
-	private void loadID(String dedicacion) {
 		cbxID.insertItemAt("<Seleccionar>", 0);
 		for (int i = 0; i < emp.getMiSolicitudes().size();i++) {
 			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesUni){
 				SolicitudesUni uni = (SolicitudesUni) emp.getMiSolicitudes().get(i);
-				if (dedicacion.equalsIgnoreCase(uni.getCarrera()))
-					cbxID.addItem(new String(String.valueOf(uni.getId())));
+				tipo = uni.getId();
 			}
 			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesTecnico){
 				SolicitudesTecnico tec = (SolicitudesTecnico) emp.getMiSolicitudes().get(i);
-				if (dedicacion.equalsIgnoreCase(tec.getTecnico()))
-					cbxID.addItem(new String(String.valueOf(tec.getId())));
-				
+				tipo = tec.getId();
 			}
 			if ( emp.getMiSolicitudes().get(i) instanceof SolicitudesObrero){
 				SolicitudesObrero obre = (SolicitudesObrero) emp.getMiSolicitudes().get(i);
-				if (dedicacion.equalsIgnoreCase(obre.getListaHabilidades().get(0)))
-					cbxID.addItem(new String(String.valueOf(obre.getId())));
-				
-			}	
+				tipo = obre.getId();
+			}
+				cbxID.addItem(new String(tipo));	
 		}
 		cbxID.setSelectedIndex(0);
 	}
+	public void loadTable(String ID) {
+		int a=0;
+		model.setRowCount(0);
+		fila = new Object[model.getColumnCount()];
+		for (int b=0; b<emp.getMiSolicitudes().size();b++){
+			if(emp.getMiSolicitudes().get(b).getId().equalsIgnoreCase(ID)){
+				for (int i = 0; i < emp.getMiSolicitudes().get(b).getMiSolicitantes().size(); i++) {
+					fila[0] = cbxID.getSelectedItem().toString();
+					fila[1] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getCedula();
+					fila[2] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre();
+					fila[3] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getTelefono();
+					fila[4] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getFecha();
+					model.addRow(fila);
+					
+				}
+			}
+			a=b;
+		}
+		if(emp.getMiSolicitudes().get(a).getMiSolicitantes().size()<emp.getMiSolicitudes().get(a).getPlaza()){
+			txtEstadoSolicitud.setText("Incompleto");
+		}
+		else
+			txtEstadoSolicitud.setText("Satisfecha");
+	}
 }
+	
