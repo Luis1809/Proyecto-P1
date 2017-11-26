@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
@@ -326,6 +327,109 @@ public class SolicitantesVisual extends JDialog {
 			panel_2.setLayout(null);
 			panel_2.setBorder(new TitledBorder(null, "Educacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			
+			pTecnico = new JPanel();
+			pTecnico.setBackground(new Color(255, 255, 255));
+			pTecnico.setLayout(null);
+			pTecnico.setBounds(6, 64, 314, 79);
+			panel_2.add(pTecnico);
+			
+			JLabel label_14 = new JLabel("Institucion:");
+			label_14.setBounds(6, 20, 84, 16);
+			pTecnico.add(label_14);
+			
+			txtInstitucionTecnico = new JTextField();
+			txtInstitucionTecnico.setBackground(new Color(211, 211, 211));
+			txtInstitucionTecnico.setColumns(10);
+			txtInstitucionTecnico.setBounds(82, 14, 222, 23);
+			pTecnico.add(txtInstitucionTecnico);
+			
+			JLabel label_15 = new JLabel("Tecnico:");
+			label_15.setBounds(6, 47, 61, 16);
+			pTecnico.add(label_15);
+			
+			cbxTecnico = new JComboBox();
+			cbxTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Electronica", "Informatica", "Telecomunicaciones", "Contabilidad", "Auditoria", "Mercadeo", "Software"}));
+			cbxTecnico.setBackground(new Color(211, 211, 211));
+			cbxTecnico.setBounds(82, 45, 222, 20);
+			pTecnico.add(cbxTecnico);
+			
+			pTecnico.setVisible(false);
+			
+			pUniversitario = new JPanel();
+			pUniversitario.setBackground(new Color(255, 255, 255));
+			pUniversitario.setLayout(null);
+			pUniversitario.setBounds(6, 64, 314, 79);
+			panel_2.add(pUniversitario);
+			
+			JLabel label_12 = new JLabel("Institucion:");
+			label_12.setBounds(6, 20, 84, 16);
+			pUniversitario.add(label_12);
+			
+			JLabel label_13 = new JLabel("Carrera:");
+			label_13.setBounds(6, 47, 61, 16);
+			pUniversitario.add(label_13);
+			
+			cbxCarrera = new JComboBox();
+			cbxCarrera.setBackground(new Color(211, 211, 211));
+			cbxCarrera.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
+			cbxCarrera.setBounds(82, 45, 222, 20);
+			pUniversitario.add(cbxCarrera);
+			
+			cbxInstitucionUni = new JComboBox();
+			cbxInstitucionUni.setBackground(new Color(211, 211, 211));
+			cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
+			cbxInstitucionUni.setBounds(82, 14, 222, 20);
+			pUniversitario.add(cbxInstitucionUni);
+			pUniversitario.setVisible(false);
+			
+			JLabel label_17 = new JLabel("Nivel educativo:");
+			label_17.setFont(new Font("Dialog", Font.BOLD, 13));
+			label_17.setBounds(103, 11, 115, 16);
+			panel_2.add(label_17);
+			
+			btnUniversitario = new JRadioButton("Universitario");
+			btnUniversitario.setBackground(new Color(255, 255, 255));
+			btnUniversitario.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					pObrero.setVisible(false);
+					pUniversitario.setVisible(true);
+					pTecnico.setVisible(false);
+				}
+			});
+			btnGroupNivelEducativo.add(btnUniversitario);
+			btnUniversitario.setBounds(32, 34, 115, 23);
+			panel_2.add(btnUniversitario);
+			
+			btnTecnico = new JRadioButton("Tecnico");
+			btnTecnico.setBackground(new Color(255, 255, 255));
+			btnTecnico.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					pObrero.setVisible(false);
+					pUniversitario.setVisible(false);
+					pTecnico.setVisible(true);
+				}
+			});
+			btnGroupNivelEducativo.add(btnTecnico);
+			btnTecnico.setBounds(149, 34, 93, 23);
+			panel_2.add(btnTecnico);
+			
+			btnObrero = new JRadioButton("Obrero");
+			btnObrero.setBackground(new Color(255, 255, 255));
+			btnObrero.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					pObrero.setVisible(true);
+					pUniversitario.setVisible(false);
+					pTecnico.setVisible(false);
+				}
+			});
+			btnGroupNivelEducativo.add(btnObrero);
+			btnObrero.setBounds(244, 34, 76, 23);
+			panel_2.add(btnObrero);
+			
+			JSeparator separator = new JSeparator();
+			separator.setBounds(103, 25, 109, 12);
+			panel_2.add(separator);
+			
 			pObrero = new JPanel();
 			pObrero.setBackground(new Color(255, 255, 255));
 			pObrero.setLayout(null);
@@ -392,109 +496,6 @@ public class SolicitantesVisual extends JDialog {
 			cbxHabilidad2.setBounds(82, 45, 226, 23);
 			pObrero.add(cbxHabilidad2);
 			pObrero.setVisible(false);
-			
-			pUniversitario = new JPanel();
-			pUniversitario.setBackground(new Color(255, 255, 255));
-			pUniversitario.setLayout(null);
-			pUniversitario.setBounds(6, 64, 314, 79);
-			panel_2.add(pUniversitario);
-			
-			JLabel label_12 = new JLabel("Institucion:");
-			label_12.setBounds(6, 20, 84, 16);
-			pUniversitario.add(label_12);
-			
-			JLabel label_13 = new JLabel("Carrera:");
-			label_13.setBounds(6, 47, 61, 16);
-			pUniversitario.add(label_13);
-			
-			cbxCarrera = new JComboBox();
-			cbxCarrera.setBackground(new Color(211, 211, 211));
-			cbxCarrera.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
-			cbxCarrera.setBounds(82, 45, 222, 20);
-			pUniversitario.add(cbxCarrera);
-			
-			cbxInstitucionUni = new JComboBox();
-			cbxInstitucionUni.setBackground(new Color(211, 211, 211));
-			cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
-			cbxInstitucionUni.setBounds(82, 14, 222, 20);
-			pUniversitario.add(cbxInstitucionUni);
-			pUniversitario.setVisible(false);
-			
-			pTecnico = new JPanel();
-			pTecnico.setBackground(new Color(255, 255, 255));
-			pTecnico.setLayout(null);
-			pTecnico.setBounds(6, 64, 314, 79);
-			panel_2.add(pTecnico);
-			
-			JLabel label_14 = new JLabel("Institucion:");
-			label_14.setBounds(6, 20, 84, 16);
-			pTecnico.add(label_14);
-			
-			txtInstitucionTecnico = new JTextField();
-			txtInstitucionTecnico.setBackground(new Color(211, 211, 211));
-			txtInstitucionTecnico.setColumns(10);
-			txtInstitucionTecnico.setBounds(82, 14, 222, 20);
-			pTecnico.add(txtInstitucionTecnico);
-			
-			JLabel label_15 = new JLabel("Tecnico:");
-			label_15.setBounds(6, 47, 61, 16);
-			pTecnico.add(label_15);
-			
-			cbxTecnico = new JComboBox();
-			cbxTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Electronica", "Informatica", "Telecomunicaciones", "Contabilidad", "Auditoria", "Mercadeo", "Software"}));
-			cbxTecnico.setBackground(new Color(211, 211, 211));
-			cbxTecnico.setBounds(82, 45, 222, 20);
-			pTecnico.add(cbxTecnico);
-			
-			pTecnico.setVisible(false);
-			
-			JLabel label_17 = new JLabel("Nivel educativo:");
-			label_17.setFont(new Font("Dialog", Font.BOLD, 13));
-			label_17.setBounds(103, 11, 115, 16);
-			panel_2.add(label_17);
-			
-			btnUniversitario = new JRadioButton("Universitario");
-			btnUniversitario.setBackground(new Color(255, 255, 255));
-			btnUniversitario.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					pObrero.setVisible(false);
-					pUniversitario.setVisible(true);
-					pTecnico.setVisible(false);
-				}
-			});
-			btnGroupNivelEducativo.add(btnUniversitario);
-			btnUniversitario.setBounds(32, 34, 115, 23);
-			panel_2.add(btnUniversitario);
-			
-			btnTecnico = new JRadioButton("Tecnico");
-			btnTecnico.setBackground(new Color(255, 255, 255));
-			btnTecnico.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					pObrero.setVisible(false);
-					pUniversitario.setVisible(false);
-					pTecnico.setVisible(true);
-				}
-			});
-			btnGroupNivelEducativo.add(btnTecnico);
-			btnTecnico.setBounds(149, 34, 93, 23);
-			panel_2.add(btnTecnico);
-			
-			btnObrero = new JRadioButton("Obrero");
-			btnObrero.setBackground(new Color(255, 255, 255));
-			btnObrero.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					pObrero.setVisible(true);
-					pUniversitario.setVisible(false);
-					pTecnico.setVisible(false);
-				}
-			});
-			btnGroupNivelEducativo.add(btnObrero);
-			btnObrero.setBounds(244, 34, 76, 23);
-			panel_2.add(btnObrero);
-			
-			JSeparator separator = new JSeparator();
-			separator.setBounds(103, 25, 109, 12);
-			panel_2.add(separator);
 			
 			panel_4 = new JPanel();
 			panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -969,18 +970,21 @@ public class SolicitantesVisual extends JDialog {
 										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||Jcaldate.getDate()==null||btnGroupMudarse.isSelected(null)||btnGroupJornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma2.isSelected()
 										||cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()||areaInteres.equalsIgnoreCase("<Seleccionar>")||
 										btnGroupLicencia.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||cbxInstitucionUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCarrera.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
-										Bolsa.SolicitanteRepetido(cedula)==true){
+										Bolsa.SolicitanteRepetido(cedula)==true||mayorEdad()==false){
 									if (Bolsa.SolicitanteRepetido(cedula)==true)
-										JOptionPane.showMessageDialog(null, "El solicitante ya esta ingresado, verifique su cedula", "Informaci�n", JOptionPane.WARNING_MESSAGE);
+										JOptionPane.showMessageDialog(null, "El solicitante ya esta ingresado, verifique su cedula", "Informacion", JOptionPane.WARNING_MESSAGE);
 									else
-										JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaci�n", JOptionPane.WARNING_MESSAGE);}
+										if(mayorEdad()==false)
+											JOptionPane.showMessageDialog(null, "Debe ser mayor de 18", "Informacion", JOptionPane.WARNING_MESSAGE);
+										else
+											JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informacion", JOptionPane.WARNING_MESSAGE);}
 								else{
 									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
 									String carrera = cbxCarrera.getSelectedItem().toString();
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
 									Universitario s = new Universitario(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, carrera);
 									Bolsa.insertarSolicitante(s);
-									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
+									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 									//clean();
 									limpiar();
 									
@@ -990,14 +994,21 @@ public class SolicitantesVisual extends JDialog {
 								if (txtNombre.getText().equalsIgnoreCase("")||txtCedula.getText().equalsIgnoreCase("   -       - ")||txtApellido.getText().equalsIgnoreCase("")||txtTelefono.getText().equalsIgnoreCase("(   ) -   -    ")||txtEmail.getText().equalsIgnoreCase("")||btnGroupSexo.isSelected(null)||cbxNacionalidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
 										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||Jcaldate.getDate()==null||btnGroupMudarse.isSelected(null)||btnGroupJornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||areaInteres.equalsIgnoreCase("<Seleccionar>")||
 										btnGroupLicencia.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||habilidad.get(0).equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma2.isSelected()||
-										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()||cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chckbxAadirOtro.isSelected()){
-									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaci�n", JOptionPane.WARNING_MESSAGE);}
+										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()||cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chckbxAadirOtro.isSelected()||mayorEdad()==false||Bolsa.SolicitanteRepetido(cedula)==true){
+									if (Bolsa.SolicitanteRepetido(cedula)==true)
+										JOptionPane.showMessageDialog(null, "El solicitante ya esta ingresado, verifique su cedula", "Informacion", JOptionPane.WARNING_MESSAGE);
+									else
+										if(mayorEdad()==false)
+											JOptionPane.showMessageDialog(null, "Debe ser mayor de 18", "Informacion", JOptionPane.WARNING_MESSAGE);
+										else
+											JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informacion", JOptionPane.WARNING_MESSAGE);}
+								
 								else{
 									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
 									//String habilidad = cbxHabilidad.getSelectedItem().toString();
 									Obrero s = new Obrero(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, habilidad);
 									Bolsa.insertarSolicitante(s);
-									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
+									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 									limpiar();
 									
 								}
@@ -1007,22 +1018,29 @@ public class SolicitantesVisual extends JDialog {
 								if (txtNombre.getText().equalsIgnoreCase("")||txtCedula.getText().equalsIgnoreCase("   -       - ")||txtApellido.getText().equalsIgnoreCase("")||txtTelefono.getText().equalsIgnoreCase("(   ) -   -    ")||txtEmail.getText().equalsIgnoreCase("")||btnGroupSexo.isSelected(null)||cbxNacionalidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
 										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||Jcaldate.getDate()==null||btnGroupMudarse.isSelected(null)||btnGroupJornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||areaInteres.equalsIgnoreCase("<Seleccionar>")||
 										btnGroupLicencia.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||txtInstitucionTecnico.getText().equalsIgnoreCase("")||cbxTecnico.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma2.isSelected()||
-										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()){
-									JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaci�n", JOptionPane.WARNING_MESSAGE);}
+										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()||mayorEdad()==false||Bolsa.SolicitanteRepetido(cedula)==true){
+									if (Bolsa.SolicitanteRepetido(cedula)==true)
+										JOptionPane.showMessageDialog(null, "El solicitante ya esta ingresado, verifique su cedula", "Informacion", JOptionPane.WARNING_MESSAGE);
+									else
+										if(mayorEdad()==false)
+											JOptionPane.showMessageDialog(null, "Debe ser mayor de 18", "Informacion", JOptionPane.WARNING_MESSAGE);
+										else
+											JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informacion", JOptionPane.WARNING_MESSAGE);}
+								
 								else{
 									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
 									String tecnico = cbxTecnico.getSelectedItem().toString();
 									String institucion = txtInstitucionTecnico.getText();	
 									Tecnico s = new Tecnico(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, tecnico);									
 									Bolsa.insertarSolicitante(s);
-									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);	
+									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);	
 									limpiar();
 									
 								}
 							}
 						}
 						else 
-							JOptionPane.showMessageDialog(null, "Seleccione un nivel educativo", "Informaci�n", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(null, "Seleccione un nivel educativo", "Informacion", JOptionPane.WARNING_MESSAGE);
 					}
 
 					private void limpiar() {
@@ -1117,5 +1135,35 @@ public class SolicitantesVisual extends JDialog {
 	}
 	public void cleanNombreReferente(){
 		txtNombreReferente.setText(""+txtNombreReferente.getText().substring(0, txtNombreReferente.getText().length()-1));
+	}
+	
+	public boolean mayorEdad(){
+		 Calendar today = Calendar.getInstance();
+		    Calendar birthDate = Calendar.getInstance();
+		    boolean mayor=false;
+		    int age = 0;
+
+		    birthDate.setTime(Jcaldate.getDate());
+		    if (birthDate.after(today)) {
+		        throw new IllegalArgumentException("Verifique su fecha de nacimiento");
+		    }
+
+		    age = today.get(Calendar.YEAR) - birthDate.get(Calendar.YEAR);
+
+		    // If birth date is greater than todays date (after 2 days adjustment of leap year) then decrement age one year   
+		    if ( (birthDate.get(Calendar.DAY_OF_YEAR) - today.get(Calendar.DAY_OF_YEAR) > 3) ||
+		            (birthDate.get(Calendar.MONTH) > today.get(Calendar.MONTH ))){
+		        age--;
+
+		     // If birth date and todays date are of same month and birth day of month is greater than todays day of month then decrement age
+		    }else if ((birthDate.get(Calendar.MONTH) == today.get(Calendar.MONTH )) &&
+		              (birthDate.get(Calendar.DAY_OF_MONTH) > today.get(Calendar.DAY_OF_MONTH ))){
+		        age--;
+		    }
+		    
+		    if(age>=18)
+		    	mayor=true;
+		 
+		    return mayor;
 	}
 }

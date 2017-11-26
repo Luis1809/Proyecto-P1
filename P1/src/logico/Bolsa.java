@@ -5,7 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.time.LocalDate;
+import java.time.Year;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Bolsa {
 	
@@ -340,7 +343,7 @@ public class Bolsa {
 	public static void setMiEmpresa(ArrayList<EmpresaSolicitadora> miEmpresa) {
 		Bolsa.miEmpresa = miEmpresa;
 	}
-
+	
 	public static int getSolic() {
 		return solic;
 	}

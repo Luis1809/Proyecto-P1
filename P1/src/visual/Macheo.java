@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 import javax.swing.JFormattedTextField;
@@ -23,7 +24,7 @@ import javax.swing.text.MaskFormatter;
 
 import logico.Bolsa;
 import logico.EmpresaSolicitadora;
-
+import logico.Solicitantes;
 import logico.Solicitudes;
 import logico.SolicitudesObrero;
 import logico.SolicitudesTecnico;
@@ -181,7 +182,7 @@ public class Macheo extends JDialog {
 			panel_1.setBackground(Color.WHITE);
 			panel_1.setBounds(6, 285, 656, 186);
 			contentPanel.add(panel_1);
-			String[] columnName = {"Solicitud","Cedula","Nombre","Telefono","Porciento", "Fecha"};
+			String[] columnName = {"Cedula","Nombre","Edad","Telefono","Porciento", "Fecha"};
 			model = new DefaultTableModel();
 			model.setColumnIdentifiers(columnName);
 			{
@@ -374,9 +375,9 @@ public class Macheo extends JDialog {
 		for (int b=0; b<emp.getMiSolicitudes().size();b++){
 			if(emp.getMiSolicitudes().get(b).getId().equalsIgnoreCase(ID)){
 				for (int i = 0; i < emp.getMiSolicitudes().get(b).getMiSolicitantes().size(); i++) {
-					fila[0] = cbxID.getSelectedItem().toString();
-					fila[1] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getCedula();
-					fila[2] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre()+emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getApellido();
+					fila[0] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getCedula();
+					fila[1] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre()+emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getApellido();
+					fila[2] = mayorEdad(emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i));
 					fila[3] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getTelefono();
 					fila[4] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()+"%";
 					fila[5] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getFecha();
@@ -391,6 +392,31 @@ public class Macheo extends JDialog {
 		}
 		else
 			txtEstadoSolicitud.setText("Satisfecha");
+	}
+	public int mayorEdad(Solicitantes vac){
+		 Calendar today = Calendar.getInstance();
+		    Calendar birthDate = Calendar.getInstance();
+		    int age = 0;
+
+		    birthDate.setTime(vac.getFechaNacimiento());
+		    if (birthDate.after(today)) {
+		        throw new IllegalArgumentException("Verifique su fecha de nacimiento");
+		    }
+
+		    age = today.get(Calendar.YEAR) - birthDate.get(Calendar.YEAR);
+
+		    // If birth date is greater than todays date (after 2 days adjustment of leap year) then decrement age one year   
+		    if ( (birthDate.get(Calendar.DAY_OF_YEAR) - today.get(Calendar.DAY_OF_YEAR) > 3) ||
+		            (birthDate.get(Calendar.MONTH) > today.get(Calendar.MONTH ))){
+		        age--;
+
+		     // If birth date and todays date are of same month and birth day of month is greater than todays day of month then decrement age
+		    }else if ((birthDate.get(Calendar.MONTH) == today.get(Calendar.MONTH )) &&
+		              (birthDate.get(Calendar.DAY_OF_MONTH) > today.get(Calendar.DAY_OF_MONTH ))){
+		        age--;
+		    }
+	
+		    return age;
 	}
 }
 	
