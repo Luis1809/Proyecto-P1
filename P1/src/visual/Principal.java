@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import org.jfree.chart.ChartPanel;
+
+import graficos.BarData;
+import graficos.ChartFactoryCreator;
 import logico.Bolsa;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -20,6 +24,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Insets;
@@ -221,5 +227,55 @@ public class Principal extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mntmNewMenuItem_4);
+		
+		JPanel panel_pie = new JPanel();
+		panel_pie.setBounds(26, 103, 520, 491);
+		contentPane.add(panel_pie);
+		
+		JPanel panel_bar = new JPanel();
+		panel_bar.setBounds(766, 103, 539, 491);
+		contentPane.add(panel_bar);
+		
+		
+		// El pnChart es el panel que vas a usar para mostrar el char
+        // Ejemplo PieChar
+        HashMap<String, Double> valoresPie = new HashMap<>();
+
+        valoresPie.put("Ingenieros", new Double(10));
+        valoresPie.put("Tecnicos", new Double(32));
+        valoresPie.put("Doctor", new Double(3));
+        valoresPie.put("Magister", new Double(5));
+        valoresPie.put("Licenciado", new Double(25));
+        
+        ChartPanel chartPanelPie = ChartFactoryCreator.createPieChartPanel("Carreras vs Cantidad", valoresPie,panel_pie.getWidth(),panel_pie.getHeight());
+        panel_pie.add(chartPanelPie,BorderLayout.CENTER);
+        panel_pie.validate();
+        
+        
+        
+        
+//         Ejemplo BarChar
+        ArrayList<BarData> valoresBar = new ArrayList<>();
+        
+        valoresBar.add(new BarData(new Double(10), "ingenieros", "maciel"));
+        valoresBar.add(new BarData(new Double(15), "Tecnicos", "maciel"));
+        valoresBar.add(new BarData(new Double(10), "Doctor", "maciel"));
+        valoresBar.add(new BarData(new Double(40), "Magister", "maciel"));
+        valoresBar.add(new BarData(new Double(35), "ingenieros", "maciel"));
+        valoresBar.add(new BarData(new Double(33), "Licenciado", "maciel"));
+
+        valoresBar.add(new BarData(new Double(15), "ingenieros", "hospital"));
+        valoresBar.add(new BarData(new Double(5), "Tecnicos", "hospital"));
+        valoresBar.add(new BarData(new Double(16), "Doctor", "hospital"));
+        valoresBar.add(new BarData(new Double(14), "Magister", "hospital"));
+        valoresBar.add(new BarData(new Double(51), "ingenieros", "hospital"));
+        valoresBar.add(new BarData(new Double(12), "Licenciado", "hospital"));
+        
+        ChartPanel chartPanelBar = ChartFactoryCreator.createBarChartPanel("Cantidad Empleados por empresa","Empresas","Cantidad",valoresBar,panel_bar.getWidth(),panel_bar.getHeight());
+        panel_bar.add(chartPanelBar,BorderLayout.CENTER);
+        panel_bar.validate();
+		
+		
+		
 	}
 }

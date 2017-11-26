@@ -1144,9 +1144,9 @@ public class SolicitantesVisual extends JDialog {
 		    int age = 0;
 
 		    birthDate.setTime(Jcaldate.getDate());
-		    if (birthDate.after(today)) {
-		        throw new IllegalArgumentException("Verifique su fecha de nacimiento");
-		    }
+//		    if (birthDate.after(today)) {
+//		        throw new IllegalArgumentException("Verifique su fecha de nacimiento");
+//		    }
 
 		    age = today.get(Calendar.YEAR) - birthDate.get(Calendar.YEAR);
 
