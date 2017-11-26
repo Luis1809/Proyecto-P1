@@ -197,7 +197,7 @@ public class Macheo extends JDialog {
 					table.setForeground(Color.WHITE);
 					table.setBackground(new Color(220, 20, 60));
 					table.setModel(model);
-					scrollPane.setViewportView(table);
+					scrollPane.setViewportView(table);//
 				}
 			}
 		}
