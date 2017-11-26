@@ -186,6 +186,37 @@ public class RegistrarEmpresaVisual extends JDialog {
 						dispose();
 					}
 				});
+				
+				JButton btnRegistrar = new JButton("Registrar");
+				btnRegistrar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						String nombreEmpresa = txtNombreEmpresa.getText();
+						String telefonoEmpresa = txtTelefonoEmpresa.getText();
+						String emailEmpresa = txtEmailEmpresa.getText();						
+						String rNC= txtRNC.getText();
+						String areaTrabajo= cbxArea.getSelectedItem().toString();
+				 		String ciudad = cbxCiudad.getSelectedItem().toString();
+						String paisEmpresa = cbxPais.getSelectedItem().toString();
+						String direccion = txtDireccionEmpresa.getText();
+						 								
+						EmpresaSolicitadora Es = new EmpresaSolicitadora(nombreEmpresa, emailEmpresa, telefonoEmpresa, direccion, ciudad, paisEmpresa, areaTrabajo, rNC);	
+						 if (nombreEmpresa.equalsIgnoreCase("") || emailEmpresa.equalsIgnoreCase("") || telefonoEmpresa.equalsIgnoreCase("(   ) -   -    ")|| direccion.equalsIgnoreCase("")|| ciudad.equalsIgnoreCase("<Seleccionar>")
+						 	|| paisEmpresa.equalsIgnoreCase("<Seleccionar>")||areaTrabajo.equalsIgnoreCase("<Selecccionar>")||rNC.equalsIgnoreCase("         ")
+							||Bolsa.EmpresaRepetida(rNC)==true){
+						if (Bolsa.EmpresaRepetida(rNC)==true)
+							JOptionPane.showMessageDialog(null, "La empresa ya ha sido ingresado, verifique el RNC", "Informacion", JOptionPane.WARNING_MESSAGE);
+						else
+							JOptionPane.showMessageDialog(null, "Completar todas las casillas", "Informacion", JOptionPane.WARNING_MESSAGE);
+							//System.out.println(telefonoEmpresa);
+						}
+						else{
+						Bolsa.insertarEmpresa(Es);
+						JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+						clean();}
+					}
+				});
+				btnRegistrar.setActionCommand("Cancel");
+				buttonPane.add(btnRegistrar);
 				btnCancel.setActionCommand("Cancel");
 				buttonPane.add(btnCancel);
 			}

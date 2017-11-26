@@ -171,6 +171,7 @@ public class Bolsa {
 				
 				if(porciento>=solEmp.porcientoAceptable){
 					plazas--;
+					miSolicitante.get(i).setPorciento(porciento);
 					Solicitud.miSolicitantes.add(miSolicitante.get(i));
 					miSolicitante.get(i).setHabilitado(false);
 				}
@@ -243,6 +244,7 @@ public class Bolsa {
 				}
 				if(porciento>=solEmp.porcientoAceptable){
 					plazas--;
+					miSolicitante.get(i).setPorciento(porciento);
 					Solicitud.miSolicitantes.add(miSolicitante.get(i));
 					miSolicitante.get(i).setHabilitado(false);
 				}
@@ -303,6 +305,7 @@ public class Bolsa {
 				}
 				if(porciento>=Solicitud.porcientoAceptable){
 					plazas--;
+					miSolicitante.get(i).setPorciento(porciento);
 					Solicitud.miSolicitantes.add(miSolicitante.get(i));
 					miSolicitante.get(i).setHabilitado(false);
 				}	

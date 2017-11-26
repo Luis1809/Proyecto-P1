@@ -32,6 +32,7 @@ public abstract class Solicitantes {
 	protected int tiempotrabajoRealizado1; // 5 anos
 	protected String nombreReferente;
 	protected String numeroReferente;
+	protected float porciento;
 	
 	public Solicitantes(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
 			String nacionalidad, String estadoCivil, String direccion, String cuidad, String pais,
@@ -66,6 +67,7 @@ public abstract class Solicitantes {
 		this.tiempotrabajoRealizado1 = tiempotrabajoRealizado1;
 		this.nombreReferente = nombreReferente;
 		this.numeroReferente = numeroReferente;
+		this.porciento=0;
 	}
 	
 
@@ -278,5 +280,15 @@ public abstract class Solicitantes {
 
 	public void setNumeroReferente(String numeroReferente) {
 		this.numeroReferente = numeroReferente;
+	}
+
+
+	public float getPorciento() {
+		return porciento;
+	}
+
+
+	public void setPorciento(float porciento) {
+		this.porciento = porciento;
 	}
 }

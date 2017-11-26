@@ -181,7 +181,7 @@ public class Macheo extends JDialog {
 			panel_1.setBackground(Color.WHITE);
 			panel_1.setBounds(6, 285, 656, 186);
 			contentPanel.add(panel_1);
-			String[] columnName = {"Solicitud","Cedula","Nombre","Telefono","Fecha"};
+			String[] columnName = {"Solicitud","Cedula","Nombre","Telefono","Porciento", "Fecha"};
 			model = new DefaultTableModel();
 			model.setColumnIdentifiers(columnName);
 			{
@@ -376,9 +376,10 @@ public class Macheo extends JDialog {
 				for (int i = 0; i < emp.getMiSolicitudes().get(b).getMiSolicitantes().size(); i++) {
 					fila[0] = cbxID.getSelectedItem().toString();
 					fila[1] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getCedula();
-					fila[2] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre();
+					fila[2] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre()+emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getApellido();
 					fila[3] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getTelefono();
-					fila[4] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getFecha();
+					fila[4] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()+"%";
+					fila[5] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getFecha();
 					model.addRow(fila);
 					
 				}
