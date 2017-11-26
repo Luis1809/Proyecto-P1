@@ -903,14 +903,20 @@ public class ModificarSolicitantes extends JDialog {
 			JButton btnNewButton = new JButton("Buscar");
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					
+					
+					
 					Solicitantes s = null;
+					btnPag.setEnabled(false);
+					btnPag_1.setEnabled(true);
+					panel_principal.setVisible(true);	
+					panel_secundario.setVisible(false);
 					
 				s=	Bolsa.buscarSolicitante(txtBuscarCedula.getText());
 					if(s!=null){
 						
 						
-					panel_principal.setVisible(true);	
-					panel_secundario.setVisible(false);
+					
 					
 					txtCedula.setText(s.getCedula());
 					txtApellido.setText(s.getApellido());	
@@ -927,30 +933,16 @@ public class ModificarSolicitantes extends JDialog {
 					
 					for (int i = 0; i < area.length; i++) {
 						String string = area[i];
-						
 						if(s.getAreaTrabajo1().equalsIgnoreCase(string))
-							cbxAreaTrabajo.setSelectedIndex(i);;
-						
-						
-						
+						cbxAreaTrabajo.setSelectedIndex(i);
 					}for (int i = 0; i < estadoVicil.length; i++) {
 						String string = estadoVicil[i];
 						if(s.getEstadoCivil().equalsIgnoreCase(string))
-							cbxEstadoCivil.setSelectedIndex(i);;
-						
+					    cbxEstadoCivil.setSelectedIndex(i);;
 					}for (int i = 0; i < idioma1.length; i++) {
 						String string = idioma1[i];
 						cbxIdioma1.setSelectedIndex(i);
-						
-						
-					}//for (int i = 0; i < idioma2.length; i++) {
-					//	String string = idioma2[i];
-					//	cbxIdioma2.setSelectedIndex(i);
-					//}for (int i = 0; i < idioma3.length; i++) {
-					//	String string = idioma3[i];
-						
-					//}
-					for (int i = 0; i < areaInteres.length; i++) {
+					}for (int i = 0; i < areaInteres.length; i++) {
 						String string = areaInteres[i];
 						cbxAreaInteres.setSelectedIndex(i);
 					}for (int i = 0; i < nacionalidad.length; i++) {
@@ -965,7 +957,6 @@ public class ModificarSolicitantes extends JDialog {
 					}for (int i = 0; i < tecnico.length; i++) {
 						String string = tecnico[i];
 						cbxTecnico.setSelectedIndex(i);
-						
 					}for (int i = 0; i < Ciudad.length; i++) {
 						String string = Ciudad[i];
 						cbxCiudad.setSelectedIndex(i);
