@@ -78,7 +78,7 @@ public class ModificarEmpresa extends JDialog {
 		panel.add(lblRnc);
 		
 		txtRNC = new JFormattedTextField(formatoRNC);
-		txtRNC.setBounds(71, 39, 148, 23);
+		txtRNC.setBounds(71, 39, 148, 24);
 		panel.add(txtRNC);
 		txtRNC.setColumns(10);
 		
@@ -89,7 +89,7 @@ public class ModificarEmpresa extends JDialog {
 		
 		cbxCiudad = new JComboBox();
 		cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
-		cbxCiudad.setBounds(70, 95, 148, 23);
+		cbxCiudad.setBounds(70, 95, 148, 24);
 		panel.add(cbxCiudad);
 		
 		JLabel lblDireccion = new JLabel("Direccion:");
@@ -97,7 +97,7 @@ public class ModificarEmpresa extends JDialog {
 		panel.add(lblDireccion);
 		
 		txtDireccionEmpresa = new JTextField();
-		txtDireccionEmpresa.setBounds(70, 67, 148, 23);
+		txtDireccionEmpresa.setBounds(70, 67, 148, 24);
 		panel.add(txtDireccionEmpresa);
 		txtDireccionEmpresa.setColumns(10);
 		
@@ -107,7 +107,7 @@ public class ModificarEmpresa extends JDialog {
 		String[ ] pais ={"<Seleccionar>", "Republica Dominicana"};
 		cbxPais = new JComboBox();
 		cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
-		cbxPais.setBounds(354, 39, 156, 23);
+		cbxPais.setBounds(354, 39, 156, 24);
 		panel.add(cbxPais);
 		
 		JLabel lblArea = new JLabel("Area:");
@@ -116,7 +116,7 @@ public class ModificarEmpresa extends JDialog {
 		 String[ ] area = {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}; 
 		cbxArea = new JComboBox();
 		cbxArea.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
-		cbxArea.setBounds(352, 67, 158, 23);
+		cbxArea.setBounds(352, 67, 158, 24);
 		panel.add(cbxArea);
 		
 		JPanel panel_2 = new JPanel();
@@ -125,10 +125,10 @@ public class ModificarEmpresa extends JDialog {
 		panel_2.setBounds(0, 0, 529, 50);
 		contentPanel.add(panel_2);
 		
-		JLabel lblIngresarEmpresa = new JLabel("Ingresar Empresa");
+		JLabel lblIngresarEmpresa = new JLabel("Modificar/Eliminar Empresa");
 		lblIngresarEmpresa.setForeground(Color.WHITE);
 		lblIngresarEmpresa.setFont(new Font("Cambria", Font.PLAIN, 27));
-		lblIngresarEmpresa.setBounds(134, 0, 231, 46);
+		lblIngresarEmpresa.setBounds(94, 0, 420, 46);
 		panel_2.add(lblIngresarEmpresa);
 		
 		JPanel panel_1 = new JPanel();
@@ -153,7 +153,7 @@ public class ModificarEmpresa extends JDialog {
 					cleanNombre();}
 			}
 		});
-		txtNombreEmpresa.setBounds(66, 29, 151, 23);
+		txtNombreEmpresa.setBounds(66, 29, 151, 24);
 		panel_1.add(txtNombreEmpresa);
 		txtNombreEmpresa.setColumns(10);
 		
@@ -162,7 +162,7 @@ public class ModificarEmpresa extends JDialog {
 		panel_1.add(lblTelefono);
 		
 		txtTelefonoEmpresa = new JFormattedTextField(formatoNumero);
-		txtTelefonoEmpresa.setBounds(358, 27, 145, 23);
+		txtTelefonoEmpresa.setBounds(358, 27, 145, 24);
 		panel_1.add(txtTelefonoEmpresa);
 		txtTelefonoEmpresa.setColumns(10);
 		
@@ -171,7 +171,7 @@ public class ModificarEmpresa extends JDialog {
 		panel_1.add(lblEmail);
 		
 		txtEmailEmpresa = new JTextField();
-		txtEmailEmpresa.setBounds(66, 57, 151, 23);
+		txtEmailEmpresa.setBounds(66, 57, 151, 24);
 		panel_1.add(txtEmailEmpresa);
 		txtEmailEmpresa.setColumns(10);
 		
@@ -187,7 +187,7 @@ public class ModificarEmpresa extends JDialog {
 		
 		JFormattedTextField txtBuscarRNC = new JFormattedTextField(formatoRNC);
 		txtBuscarRNC.setColumns(10);
-		txtBuscarRNC.setBounds(69, 6, 148, 23);
+		txtBuscarRNC.setBounds(69, 6, 148, 24);
 		panel_3.add(txtBuscarRNC);
 		
 		JButton btnBuscar = new JButton("Buscar");

@@ -146,7 +146,7 @@ public class ModificarSolicitantes extends JDialog {
 		
 		
 		setResizable(false);
-		setBounds(100, 100, 794, 1077);
+		setBounds(100, 100, 794, 594);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(null);
@@ -168,7 +168,7 @@ public class ModificarSolicitantes extends JDialog {
 			
 			panel_secundario = new JPanel();
 			panel_secundario.setBackground(new Color(255, 255, 255));
-			panel_secundario.setBounds(10, 500, 774, 329);
+			panel_secundario.setBounds(10, 147, 774, 329);
 			panel.add(panel_secundario);
 			panel_secundario.setLayout(null);
 			
@@ -383,7 +383,7 @@ public class ModificarSolicitantes extends JDialog {
 			txtEmpresa = new JTextField();
 			txtEmpresa.setBackground(new Color(211, 211, 211));
 			txtEmpresa.setColumns(10);
-			txtEmpresa.setBounds(147, 45, 198, 23);
+			txtEmpresa.setBounds(147, 45, 198, 24);
 			panel_7.add(txtEmpresa);
 			
 			JLabel label_25 = new JLabel("Area de Trabajo:");
@@ -407,7 +407,7 @@ public class ModificarSolicitantes extends JDialog {
 				}
 			});
 			txtNombreReferente.setColumns(10);
-			txtNombreReferente.setBounds(147, 128, 198, 23);
+			txtNombreReferente.setBounds(147, 128, 198, 24);
 			panel_7.add(txtNombreReferente);
 			
 			JLabel label_27 = new JLabel("Telefono de Referente:");
@@ -417,7 +417,7 @@ public class ModificarSolicitantes extends JDialog {
 			txtNumeroReferente = new JFormattedTextField(formatoNumero);
 			txtNumeroReferente.setBackground(new Color(211, 211, 211));
 			txtNumeroReferente.setColumns(10);
-			txtNumeroReferente.setBounds(147, 159, 198, 23);
+			txtNumeroReferente.setBounds(147, 159, 198, 24);
 			panel_7.add(txtNumeroReferente);
 			
 			cbxAreaTrabajo = new JComboBox();
@@ -474,7 +474,7 @@ public class ModificarSolicitantes extends JDialog {
 				}
 			});
 			txtNombre.setColumns(10);
-			txtNombre.setBounds(101, 28, 177, 23);
+			txtNombre.setBounds(101, 28, 177, 24);
 			panel_1.add(txtNombre);
 			
 			JLabel label_1 = new JLabel("Apellidos:");
@@ -494,7 +494,7 @@ public class ModificarSolicitantes extends JDialog {
 				}
 			});
 			txtApellido.setColumns(10);
-			txtApellido.setBounds(369, 28, 196, 23);
+			txtApellido.setBounds(370, 30, 196, 24);
 			panel_1.add(txtApellido);
 			
 			JLabel label_2 = new JLabel("Cedula:");
@@ -504,7 +504,7 @@ public class ModificarSolicitantes extends JDialog {
 			txtCedula = new JFormattedTextField(formatoCedula);
 			txtCedula.setBackground(new Color(211, 211, 211));
 			txtCedula.setColumns(10);
-			txtCedula.setBounds(101, 57, 177, 23);
+			txtCedula.setBounds(101, 57, 177, 24);
 			panel_1.add(txtCedula);
 			
 			JLabel label_3 = new JLabel("Sexo:");
@@ -518,7 +518,7 @@ public class ModificarSolicitantes extends JDialog {
 			txtTelefono = new JFormattedTextField(formatoNumero);
 			txtTelefono.setBackground(new Color(211, 211, 211));
 			txtTelefono.setColumns(10);
-			txtTelefono.setBounds(369, 59, 196, 23);
+			txtTelefono.setBounds(370, 59, 196, 24);
 			panel_1.add(txtTelefono);
 			
 			btnMasculino = new JRadioButton("Masculino");
@@ -568,7 +568,7 @@ public class ModificarSolicitantes extends JDialog {
 			txtDireccion = new JTextField();
 			txtDireccion.setBackground(new Color(211, 211, 211));
 			txtDireccion.setColumns(10);
-			txtDireccion.setBounds(101, 86, 177, 23);
+			txtDireccion.setBounds(101, 86, 177, 24);
 			panel_1.add(txtDireccion);
 			
 			JLabel label_11 = new JLabel("Email:");
@@ -578,7 +578,7 @@ public class ModificarSolicitantes extends JDialog {
 			txtEmail = new JTextField();
 			txtEmail.setBackground(new Color(211, 211, 211));
 			txtEmail.setColumns(10);
-			txtEmail.setBounds(369, 86, 196, 24);
+			txtEmail.setBounds(370, 86, 196, 24);
 			panel_1.add(txtEmail);
 			
 			JLabel label_10 = new JLabel("Fecha Nacimiento:");
@@ -878,10 +878,10 @@ public class ModificarSolicitantes extends JDialog {
 			panel_3.setBounds(0, 0, 804, 50);
 			panel.add(panel_3);
 			
-			lblIngresarSolicitante = new JLabel("Ingresar Solicitante");
+			lblIngresarSolicitante = new JLabel("Modificar/Eliminar Solicitante");
 			lblIngresarSolicitante.setForeground(Color.WHITE);
 			lblIngresarSolicitante.setFont(new Font("Cambria", Font.PLAIN, 27));
-			lblIngresarSolicitante.setBounds(285, 0, 231, 46);
+			lblIngresarSolicitante.setBounds(213, 0, 367, 46);
 			panel_3.add(lblIngresarSolicitante);
 			
 			panel_5 = new JPanel();
@@ -894,10 +894,14 @@ public class ModificarSolicitantes extends JDialog {
 			lblNewLabel.setBounds(10, 19, 61, 16);
 			panel_5.add(lblNewLabel);
 			
-			txtBuscarCedula = new JFormattedTextField();
+			txtBuscarCedula = new JFormattedTextField(formatoCedula);
+			txtBuscarCedula.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			txtBuscarCedula.setColumns(10);
 			txtBuscarCedula.setBackground(new Color(211, 211, 211));
-			txtBuscarCedula.setBounds(68, 15, 215, 23);
+			txtBuscarCedula.setBounds(68, 15, 215, 24);
 			panel_5.add(txtBuscarCedula);
 			
 			JButton btnNewButton = new JButton("Buscar");
