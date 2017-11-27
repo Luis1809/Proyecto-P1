@@ -132,6 +132,7 @@ public class Macheo extends JDialog {
 					}
 					else{
 					cbxID.removeAllItems();
+					clean();
 					okButton.setEnabled(false);
 					String RNC;	
 					RNC=txtRNC.getText();
@@ -291,7 +292,7 @@ public class Macheo extends JDialog {
 		cbxID = new JComboBox();
 		cbxID.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!cbxID.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+				if(!(cbxID.getSelectedItem()==null)||!cbxID.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
 					Solicitudes solicitud = Bolsa.buscarSolicitud((cbxID.getSelectedItem().toString()));
 					if(solicitud!=null){
 					txtPorcientoAceptable.setText(Integer.toString((int) solicitud.getPorcientoAceptable()));
@@ -331,6 +332,7 @@ public class Macheo extends JDialog {
 						Bolsa.RealizarMacheo(s, RNC);
 						loadTable(cbxID.getSelectedItem().toString());
 						Principal.cargarBarra();
+						Principal.cargarPIE();
 					}
 				});
 				okButton.setEnabled(false);
@@ -439,6 +441,14 @@ public class Macheo extends JDialog {
 		    }
 	
 		    return age;
+	}
+	
+	public void clean(){
+		txtEstadoSolicitud.setText("");
+		txtCiudadSolicitud.setText("");
+		txtPorcientoAceptable.setText("");
+		txtSalarioSolicitado.setText("");
+		txtPlaza.setText("");
 	}
 }
 	

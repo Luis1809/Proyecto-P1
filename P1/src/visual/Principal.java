@@ -42,6 +42,7 @@ public class Principal extends JFrame {
 	private JPanel contentPane;
 	private Dimension dim;
 	public static JPanel panel_bar;
+	public static JPanel panel_pie;
 
 	/**
 	 * Launch the application.
@@ -233,30 +234,16 @@ public class Principal extends JFrame {
 		});
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
-		JPanel panel_pie = new JPanel();
+		panel_pie = new JPanel();
 		panel_pie.setBounds(26, 103, 500, 323);
 		contentPane.add(panel_pie);
 		
 		panel_bar = new JPanel();
 		panel_bar.setBounds(580, 103, 541, 329);
 		contentPane.add(panel_bar);
-		
-		
-		// El pnChart es el panel que vas a usar para mostrar el char
-        // Ejemplo PieChar
-        HashMap<String, Double> valoresPie = new HashMap<>();
-
-        valoresPie.put("Ingenieros", new Double(10));
-        valoresPie.put("Tecnicos", new Double(32));
-        valoresPie.put("Doctor", new Double(3));
-        valoresPie.put("Magister", new Double(5));
-        valoresPie.put("Licenciado", new Double(25));
-        
-        ChartPanel chartPanelPie = ChartFactoryCreator.createPieChartPanel("Carreras vs Cantidad", valoresPie,panel_pie.getWidth(),panel_pie.getHeight());
-        panel_pie.add(chartPanelPie,BorderLayout.CENTER);
-        panel_pie.validate();
-        
-       cargarBarra();
+	
+        cargarPIE();
+		cargarBarra();
         
 		
 	}
@@ -278,14 +265,41 @@ public class Principal extends JFrame {
         		}
         	}
         	
-        	valoresBar.add(new BarData(uni,"Universitario", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
+        	valoresBar.add(new BarData(uni,"Obreros", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
             valoresBar.add(new BarData(tec,"Tecnicos", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
-            valoresBar.add(new BarData(obre,"Obreros", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
+            valoresBar.add(new BarData(obre,"Universitario", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
         }
          
         ChartPanel chartPanelBar = ChartFactoryCreator.createBarChartPanel("Cantidad Empleados por empresa","Empresas","Cantidad",valoresBar,panel_bar.getWidth(),panel_bar.getHeight());
         panel_bar.add(chartPanelBar,BorderLayout.CENTER);
         panel_bar.validate();
 	}
-		
+	
+	public static void cargarPIE(){
+		panel_pie.removeAll();
+		HashMap<String, Double> valoresPie = new HashMap<>();
+		double uni =0;
+     	double tec =0;
+     	double obre=0;
+		 for(int i=0;i<Bolsa.getMiEmpresa().size();i++){
+	        for(int a=0;a<Bolsa.getMiEmpresa().get(i).getMiSolicitudes().size();a++){
+	        	for(int b=0;b<Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().size();b++){
+	        	if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Universitario)
+	        		uni++;
+	        	if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Tecnico)
+	        		tec++;
+	        	if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Obrero)
+	        		obre++;
+	        	}
+	       	}
+		 }
+		 
+	     valoresPie.put("Obreros", uni );
+	     valoresPie.put("Universitarios", tec);
+	     valoresPie.put("Tecnicos", obre);
+	        
+	     ChartPanel chartPanelPie = ChartFactoryCreator.createPieChartPanel("Profesion vs Cantidad", valoresPie,panel_pie.getWidth(),panel_pie.getHeight());
+	     panel_pie.add(chartPanelPie,BorderLayout.CENTER);
+	     panel_pie.validate();
+	}	
 }
