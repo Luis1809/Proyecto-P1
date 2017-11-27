@@ -245,6 +245,18 @@ public class Principal extends JFrame {
 		});
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Estado Solicitudes");
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ReporteEstadoSolicitudes x=new ReporteEstadoSolicitudes();
+				x.setModal(true);
+				x.setLocationRelativeTo(null);
+				x.setVisible(true);
+			}
+		});
+		mntmNewMenuItem_5.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		mnNewMenu_1.add(mntmNewMenuItem_5);
+		
 		JMenu mnGuardar = new JMenu("Guardar ");
 		mnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
