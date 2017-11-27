@@ -15,5 +15,7 @@
 	<classpathentry kind="lib" path="Lib/orsonpdf-1.6-eval.jar"/>
 	<classpathentry kind="lib" path="Lib/servlet.jar"/>
 	<classpathentry kind="lib" path="Lib/swtgraphics2d.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="edisoncorSX.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
