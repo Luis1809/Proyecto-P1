@@ -35,6 +35,7 @@ import java.awt.Color;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import org.edisoncor.gui.varios.ClockFace;
 
 
 public class Principal extends JFrame {
@@ -235,12 +236,16 @@ public class Principal extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
 		panel_pie = new JPanel();
-		panel_pie.setBounds(26, 103, 500, 323);
+		panel_pie.setBounds(569, 103, 596, 532);
 		contentPane.add(panel_pie);
 		
 		panel_bar = new JPanel();
-		panel_bar.setBounds(580, 103, 541, 329);
+		panel_bar.setBounds(1261, 103, 625, 532);
 		contentPane.add(panel_bar);
+		
+		ClockFace clockFace = new ClockFace();
+		clockFace.setBounds(0, 92, 718, 543);
+		contentPane.add(clockFace);
 	
         cargarPIE();
 		cargarBarra();
