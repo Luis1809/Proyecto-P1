@@ -141,7 +141,7 @@ public class SolicitantesVisual extends JDialog {
 		
 		
 		setResizable(false);
-		setBounds(100, 100, 794, 508);
+		setBounds(100, 100, 794, 518);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(null);
@@ -499,14 +499,14 @@ public class SolicitantesVisual extends JDialog {
 			pObrero.setVisible(false);
 			
 			panel_4 = new JPanel();
-			panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
+			panel_4.setBorder(new TitledBorder(null, "Datos Vivienda", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			panel_4.setBackground(new Color(255, 255, 255));
-			panel_4.setBounds(378, 203, 275, 146);
+			panel_4.setBounds(378, 197, 386, 152);
 			panel_principal.add(panel_4);
 			panel_4.setLayout(null);
 			
 			JLabel label_8 = new JLabel("Cuidad:");
-			label_8.setBounds(10, 13, 46, 14);
+			label_8.setBounds(24, 26, 336, 14);
 			panel_4.add(label_8);
 			
 			cbxCiudad = new JComboBox();
@@ -514,13 +514,13 @@ public class SolicitantesVisual extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
-			cbxCiudad.setBounds(81, 11, 177, 23);
+			cbxCiudad.setBounds(95, 24, 190, 23);
 			panel_4.add(cbxCiudad);
 			cbxCiudad.setBackground(new Color(211, 211, 211));
 			cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
 			
 			JLabel label_9 = new JLabel("Pais:");
-			label_9.setBounds(10, 50, 46, 14);
+			label_9.setBounds(24, 63, 336, 14);
 			panel_4.add(label_9);
 			
 			cbxPais = new JComboBox();
@@ -528,13 +528,13 @@ public class SolicitantesVisual extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
-			cbxPais.setBounds(81, 47, 177, 23);
+			cbxPais.setBounds(95, 60, 190, 23);
 			panel_4.add(cbxPais);
 			cbxPais.setBackground(new Color(211, 211, 211));
 			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
 			
 			JLabel label_5 = new JLabel("Estado Civil:");
-			label_5.setBounds(10, 87, 84, 16);
+			label_5.setBounds(24, 100, 336, 16);
 			panel_4.add(label_5);
 			
 			cbxEstadoCivil = new JComboBox();
@@ -542,7 +542,7 @@ public class SolicitantesVisual extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
-			cbxEstadoCivil.setBounds(81, 83, 177, 23);
+			cbxEstadoCivil.setBounds(95, 96, 190, 23);
 			panel_4.add(cbxEstadoCivil);
 			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
 			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
@@ -778,36 +778,36 @@ public class SolicitantesVisual extends JDialog {
 			
 			JPanel panel_7 = new JPanel();
 			panel_7.setBackground(new Color(255, 255, 255));
-			panel_7.setBounds(414, 10, 353, 196);
+			panel_7.setBounds(414, 2, 353, 204);
 			panel_secundario.add(panel_7);
 			panel_7.setLayout(null);
-			panel_7.setBorder(new LineBorder(new Color(0, 0, 0)));
+			panel_7.setBorder(new TitledBorder(null, "Ocupacion anterior", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			
 			JLabel label_23 = new JLabel("Experiencia Laboral (Ultimo empleo):");
 			label_23.setFont(new Font("Dialog", Font.BOLD, 13));
-			label_23.setBounds(10, 11, 281, 16);
+			label_23.setBounds(10, 22, 281, 16);
 			panel_7.add(label_23);
 			
 			JSeparator separator_4 = new JSeparator();
-			separator_4.setBounds(10, 25, 240, 12);
+			separator_4.setBounds(10, 37, 240, 12);
 			panel_7.add(separator_4);
 			
 			JLabel label_24 = new JLabel("Nombre de Empresa:");
-			label_24.setBounds(10, 47, 134, 16);
+			label_24.setBounds(10, 58, 134, 16);
 			panel_7.add(label_24);
 			
 			txtEmpresa = new JTextField();
 			txtEmpresa.setBackground(new Color(211, 211, 211));
 			txtEmpresa.setColumns(10);
-			txtEmpresa.setBounds(147, 45, 198, 23);
+			txtEmpresa.setBounds(147, 56, 198, 23);
 			panel_7.add(txtEmpresa);
 			
 			JLabel label_25 = new JLabel("Area de Trabajo:");
-			label_25.setBounds(10, 101, 110, 16);
+			label_25.setBounds(10, 112, 110, 16);
 			panel_7.add(label_25);
 			
 			JLabel label_26 = new JLabel("Nombre de Referente:");
-			label_26.setBounds(10, 130, 127, 16);
+			label_26.setBounds(10, 141, 127, 16);
 			panel_7.add(label_26);
 			
 			txtNombreReferente = new JTextField();
@@ -823,17 +823,17 @@ public class SolicitantesVisual extends JDialog {
 				}
 			});
 			txtNombreReferente.setColumns(10);
-			txtNombreReferente.setBounds(147, 128, 198, 23);
+			txtNombreReferente.setBounds(147, 139, 198, 23);
 			panel_7.add(txtNombreReferente);
 			
 			JLabel label_27 = new JLabel("Telefono de Referente:");
-			label_27.setBounds(10, 159, 146, 21);
+			label_27.setBounds(10, 170, 146, 21);
 			panel_7.add(label_27);
 			
 			txtNumeroReferente = new JFormattedTextField(formatoNumero);
 			txtNumeroReferente.setBackground(new Color(211, 211, 211));
 			txtNumeroReferente.setColumns(10);
-			txtNumeroReferente.setBounds(147, 159, 198, 23);
+			txtNumeroReferente.setBounds(147, 170, 198, 23);
 			panel_7.add(txtNumeroReferente);
 			
 			cbxAreaTrabajo = new JComboBox();
@@ -842,16 +842,16 @@ public class SolicitantesVisual extends JDialog {
 				}
 			});
 			cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
-			cbxAreaTrabajo.setBounds(147, 99, 198, 23);
+			cbxAreaTrabajo.setBounds(147, 110, 198, 23);
 			panel_7.add(cbxAreaTrabajo);
 			
 			JLabel label_28 = new JLabel("Tiempo de experiencia:");
-			label_28.setBounds(10, 76, 134, 14);
+			label_28.setBounds(10, 87, 134, 14);
 			panel_7.add(label_28);
 			
 			spnTiempoExperiencia = new JSpinner();
 			spnTiempoExperiencia.setModel(new SpinnerNumberModel(1, 1, 50, 1));
-			spnTiempoExperiencia.setBounds(244, 74, 101, 22);
+			spnTiempoExperiencia.setBounds(244, 85, 101, 22);
 			panel_7.add(spnTiempoExperiencia);
 			
 			panel_secundario.setVisible(false);
