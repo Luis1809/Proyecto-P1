@@ -291,7 +291,7 @@ public class Principal extends JFrame {
 		panelCurves_1.setLayout(null);
 		panelCurves_1.setForeground(new Color(0, 51, 0));
 		panelCurves_1.setBackground((Color) null);
-		panelCurves_1.setBounds(10, 571, 1914, 540);
+		panelCurves_1.setBounds(0, 571, 1914, 540);
 		contentPane.add(panelCurves_1);
 	
         cargarPIE();

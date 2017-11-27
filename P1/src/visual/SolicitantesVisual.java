@@ -869,7 +869,7 @@ public class SolicitantesVisual extends JDialog {
 			
 			panel_3 = new JPanel();
 			panel_3.setLayout(null);
-			panel_3.setBackground(new Color(220, 20, 60));
+			panel_3.setBackground(new Color(0, 0, 139));
 			panel_3.setBounds(0, 0, 804, 50);
 			panel.add(panel_3);
 			
@@ -881,7 +881,8 @@ public class SolicitantesVisual extends JDialog {
 		}
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBackground(new Color(220, 20, 60));
+			buttonPane.setForeground(new Color(0, 0, 139));
+			buttonPane.setBackground(new Color(0, 0, 139));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{

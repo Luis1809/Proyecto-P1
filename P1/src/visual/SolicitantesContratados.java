@@ -144,8 +144,9 @@ public class SolicitantesContratados extends JDialog {
 		panel.add(txttelefonoEmpresa);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setForeground(new Color(0, 0, 139));
 		panel_1.setLayout(null);
-		panel_1.setBackground(new Color(220, 20, 60));
+		panel_1.setBackground(new Color(0, 0, 139));
 		panel_1.setBounds(0, 0, 675, 48);
 		contentPanel.add(panel_1);
 		
@@ -165,7 +166,7 @@ public class SolicitantesContratados extends JDialog {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		contentPanel.add(scrollPane);
-		scrollPane.setBounds(10, 166, 652, 271);
+		scrollPane.setBounds(10, 166, 652, 250);
 		
 			table = new JTable();
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -175,6 +176,8 @@ public class SolicitantesContratados extends JDialog {
 			scrollPane.setViewportView(table);//
 		{
 			JPanel buttonPane = new JPanel();
+			buttonPane.setBackground(new Color(0, 0, 139));
+			buttonPane.setForeground(new Color(0, 0, 139));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{

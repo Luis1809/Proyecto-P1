@@ -121,7 +121,7 @@ public class ModificarEmpresa extends JDialog {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
-		panel_2.setBackground(new Color(220, 20, 60));
+		panel_2.setBackground(new Color(0, 0, 139));
 		panel_2.setBounds(0, 0, 529, 50);
 		contentPanel.add(panel_2);
 		
@@ -269,7 +269,7 @@ public class ModificarEmpresa extends JDialog {
 		});
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBackground(new Color(220, 20, 60));
+			buttonPane.setBackground(new Color(0, 0, 139));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{

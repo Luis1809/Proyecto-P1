@@ -92,7 +92,7 @@ public class Macheo extends JDialog {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(new Color(220, 20, 60));
+		panel.setBackground(new Color(0, 0, 139));
 		panel.setBounds(0, 0, 675, 48);
 		contentPanel.add(panel);
 		
@@ -334,7 +334,7 @@ public class Macheo extends JDialog {
 		contentPanel.add(progressBar);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBackground(new Color(220, 20, 60));
+			buttonPane.setBackground(new Color(0, 0, 139));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
