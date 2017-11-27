@@ -46,6 +46,7 @@ public class SolicitantesContratados extends JDialog {
 	private static DefaultTableModel model;
 	private EmpresaSolicitadora miEmpresa;
 	private JTable table;
+	private JButton btnDespedir;
 
 	public SolicitantesContratados() {
 		setResizable(false);
@@ -187,6 +188,18 @@ public class SolicitantesContratados extends JDialog {
 						dispose();
 					}
 				});
+				
+				btnDespedir = new JButton("Despedir");
+				btnDespedir.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						
+						
+						
+						
+					}
+				});
+				buttonPane.add(btnDespedir);
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
