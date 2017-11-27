@@ -55,6 +55,15 @@ public class ReporteEstadoSolicitudes extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
+
+		try{
+			//formatoCedula = new MaskFormatter("###-#######-#");//////////////////////////////////////
+			//formatoNumero = new MaskFormatter("(###) -###-####");//////////////////////////////////////
+			formatoRNC    = new MaskFormatter("#########");
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBackground(new Color(220, 20, 60));
@@ -80,7 +89,7 @@ public class ReporteEstadoSolicitudes extends JDialog {
 		label.setBounds(10, 11, 191, 28);
 		panel_1.add(label);
 		
-		JFormattedTextField txtRNC = new JFormattedTextField();
+		JFormattedTextField txtRNC = new JFormattedTextField(formatoRNC);
 		txtRNC.setForeground(Color.BLACK);
 		txtRNC.setColumns(10);
 		txtRNC.setBackground(new Color(211, 211, 211));
