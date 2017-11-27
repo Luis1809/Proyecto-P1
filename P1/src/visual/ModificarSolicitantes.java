@@ -146,7 +146,7 @@ public class ModificarSolicitantes extends JDialog {
 		
 		
 		setResizable(false);
-		setBounds(100, 100, 794, 579);
+		setBounds(100, 100, 794, 1077);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(null);
@@ -168,7 +168,7 @@ public class ModificarSolicitantes extends JDialog {
 			
 			panel_secundario = new JPanel();
 			panel_secundario.setBackground(new Color(255, 255, 255));
-			panel_secundario.setBounds(10, 147, 774, 329);
+			panel_secundario.setBounds(10, 500, 774, 329);
 			panel.add(panel_secundario);
 			panel_secundario.setLayout(null);
 			
@@ -620,7 +620,7 @@ public class ModificarSolicitantes extends JDialog {
 			JLabel label_16 = new JLabel("Habilidad:");
 			label_16.setBounds(6, 20, 71, 16);
 			pObrero.add(label_16);
-			String[] hbilidad1= {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"};
+			String[] habilidad1= {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"};
 			
 			cbxHabilidad = new JComboBox();
 			cbxHabilidad.setBackground(new Color(211, 211, 211));
@@ -668,7 +668,7 @@ public class ModificarSolicitantes extends JDialog {
 			});
 			chckbxAadirOtro.setBounds(6, 47, 63, 23);
 			pObrero.add(chckbxAadirOtro);
-			String[] hbilidad2= {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"};
+			String[] habilidad2= {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"};
 			
 			cbxHabilidad2 = new JComboBox();
 			cbxHabilidad2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
@@ -912,7 +912,7 @@ public class ModificarSolicitantes extends JDialog {
 					panel_principal.setVisible(true);	
 					panel_secundario.setVisible(false);
 					
-				s=	Bolsa.buscarSolicitante(txtBuscarCedula.getText());
+				    s=Bolsa.buscarSolicitante(txtBuscarCedula.getText());
 					if(s!=null){
 						
 						
@@ -931,6 +931,80 @@ public class ModificarSolicitantes extends JDialog {
 					txtFechaNacimiento.setDate(s.getFechaNacimiento());
 					
 					
+						if (s instanceof Obrero) {
+							
+							///atributas de obrero
+							for (String string : ((Obrero) s).getListaHabilidades()) {
+								
+								for (int i = 0; i < habilidad1.length; i++) {
+									if (string==habilidad1[i]) {
+									string = habilidad1[i];
+									cbxHabilidad.setSelectedIndex(i);
+										
+									}
+										
+								}
+								
+								for (int i = 0; i < habilidad2.length; i++) {
+									if (string==habilidad2[i]) {
+									string = habilidad2[i];
+									cbxHabilidad2.setSelectedIndex(i);
+									
+									if(habilidad2[i]==null){
+										
+										///	validar que este activa la segunda habilidad		
+												chckbxAadirOtro.setSelected(false);
+												}
+													
+									} 
+								}
+								
+								
+							}	
+							
+						}
+						else if (s instanceof Universitario) {
+							
+							///atributas de universitario
+							
+	                    	for (int i = 0; i < isntitucion.length; i++) {
+	    						String string = isntitucion[i];
+	    						if(((Universitario) s).getInstitucion().equalsIgnoreCase(string))
+	    						cbxInstitucionUni.setSelectedIndex(i);
+	    					}
+	                    	for (int i = 0; i < carrera.length; i++) {
+	    						String string = carrera[i];
+	    						if(((Universitario) s).getCarrera().equalsIgnoreCase(string))
+	    						cbxCarrera.setSelectedIndex(i);
+	    					}
+							
+							
+						}
+						else if (s instanceof Tecnico) {
+							
+							///atributas de tecnico
+							
+
+	                    	for (int i = 0; i < tecnico.length; i++) {
+	    						String string = tecnico[i];
+	    						if(((Tecnico) s).getTecnico().equalsIgnoreCase(string))
+	    						cbxTecnico.setSelectedIndex(i);
+	    					}
+	                    	for (int i = 0; i < carrera.length; i++) {
+	    						String string = carrera[i];
+	    						if(((Tecnico) s).getInstitucion().equalsIgnoreCase(string))
+	    						cbxInstitucionUni.setSelectedIndex(i);
+	    					}
+	                    	
+	                    	
+							
+							
+							
+						}
+						
+					
+					
+					
 					for (int i = 0; i < area.length; i++) {
 						String string = area[i];
 						if(s.getAreaTrabajo1().equalsIgnoreCase(string))
@@ -939,50 +1013,85 @@ public class ModificarSolicitantes extends JDialog {
 						String string = estadoVicil[i];
 						if(s.getEstadoCivil().equalsIgnoreCase(string))
 					    cbxEstadoCivil.setSelectedIndex(i);;
-					}for (int i = 0; i < idioma1.length; i++) {
-						String string = idioma1[i];
-						cbxIdioma1.setSelectedIndex(i);
+					}
+						
 					}for (int i = 0; i < areaInteres.length; i++) {
 						String string = areaInteres[i];
+						if(s.getAreaInteres().equalsIgnoreCase(string))
 						cbxAreaInteres.setSelectedIndex(i);
 					}for (int i = 0; i < nacionalidad.length; i++) {
+						
 						String string = nacionalidad[i];
+						if(s.getNacionalidad().equalsIgnoreCase(string))
 						cbxNacionalidad.setSelectedIndex(i);
-					}for (int i = 0; i < carrera.length; i++) {
-						String string = carrera[i];
-						cbxCarrera.setSelectedIndex(i);
-					}for (int i = 0; i < isntitucion.length; i++) {
-						String string = isntitucion[i];
-						cbxInstitucionUni.setSelectedIndex(i);
-					}for (int i = 0; i < tecnico.length; i++) {
-						String string = tecnico[i];
-						cbxTecnico.setSelectedIndex(i);
-					}for (int i = 0; i < Ciudad.length; i++) {
+					}
+				
+					for (int i = 0; i < Ciudad.length; i++) {
 						String string = Ciudad[i];
+						if(s.getCuidad().equalsIgnoreCase(string))
 						cbxCiudad.setSelectedIndex(i);
+						
 					}for (int i = 0; i < pais.length; i++) {
 						String string = pais[i];
+						if(s.getPais().equalsIgnoreCase(string))
 						cbxPais.setSelectedIndex(i);
 						
+					}for (String idioma : s.getIdioma()) {
+						
+						for (int i = 0; i < idioma1.length; i++) {
+							if (idioma==idioma1[i]) {
+								idioma = idioma1[i];
+							    cbxIdioma1.setSelectedIndex(i);
+								
+							    
+							    
+							    
+							    
+							}
+						}
+                       for (int j = 0; j < idioma2.length; j++) {
+                        	if (idioma==idioma2[j]) {
+								idioma = idioma2[j];
+								cbxIdioma2.setSelectedIndex(j);
+								
+								if(idioma2[j]==null){
+									
+									///	validar que este activo el segundo idioma	
+											chbIdioma2.setSelected(false);
+											}
+								
+								
+							}
+                       }
+                       for (int k = 0; k < idioma3.length; k++) {
+	                        if (idioma==idioma3[k]) {
+								idioma = idioma3[k];
+								cbxIdioma3.setSelectedIndex(k);
+								
+
+								if(idioma3[k]==null){
+									
+									///	validar que este activo el tercer idioma		
+											chbIdioma3.setSelected(false);
+											}
+								
+									
+								                     }
+                        	
+			                                                    }	
+							
+							
+						}
+					
+						
+						
+						
 						
 					}
 					
 					
 					
 					
-					
-					
-						
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-				}
 			});
 			btnNewButton.setIcon(new ImageIcon(ModificarSolicitantes.class.getResource("/imagenes/buscador-de-lupa (1).png")));
 			btnNewButton.setBounds(286, 12, 117, 29);
