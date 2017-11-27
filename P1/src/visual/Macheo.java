@@ -339,15 +339,6 @@ public class Macheo extends JDialog {
 						String RNC = emp.getRNC();
 						Bolsa.RealizarMacheo(s, RNC);
 						funcionTiempo();
-						try {
-							Thread.sleep(100);
-						} catch (InterruptedException ex) {
-	                        Logger.getLogger(Macheo.class.getName()).log(Level.SEVERE, null, ex);
-	                    }
-						loadTable(cbxID.getSelectedItem().toString());
-						Principal.cargarBarra();
-						Principal.cargarPIE();
-						
 					}
 				});
 				okButton.setEnabled(false);
@@ -479,6 +470,9 @@ public class Macheo extends JDialog {
                         Logger.getLogger(Macheo.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+                loadTable(cbxID.getSelectedItem().toString());
+				Principal.cargarBarra();
+				Principal.cargarPIE();
             }
         });
         thread.start();
