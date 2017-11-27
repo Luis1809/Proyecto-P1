@@ -1,17 +1,23 @@
 package logico;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Bolsa {
+public class Bolsa implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5854934147985305391L;
 	private static ArrayList<Solicitantes> miSolicitante;
 	private static ArrayList<EmpresaSolicitadora> miEmpresa;
 	private static int solic;
@@ -36,61 +42,74 @@ public class Bolsa {
 	   bolsa=ban;
 	   
    }
-	/*
-	public static void GuardarCliente () throws IOException{
-		FileOutputStream f = new FileOutputStream("C:/Users/wichy_000/Documents/Bolsa.dat");
-		ObjectOutputStream oos = new ObjectOutputStream(f);
-		
-		oos.writeInt(cantCliente);
-		for(int i=0;i<cantCliente;i++)
-			oos.writeObject(miCliente[i]);
-		f.close();
-	}
 	
-	
-	public static void CargarCliente() throws ClassNotFoundException, IOException{
-		FileInputStream f = new FileInputStream("C:/Users/wichy_000/Documents/hola.dat");
-		ObjectInputStream oos = new ObjectInputStream(f);
-		
-		int count = oos.readInt();
-		for(int i=0;i<count;i++)
-			miCliente[i]=((Cliente)oos.readObject());
-		f.close();
-	}*/
-
-
 ///////////////////////////////// *FICHEROS*/////////////////////////////////////////////
-
-/// Binario///
-public void guardarBolsa() {
-try {
-
-
-FileOutputStream file = new FileOutputStream("BolsaData.dat");//creado directoro o hoja
-ObjectOutputStream escritor = new ObjectOutputStream(file);// crendo el lapiz para escribir en la hoja
-escritor.writeObject(Bolsa.getIntance()); // escribiendo en la hoja
-
-file.close();
-escritor.close();
-
-} catch (IOException e) {
-System.out.println("ERROR");
-}
-
-}
-
-public void LeerBolsa() {
-try {
-FileInputStream file = new FileInputStream("BolsaData.dat");
-ObjectInputStream leer = new ObjectInputStream(file);
-//Referencia a la controladora , puede hacerce instancia a popular si se crea una variable static
-Bolsa.setIntance((Bolsa)leer.readObject());
-file.close();
-leer.close();
-} catch (Exception e) {
-// TODO: handle exception
-}
-}
+ //Guardar cliente
+ 	public static void GuardarEmpresa() throws IOException{
+ 		FileOutputStream f = new FileOutputStream("Empresa.dat");
+ 		ObjectOutputStream oos = new ObjectOutputStream(f);
+ 		
+ 		oos.writeInt(miEmpresa.size());
+ 		
+ 		for(int i=0;i<miEmpresa.size();i++){
+ 			oos.writeObject(miEmpresa.get(i));}
+ 		
+ 		f.close();
+ 	}
+ 			
+ 	public static void CargarEmpresa() throws ClassNotFoundException, IOException{
+ 		FileInputStream f = new FileInputStream("Empresa.dat");
+ 		ObjectInputStream oos = new ObjectInputStream(f);
+ 		
+ 		int count = oos.readInt();
+ 		for(int i=0;i<count;i++){
+ 			EmpresaSolicitadora e=((EmpresaSolicitadora)oos.readObject());
+ 			miEmpresa.add(e);
+ 			}
+ 			
+ 		f.close();
+ 	}
+ 	
+ 	public static void GuardarSolicitante() throws IOException{
+ 		FileOutputStream f = new FileOutputStream("Solicitante.dat");
+ 		ObjectOutputStream oos = new ObjectOutputStream(f);
+ 		
+ 		oos.writeInt(miSolicitante.size());
+ 		
+ 		for(int a=0;a<miSolicitante.size();a++){
+ 			oos.writeObject(miSolicitante.get(a));}
+ 		
+ 		f.close();
+ 	}
+ 			
+ 	public static void Cargarsolicitante() throws ClassNotFoundException, IOException{
+ 		FileInputStream f = new FileInputStream("Solicitante.dat");
+ 		ObjectInputStream oos = new ObjectInputStream(f);
+ 		
+ 		int count = oos.readInt();
+ 		for(int a=0;a<count;a++){
+ 			Solicitantes c=((Solicitantes)oos.readObject());
+ 			miSolicitante.add(c);}
+ 			
+ 		f.close();
+ 	}
+ 	
+ 	public static boolean archivoCreadoEmpresa() throws IOException{
+ 		boolean creado=false;
+ 		File f = new File("Empresa.dat");
+ 		//System.out.println(f.length());
+ 		if(f.exists() && !f.isDirectory() && f.length()!=4) 
+ 			creado=true;
+ 		return creado;
+ 	}
+	public static boolean archivoCreadoSolicitante() throws IOException{
+ 		boolean creado=false;
+ 		File f = new File("Solicitante.dat");
+ 		//System.out.println(f.length());
+ 		if(f.exists() && !f.isDirectory() && f.length()!=4) 
+ 			creado=true;
+ 		return creado;
+ 	}
 
 	public  static boolean SolicitanteRepetido (String ced){
 		boolean repetido = true;

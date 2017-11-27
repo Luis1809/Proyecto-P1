@@ -1,9 +1,14 @@
 package logico;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EmpresaSolicitadora {
+public class EmpresaSolicitadora implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6431391539164739348L;
 	private String nombreEmpresa;
 	private String emailEmpresa;
 	private String telefonoEmpresa;

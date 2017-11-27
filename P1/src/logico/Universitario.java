@@ -1,11 +1,16 @@
 package logico;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Universitario extends Solicitantes {
+public class Universitario extends Solicitantes implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7341882960328332552L;
 	private String institucion; 
 	private String carrera;
 	

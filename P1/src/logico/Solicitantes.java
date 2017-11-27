@@ -1,11 +1,16 @@
 package logico;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public abstract class Solicitantes {
+public abstract class Solicitantes implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4254348379578729161L;
 	protected String cedula;
 	protected String nombre;
 	protected String apellido;

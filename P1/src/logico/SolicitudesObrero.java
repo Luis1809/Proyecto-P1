@@ -1,9 +1,14 @@
 package logico;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SolicitudesObrero extends Solicitudes {
+public class SolicitudesObrero extends Solicitudes implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6249832900562244889L;
 	private ArrayList<String> listaHabilidades;
 	
 	public SolicitudesObrero(String sexo, String estadoCivil, String cuidad, String pais, int salirioSolicitado,

@@ -76,9 +76,11 @@ public class Principal extends JFrame {
 					bolsa.init();
 					Principal frame = new Principal();
 					frame.setVisible(true);
-					//if(Controladora.archivoCreado()){
-						//Controladora.CargarCliente();
-						//Controladora.CargarCuenta();}
+					if(Bolsa.archivoCreadoEmpresa())
+						Bolsa.CargarEmpresa();
+					if(Bolsa.archivoCreadoSolicitante())
+						Bolsa.Cargarsolicitante();
+					
 					frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 					
 					
@@ -87,13 +89,13 @@ public class Principal extends JFrame {
 					public void  windowClosing(WindowEvent we){
 						JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestros servicios.", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 						
-						//try {
-							//Controladora.GuardarCliente();
-							//Controladora.GuardarCuenta();
-						//} catch (IOException e) {
-							// TODO Auto-generated catch block
-							//e.printStackTrace();
-						//}
+						try {
+							Bolsa.GuardarEmpresa();
+							Bolsa.GuardarSolicitante();
+						} catch (IOException e) {
+							 //TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 						
 						System.exit(0);
 					}
@@ -109,7 +111,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
-		bolsa.LeerBolsa();
+		//bolsa.LeerBolsa();
 		setTitle("Bolsa laboral V1.0");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

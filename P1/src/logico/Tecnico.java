@@ -1,11 +1,16 @@
 package logico;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Tecnico extends Solicitantes {
+public class Tecnico extends Solicitantes implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3609684295683397705L;
 	private String institucion; 
 	private String tecnico; //Cual tecnico se realizo
 

@@ -1,11 +1,16 @@
 package logico;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Obrero extends Solicitantes{
+public class Obrero extends Solicitantes implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2802464278152137032L;
 	private ArrayList<String> listaHabilidades;
 	
 	public Obrero(String cedula, String nombre, String apellido, String telefono, String email, String sexo,

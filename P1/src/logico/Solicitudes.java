@@ -1,9 +1,14 @@
 package logico;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Solicitudes {
+public abstract class Solicitudes implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9075807511658271835L;
 	protected boolean Satisfecho;
 	protected String sexo;
 	protected String estadoCivil; //Soltero, Casado, Viudo, Divorsiado, Union Libre
