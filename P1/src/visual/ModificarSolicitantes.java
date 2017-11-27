@@ -1087,10 +1087,8 @@ public class ModificarSolicitantes extends JDialog {
 						
 						
 						
-					}
-					
-					
-					
+							
+			}
 					
 			});
 			btnNewButton.setIcon(new ImageIcon(ModificarSolicitantes.class.getResource("/imagenes/buscador-de-lupa (1).png")));
