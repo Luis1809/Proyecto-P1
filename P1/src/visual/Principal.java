@@ -236,15 +236,15 @@ public class Principal extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
 		panel_pie = new JPanel();
-		panel_pie.setBounds(569, 103, 596, 532);
+		panel_pie.setBounds(27, 64, 482, 388);
 		contentPane.add(panel_pie);
 		
 		panel_bar = new JPanel();
-		panel_bar.setBounds(1261, 103, 625, 532);
+		panel_bar.setBounds(537, 64, 526, 388);
 		contentPane.add(panel_bar);
 		
 		ClockFace clockFace = new ClockFace();
-		clockFace.setBounds(0, 92, 718, 543);
+		clockFace.setBounds(1078, 64, 272, 255);
 		contentPane.add(clockFace);
 	
         cargarPIE();
@@ -270,9 +270,9 @@ public class Principal extends JFrame {
         		}
         	}
         	
-        	valoresBar.add(new BarData(uni,"Obreros", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
+        	valoresBar.add(new BarData(obre,"Obreros", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
             valoresBar.add(new BarData(tec,"Tecnicos", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
-            valoresBar.add(new BarData(obre,"Universitario", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
+            valoresBar.add(new BarData(uni,"Universitario", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
         }
          
         ChartPanel chartPanelBar = ChartFactoryCreator.createBarChartPanel("Cantidad Empleados por empresa","Empresas","Cantidad",valoresBar,panel_bar.getWidth(),panel_bar.getHeight());
@@ -299,9 +299,9 @@ public class Principal extends JFrame {
 	       	}
 		 }
 		 
-	     valoresPie.put("Obreros", uni );
-	     valoresPie.put("Universitarios", tec);
-	     valoresPie.put("Tecnicos", obre);
+	     valoresPie.put("Obreros", obre );
+	     valoresPie.put("Universitarios", uni);
+	     valoresPie.put("Tecnicos", tec);
 	        
 	     ChartPanel chartPanelPie = ChartFactoryCreator.createPieChartPanel("Profesion vs Cantidad", valoresPie,panel_pie.getWidth(),panel_pie.getHeight());
 	     panel_pie.add(chartPanelPie,BorderLayout.CENTER);
