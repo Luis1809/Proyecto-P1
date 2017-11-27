@@ -52,7 +52,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JProgressBar;
 
 public class Macheo extends JDialog {
-
+	private Bolsa bolsa = Bolsa.getIntance();
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtNombreEmpresa;
 	private JTextField txtCiudadEmpresa;
@@ -131,7 +131,7 @@ public class Macheo extends JDialog {
 				button.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/buscador-de-lupa (1).png")));
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-					if (txtRNC.getText().toString().equalsIgnoreCase("")||Bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
+					if (txtRNC.getText().toString().equalsIgnoreCase("")||bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
 						JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informacion", JOptionPane.WARNING_MESSAGE);
 					}
 					else{
@@ -302,7 +302,7 @@ public class Macheo extends JDialog {
 					System.out.println("");
 				else{
 					if(!cbxID.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
-						Solicitudes solicitud = Bolsa.buscarSolicitud((cbxID.getSelectedItem().toString()));
+						Solicitudes solicitud = bolsa.buscarSolicitud((cbxID.getSelectedItem().toString()));
 						if(solicitud!=null){
 							txtPorcientoAceptable.setText(Integer.toString((int) solicitud.getPorcientoAceptable()));
 							txtPlaza.setText(Integer.toString((int) solicitud.getPlaza()));
@@ -341,9 +341,9 @@ public class Macheo extends JDialog {
 				okButton = new JButton("Match");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						Solicitudes s = Bolsa.buscarSolicitud((cbxID.getSelectedItem().toString()));
+						Solicitudes s = bolsa.buscarSolicitud((cbxID.getSelectedItem().toString()));
 						String RNC = emp.getRNC();
-						Bolsa.RealizarMacheo(s, RNC);
+						bolsa.RealizarMacheo(s, RNC);
 						funcionTiempo();
 					}
 				});
@@ -368,7 +368,7 @@ public class Macheo extends JDialog {
 	}
 
 	protected void cargarDatos(String RNC) {
-		emp=Bolsa.buscarEmpresa(RNC);
+		emp=bolsa.buscarEmpresa(RNC);
 		String ciudad=emp.getCiudad();
 		String nombre= emp.getNombreEmpresa();
 	    String pais=	emp.getPaisEmpresa();

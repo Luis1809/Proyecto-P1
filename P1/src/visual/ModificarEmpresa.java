@@ -33,7 +33,7 @@ import javax.swing.ImageIcon;
 
 
 public class ModificarEmpresa extends JDialog {
-
+	private Bolsa bolsa = Bolsa.getIntance();
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtNombreEmpresa;
 	private JTextField txtDireccionEmpresa;
@@ -200,7 +200,7 @@ public class ModificarEmpresa extends JDialog {
 					
 					EmpresaSolicitadora emp = null;	
 						
-					emp=Bolsa.buscarEmpresa(txtBuscarRNC.getText().toString());
+					emp=bolsa.buscarEmpresa(txtBuscarRNC.getText().toString());
 			        if (emp!=null) {
 				
 			
@@ -280,7 +280,7 @@ public class ModificarEmpresa extends JDialog {
 						EmpresaSolicitadora emp;
 						
 						
-					emp=Bolsa.buscarEmpresa(txtRNC.getText());
+					emp=bolsa.buscarEmpresa(txtRNC.getText());
 						
 						if(emp!=null){
 						
@@ -316,10 +316,10 @@ public class ModificarEmpresa extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 					EmpresaSolicitadora emp;
 						
-						emp=Bolsa.buscarEmpresa(txtRNC.getSelectedText().toString());
+						emp=bolsa.buscarEmpresa(txtRNC.getSelectedText().toString());
 						if(emp!=null){
 							
-							Bolsa.eliminarEmpresa(emp);
+							bolsa.eliminarEmpresa(emp);
 							JOptionPane.showMessageDialog(null, "Operacion Satisfactoria");
 							
 							

@@ -33,7 +33,7 @@ import java.util.Calendar;
 import java.awt.event.ActionEvent;
 
 public class SolicitantesContratados extends JDialog {
-
+	private Bolsa bolsa = Bolsa.getIntance();
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtnombreEmpresa;
 	private JTextField txtciudadEmpresa;
@@ -87,11 +87,11 @@ public class SolicitantesContratados extends JDialog {
 		JButton button = new JButton("Buscar");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (txtRNC.getText().toString().equalsIgnoreCase("")||Bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
+				if (txtRNC.getText().toString().equalsIgnoreCase("")||bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
 					JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informaci�n", JOptionPane.WARNING_MESSAGE);
 				}
 				else{
-				miEmpresa = Bolsa.buscarEmpresa(txtRNC.getText().toString());
+				miEmpresa = bolsa.buscarEmpresa(txtRNC.getText().toString());
 				txtnombreEmpresa.setText(miEmpresa.getNombreEmpresa());
 				txtciudadEmpresa.setText(miEmpresa.getCiudad());
 				txttelefonoEmpresa.setText(miEmpresa.getTelefonoEmpresa());	
