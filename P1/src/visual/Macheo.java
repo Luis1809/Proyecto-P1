@@ -135,12 +135,13 @@ public class Macheo extends JDialog {
 						JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informacion", JOptionPane.WARNING_MESSAGE);
 					}
 					else{
+					emp=null;
 					cbxID.removeAllItems();
 					clean();
 					okButton.setEnabled(false);
 					String RNC;	
 					RNC=txtRNC.getText();
-					txtRNC.setText("");
+					//txtRNC.setText("");
 					cargarDatos(RNC);
 					loadSolicitudes();}
 					}
@@ -296,17 +297,22 @@ public class Macheo extends JDialog {
 		cbxID = new JComboBox();
 		cbxID.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!(cbxID.getSelectedItem()==null)||!cbxID.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
-					Solicitudes solicitud = Bolsa.buscarSolicitud((cbxID.getSelectedItem().toString()));
-					if(solicitud!=null){
-					txtPorcientoAceptable.setText(Integer.toString((int) solicitud.getPorcientoAceptable()));
-					txtPlaza.setText(Integer.toString((int) solicitud.getPlaza()));
-					txtCiudadSolicitud.setText(solicitud.getCuidad());
-					txtSalarioSolicitado.setText(Integer.toString((int) solicitud.getSalirioSolicitado()));
-					okButton.setEnabled(true);
+				
+				if((cbxID.getSelectedItem()==null||cbxID.getSelectedItem().toString()==""))
+					System.out.println("");
+				else{
+					if(!cbxID.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+						Solicitudes solicitud = Bolsa.buscarSolicitud((cbxID.getSelectedItem().toString()));
+						if(solicitud!=null){
+							txtPorcientoAceptable.setText(Integer.toString((int) solicitud.getPorcientoAceptable()));
+							txtPlaza.setText(Integer.toString((int) solicitud.getPlaza()));
+							txtCiudadSolicitud.setText(solicitud.getCuidad());
+							txtSalarioSolicitado.setText(Integer.toString((int) solicitud.getSalirioSolicitado()));
+							okButton.setEnabled(true);
+						}
 					}
-				else
-					okButton.setEnabled(false);
+					else
+						okButton.setEnabled(false);
 				}
 			}
 		});
