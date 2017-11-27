@@ -65,6 +65,10 @@ public class Principal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
+					
+					
+					
 					Bolsa.init();
 					Principal frame = new Principal();
 					frame.setVisible(true);

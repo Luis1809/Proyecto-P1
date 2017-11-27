@@ -15,13 +15,24 @@ public class Bolsa {
 	private static ArrayList<Solicitantes> miSolicitante;
 	private static ArrayList<EmpresaSolicitadora> miEmpresa;
 	private static int solic;
-
+	private static Bolsa bolsa = null;
 	public static void init() {
 		miSolicitante = new ArrayList<>();
 		miEmpresa = new ArrayList<>();
 		solic=0;
 	}
-	
+	public static Bolsa getIntance() {
+		if (bolsa == null) {
+			bolsa= new Bolsa();
+		}
+		return bolsa;
+	}
+
+   public static void setIntance(Bolsa ban){
+	    
+	   bolsa=ban;
+	   
+   }
 	/*
 	public static void GuardarCliente () throws IOException{
 		FileOutputStream f = new FileOutputStream("C:/Users/wichy_000/Documents/Bolsa.dat");
@@ -43,7 +54,41 @@ public class Bolsa {
 			miCliente[i]=((Cliente)oos.readObject());
 		f.close();
 	}*/
-	
+
+
+///////////////////////////////// *FICHEROS*/////////////////////////////////////////////
+
+/// Binario///
+public void guardarBanco() {
+try {
+
+
+FileOutputStream file = new FileOutputStream("BolsaData.dat");//creado directoro o hoja
+ObjectOutputStream escritor = new ObjectOutputStream(file);// crendo el lapiz para escribir en la hoja
+escritor.writeObject(Bolsa.getIntance()); // escribiendo en la hoja
+
+file.close();
+escritor.close();
+
+} catch (IOException e) {
+System.out.println("ERROR");
+}
+
+}
+
+public void LeerBanco() {
+try {
+FileInputStream file = new FileInputStream("BolsaData.dat");
+ObjectInputStream leer = new ObjectInputStream(file);
+//Referencia a la controladora , puede hacerce instancia a popular si se crea una variable static
+Bolsa.setIntance((Bolsa)leer.readObject());
+file.close();
+leer.close();
+} catch (Exception e) {
+// TODO: handle exception
+}
+}
+
 	public static boolean SolicitanteRepetido (String ced){
 		boolean repetido = true;
 		Solicitantes s= null; 
