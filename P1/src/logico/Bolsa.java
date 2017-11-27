@@ -92,7 +92,7 @@ leer.close();
 }
 }
 
-	public  boolean SolicitanteRepetido (String ced){
+	public  static boolean SolicitanteRepetido (String ced){
 		boolean repetido = true;
 		Solicitantes s= null; 
 		s= buscarSolicitante(ced);
@@ -101,7 +101,7 @@ leer.close();
 		return repetido;
 	}
 	
-	public  boolean EmpresaRepetida (String RNC){
+	public static boolean EmpresaRepetida (String RNC){
 		boolean repetido = true;
 		EmpresaSolicitadora s= null; 
 		s= buscarEmpresa(RNC);
@@ -110,7 +110,7 @@ leer.close();
 		return repetido;
 	}
 	
-	public  Solicitantes buscarSolicitante(String ced) {
+	public  static Solicitantes buscarSolicitante(String ced) {
 		Solicitantes solic=null;
 		if(miSolicitante.size()>0){
 			for(int i=0 ; i<miSolicitante.size();i++){
@@ -122,7 +122,7 @@ leer.close();
 		return solic;	
 	}
 	
-	public  EmpresaSolicitadora buscarEmpresa(String RNC) {
+	public static  EmpresaSolicitadora buscarEmpresa(String RNC) {
 		EmpresaSolicitadora Es=null;
 		if(miEmpresa.size()>0){
 			for(int i=0 ; i<miEmpresa.size();i++){
@@ -135,7 +135,7 @@ leer.close();
 	}
 	
 
-	public  Solicitudes buscarSolicitud(String ID) {
+	public static Solicitudes buscarSolicitud(String ID) {
 		Solicitudes Es=null;
 		if(miEmpresa.size()>0){
 			for(int i=0 ; i<miEmpresa.size();i++){
@@ -149,7 +149,7 @@ leer.close();
 		return Es;	
 	}
 	
-	public  void RealizarMacheo(Solicitudes Solicitud, String RNC){
+	public static void RealizarMacheo(Solicitudes Solicitud, String RNC){
 		float porciento=0;
 		int plazas=Solicitud.plaza;
 		EmpresaSolicitadora miEmpresaMACHEO = buscarEmpresa(RNC);
@@ -367,16 +367,16 @@ leer.close();
 		}
 	}
 	
-	public  void insertarSolicitante(Solicitantes solic){
+	public  static void insertarSolicitante(Solicitantes solic){
 		miSolicitante.add(solic);
 	}
-	public  void eliminarSolicitante(Solicitantes solic){
+	public static void eliminarSolicitante(Solicitantes solic){
 		miSolicitante.remove(solic);
 	}
-	public  void insertarEmpresa(EmpresaSolicitadora Es){
+	public static void insertarEmpresa(EmpresaSolicitadora Es){
 		miEmpresa.add(Es);
 	}
-	public  void eliminarEmpresa(EmpresaSolicitadora Es){
+	public static void eliminarEmpresa(EmpresaSolicitadora Es){
 		miEmpresa.remove(Es);
 	}
 	public  ArrayList<Solicitantes> getMiSolicitante() {

@@ -211,7 +211,7 @@ public class SolicitantesContratados extends JDialog {
 				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Obrero)
 					profesion = (String) ((Obrero) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i)).getListaHabilidades().get(0);
 				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Tecnico)
-					profesion = (String) ((Tecnico) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i)).getInstitucion();
+					profesion = (String) ((Tecnico) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i)).getTecnico();
 				 
 				fila[1]= profesion;
 				fila[2] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getCedula();
