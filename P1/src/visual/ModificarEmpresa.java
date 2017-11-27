@@ -49,7 +49,7 @@ public class ModificarEmpresa extends JDialog {
 	
 	public ModificarEmpresa() {
 		setResizable(false);
-		setTitle("Registrar Empresa");
+		setTitle("Modificar /Eliminar Empresa");
 		setBounds(100, 100, 530, 448);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setForeground(new Color(255, 255, 255));
@@ -162,7 +162,7 @@ public class ModificarEmpresa extends JDialog {
 		panel_1.add(lblTelefono);
 		
 		txtTelefonoEmpresa = new JFormattedTextField(formatoNumero);
-		txtTelefonoEmpresa.setBounds(358, 27, 145, 24);
+		txtTelefonoEmpresa.setBounds(358, 27, 145, 25);
 		panel_1.add(txtTelefonoEmpresa);
 		txtTelefonoEmpresa.setColumns(10);
 		
