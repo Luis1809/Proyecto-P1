@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 import javax.swing.JFormattedTextField;
@@ -47,6 +49,7 @@ import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
+import javax.swing.JProgressBar;
 
 public class Macheo extends JDialog {
 
@@ -69,11 +72,12 @@ public class Macheo extends JDialog {
 	private static DefaultTableModel model;
 	private JButton okButton;
 	private JTextField txtEstadoSolicitud;
+	private JProgressBar progressBar;
 
 	public Macheo() {
 		setTitle("Datos");
 		setResizable(false);
-		setBounds(100, 100, 678, 543);
+		setBounds(100, 100, 678, 563);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -86,10 +90,6 @@ public class Macheo extends JDialog {
 			e.printStackTrace();
 		}
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 150, 652, 20);
-		contentPanel.add(separator);
-		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBackground(new Color(220, 20, 60));
@@ -101,6 +101,10 @@ public class Macheo extends JDialog {
 		lblRealizarMacheo.setFont(new Font("Cambria", Font.PLAIN, 27));
 		lblRealizarMacheo.setBounds(237, 0, 311, 46);
 		panel.add(lblRealizarMacheo);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 150, 652, 20);
+		contentPanel.add(separator);
 		{
 			JPanel panel_1 = new JPanel();
 			panel_1.setLayout(null);
@@ -318,6 +322,10 @@ public class Macheo extends JDialog {
 		txtEstadoSolicitud.setBounds(473, 33, 173, 23);
 		panel_1.add(txtEstadoSolicitud);
 		txtEstadoSolicitud.setColumns(10);
+		
+		progressBar = new JProgressBar();
+		progressBar.setBounds(40, 474, 601, 14);
+		contentPanel.add(progressBar);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(220, 20, 60));
@@ -330,9 +338,11 @@ public class Macheo extends JDialog {
 						Solicitudes s = Bolsa.buscarSolicitud((cbxID.getSelectedItem().toString()));
 						String RNC = emp.getRNC();
 						Bolsa.RealizarMacheo(s, RNC);
+						funcionTiempo();
 						loadTable(cbxID.getSelectedItem().toString());
 						Principal.cargarBarra();
 						Principal.cargarPIE();
+						
 					}
 				});
 				okButton.setEnabled(false);
@@ -450,5 +460,22 @@ public class Macheo extends JDialog {
 		txtSalarioSolicitado.setText("");
 		txtPlaza.setText("");
 	}
+	
+	public void funcionTiempo(){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i <= 100; i++) {
+                    try {
+                        progressBar.setValue(i);
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Macheo.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
+        thread.start();
+    }
 }
 	
