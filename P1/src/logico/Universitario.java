@@ -5,25 +5,15 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Universitario extends Solicitantes implements Serializable{
+public class Universitario extends AgregarSolicitudes implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7341882960328332552L;
 	private String institucion; 
 	private String carrera;
 	
-	public Universitario(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
-			String nacionalidad, String estadoCivil, String direccion, String cuidad, String pais,
-			Date fechaNacimiento, int salirioSolicitado, boolean dispMudarse, boolean dispViajar,
-			String tipoJornada, ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia,
-			LocalDate fecha, String nombreEmpresa, String areaTrabajo1, int tiempotrabajoRealizado1,
-			String nombreReferente, String numeroReferente, String institucion, String carrera) {
-		super(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais,
-				fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, tipoJornada, idioma, areaInteres,
-				habilitado, licencia, fecha, nombreEmpresa, areaTrabajo1, tiempotrabajoRealizado1, nombreReferente,
-				numeroReferente);
+	public Universitario(int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
+			String areaInteres, LocalDate fecha, String institucion, String carrera) {
+		super(salirioSolicitado, dispMudarse, dispViajar, tipoJornada, areaInteres, fecha);
 		this.institucion = institucion;
 		this.carrera = carrera;
 	}

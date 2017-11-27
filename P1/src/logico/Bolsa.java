@@ -173,212 +173,217 @@ public class Bolsa implements Serializable {
 		int plazas=Solicitud.plaza;
 		EmpresaSolicitadora miEmpresaMACHEO = buscarEmpresa(RNC);
 		for (int i=0; i<miSolicitante.size();i++){
-			porciento=0;
-			
-			//////////////////////////////////////////////////////////////////////////////////////Universidad
-			if(Solicitud instanceof SolicitudesUni && miSolicitante.get(i) instanceof Universitario && plazas>0 &&  miSolicitante.get(i).habilitado==true){
-				Universitario SolicitanteUni = (Universitario) miSolicitante.get(i);
-				SolicitudesUni solEmp = (SolicitudesUni) Solicitud;
-				if(SolicitanteUni.getCarrera().equalsIgnoreCase(solEmp.getCarrera()) && SolicitanteUni.getAreaInteres().equalsIgnoreCase(solEmp.getAreaInteres())){
-					
-					if(solEmp.getSexo().equalsIgnoreCase("N/A"))///////////////////Sexo
-						porciento+=8.3333;
-					else
-						if(SolicitanteUni.getSexo().equalsIgnoreCase(solEmp.getSexo()))
-							porciento+=8.3333;
-					
-					if(solEmp.getEstadoCivil().equalsIgnoreCase("N/A"))///////////////////EstadoCivil
-						porciento+=8.3333;
-					else
-						if(SolicitanteUni.getEstadoCivil().equalsIgnoreCase(solEmp.getEstadoCivil()))
-							porciento+=8.3333;
-					
-					if(solEmp.getCuidad().equalsIgnoreCase("N/A"))////////////////////////Cuidad
-						porciento+=8.3333;
-					else
-						if(SolicitanteUni.getCuidad().equalsIgnoreCase(solEmp.getCuidad()))
-							porciento+=8.3333;
-					
-					if(SolicitanteUni.getPais().equalsIgnoreCase(solEmp.getPais()))////////////////////////Pais
-						porciento+=8.3333;
-					if(SolicitanteUni.getSalirioSolicitado()<=solEmp.getSalirioSolicitado())//////////SalarioSolicitado
-						porciento+=8.3333;
-					if(SolicitanteUni.dispMudarse==false && solEmp.dispMudarse==true)//////////DisponibilidadMudarse
-						System.out.println("");
-					else
-						porciento+=8.3333;
-					if(SolicitanteUni.dispViajar==false && solEmp.dispViajar==true)//////////DisponibilidadViajar
-						System.out.println("");
-					else
-						porciento+=8.3333;
-					if(SolicitanteUni.getTipoJornada().equalsIgnoreCase(solEmp.getTipoJornada()))////////////////////////Jornada
-						porciento+=8.3333;
-					
-					for(int a=0;a<SolicitanteUni.getIdioma().size();a++){ ////////////////////////Idioma
-						for(int b=0;b<solEmp.getIdioma().size();b++){
-							if(SolicitanteUni.getIdioma().get(a).equalsIgnoreCase(solEmp.getIdioma().get(b)))
-								porciento+=(8.3333/solEmp.getIdioma().size());
-						}
-					}
-					
-					if(SolicitanteUni.licencia==false && solEmp.licencia==true)///////////////Licencia
-						System.out.println("");
-					else
-						porciento+=8.3333;
-					
-					 /////////////////////////////////////////AreaExp
-					if(SolicitanteUni.getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
-						SolicitanteUni.getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
-						porciento+=8.3333;
-					
-					
-					if(solEmp.getInstitucion().equalsIgnoreCase("N/A"))////////////////////////Institucion
-						porciento+=8.3333;
-					else
-						if(SolicitanteUni.getInstitucion().equalsIgnoreCase(solEmp.getInstitucion()))
-						porciento+=8.3333;		
-				}
+			for (int n=0; n<miSolicitante.get(i).getMiSolicitud().size();n++){
+				porciento=0;
 				
-				if(porciento>=solEmp.porcientoAceptable){
-					plazas--;
-					miSolicitante.get(i).setPorciento(porciento);
-					Solicitud.miSolicitantes.add(miSolicitante.get(i));
-					miSolicitante.get(i).setHabilitado(false);
-				}
-			}
-			
-			//////////////////////////////////////////////////////////////////////////////////////OBRERO
-			if(Solicitud instanceof SolicitudesObrero && miSolicitante.get(i) instanceof Obrero && plazas>0 &&  miSolicitante.get(i).habilitado==true){
-				int paso = 0;
-				Obrero SolicitanteObrero = (Obrero) miSolicitante.get(i);
-				SolicitudesObrero solEmp = (SolicitudesObrero) Solicitud;
-				if(SolicitanteObrero.getAreaInteres().equalsIgnoreCase(solEmp.getAreaInteres())){
-					for(int d=0;d<SolicitanteObrero.getListaHabilidades().size();d++){ ////////////////////////HABILIDADES
-						for(int e=0;e<solEmp.getListaHabilidades().size();e++){
-							if(SolicitanteObrero.getListaHabilidades().get(d).equalsIgnoreCase(solEmp.getListaHabilidades().get(e)))
-								paso += 1;
-						}
-					}
-					
-					if(paso==solEmp.getListaHabilidades().size()){
-					
-						if(solEmp.getSexo().equalsIgnoreCase("N/A"))///////////////////Sexo
-							porciento+=9.09;
-						else
-						if(SolicitanteObrero.getSexo().equalsIgnoreCase(solEmp.getSexo()))
-							porciento+=9.09;
-						if(solEmp.getEstadoCivil().equalsIgnoreCase("N/A"))///////////////////EstadoCivil
-							porciento+=9.09;
-						else
-							if(SolicitanteObrero.getEstadoCivil().equalsIgnoreCase(solEmp.getEstadoCivil()))
-							porciento+=9.09;
-						if(solEmp.getCuidad().equalsIgnoreCase("N/A"))////////////////////////Cuidad
-							porciento+=9.09;
-						else
-							if(SolicitanteObrero.getCuidad().equalsIgnoreCase(solEmp.getCuidad()))
-							porciento+=9.09;
-						if(SolicitanteObrero.getPais().equalsIgnoreCase(solEmp.getPais()))////////////////////////Pais
-							porciento+=9.09;
-						if(SolicitanteObrero.getSalirioSolicitado()<=solEmp.getSalirioSolicitado())//////////SalarioSolicitado
-							porciento+=9.09;
-						if(SolicitanteObrero.dispMudarse==false && solEmp.dispMudarse==true)//////////DisponibilidadMudarse
-							System.out.println("");
-						else
-							porciento+=9.09;
-						if(SolicitanteObrero.dispViajar==false && solEmp.dispViajar==true)//////////DisponibilidadViajar
-							System.out.println("");
-						else
-							porciento+=9.09;
-						if(SolicitanteObrero.getTipoJornada().equalsIgnoreCase(solEmp.getTipoJornada()))////////////////////////Jornada
-							porciento+=9.09;
+				//////////////////////////////////////////////////////////////////////////////////////Universidad
+				if(Solicitud instanceof SolicitudesUni && miSolicitante.get(i).getMiSolicitud().get(n) instanceof Universitario && plazas>0 &&  miSolicitante.get(i).habilitado==true){
+					Solicitantes SolicitanteUni = miSolicitante.get(i);
+					Universitario SolicitudUni = (Universitario) miSolicitante.get(i).getMiSolicitud().get(n);
+					SolicitudesUni solEmp = (SolicitudesUni) Solicitud;
+					if(SolicitudUni.getCarrera().equalsIgnoreCase(solEmp.getCarrera()) && SolicitudUni.getAreaInteres().equalsIgnoreCase(solEmp.getAreaInteres())){
 						
-						for(int g=0;g<SolicitanteObrero.getIdioma().size();g++){ ////////////////////////Idioma
-							for(int h=0;h<solEmp.getIdioma().size();h++){
-								if(SolicitanteObrero.getIdioma().get(g).equalsIgnoreCase(solEmp.getIdioma().get(h)))
-									porciento+=(9.09/solEmp.getIdioma().size());
+						if(solEmp.getSexo().equalsIgnoreCase("N/A"))///////////////////Sexo
+							porciento+=8.3333;
+						else
+							if(SolicitanteUni.getSexo().equalsIgnoreCase(solEmp.getSexo()))
+								porciento+=8.3333;
+						
+						if(solEmp.getEstadoCivil().equalsIgnoreCase("N/A"))///////////////////EstadoCivil
+							porciento+=8.3333;
+						else
+							if(SolicitanteUni.getEstadoCivil().equalsIgnoreCase(solEmp.getEstadoCivil()))
+								porciento+=8.3333;
+						
+						if(solEmp.getCuidad().equalsIgnoreCase("N/A"))////////////////////////Cuidad
+							porciento+=8.3333;
+						else
+							if(SolicitanteUni.getCuidad().equalsIgnoreCase(solEmp.getCuidad()))
+								porciento+=8.3333;
+						
+						if(SolicitanteUni.getPais().equalsIgnoreCase(solEmp.getPais()))////////////////////////Pais
+							porciento+=8.3333;
+						if(SolicitudUni.getSalirioSolicitado()<=solEmp.getSalirioSolicitado())//////////SalarioSolicitado
+							porciento+=8.3333;
+						if(SolicitudUni.isDispMudarse()==false && solEmp.dispMudarse==true)//////////DisponibilidadMudarse
+							System.out.println("");
+						else
+							porciento+=8.3333;
+						if(SolicitudUni.isDispViajar()==false && solEmp.dispViajar==true)//////////DisponibilidadViajar
+							System.out.println("");
+						else
+							porciento+=8.3333;
+						if(SolicitudUni.getTipoJornada().equalsIgnoreCase(solEmp.getTipoJornada()))////////////////////////Jornada
+							porciento+=8.3333;
+						
+						for(int v=0;v<SolicitanteUni.getIdioma().size();v++){ ////////////////////////Idioma
+							for(int b=0;b<solEmp.getIdioma().size();b++){
+								if(SolicitanteUni.getIdioma().get(v).equalsIgnoreCase(solEmp.getIdioma().get(b)))
+									porciento+=(8.3333/solEmp.getIdioma().size());
 							}
 						}
 						
-						if(SolicitanteObrero.licencia==false && solEmp.licencia==true)///////////////Licencia
+						if(SolicitanteUni.licencia==false && solEmp.licencia==true)///////////////Licencia
 							System.out.println("");
 						else
-							porciento+=9.09;
+							porciento+=8.3333;
 						
-						/////////////////////////////////////////AreaExp
-						if(SolicitanteObrero.getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
-								SolicitanteObrero.getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
-							porciento+=9.09;
+						 /////////////////////////////////////////AreaExp
+						if(SolicitanteUni.getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
+							SolicitanteUni.getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
+							porciento+=8.3333;
 						
 						
-					}	
-				}
-				if(porciento>=solEmp.porcientoAceptable){
-					plazas--;
-					miSolicitante.get(i).setPorciento(porciento);
-					Solicitud.miSolicitantes.add(miSolicitante.get(i));
-					miSolicitante.get(i).setHabilitado(false);
-				}
-			}
-			
-			/////////////////////////////////////////////////////////////////////////////////////TECNICO
-			if(Solicitud instanceof SolicitudesTecnico && miSolicitante.get(i) instanceof Tecnico && plazas>0 &&  miSolicitante.get(i).habilitado==true ){	
-				Tecnico SolicitanteTecnico = (Tecnico) miSolicitante.get(i);
-				SolicitudesTecnico solEmp = (SolicitudesTecnico) Solicitud;
-				if(SolicitanteTecnico.getTecnico().equalsIgnoreCase(solEmp.getTecnico()) && SolicitanteTecnico.getAreaInteres().equalsIgnoreCase(solEmp.getAreaInteres())){
-					if(solEmp.getSexo().equalsIgnoreCase("N/A"))///////////////////Sexo
-						porciento+=8.3333;
-					else
-					if(SolicitanteTecnico.getSexo().equalsIgnoreCase(solEmp.getSexo()))
-						porciento+=8.3333;
-					if(solEmp.getEstadoCivil().equalsIgnoreCase("N/A"))///////////////////EstadoCivil
-						porciento+=8.3333;
-					else
-						if(SolicitanteTecnico.getEstadoCivil().equalsIgnoreCase(solEmp.getEstadoCivil()))
-						porciento+=8.3333;
-					if(solEmp.getCuidad().equalsIgnoreCase("N/A"))////////////////////////Cuidad
-						porciento+=8.3333;
-					else
-						if(SolicitanteTecnico.getCuidad().equalsIgnoreCase(solEmp.getCuidad()))
-						porciento+=8.3333;
-					if(SolicitanteTecnico.getPais().equalsIgnoreCase(solEmp.getPais()))////////////////////////Pais
-						porciento+=8.3333;
-					if(SolicitanteTecnico.getSalirioSolicitado()<=solEmp.getSalirioSolicitado())//////////SalarioSolicitado
-						porciento+=8.3333;
-					if(SolicitanteTecnico.dispMudarse==false && solEmp.dispMudarse==true)//////////DisponibilidadMudarse
-						System.out.println("");
-					else
-						porciento+=8.3333;
-					if(SolicitanteTecnico.dispViajar==false && solEmp.dispViajar==true)//////////DisponibilidadViajar
-						System.out.println("");
-					else
-						porciento+=8.3333;
-					if(SolicitanteTecnico.getTipoJornada().equalsIgnoreCase(solEmp.getTipoJornada()))////////////////////////Jornada
-						porciento+=8.3333;
-					
-					for(int k=0;k<SolicitanteTecnico.getIdioma().size();k++){ ////////////////////////Idioma
-						for(int l=0;l<solEmp.getIdioma().size();l++){
-							if(SolicitanteTecnico.getIdioma().get(k).equalsIgnoreCase(solEmp.getIdioma().get(l)))
-								porciento+=(8.3333/solEmp.getIdioma().size());
-						}
+						if(solEmp.getInstitucion().equalsIgnoreCase("N/A"))////////////////////////Institucion
+							porciento+=8.3333;
+						else
+							if(SolicitudUni.getInstitucion().equalsIgnoreCase(solEmp.getInstitucion()))
+							porciento+=8.3333;		
 					}
 					
-					if(SolicitanteTecnico.licencia==false && solEmp.licencia==true)///////////////Licencia
-						System.out.println("");
-					else
-						porciento+=8.3333;
-					
-					/////////////////////////////////////////AreaExp
-					if(SolicitanteTecnico.getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
-							SolicitanteTecnico.getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
-						porciento+=8.3333;
-					
+					if(porciento>=solEmp.porcientoAceptable){
+						plazas--;
+						miSolicitante.get(i).getMiSolicitud().get(n).setPorciento(porciento);
+						Solicitud.miSolicitantes.add(miSolicitante.get(i));
+						miSolicitante.get(i).setHabilitado(false);
+					}
 				}
-				if(porciento>=Solicitud.porcientoAceptable){
-					plazas--;
-					miSolicitante.get(i).setPorciento(porciento);
-					Solicitud.miSolicitantes.add(miSolicitante.get(i));
-					miSolicitante.get(i).setHabilitado(false);
-				}	
+				
+				//////////////////////////////////////////////////////////////////////////////////////OBRERO
+				if(Solicitud instanceof SolicitudesObrero && miSolicitante.get(i).getMiSolicitud().get(n) instanceof Obrero && plazas>0 &&  miSolicitante.get(i).habilitado==true){
+					int paso = 0;
+					Solicitantes SolicitanteObrero = miSolicitante.get(i);
+					Obrero SolicitudObrero = (Obrero) miSolicitante.get(i).getMiSolicitud().get(n);
+					SolicitudesObrero solEmp = (SolicitudesObrero) Solicitud;
+					if(SolicitudObrero.getAreaInteres().equalsIgnoreCase(solEmp.getAreaInteres())){
+						for(int d=0;d<SolicitudObrero.getListaHabilidades().size();d++){ ////////////////////////HABILIDADES
+							for(int e=0;e<solEmp.getListaHabilidades().size();e++){
+								if(SolicitudObrero.getListaHabilidades().get(d).equalsIgnoreCase(solEmp.getListaHabilidades().get(e)))
+									paso += 1;
+							}
+						}
+						
+						if(paso==solEmp.getListaHabilidades().size()){
+						
+							if(solEmp.getSexo().equalsIgnoreCase("N/A"))///////////////////Sexo
+								porciento+=9.09;
+							else
+							if(SolicitanteObrero.getSexo().equalsIgnoreCase(solEmp.getSexo()))
+								porciento+=9.09;
+							if(solEmp.getEstadoCivil().equalsIgnoreCase("N/A"))///////////////////EstadoCivil
+								porciento+=9.09;
+							else
+								if(SolicitanteObrero.getEstadoCivil().equalsIgnoreCase(solEmp.getEstadoCivil()))
+								porciento+=9.09;
+							if(solEmp.getCuidad().equalsIgnoreCase("N/A"))////////////////////////Cuidad
+								porciento+=9.09;
+							else
+								if(SolicitanteObrero.getCuidad().equalsIgnoreCase(solEmp.getCuidad()))
+								porciento+=9.09;
+							if(SolicitanteObrero.getPais().equalsIgnoreCase(solEmp.getPais()))////////////////////////Pais
+								porciento+=9.09;
+							if(SolicitudObrero.getSalirioSolicitado()<=solEmp.getSalirioSolicitado())//////////SalarioSolicitado
+								porciento+=9.09;
+							if(SolicitudObrero.isDispMudarse()==false && solEmp.dispMudarse==true)//////////DisponibilidadMudarse
+								System.out.println("");
+							else
+								porciento+=9.09;
+							if(SolicitudObrero.isDispViajar()==false && solEmp.dispViajar==true)//////////DisponibilidadViajar
+								System.out.println("");
+							else
+								porciento+=9.09;
+							if(SolicitudObrero.getTipoJornada().equalsIgnoreCase(solEmp.getTipoJornada()))////////////////////////Jornada
+								porciento+=9.09;
+							
+							for(int g=0;g<SolicitanteObrero.getIdioma().size();g++){ ////////////////////////Idioma
+								for(int h=0;h<solEmp.getIdioma().size();h++){
+									if(SolicitanteObrero.getIdioma().get(g).equalsIgnoreCase(solEmp.getIdioma().get(h)))
+										porciento+=(9.09/solEmp.getIdioma().size());
+								}
+							}
+							
+							if(SolicitanteObrero.licencia==false && solEmp.licencia==true)///////////////Licencia
+								System.out.println("");
+							else
+								porciento+=9.09;
+							
+							/////////////////////////////////////////AreaExp
+							if(SolicitanteObrero.getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
+									SolicitanteObrero.getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
+								porciento+=9.09;
+							
+							
+						}	
+					}
+					if(porciento>=solEmp.porcientoAceptable){
+						plazas--;
+						miSolicitante.get(i).getMiSolicitud().get(n).setPorciento(porciento);
+						Solicitud.miSolicitantes.add(miSolicitante.get(i));
+						miSolicitante.get(i).setHabilitado(false);
+					}
+				}
+				
+				/////////////////////////////////////////////////////////////////////////////////////TECNICO
+				if(Solicitud instanceof SolicitudesTecnico && miSolicitante.get(i).getMiSolicitud().get(n) instanceof Tecnico && plazas>0 &&  miSolicitante.get(i).habilitado==true ){	
+					Solicitantes SolicitanteTecnico = miSolicitante.get(i);
+					Tecnico SolicitudTecnico = (Tecnico) miSolicitante.get(i).getMiSolicitud().get(n);
+					SolicitudesTecnico solEmp = (SolicitudesTecnico) Solicitud;
+					if(SolicitudTecnico.getTecnico().equalsIgnoreCase(solEmp.getTecnico()) && SolicitudTecnico.getAreaInteres().equalsIgnoreCase(solEmp.getAreaInteres())){
+						if(solEmp.getSexo().equalsIgnoreCase("N/A"))///////////////////Sexo
+							porciento+=8.3333;
+						else
+						if(SolicitanteTecnico.getSexo().equalsIgnoreCase(solEmp.getSexo()))
+							porciento+=8.3333;
+						if(solEmp.getEstadoCivil().equalsIgnoreCase("N/A"))///////////////////EstadoCivil
+							porciento+=8.3333;
+						else
+							if(SolicitanteTecnico.getEstadoCivil().equalsIgnoreCase(solEmp.getEstadoCivil()))
+							porciento+=8.3333;
+						if(solEmp.getCuidad().equalsIgnoreCase("N/A"))////////////////////////Cuidad
+							porciento+=8.3333;
+						else
+							if(SolicitanteTecnico.getCuidad().equalsIgnoreCase(solEmp.getCuidad()))
+							porciento+=8.3333;
+						if(SolicitanteTecnico.getPais().equalsIgnoreCase(solEmp.getPais()))////////////////////////Pais
+							porciento+=8.3333;
+						if(SolicitudTecnico.getSalirioSolicitado()<=solEmp.getSalirioSolicitado())//////////SalarioSolicitado
+							porciento+=8.3333;
+						if(SolicitudTecnico.isDispMudarse()==false && solEmp.dispMudarse==true)//////////DisponibilidadMudarse
+							System.out.println("");
+						else
+							porciento+=8.3333;
+						if(SolicitudTecnico.isDispViajar()==false && solEmp.dispViajar==true)//////////DisponibilidadViajar
+							System.out.println("");
+						else
+							porciento+=8.3333;
+						if(SolicitudTecnico.getTipoJornada().equalsIgnoreCase(solEmp.getTipoJornada()))////////////////////////Jornada
+							porciento+=8.3333;
+						
+						for(int k=0;k<SolicitanteTecnico.getIdioma().size();k++){ ////////////////////////Idioma
+							for(int l=0;l<solEmp.getIdioma().size();l++){
+								if(SolicitanteTecnico.getIdioma().get(k).equalsIgnoreCase(solEmp.getIdioma().get(l)))
+									porciento+=(8.3333/solEmp.getIdioma().size());
+							}
+						}
+						
+						if(SolicitanteTecnico.licencia==false && solEmp.licencia==true)///////////////Licencia
+							System.out.println("");
+						else
+							porciento+=8.3333;
+						
+						/////////////////////////////////////////AreaExp
+						if(SolicitanteTecnico.getAreaTrabajo1().equalsIgnoreCase(solEmp.areadeExp)&&
+								SolicitanteTecnico.getTiempotrabajoRealizado1()>=solEmp.getAnosExp())
+							porciento+=8.3333;
+						
+					}
+					if(porciento>=Solicitud.porcientoAceptable){
+						plazas--;
+						miSolicitante.get(i).getMiSolicitud().get(n).setPorciento(porciento);
+						Solicitud.miSolicitantes.add(miSolicitante.get(i));
+						miSolicitante.get(i).setHabilitado(false);
+					}	
+				}
 			}
 		}
 		if(plazas==0){

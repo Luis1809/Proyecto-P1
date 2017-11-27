@@ -31,6 +31,7 @@ import javax.swing.text.MaskFormatter;
 import logico.Bolsa;
 
 import logico.Obrero;
+import logico.Solicitantes;
 import logico.Tecnico;
 import logico.Universitario;
 
@@ -984,8 +985,10 @@ public class SolicitantesVisual extends JDialog {
 									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
 									String carrera = cbxCarrera.getSelectedItem().toString();
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
-									Universitario s = new Universitario(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, carrera);
-									bolsa.insertarSolicitante(s);
+									Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
+									Universitario u = new Universitario(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), institucion, carrera);
+									Bolsa.insertarSolicitante(s);
+									s.getMiSolicitud().add(u);
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 									//clean();
 									limpiar();
@@ -1008,8 +1011,10 @@ public class SolicitantesVisual extends JDialog {
 								else{
 									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
 									//String habilidad = cbxHabilidad.getSelectedItem().toString();
-									Obrero s = new Obrero(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, habilidad);
-									bolsa.insertarSolicitante(s);
+									Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
+									Obrero o = new Obrero(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), habilidad);
+									Bolsa.insertarSolicitante(s);
+									s.getMiSolicitud().add(o);
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 									limpiar();
 									
@@ -1033,8 +1038,10 @@ public class SolicitantesVisual extends JDialog {
 									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
 									String tecnico = cbxTecnico.getSelectedItem().toString();
 									String institucion = txtInstitucionTecnico.getText();	
-									Tecnico s = new Tecnico(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, tecnico);									
-									bolsa.insertarSolicitante(s);
+									Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
+									Tecnico t = new Tecnico(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), institucion, tecnico);							
+									Bolsa.insertarSolicitante(s);
+									s.getMiSolicitud().add(t);
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);	
 									limpiar();
 									

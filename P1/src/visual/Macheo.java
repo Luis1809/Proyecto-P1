@@ -408,17 +408,18 @@ public class Macheo extends JDialog {
 		for (int b=0; b<emp.getMiSolicitudes().size();b++){
 			if(emp.getMiSolicitudes().get(b).getId().equalsIgnoreCase(ID)){
 				for (int i = 0; i < emp.getMiSolicitudes().get(b).getMiSolicitantes().size(); i++) {
-					fila[0] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getCedula();
-					fila[1] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre()+emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getApellido();
-					fila[2] = mayorEdad(emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i));
-					fila[3] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getTelefono();
-					if(emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()>99)
-						fila[4] = "100"+"%";
-					else
-						fila[4] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()+"%";
-					fila[5] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getFecha();
-					model.addRow(fila);
-					
+					for (int x = 0; x < emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().size(); x++){
+						fila[0] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getCedula();
+						fila[1] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre()+emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getApellido();
+						fila[2] = mayorEdad(emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i));
+						fila[3] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getTelefono();
+						if(emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x).getPorciento()>99)
+							fila[4] = "100"+"%";
+						else
+							fila[4] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x).getPorciento()+"%";
+						fila[5] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x).getFecha();
+						model.addRow(fila);
+					}
 				}
 			}
 			a=b;

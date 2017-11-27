@@ -307,12 +307,14 @@ public class Principal extends JFrame {
         	double obre=0;
         	for(int a=0;a<bolsa.getMiEmpresa().get(i).getMiSolicitudes().size();a++){
         		for(int b=0;b<bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().size();b++){
-        		if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Universitario)
-        			uni++;
-        		if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Tecnico)
-        			tec++;
-        		if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Obrero)
-        			obre++;
+        			for(int c=0;c<bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b).getMiSolicitud().size();c++){
+		        		if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b).getMiSolicitud().get(c) instanceof Universitario)
+		        			uni++;
+		        		if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b).getMiSolicitud().get(c) instanceof Tecnico)
+		        			tec++;
+		        		if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b).getMiSolicitud().get(c) instanceof Obrero)
+		        			obre++;
+        			}
         		}
         	}
         	
@@ -335,12 +337,14 @@ public class Principal extends JFrame {
 		 for(int i=0;i<bolsa.getMiEmpresa().size();i++){
 	        for(int a=0;a<bolsa.getMiEmpresa().get(i).getMiSolicitudes().size();a++){
 	        	for(int b=0;b<bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().size();b++){
-	        	if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Universitario)
-	        		uni++;
-	        	if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Tecnico)
-	        		tec++;
-	        	if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Obrero)
-	        		obre++;
+	        		for(int c=0;c<bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b).getMiSolicitud().size();c++){
+			        	if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b).getMiSolicitud().get(c) instanceof Universitario)
+			        		uni++;
+			        	if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b).getMiSolicitud().get(c) instanceof Tecnico)
+			        		tec++;
+			        	if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b).getMiSolicitud().get(c) instanceof Obrero)
+			        		obre++;
+	        		}
 	        	}
 	       	}
 		 }

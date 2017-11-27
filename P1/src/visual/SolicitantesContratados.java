@@ -212,34 +212,35 @@ public class SolicitantesContratados extends JDialog {
 		fila = new Object[model.getColumnCount()];
 		for (int b=0; b<miEmpresa.getMiSolicitudes().size();b++){
 			for (int i = 0; i < miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().size(); i++) {
+				for (int x = 0; x < miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().size(); x++){
 				String tipo="";
-				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Universitario)
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x) instanceof Universitario)
 					tipo="Universitario";
-				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Obrero)
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x) instanceof Obrero)
 					tipo="Obrero";
-				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Tecnico)
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x) instanceof Tecnico)
 					tipo="Tecnico";
 				
 				fila[0]=tipo;
 				String profesion="";
-				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Universitario)
-					profesion = (String) ((Universitario) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i)).getCarrera();
-				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Obrero)
-					profesion = (String) ((Obrero) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i)).getListaHabilidades().get(0);
-				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i) instanceof Tecnico)
-					profesion = (String) ((Tecnico) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i)).getTecnico();
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x) instanceof Universitario)
+					profesion = (String) ((Universitario) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x)).getCarrera();
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x) instanceof Obrero)
+					profesion = (String) ((Obrero) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x)).getListaHabilidades().get(0);
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x) instanceof Tecnico)
+					profesion = (String) ((Tecnico) miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x)).getTecnico();
 				 
 				fila[1]= profesion;
 				fila[2] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getCedula();
 				fila[3] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre()+miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getApellido();
 				fila[4] = mayorEdad(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i));
 				fila[5] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getTelefono();
-				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()>99)
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x).getPorciento()>99)
 					fila[6] = "100"+"%";
 				else
-					fila[6] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()+"%";
+					fila[6] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getMiSolicitud().get(x).getPorciento()+"%";
 				model.addRow(fila);
-					
+				}
 			}
 		}
 	}

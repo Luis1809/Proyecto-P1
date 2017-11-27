@@ -5,24 +5,15 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Obrero extends Solicitantes implements Serializable{
+public class Obrero extends AgregarSolicitudes implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2802464278152137032L;
 	private ArrayList<String> listaHabilidades;
 	
-	public Obrero(String cedula, String nombre, String apellido, String telefono, String email, String sexo,
-			String nacionalidad, String estadoCivil, String direccion, String cuidad, String pais,
-			Date fechaNacimiento, int salirioSolicitado, boolean dispMudarse, boolean dispViajar,
-			String tipoJornada, ArrayList<String> idioma, String areaInteres, boolean habilitado, boolean licencia,
-			LocalDate fecha, String nombreEmpresa, String areaTrabajo1, int tiempotrabajoRealizado1,
-			String nombreReferente, String numeroReferente, ArrayList<String> listaHabilidades) {
-		super(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais,
-				fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, tipoJornada, idioma, areaInteres,
-				habilitado, licencia, fecha, nombreEmpresa, areaTrabajo1, tiempotrabajoRealizado1, nombreReferente,
-				numeroReferente);
+
+	public Obrero(int salirioSolicitado, boolean dispMudarse, boolean dispViajar, String tipoJornada,
+			String areaInteres, LocalDate fecha, ArrayList<String> listaHabilidades) {
+		super(salirioSolicitado, dispMudarse, dispViajar, tipoJornada, areaInteres, fecha);
 		this.listaHabilidades = listaHabilidades;
 	}
 	
