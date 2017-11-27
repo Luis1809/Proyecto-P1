@@ -45,7 +45,7 @@ import javax.swing.ImageIcon;
 
 
 public class RegistrarPlaza extends JDialog {
-
+	private Bolsa bolsa = Bolsa.getIntance();
 	private final JPanel contentPanel = new JPanel();
 	private ArrayList<String> idioma = new ArrayList<>();
 	private ArrayList<String> habilidad = new ArrayList<>();
@@ -723,12 +723,12 @@ public class RegistrarPlaza extends JDialog {
 		btnBuscar.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/buscador-de-lupa (1).png")));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (txtRNC.getText().toString().equalsIgnoreCase("")||Bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
+				if (txtRNC.getText().toString().equalsIgnoreCase("")||bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
 					JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informacion", JOptionPane.WARNING_MESSAGE);
 				}
 				else{
 				//panel_principal.setEnabled(false);
-				miEmpresa = Bolsa.buscarEmpresa(txtRNC.getText().toString());
+				miEmpresa = bolsa.buscarEmpresa(txtRNC.getText().toString());
 				txtnombreEmpresa.setText(miEmpresa.getNombreEmpresa());
 				txtciudadEmpresa.setText(miEmpresa.getCiudad());
 				txttelefonoEmpresa.setText(miEmpresa.getTelefonoEmpresa());
@@ -891,8 +891,8 @@ public class RegistrarPlaza extends JDialog {
 									String carrera = cbxCarreraUni.getSelectedItem().toString();
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
 									SolicitudesUni s = new SolicitudesUni(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo, tiempoExp,porcientoAceptable, plazas, institucion, carrera);
-									Bolsa.setSolic(Bolsa.getSolic()+1);
-									s.setId(String.valueOf(Bolsa.getSolic())+" "+s.getCarrera());
+									bolsa.setSolic(bolsa.getSolic()+1);
+									s.setId(String.valueOf(bolsa.getSolic())+" "+s.getCarrera());
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 									clean();
@@ -909,8 +909,8 @@ public class RegistrarPlaza extends JDialog {
 										JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informacion", JOptionPane.WARNING_MESSAGE);}
 								else{
 									SolicitudesObrero s = new SolicitudesObrero(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo,porcientoAceptable, tiempoExp, plazas, habilidad);
-									Bolsa.setSolic(Bolsa.getSolic()+1);
-									s.setId(String.valueOf(Bolsa.getSolic())+" "+s.getListaHabilidades().get(0));
+									bolsa.setSolic(bolsa.getSolic()+1);
+									s.setId(String.valueOf(bolsa.getSolic())+" "+s.getListaHabilidades().get(0));
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 									clean();
@@ -927,8 +927,8 @@ public class RegistrarPlaza extends JDialog {
 								else{
 									String tecnico = cbxTecnico.getSelectedItem().toString();
 									SolicitudesTecnico s = new SolicitudesTecnico(sexo, estadoCivil, cuidad, pais, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, LicenciaConducir, areaTrabajo,porcientoAceptable, tiempoExp, plazas, tecnico);						
-									Bolsa.setSolic(Bolsa.getSolic()+1);
-									s.setId(String.valueOf(Bolsa.getSolic())+" "+s.getTecnico());
+									bolsa.setSolic(bolsa.getSolic()+1);
+									s.setId(String.valueOf(bolsa.getSolic())+" "+s.getTecnico());
 									miEmpresa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);	
 									clean();

@@ -15,7 +15,10 @@ public class Bolsa {
 	private static ArrayList<Solicitantes> miSolicitante;
 	private static ArrayList<EmpresaSolicitadora> miEmpresa;
 	private static int solic;
+	
+	
 	private static Bolsa bolsa = null;
+	
 	public static void init() {
 		miSolicitante = new ArrayList<>();
 		miEmpresa = new ArrayList<>();
@@ -89,7 +92,7 @@ leer.close();
 }
 }
 
-	public static boolean SolicitanteRepetido (String ced){
+	public  boolean SolicitanteRepetido (String ced){
 		boolean repetido = true;
 		Solicitantes s= null; 
 		s= buscarSolicitante(ced);
@@ -98,7 +101,7 @@ leer.close();
 		return repetido;
 	}
 	
-	public static boolean EmpresaRepetida (String RNC){
+	public  boolean EmpresaRepetida (String RNC){
 		boolean repetido = true;
 		EmpresaSolicitadora s= null; 
 		s= buscarEmpresa(RNC);
@@ -107,7 +110,7 @@ leer.close();
 		return repetido;
 	}
 	
-	public static Solicitantes buscarSolicitante(String ced) {
+	public  Solicitantes buscarSolicitante(String ced) {
 		Solicitantes solic=null;
 		if(miSolicitante.size()>0){
 			for(int i=0 ; i<miSolicitante.size();i++){
@@ -119,7 +122,7 @@ leer.close();
 		return solic;	
 	}
 	
-	public static EmpresaSolicitadora buscarEmpresa(String RNC) {
+	public  EmpresaSolicitadora buscarEmpresa(String RNC) {
 		EmpresaSolicitadora Es=null;
 		if(miEmpresa.size()>0){
 			for(int i=0 ; i<miEmpresa.size();i++){
@@ -132,7 +135,7 @@ leer.close();
 	}
 	
 
-	public static Solicitudes buscarSolicitud(String ID) {
+	public  Solicitudes buscarSolicitud(String ID) {
 		Solicitudes Es=null;
 		if(miEmpresa.size()>0){
 			for(int i=0 ; i<miEmpresa.size();i++){
@@ -146,7 +149,7 @@ leer.close();
 		return Es;	
 	}
 	
-	public static void RealizarMacheo(Solicitudes Solicitud, String RNC){
+	public  void RealizarMacheo(Solicitudes Solicitud, String RNC){
 		float porciento=0;
 		int plazas=Solicitud.plaza;
 		EmpresaSolicitadora miEmpresaMACHEO = buscarEmpresa(RNC);
@@ -364,36 +367,36 @@ leer.close();
 		}
 	}
 	
-	public static void insertarSolicitante(Solicitantes solic){
+	public  void insertarSolicitante(Solicitantes solic){
 		miSolicitante.add(solic);
 	}
-	public static void eliminarSolicitante(Solicitantes solic){
+	public  void eliminarSolicitante(Solicitantes solic){
 		miSolicitante.remove(solic);
 	}
-	public static void insertarEmpresa(EmpresaSolicitadora Es){
+	public  void insertarEmpresa(EmpresaSolicitadora Es){
 		miEmpresa.add(Es);
 	}
-	public static void eliminarEmpresa(EmpresaSolicitadora Es){
+	public  void eliminarEmpresa(EmpresaSolicitadora Es){
 		miEmpresa.remove(Es);
 	}
-	public static ArrayList<Solicitantes> getMiSolicitante() {
+	public  ArrayList<Solicitantes> getMiSolicitante() {
 		return miSolicitante;
 	}
-	public static void setMiSolicitante(ArrayList<Solicitantes> miSolicitante) {
+	public  void setMiSolicitante(ArrayList<Solicitantes> miSolicitante) {
 		Bolsa.miSolicitante = miSolicitante;
 	}
-	public static ArrayList<EmpresaSolicitadora> getMiEmpresa() {
+	public  ArrayList<EmpresaSolicitadora> getMiEmpresa() {
 		return miEmpresa;
 	}
-	public static void setMiEmpresa(ArrayList<EmpresaSolicitadora> miEmpresa) {
+	public  void setMiEmpresa(ArrayList<EmpresaSolicitadora> miEmpresa) {
 		Bolsa.miEmpresa = miEmpresa;
 	}
 	
-	public static int getSolic() {
+	public  int getSolic() {
 		return solic;
 	}
 
-	public static void setSolic(int solic) {
+	public  void setSolic(int solic) {
 		Bolsa.solic = solic;
 	}
 }

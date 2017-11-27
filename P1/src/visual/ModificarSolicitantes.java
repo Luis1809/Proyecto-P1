@@ -53,6 +53,7 @@ import javax.swing.ImageIcon;
 //import javax.swing.JFormattedTextField$AbstractFormatter;
 
 public class ModificarSolicitantes extends JDialog {
+	private Bolsa bolsa = Bolsa.getIntance();
 	ButtonGroup btnGroupSexo =new ButtonGroup();
 	ButtonGroup btnGroupMudarse =new ButtonGroup();
 	ButtonGroup btnGroupLicencia =new ButtonGroup();
@@ -917,7 +918,7 @@ public class ModificarSolicitantes extends JDialog {
 					panel_principal.setVisible(true);	
 					panel_secundario.setVisible(false);
 					
-				    s=Bolsa.buscarSolicitante(txtBuscarCedula.getText());
+				    s=bolsa.buscarSolicitante(txtBuscarCedula.getText());
 					if(s!=null){
 						
 						
@@ -1195,8 +1196,8 @@ public class ModificarSolicitantes extends JDialog {
 										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtFechaNacimiento.getDate()==null||btnGroupMudarse.isSelected(null)||btnGroupJornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma2.isSelected()
 										||cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()||areaInteres.equalsIgnoreCase("<Seleccionar>")||
 										btnGroupLicencia.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||cbxInstitucionUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCarrera.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
-										Bolsa.SolicitanteRepetido(cedula)==true){
-									if (Bolsa.SolicitanteRepetido(cedula)==true)
+										bolsa.SolicitanteRepetido(cedula)==true){
+									if (bolsa.SolicitanteRepetido(cedula)==true)
 										JOptionPane.showMessageDialog(null, "El solicitante ya esta ingresado, verifique su cedula", "Informaci�n", JOptionPane.WARNING_MESSAGE);
 									else
 										JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informaci�n", JOptionPane.WARNING_MESSAGE);}
@@ -1205,7 +1206,7 @@ public class ModificarSolicitantes extends JDialog {
 									String carrera = cbxCarrera.getSelectedItem().toString();
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
 									Universitario s = new Universitario(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, carrera);
-									Bolsa.insertarSolicitante(s);
+									bolsa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
 									//clean();
 									limpiar();
@@ -1222,7 +1223,7 @@ public class ModificarSolicitantes extends JDialog {
 									java.sql.Date fechaNacimiento = new java.sql.Date(txtFechaNacimiento.getDate().getTime());
 									//String habilidad = cbxHabilidad.getSelectedItem().toString();
 									Obrero s = new Obrero(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, habilidad);
-									Bolsa.insertarSolicitante(s);
+									bolsa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);
 									limpiar();
 									
@@ -1240,7 +1241,7 @@ public class ModificarSolicitantes extends JDialog {
 									String tecnico = cbxTecnico.getSelectedItem().toString();
 									String institucion = txtInstitucionTecnico.getText();	
 									Tecnico s = new Tecnico(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, salirioSolicitado, dispMudarse, dispViajar, TipoJornada, idioma, areaInteres, true, LicenciaConducir, LocalDate.now(), nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente, institucion, tecnico);									
-									Bolsa.insertarSolicitante(s);
+									bolsa.insertarSolicitante(s);
 									JOptionPane.showMessageDialog(null, "Operaci�n satisfactoria", "Informaci�n", JOptionPane.INFORMATION_MESSAGE);	
 									limpiar();
 									
@@ -1298,10 +1299,10 @@ public class ModificarSolicitantes extends JDialog {
 						
 						
 						Solicitantes s;
-						s=Bolsa.buscarSolicitante(txtBuscarCedula.getText().toString());
+						s=bolsa.buscarSolicitante(txtBuscarCedula.getText().toString());
 						if(s!=null){
 						
-						Bolsa.eliminarSolicitante(s);
+						bolsa.eliminarSolicitante(s);
 						JOptionPane.showMessageDialog(null, "Solicitante Eliminado Correctamente");
 						limpiar();
 						}else{

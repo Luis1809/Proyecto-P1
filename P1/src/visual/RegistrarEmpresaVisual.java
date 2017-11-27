@@ -33,7 +33,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 public class RegistrarEmpresaVisual extends JDialog {
-
+	private Bolsa bolsa = Bolsa.getIntance();
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtNombreEmpresa;
 	private JTextField txtDireccionEmpresa;
@@ -202,15 +202,15 @@ public class RegistrarEmpresaVisual extends JDialog {
 						EmpresaSolicitadora Es = new EmpresaSolicitadora(nombreEmpresa, emailEmpresa, telefonoEmpresa, direccion, ciudad, paisEmpresa, areaTrabajo, rNC);	
 						 if (nombreEmpresa.equalsIgnoreCase("") || emailEmpresa.equalsIgnoreCase("") || telefonoEmpresa.equalsIgnoreCase("(   ) -   -    ")|| direccion.equalsIgnoreCase("")|| ciudad.equalsIgnoreCase("<Seleccionar>")
 						 	|| paisEmpresa.equalsIgnoreCase("<Seleccionar>")||areaTrabajo.equalsIgnoreCase("<Selecccionar>")||rNC.equalsIgnoreCase("         ")
-							||Bolsa.EmpresaRepetida(rNC)==true){
-						if (Bolsa.EmpresaRepetida(rNC)==true)
+							||bolsa.EmpresaRepetida(rNC)==true){
+						if (bolsa.EmpresaRepetida(rNC)==true)
 							JOptionPane.showMessageDialog(null, "La empresa ya ha sido ingresado, verifique el RNC", "Informacion", JOptionPane.WARNING_MESSAGE);
 						else
 							JOptionPane.showMessageDialog(null, "Completar todas las casillas", "Informacion", JOptionPane.WARNING_MESSAGE);
 							//System.out.println(telefonoEmpresa);
 						}
 						else{
-						Bolsa.insertarEmpresa(Es);
+						bolsa.insertarEmpresa(Es);
 						JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 						clean();}
 					}

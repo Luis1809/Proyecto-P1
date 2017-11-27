@@ -42,7 +42,7 @@ import org.edisoncor.gui.varios.ClockFace;
 public class Principal extends JFrame {
 
 	
-	private Bolsa bolsa = Bolsa.getIntance();
+	private static Bolsa bolsa = Bolsa.getIntance();
 	private JPanel contentPane;
 	private Dimension dim;
 	public static JPanel panel_bar;
@@ -72,7 +72,7 @@ public class Principal extends JFrame {
 					
 					
 					
-					Bolsa.init();
+					bolsa.init();
 					Principal frame = new Principal();
 					frame.setVisible(true);
 					//if(Controladora.archivoCreado()){
@@ -277,24 +277,24 @@ public class Principal extends JFrame {
 	public static void cargarBarra(){
 		panel_bar.removeAll();
         ArrayList<BarData> valoresBar = new ArrayList<>();
-        for(int i=0;i<Bolsa.getMiEmpresa().size();i++){
+        for(int i=0;i<bolsa.getMiEmpresa().size();i++){
         	double uni =0;
         	double tec =0;
         	double obre=0;
-        	for(int a=0;a<Bolsa.getMiEmpresa().get(i).getMiSolicitudes().size();a++){
-        		for(int b=0;b<Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().size();b++){
-        		if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Universitario)
+        	for(int a=0;a<bolsa.getMiEmpresa().get(i).getMiSolicitudes().size();a++){
+        		for(int b=0;b<bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().size();b++){
+        		if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Universitario)
         			uni++;
-        		if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Tecnico)
+        		if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Tecnico)
         			tec++;
-        		if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Obrero)
+        		if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Obrero)
         			obre++;
         		}
         	}
         	
-        	valoresBar.add(new BarData(obre,"Obreros", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
-            valoresBar.add(new BarData(tec,"Tecnicos", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
-            valoresBar.add(new BarData(uni,"Universitario", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
+        	valoresBar.add(new BarData(obre,"Obreros", bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
+            valoresBar.add(new BarData(tec,"Tecnicos", bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
+            valoresBar.add(new BarData(uni,"Universitario", bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
         }
          
         ChartPanel chartPanelBar = ChartFactoryCreator.createBarChartPanel("Cantidad Empleados por empresa","Empresas","Cantidad",valoresBar,panel_bar.getWidth(),panel_bar.getHeight());
@@ -308,14 +308,14 @@ public class Principal extends JFrame {
 		double uni =0;
      	double tec =0;
      	double obre=0;
-		 for(int i=0;i<Bolsa.getMiEmpresa().size();i++){
-	        for(int a=0;a<Bolsa.getMiEmpresa().get(i).getMiSolicitudes().size();a++){
-	        	for(int b=0;b<Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().size();b++){
-	        	if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Universitario)
+		 for(int i=0;i<bolsa.getMiEmpresa().size();i++){
+	        for(int a=0;a<bolsa.getMiEmpresa().get(i).getMiSolicitudes().size();a++){
+	        	for(int b=0;b<bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().size();b++){
+	        	if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Universitario)
 	        		uni++;
-	        	if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Tecnico)
+	        	if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Tecnico)
 	        		tec++;
-	        	if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Obrero)
+	        	if(bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Obrero)
 	        		obre++;
 	        	}
 	       	}
