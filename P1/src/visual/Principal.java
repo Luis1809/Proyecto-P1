@@ -80,7 +80,7 @@ public class Principal extends JFrame {
 						Bolsa.CargarEmpresa();
 					if(Bolsa.archivoCreadoSolicitante())
 						Bolsa.Cargarsolicitante();
-					cargarPIE();
+					 cargarPIE();
 					cargarBarra();
 					
 					frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
