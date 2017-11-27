@@ -9,9 +9,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
@@ -22,13 +25,20 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
+import org.jfree.chart.ChartPanel;
+
+import graficos.BarData;
+import graficos.ChartFactoryCreator;
 import logico.Bolsa;
 import logico.EmpresaSolicitadora;
+import logico.Obrero;
 import logico.Solicitantes;
 import logico.Solicitudes;
 import logico.SolicitudesObrero;
 import logico.SolicitudesTecnico;
 import logico.SolicitudesUni;
+import logico.Tecnico;
+import logico.Universitario;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -117,14 +127,21 @@ public class Macheo extends JDialog {
 				button.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/buscador-de-lupa (1).png")));
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+					if (txtRNC.getText().toString().equalsIgnoreCase("")||Bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
+						JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informacion", JOptionPane.WARNING_MESSAGE);
+					}
+					else{
 					cbxID.removeAllItems();
 					okButton.setEnabled(false);
 					String RNC;	
 					RNC=txtRNC.getText();
+					txtRNC.setText("");
 					cargarDatos(RNC);
-					loadSolicitudes();
+					loadSolicitudes();}
 					}
-				});
+				}
+					
+				);
 				button.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				button.setActionCommand("OK");
 				button.setBounds(218, 42, 104, 27);
@@ -313,6 +330,7 @@ public class Macheo extends JDialog {
 						String RNC = emp.getRNC();
 						Bolsa.RealizarMacheo(s, RNC);
 						loadTable(cbxID.getSelectedItem().toString());
+						Principal.cargarBarra();
 					}
 				});
 				okButton.setEnabled(false);
@@ -380,7 +398,10 @@ public class Macheo extends JDialog {
 					fila[1] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre()+emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getApellido();
 					fila[2] = mayorEdad(emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i));
 					fila[3] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getTelefono();
-					fila[4] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()+"%";
+					if(emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()>99)
+						fila[4] = "100"+"%";
+					else
+						fila[4] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()+"%";
 					fila[5] = emp.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getFecha();
 					model.addRow(fila);
 					

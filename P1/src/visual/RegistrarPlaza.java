@@ -393,7 +393,7 @@ public class RegistrarPlaza extends JDialog {
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (txtRNC.getText().toString().equalsIgnoreCase("")||Bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
-					JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informaci�n", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "No se ha encontrado la empresa", "Informacion", JOptionPane.WARNING_MESSAGE);
 				}
 				else{
 				//panel_principal.setEnabled(false);

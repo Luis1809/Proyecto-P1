@@ -14,6 +14,10 @@ import org.jfree.chart.ChartPanel;
 import graficos.BarData;
 import graficos.ChartFactoryCreator;
 import logico.Bolsa;
+import logico.Obrero;
+import logico.Tecnico;
+import logico.Universitario;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -37,6 +41,7 @@ public class Principal extends JFrame {
 
 	private JPanel contentPane;
 	private Dimension dim;
+	public static JPanel panel_bar;
 
 	/**
 	 * Launch the application.
@@ -229,11 +234,11 @@ public class Principal extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
 		JPanel panel_pie = new JPanel();
-		panel_pie.setBounds(26, 103, 520, 491);
+		panel_pie.setBounds(26, 103, 500, 323);
 		contentPane.add(panel_pie);
 		
-		JPanel panel_bar = new JPanel();
-		panel_bar.setBounds(766, 103, 539, 491);
+		panel_bar = new JPanel();
+		panel_bar.setBounds(580, 103, 541, 329);
 		contentPane.add(panel_bar);
 		
 		
@@ -251,31 +256,36 @@ public class Principal extends JFrame {
         panel_pie.add(chartPanelPie,BorderLayout.CENTER);
         panel_pie.validate();
         
+       cargarBarra();
         
-        
-        
-//         Ejemplo BarChar
+		
+	}
+	public static void cargarBarra(){
+		panel_bar.removeAll();
         ArrayList<BarData> valoresBar = new ArrayList<>();
-        
-        valoresBar.add(new BarData(new Double(10), "ingenieros", "maciel"));
-        valoresBar.add(new BarData(new Double(15), "Tecnicos", "maciel"));
-        valoresBar.add(new BarData(new Double(10), "Doctor", "maciel"));
-        valoresBar.add(new BarData(new Double(40), "Magister", "maciel"));
-        valoresBar.add(new BarData(new Double(35), "ingenieros", "maciel"));
-        valoresBar.add(new BarData(new Double(33), "Licenciado", "maciel"));
-
-        valoresBar.add(new BarData(new Double(15), "ingenieros", "hospital"));
-        valoresBar.add(new BarData(new Double(5), "Tecnicos", "hospital"));
-        valoresBar.add(new BarData(new Double(16), "Doctor", "hospital"));
-        valoresBar.add(new BarData(new Double(14), "Magister", "hospital"));
-        valoresBar.add(new BarData(new Double(51), "ingenieros", "hospital"));
-        valoresBar.add(new BarData(new Double(12), "Licenciado", "hospital"));
-        
+        for(int i=0;i<Bolsa.getMiEmpresa().size();i++){
+        	double uni =0;
+        	double tec =0;
+        	double obre=0;
+        	for(int a=0;a<Bolsa.getMiEmpresa().get(i).getMiSolicitudes().size();a++){
+        		for(int b=0;b<Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().size();b++){
+        		if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Universitario)
+        			uni++;
+        		if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Tecnico)
+        			tec++;
+        		if(Bolsa.getMiEmpresa().get(i).getMiSolicitudes().get(a).getMiSolicitantes().get(b) instanceof Obrero)
+        			obre++;
+        		}
+        	}
+        	
+        	valoresBar.add(new BarData(uni,"Universitario", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
+            valoresBar.add(new BarData(tec,"Tecnicos", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
+            valoresBar.add(new BarData(obre,"Obreros", Bolsa.getMiEmpresa().get(i).getNombreEmpresa()));
+        }
+         
         ChartPanel chartPanelBar = ChartFactoryCreator.createBarChartPanel("Cantidad Empleados por empresa","Empresas","Cantidad",valoresBar,panel_bar.getWidth(),panel_bar.getHeight());
         panel_bar.add(chartPanelBar,BorderLayout.CENTER);
         panel_bar.validate();
-		
-		
-		
 	}
+		
 }

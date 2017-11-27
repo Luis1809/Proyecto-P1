@@ -159,7 +159,7 @@ public class SolicitantesContratados extends JDialog {
 		panel_2.setBackground(Color.WHITE);
 		//panel_2.setBounds(10, 166, 652, 271);
 		contentPanel.add(panel_2);
-		String[] columnName = {"Categoria","Solicitud","Cedula","Nombre","Edad","Telefono","Porciento", "Fecha"};
+		String[] columnName = {"Categoria","Profesion","Cedula","Nombre","Edad","Telefono","Porciento"};
 		model = new DefaultTableModel();
 		model.setColumnIdentifiers(columnName);
 		
@@ -218,8 +218,10 @@ public class SolicitantesContratados extends JDialog {
 				fila[3] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getNombre()+miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getApellido();
 				fila[4] = mayorEdad(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i));
 				fila[5] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getTelefono();
-				fila[6] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()+"%";
-				fila[7] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getFecha();
+				if(miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()>99)
+					fila[6] = "100"+"%";
+				else
+					fila[6] = miEmpresa.getMiSolicitudes().get(b).getMiSolicitantes().get(i).getPorciento()+"%";
 				model.addRow(fila);
 					
 			}
