@@ -80,6 +80,8 @@ public class Principal extends JFrame {
 						Bolsa.CargarEmpresa();
 					if(Bolsa.archivoCreadoSolicitante())
 						Bolsa.Cargarsolicitante();
+					cargarPIE();
+					cargarBarra();
 					
 					frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 					
@@ -295,11 +297,6 @@ public class Principal extends JFrame {
 		panelCurves_1.setBackground((Color) null);
 		panelCurves_1.setBounds(0, 571, 1914, 540);
 		contentPane.add(panelCurves_1);
-	
-        cargarPIE();
-		cargarBarra();
-        
-		
 	}
 	public static void cargarBarra(){
 		panel_bar.removeAll();
