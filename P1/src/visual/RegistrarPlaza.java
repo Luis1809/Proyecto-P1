@@ -131,6 +131,337 @@ public class RegistrarPlaza extends JDialog {
 			e.printStackTrace();
 		}
 		
+		panel_principal = new JPanel();
+		panel_principal.setBorder(new TitledBorder(null, "Formulario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_principal.setBackground(new Color(255, 255, 255));
+		panel_principal.setBounds(10, 198, 655, 334);
+		contentPanel.add(panel_principal);
+		panel_principal.setLayout(null);
+		
+		panelNa = new JPanel();
+		panelNa.setBounds(12, 17, 280, 138);
+		panel_principal.add(panelNa);
+		panelNa.setLayout(null);
+		
+		label_13 = new JLabel("");
+		label_13.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/red.png")));
+		label_13.setBounds(66, 0, 214, 124);
+		panelNa.add(label_13);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_4.setBounds(300, 170, 345, 148);
+		panel_principal.add(panel_4);
+		panel_4.setBackground(new Color(255, 255, 255));
+		panel_4.setLayout(null);
+		
+		pTecnico = new JPanel();
+		pTecnico.setBackground(new Color(255, 255, 255));
+		pTecnico.setBounds(10, 64, 318, 73);
+		panel_4.add(pTecnico);
+		pTecnico.setLayout(null);
+		
+		JLabel lblTecnico = new JLabel("Tecnico:");
+		lblTecnico.setBounds(10, 27, 61, 16);
+		pTecnico.add(lblTecnico);
+		
+		cbxTecnico = new JComboBox();
+		cbxTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Electronica", "Informatica", "Telecomunicaciones", "Contabilidad", "Auditoria", "Mercadeo", "Software"}));
+		cbxTecnico.setBackground(new Color(211, 211, 211));
+		cbxTecnico.setBounds(86, 25, 222, 20);
+		pTecnico.add(cbxTecnico);
+		pTecnico.setVisible(false);
+		
+		pObrero = new JPanel();
+		pObrero.setBackground(new Color(255, 255, 255));
+		pObrero.setBounds(10, 64, 318, 73);
+		panel_4.add(pObrero);
+		pObrero.setLayout(null);
+		
+		pObrero.setVisible(false);
+		
+		JLabel label_1 = new JLabel("Habilidad:");
+		label_1.setBounds(6, 17, 71, 16);
+		pObrero.add(label_1);
+		
+		cbxHabilidad = new JComboBox();
+		cbxHabilidad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
+					if(cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase(cbxHabilidad2.getSelectedItem().toString())){
+						cbxHabilidad.setSelectedIndex(0);
+						JOptionPane.showMessageDialog(null, "La habilidad ya ha sido agregada", "Informacion", JOptionPane.WARNING_MESSAGE);}
+			
+					else
+						habilidad.add(0,cbxHabilidad.getSelectedItem().toString());
+			}
+		}
+		});
+		cbxHabilidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
+		cbxHabilidad.setBackground(new Color(211, 211, 211));
+		cbxHabilidad.setBounds(82, 11, 226, 20);
+		pObrero.add(cbxHabilidad);
+		
+		chbOtroObrero = new JCheckBox("Otro?");
+		chbOtroObrero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chbOtroObrero.isSelected())
+					cbxHabilidad2.setEnabled(true);
+				else
+					cbxHabilidad2.setEnabled(false);
+					cbxHabilidad2.setSelectedIndex(0);
+			}
+		});
+		chbOtroObrero.setBackground(Color.WHITE);
+		chbOtroObrero.setBounds(6, 44, 63, 23);
+		pObrero.add(chbOtroObrero);
+		
+		cbxHabilidad2 = new JComboBox();
+		cbxHabilidad2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>"))
+					if(cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase(cbxHabilidad.getSelectedItem().toString())){
+						cbxHabilidad2.setSelectedIndex(0);
+						JOptionPane.showMessageDialog(null, "La habilidad ya ha sido agregada", "Informacion", JOptionPane.WARNING_MESSAGE);}
+			
+					else
+					habilidad.add(1,cbxHabilidad2.getSelectedItem().toString());
+			}
+		});
+		cbxHabilidad2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
+		cbxHabilidad2.setEnabled(false);
+		cbxHabilidad2.setBackground(new Color(211, 211, 211));
+		cbxHabilidad2.setBounds(82, 42, 226, 20);
+		pObrero.add(cbxHabilidad2);
+		
+		pUniversitario = new JPanel();
+		pUniversitario.setBackground(new Color(255, 255, 255));
+		pUniversitario.setBounds(10, 64, 318, 73);
+		panel_4.add(pUniversitario);
+		pUniversitario.setLayout(null);
+		
+		JLabel label_3 = new JLabel("Institucion:");
+		label_3.setBounds(10, 17, 84, 16);
+		pUniversitario.add(label_3);
+		
+		cbxInstitucionUni = new JComboBox();
+		cbxInstitucionUni.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
+		cbxInstitucionUni.setBackground(new Color(211, 211, 211));
+		cbxInstitucionUni.setBounds(86, 11, 222, 23);
+		pUniversitario.add(cbxInstitucionUni);
+		
+		JLabel label_9 = new JLabel("Carrera:");
+		label_9.setBounds(10, 44, 61, 16);
+		pUniversitario.add(label_9);
+		
+		cbxCarreraUni = new JComboBox();
+		cbxCarreraUni.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		cbxCarreraUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
+		cbxCarreraUni.setBackground(new Color(211, 211, 211));
+		cbxCarreraUni.setBounds(86, 42, 222, 23);
+		pUniversitario.add(cbxCarreraUni);
+		pUniversitario.setVisible(false);
+		
+		JLabel label = new JLabel("Nivel educativo:");
+		label.setFont(new Font("Dialog", Font.BOLD, 13));
+		label.setBounds(92, 11, 115, 16);
+		panel_4.add(label);
+		
+		JSeparator separator_4 = new JSeparator();
+		separator_4.setBounds(92, 25, 109, 12);
+		panel_4.add(separator_4);
+		
+		btnUniversitario = new JRadioButton("Universitario");
+		btnUniversitario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pObrero.setVisible(false);
+				pUniversitario.setVisible(true);
+				pTecnico.setVisible(false);
+			}
+		});
+		btnGroupNivelEducativo.add(btnUniversitario);
+		btnUniversitario.setBackground(Color.WHITE);
+		btnUniversitario.setBounds(21, 34, 115, 23);
+		panel_4.add(btnUniversitario);
+		
+		btnTecnico = new JRadioButton("Tecnico");
+		btnTecnico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pObrero.setVisible(false);
+				pUniversitario.setVisible(false);
+				pTecnico.setVisible(true);
+			}
+		});
+		btnGroupNivelEducativo.add(btnTecnico);
+		btnTecnico.setBackground(Color.WHITE);
+		btnTecnico.setBounds(138, 34, 93, 23);
+		panel_4.add(btnTecnico);
+		
+		btnObrero = new JRadioButton("Obrero");
+		btnObrero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pObrero.setVisible(true);
+				pUniversitario.setVisible(false);
+				pTecnico.setVisible(false);
+			}
+		});
+		btnGroupNivelEducativo.add(btnObrero);
+		btnObrero.setBackground(Color.WHITE);
+		btnObrero.setBounds(233, 34, 76, 23);
+		panel_4.add(btnObrero);
+		{
+			JPanel panelinfo = new JPanel();
+			panelinfo.setBounds(313, 11, 329, 148);
+			panel_principal.add(panelinfo);
+			panelinfo.setBackground(new Color(255, 255, 255));
+			panelinfo.setBorder(new TitledBorder(null, "Informacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			panelinfo.setLayout(null);
+			
+			btnMasculino = new JRadioButton("Masculino");
+			btnMasculino.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					panelNa.setVisible(false);
+					panelMujer.setVisible(false);
+					panelHombre.setVisible(true);
+				}
+			});
+			btnGroupSexo.add(btnMasculino);
+			btnMasculino.setBackground(new Color(255, 255, 255));
+			btnMasculino.setBounds(181, 25, 85, 23);
+			panelinfo.add(btnMasculino);
+			
+			btnFemenino = new JRadioButton("Femenino");
+			btnFemenino.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					panelNa.setVisible(false);
+					panelMujer.setVisible(true);
+					panelHombre.setVisible(false);
+				}
+			});
+			btnGroupSexo.add(btnFemenino);
+			btnFemenino.setBackground(new Color(255, 255, 255));
+			btnFemenino.setBounds(100, 25, 85, 23);
+			panelinfo.add(btnFemenino);
+			
+			JLabel label_7_1 = new JLabel("Sexo:");
+			label_7_1.setBounds(10, 25, 46, 14);
+			panelinfo.add(label_7_1);
+			
+			btnNoAplica = new JRadioButton("N/A");
+			btnNoAplica.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					panelNa.setVisible(true);
+					panelMujer.setVisible(false);
+					panelHombre.setVisible(false);
+				}
+			});
+			btnGroupSexo.add(btnNoAplica);
+			btnNoAplica.setBackground(new Color(255, 255, 255));
+			btnNoAplica.setBounds(268, 25, 55, 23);
+			panelinfo.add(btnNoAplica);
+			
+			JLabel label_12_1 = new JLabel("Cuidad:");
+			label_12_1.setBounds(10, 53, 46, 14);
+			panelinfo.add(label_12_1);
+			
+			cbxCiudadSolicitada = new JComboBox();
+			cbxCiudadSolicitada.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
+			cbxCiudadSolicitada.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
+			cbxCiudadSolicitada.setBackground(new Color(211, 211, 211));
+			cbxCiudadSolicitada.setBounds(104, 51, 207, 23);
+			panelinfo.add(cbxCiudadSolicitada);
+			
+			JLabel label_1_1 = new JLabel("Pais:");
+			label_1_1.setBounds(10, 82, 46, 14);
+			panelinfo.add(label_1_1);
+			
+			cbxPais = new JComboBox();
+			cbxPais.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
+			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
+			cbxPais.setBackground(new Color(211, 211, 211));
+			cbxPais.setBounds(104, 80, 207, 23);
+			panelinfo.add(cbxPais);
+			
+			JLabel label_2_1 = new JLabel("Estado Civil:");
+			label_2_1.setBounds(10, 107, 101, 16);
+			panelinfo.add(label_2_1);
+			
+			cbxEstadoCivil = new JComboBox();
+			cbxEstadoCivil.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
+			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
+			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
+			cbxEstadoCivil.setBounds(104, 107, 207, 23);
+			panelinfo.add(cbxEstadoCivil);
+		}
+		
+		JPanel panellaborlal = new JPanel();
+		panellaborlal.setBounds(5, 164, 290, 154);
+		panel_principal.add(panellaborlal);
+		panellaborlal.setBackground(new Color(255, 255, 255));
+		panellaborlal.setLayout(null);
+		panellaborlal.setBorder(new TitledBorder(null, "Experiencia Laboral", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		
+		JLabel label_2 = new JLabel("Area de Trabajo:");
+		label_2.setBounds(10, 36, 110, 16);
+		panellaborlal.add(label_2);
+		
+		cbxAreaTrabajo = new JComboBox();
+		cbxAreaTrabajo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
+		cbxAreaTrabajo.setBackground(new Color(211, 211, 211));
+		cbxAreaTrabajo.setBounds(127, 34, 142, 23);
+		panellaborlal.add(cbxAreaTrabajo);
+		
+		JLabel label_5 = new JLabel("Tiempo de experiencia:");
+		label_5.setBounds(10, 76, 134, 14);
+		panellaborlal.add(label_5);
+		
+		spnTiempoExp = new JSpinner();
+		spnTiempoExp.setModel(new SpinnerNumberModel(1, 1, 50, 1));
+		spnTiempoExp.setBounds(159, 73, 110, 23);
+		panellaborlal.add(spnTiempoExp);
+		
+		panelHombre = new JPanel();
+		panelHombre.setBounds(12, 17, 280, 138);
+		panel_principal.add(panelHombre);
+		panelHombre.setLayout(null);
+		
+		label_11 = new JLabel("");
+		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/hombre.png")));
+		label_11.setBounds(66, 3, 214, 124);
+		panelHombre.add(label_11);
+		
+		panelMujer = new JPanel();
+		panelMujer.setBounds(12, 17, 280, 138);
+		panel_principal.add(panelMujer);
+		panelMujer.setLayout(null);
+		
+		label_10 = new JLabel("");
+		label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
+		//label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
+		label_10.setBounds(66, 3, 214, 124);
+		panelMujer.add(label_10);
+		
 		panel_secundario = new JPanel();
 		panel_secundario.setBackground(new Color(255, 255, 255));
 		panel_secundario.setBounds(0, 198, 675, 313);
@@ -471,337 +802,6 @@ public class RegistrarPlaza extends JDialog {
 		txtFecha.setColumns(10);
 		txtFecha.setBounds(470, 166, 146, 26);
 		contentPanel.add(txtFecha);
-		
-		panel_principal = new JPanel();
-		panel_principal.setBorder(new TitledBorder(null, "Formulario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_principal.setBackground(new Color(255, 255, 255));
-		panel_principal.setBounds(10, 198, 655, 334);
-		contentPanel.add(panel_principal);
-		panel_principal.setLayout(null);
-		
-		panelNa = new JPanel();
-		panelNa.setBounds(12, 17, 280, 138);
-		panel_principal.add(panelNa);
-		panelNa.setLayout(null);
-		
-		label_13 = new JLabel("");
-		label_13.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/red.png")));
-		label_13.setBounds(66, 0, 214, 124);
-		panelNa.add(label_13);
-		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_4.setBounds(300, 170, 345, 148);
-		panel_principal.add(panel_4);
-		panel_4.setBackground(new Color(255, 255, 255));
-		panel_4.setLayout(null);
-		
-		pObrero = new JPanel();
-		pObrero.setBackground(new Color(255, 255, 255));
-		pObrero.setBounds(10, 64, 318, 73);
-		panel_4.add(pObrero);
-		pObrero.setLayout(null);
-		
-		pObrero.setVisible(false);
-		
-		JLabel label_1 = new JLabel("Habilidad:");
-		label_1.setBounds(6, 17, 71, 16);
-		pObrero.add(label_1);
-		
-		cbxHabilidad = new JComboBox();
-		cbxHabilidad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(!cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")){
-					if(cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase(cbxHabilidad2.getSelectedItem().toString())){
-						cbxHabilidad.setSelectedIndex(0);
-						JOptionPane.showMessageDialog(null, "La habilidad ya ha sido agregada", "Informacion", JOptionPane.WARNING_MESSAGE);}
-			
-					else
-						habilidad.add(0,cbxHabilidad.getSelectedItem().toString());
-			}
-		}
-		});
-		cbxHabilidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
-		cbxHabilidad.setBackground(new Color(211, 211, 211));
-		cbxHabilidad.setBounds(82, 11, 226, 20);
-		pObrero.add(cbxHabilidad);
-		
-		chbOtroObrero = new JCheckBox("Otro?");
-		chbOtroObrero.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(chbOtroObrero.isSelected())
-					cbxHabilidad2.setEnabled(true);
-				else
-					cbxHabilidad2.setEnabled(false);
-					cbxHabilidad2.setSelectedIndex(0);
-			}
-		});
-		chbOtroObrero.setBackground(Color.WHITE);
-		chbOtroObrero.setBounds(6, 44, 63, 23);
-		pObrero.add(chbOtroObrero);
-		
-		cbxHabilidad2 = new JComboBox();
-		cbxHabilidad2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(!cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>"))
-					if(cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase(cbxHabilidad.getSelectedItem().toString())){
-						cbxHabilidad2.setSelectedIndex(0);
-						JOptionPane.showMessageDialog(null, "La habilidad ya ha sido agregada", "Informacion", JOptionPane.WARNING_MESSAGE);}
-			
-					else
-					habilidad.add(1,cbxHabilidad2.getSelectedItem().toString());
-			}
-		});
-		cbxHabilidad2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
-		cbxHabilidad2.setEnabled(false);
-		cbxHabilidad2.setBackground(new Color(211, 211, 211));
-		cbxHabilidad2.setBounds(82, 42, 226, 20);
-		pObrero.add(cbxHabilidad2);
-		
-		pUniversitario = new JPanel();
-		pUniversitario.setBackground(new Color(255, 255, 255));
-		pUniversitario.setBounds(10, 64, 318, 73);
-		panel_4.add(pUniversitario);
-		pUniversitario.setLayout(null);
-		
-		JLabel label_3 = new JLabel("Institucion:");
-		label_3.setBounds(10, 17, 84, 16);
-		pUniversitario.add(label_3);
-		
-		cbxInstitucionUni = new JComboBox();
-		cbxInstitucionUni.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		cbxInstitucionUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", " Universidad Aut\u00F3noma de Santo Domingo (UASD)", " Facultad Latinoamericana de Cs. Soc. (FLACSO)", " Barna Business School", " Universidad Nacional Tecnol\u00F3gica (UNNATEC)", " Pontificia Universidad Cat\u00F3lica Madre y Maestra (PUCMM)", " Universidad Abierta Para Adultos (UAPA)", " Universidad APEC (UNAPEC)", " Universidad Cat\u00F3lica de Santo Domingo (UCSD)", " Instituto Nacional de Ciencias Exactas (INCE)", " Instituto Superior de Tecnolog\u00EDa Universal (INSUTEC)", " Instituto T\u00E9cnico Superior Oscus San Valero", " Instituto Tecnol\u00F3gico de las Am\u00E9ricas (ITLA)", " Instituto Tecnol\u00F3gico de Santo Domingo (INTEC)", "Universidad Central del Este (UCE)", "Universidad Central Dominicana de Est. Prof. (UCDEP)", "Universidad del Caribe", "Universidad del I. Cultural Dom\u00EDnico-Americano (ICDA)", "Universidad Dominicana Org. y M\u00E9todo (UDOYM)", "Universidad Eugenio Maria de Hostos (UNIREMHOS)", "Universidad Experimental F\u00E9lix Adam (UNEFA)", "Universidad Federico Henr\u00EDquez y Carvajal (UFHEC) ", "Universidad Iberoamericana (UNIBE)", "Universidad Interamericana (UNICA)", "Universidad Nacional Evang\u00E9lica (UNEV)", "Universidad Nacional Pedro Henr\u00EDquez Ure\u00F1a (UNPHU)", "Universidad Odontol\u00F3gica Dominicana (UOD)", "Universidad Psicolog\u00EDa Ind. Dominicana (UPID)", "Universidad Tecnol\u00F3gica de Santiago (UTESA)"}));
-		cbxInstitucionUni.setBackground(new Color(211, 211, 211));
-		cbxInstitucionUni.setBounds(86, 11, 222, 23);
-		pUniversitario.add(cbxInstitucionUni);
-		
-		JLabel label_9 = new JLabel("Carrera:");
-		label_9.setBounds(10, 44, 61, 16);
-		pUniversitario.add(label_9);
-		
-		cbxCarreraUni = new JComboBox();
-		cbxCarreraUni.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		cbxCarreraUni.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Administraci\u00F3n de Empresa\u200B", "Gesti\u00F3n Humana", "Negocios Internacionales", "Administraci\u00F3n Hotelera", "\u200BArquitectura", "\u200BComunicaci\u00F3n Social", "\u200BDerecho", "Dise\u00F1o e Interiorismo\u200B\u200B", "\u200BEcolog\u00EDa y Gesti\u00F3n Ambiental\u200B", "\u200BEconom\u00EDa", "\u200BEducaci\u00F3n", "\u200BEnfermer\u00EDa\u200B", "\u200B\u200BEstomatolog\u00EDa\u200B", "Filosof\u00EDa\u200B", "\u200BGesti\u00F3n Financiera y Auditor\u00EDa", "\u200BIngenier\u00EDa Civil", "\u200BIngenier\u00EDa Electromec\u00E1nica", "\u200BIngenier\u00EDa Industrial", "\u200BIngenier\u00EDa de Sistemas ", "\u200BIngenier\u00EDa Electr\u00F3nica", "\u200BIngenier\u00EDa Telem\u00E1tica", "\u200BIngenier\u00EDa en Mecatr\u00F3nica\u200B\u200B", "\u200BMedicina", "\u200BMercadotecnia", "Nutrici\u00F3n y Diet\u00E9tica", "\u200B\u200BPsicolog\u00EDa", "\u200BTerapia F\u00EDsica\u200B"}));
-		cbxCarreraUni.setBackground(new Color(211, 211, 211));
-		cbxCarreraUni.setBounds(86, 42, 222, 23);
-		pUniversitario.add(cbxCarreraUni);
-		pUniversitario.setVisible(false);
-		
-		pTecnico = new JPanel();
-		pTecnico.setBackground(new Color(255, 255, 255));
-		pTecnico.setBounds(10, 64, 318, 73);
-		panel_4.add(pTecnico);
-		pTecnico.setLayout(null);
-		
-		JLabel lblTecnico = new JLabel("Tecnico:");
-		lblTecnico.setBounds(10, 27, 61, 16);
-		pTecnico.add(lblTecnico);
-		
-		cbxTecnico = new JComboBox();
-		cbxTecnico.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Soldadura", "Informatica", "Telecomunicaciones", "Contabilidad", "Auditoria", "Mercadeo", "Software"}));
-		cbxTecnico.setBackground(new Color(211, 211, 211));
-		cbxTecnico.setBounds(86, 25, 222, 20);
-		pTecnico.add(cbxTecnico);
-		
-		JLabel label = new JLabel("Nivel educativo:");
-		label.setFont(new Font("Dialog", Font.BOLD, 13));
-		label.setBounds(92, 11, 115, 16);
-		panel_4.add(label);
-		
-		JSeparator separator_4 = new JSeparator();
-		separator_4.setBounds(92, 25, 109, 12);
-		panel_4.add(separator_4);
-		
-		btnUniversitario = new JRadioButton("Universitario");
-		btnUniversitario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pObrero.setVisible(false);
-				pUniversitario.setVisible(true);
-				pTecnico.setVisible(false);
-			}
-		});
-		btnGroupNivelEducativo.add(btnUniversitario);
-		btnUniversitario.setBackground(Color.WHITE);
-		btnUniversitario.setBounds(21, 34, 115, 23);
-		panel_4.add(btnUniversitario);
-		
-		btnTecnico = new JRadioButton("Tecnico");
-		btnTecnico.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pObrero.setVisible(false);
-				pUniversitario.setVisible(false);
-				pTecnico.setVisible(true);
-			}
-		});
-		btnGroupNivelEducativo.add(btnTecnico);
-		btnTecnico.setBackground(Color.WHITE);
-		btnTecnico.setBounds(138, 34, 93, 23);
-		panel_4.add(btnTecnico);
-		
-		btnObrero = new JRadioButton("Obrero");
-		btnObrero.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pObrero.setVisible(true);
-				pUniversitario.setVisible(false);
-				pTecnico.setVisible(false);
-			}
-		});
-		btnGroupNivelEducativo.add(btnObrero);
-		btnObrero.setBackground(Color.WHITE);
-		btnObrero.setBounds(233, 34, 76, 23);
-		panel_4.add(btnObrero);
-		pTecnico.setVisible(false);
-		{
-			JPanel panelinfo = new JPanel();
-			panelinfo.setBounds(313, 11, 329, 148);
-			panel_principal.add(panelinfo);
-			panelinfo.setBackground(new Color(255, 255, 255));
-			panelinfo.setBorder(new TitledBorder(null, "Informacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panelinfo.setLayout(null);
-			
-			btnMasculino = new JRadioButton("Masculino");
-			btnMasculino.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					panelNa.setVisible(false);
-					panelMujer.setVisible(false);
-					panelHombre.setVisible(true);
-				}
-			});
-			btnGroupSexo.add(btnMasculino);
-			btnMasculino.setBackground(new Color(255, 255, 255));
-			btnMasculino.setBounds(181, 25, 85, 23);
-			panelinfo.add(btnMasculino);
-			
-			btnFemenino = new JRadioButton("Femenino");
-			btnFemenino.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					panelNa.setVisible(false);
-					panelMujer.setVisible(true);
-					panelHombre.setVisible(false);
-				}
-			});
-			btnGroupSexo.add(btnFemenino);
-			btnFemenino.setBackground(new Color(255, 255, 255));
-			btnFemenino.setBounds(100, 25, 85, 23);
-			panelinfo.add(btnFemenino);
-			
-			JLabel label_7_1 = new JLabel("Sexo:");
-			label_7_1.setBounds(10, 25, 46, 14);
-			panelinfo.add(label_7_1);
-			
-			btnNoAplica = new JRadioButton("N/A");
-			btnNoAplica.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-					panelNa.setVisible(true);
-					panelMujer.setVisible(false);
-					panelHombre.setVisible(false);
-				}
-			});
-			btnGroupSexo.add(btnNoAplica);
-			btnNoAplica.setBackground(new Color(255, 255, 255));
-			btnNoAplica.setBounds(268, 25, 55, 23);
-			panelinfo.add(btnNoAplica);
-			
-			JLabel label_12_1 = new JLabel("Cuidad:");
-			label_12_1.setBounds(10, 53, 46, 14);
-			panelinfo.add(label_12_1);
-			
-			cbxCiudadSolicitada = new JComboBox();
-			cbxCiudadSolicitada.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
-			cbxCiudadSolicitada.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
-			cbxCiudadSolicitada.setBackground(new Color(211, 211, 211));
-			cbxCiudadSolicitada.setBounds(104, 51, 207, 23);
-			panelinfo.add(cbxCiudadSolicitada);
-			
-			JLabel label_1_1 = new JLabel("Pais:");
-			label_1_1.setBounds(10, 82, 46, 14);
-			panelinfo.add(label_1_1);
-			
-			cbxPais = new JComboBox();
-			cbxPais.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
-			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
-			cbxPais.setBackground(new Color(211, 211, 211));
-			cbxPais.setBounds(104, 80, 207, 23);
-			panelinfo.add(cbxPais);
-			
-			JLabel label_2_1 = new JLabel("Estado Civil:");
-			label_2_1.setBounds(10, 107, 101, 16);
-			panelinfo.add(label_2_1);
-			
-			cbxEstadoCivil = new JComboBox();
-			cbxEstadoCivil.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
-			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "N/A", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
-			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
-			cbxEstadoCivil.setBounds(104, 107, 207, 23);
-			panelinfo.add(cbxEstadoCivil);
-		}
-		
-		JPanel panellaborlal = new JPanel();
-		panellaborlal.setBounds(5, 164, 290, 154);
-		panel_principal.add(panellaborlal);
-		panellaborlal.setBackground(new Color(255, 255, 255));
-		panellaborlal.setLayout(null);
-		panellaborlal.setBorder(new TitledBorder(null, "Experiencia Laboral", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		
-		JLabel label_2 = new JLabel("Area de Trabajo:");
-		label_2.setBounds(10, 36, 110, 16);
-		panellaborlal.add(label_2);
-		
-		cbxAreaTrabajo = new JComboBox();
-		cbxAreaTrabajo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));
-		cbxAreaTrabajo.setBackground(new Color(211, 211, 211));
-		cbxAreaTrabajo.setBounds(127, 34, 142, 23);
-		panellaborlal.add(cbxAreaTrabajo);
-		
-		JLabel label_5 = new JLabel("Tiempo de experiencia:");
-		label_5.setBounds(10, 76, 134, 14);
-		panellaborlal.add(label_5);
-		
-		spnTiempoExp = new JSpinner();
-		spnTiempoExp.setModel(new SpinnerNumberModel(1, 1, 50, 1));
-		spnTiempoExp.setBounds(159, 73, 110, 23);
-		panellaborlal.add(spnTiempoExp);
-		
-		panelHombre = new JPanel();
-		panelHombre.setBounds(12, 17, 280, 138);
-		panel_principal.add(panelHombre);
-		panelHombre.setLayout(null);
-		
-		label_11 = new JLabel("");
-		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/hombre.png")));
-		label_11.setBounds(66, 3, 214, 124);
-		panelHombre.add(label_11);
-		
-		panelMujer = new JPanel();
-		panelMujer.setBounds(12, 17, 280, 138);
-		panel_principal.add(panelMujer);
-		panelMujer.setLayout(null);
-		
-		label_10 = new JLabel("");
-		label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
-		//label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
-		label_10.setBounds(66, 3, 214, 124);
-		panelMujer.add(label_10);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(220, 20, 60));
