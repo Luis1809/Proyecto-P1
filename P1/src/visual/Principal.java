@@ -275,16 +275,16 @@ public class Principal extends JFrame {
 		panelCurves.setLayout(null);
 		
 		panel_pie = new JPanel();
-		panel_pie.setBounds(25, 16, 482, 388);
+		panel_pie.setBounds(21, 16, 482, 388);
 		panelCurves.add(panel_pie);
 		
 		panel_bar = new JPanel();
-		panel_bar.setBounds(538, 16, 526, 388);
+		panel_bar.setBounds(513, 16, 526, 388);
 		panelCurves.add(panel_bar);
 		
 		ClockFace clockFace = new ClockFace();
 		clockFace.setBackground(new Color(255, 255, 255));
-		clockFace.setBounds(1142, 41, 280, 297);
+		clockFace.setBounds(1063, 63, 280, 297);
 		panelCurves.add(clockFace);
 		
 		PanelCurves panelCurves_1 = new PanelCurves();
