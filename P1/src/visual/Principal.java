@@ -13,6 +13,7 @@ import org.jfree.chart.ChartPanel;
 
 import graficos.BarData;
 import graficos.ChartFactoryCreator;
+
 import logico.Bolsa;
 import logico.Obrero;
 import logico.Tecnico;
@@ -40,6 +41,8 @@ import org.edisoncor.gui.varios.ClockFace;
 
 public class Principal extends JFrame {
 
+	
+	private Bolsa bolsa = Bolsa.getIntance();
 	private JPanel contentPane;
 	private Dimension dim;
 	public static JPanel panel_bar;
@@ -65,7 +68,7 @@ public class Principal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					
+				
 					
 					
 					
@@ -76,11 +79,13 @@ public class Principal extends JFrame {
 						//Controladora.CargarCliente();
 						//Controladora.CargarCuenta();}
 					frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+					
+					
 					frame.addWindowListener( new WindowAdapter() {
 					@Override
 					public void  windowClosing(WindowEvent we){
 						JOptionPane.showMessageDialog(null, "Gracias por utilizar nuestros servicios.", "Informacion", JOptionPane.INFORMATION_MESSAGE);
-					
+						
 						//try {
 							//Controladora.GuardarCliente();
 							//Controladora.GuardarCuenta();
@@ -103,6 +108,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
+		bolsa.LeerBolsa();
 		setTitle("Bolsa laboral V1.0");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -238,6 +244,18 @@ public class Principal extends JFrame {
 			}
 		});
 		mnNewMenu_1.add(mntmNewMenuItem_4);
+		
+		JMenu mnGuardar = new JMenu("Guardar ");
+		mnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				bolsa.guardarBolsa();
+			}
+		});
+		mnGuardar.setForeground(Color.WHITE);
+		mnGuardar.setFont(new Font("Dialog", Font.PLAIN, 18));
+		mnGuardar.setBackground(Color.BLACK);
+		menuBar.add(mnGuardar);
 		
 		panel_pie = new JPanel();
 		panel_pie.setBounds(27, 64, 482, 388);

@@ -59,7 +59,7 @@ public class Bolsa {
 ///////////////////////////////// *FICHEROS*/////////////////////////////////////////////
 
 /// Binario///
-public void guardarBanco() {
+public void guardarBolsa() {
 try {
 
 
@@ -76,7 +76,7 @@ System.out.println("ERROR");
 
 }
 
-public void LeerBanco() {
+public void LeerBolsa() {
 try {
 FileInputStream file = new FileInputStream("BolsaData.dat");
 ObjectInputStream leer = new ObjectInputStream(file);
