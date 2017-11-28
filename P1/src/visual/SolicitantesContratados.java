@@ -31,6 +31,8 @@ import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class SolicitantesContratados extends JDialog {
 	private Bolsa bolsa = Bolsa.getIntance();
@@ -47,7 +49,7 @@ public class SolicitantesContratados extends JDialog {
 	private EmpresaSolicitadora miEmpresa;
 	private JTable table;
 	private JButton btnDespedir;
-
+	private int codigo = -1;
 	public SolicitantesContratados() {
 		setResizable(false);
 		setBounds(100, 100, 678, 510);
@@ -166,10 +168,41 @@ public class SolicitantesContratados extends JDialog {
 		model.setColumnIdentifiers(columnName);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btnDespedir.setEnabled(false);
+				
+				
+			}
+		});
+		
+		
+		
 		contentPanel.add(scrollPane);
 		scrollPane.setBounds(10, 166, 652, 250);
 		
 			table = new JTable();
+			table.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					int aux = table.getSelectedRow();	
+					
+					if(aux > -1){
+						btnDespedir.setEnabled(true);	
+												
+						
+						codigo = (int) table.getModel().getValueAt(aux, 0);
+
+					}else{
+						btnDespedir.setEnabled(false);;
+						codigo = -1;
+						
+					}
+				}
+			});
+			
+			
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			table.setForeground(Color.WHITE);
 			table.setBackground(new Color(220, 20, 60));
