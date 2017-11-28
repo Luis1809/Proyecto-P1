@@ -33,4 +33,13 @@ public class Tecnico extends AgregarSolicitudes implements Serializable{
 	public void setTecnico(String tecnico) {
 		this.tecnico = tecnico;
 	}
+
+	@Override
+	public String toString() {
+		return "Tecnico [institucion=" + institucion + ", tecnico=" + tecnico + ", getSalirioSolicitado()="
+				+ getSalirioSolicitado() + ", isDispMudarse()=" + isDispMudarse() + ", isDispViajar()=" + isDispViajar()
+				+ ", getTipoJornada()=" + getTipoJornada() + ", getAreaInteres()=" + getAreaInteres() + ", getFecha()="
+				+ getFecha() + ", getPorciento()=" + getPorciento() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
 }

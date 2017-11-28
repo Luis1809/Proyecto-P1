@@ -25,5 +25,14 @@ public class Obrero extends AgregarSolicitudes implements Serializable{
 		this.listaHabilidades = listaHabilidades;
 	}
 
+	@Override
+	public String toString() {
+		return "Obrero [listaHabilidades=" + listaHabilidades + ", getSalirioSolicitado()=" + getSalirioSolicitado()
+				+ ", isDispMudarse()=" + isDispMudarse() + ", isDispViajar()=" + isDispViajar() + ", getTipoJornada()="
+				+ getTipoJornada() + ", getAreaInteres()=" + getAreaInteres() + ", getFecha()=" + getFecha()
+				+ ", getPorciento()=" + getPorciento() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+
 	
 }

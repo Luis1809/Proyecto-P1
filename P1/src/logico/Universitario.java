@@ -33,4 +33,13 @@ public class Universitario extends AgregarSolicitudes implements Serializable{
 	public void setCarrera(String carrera) {
 		this.carrera = carrera;
 	}
+
+	@Override
+	public String toString() {
+		return "Universitario [institucion=" + institucion + ", carrera=" + carrera + ", getSalirioSolicitado()="
+				+ getSalirioSolicitado() + ", isDispMudarse()=" + isDispMudarse() + ", isDispViajar()=" + isDispViajar()
+				+ ", getTipoJornada()=" + getTipoJornada() + ", getAreaInteres()=" + getAreaInteres() + ", getFecha()="
+				+ getFecha() + ", getPorciento()=" + getPorciento() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
 }

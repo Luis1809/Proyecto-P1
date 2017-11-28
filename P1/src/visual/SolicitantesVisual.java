@@ -953,7 +953,11 @@ public class SolicitantesVisual extends JDialog {
 						JOptionPane.showMessageDialog(null, "No se ha encontrado el cliente", "Informacion", JOptionPane.WARNING_MESSAGE);
 					else{
 					soli = Bolsa.buscarSolicitante(txtCedulaClienteAntiguo.getText());
-					//System.out.println(soli.getIdioma().get(2));
+					//System.out.println(soli.isHabilitado());
+					//System.out.println(soli.getMiSolicitud().get(0).toString());
+					System.out.println("Tamano de la solicitudsol: "+ soli.getMiSolicitud().size());
+					//System.out.println(soli.getMiSolicitud().get(1).toString());
+					//System.out.println(soli.getMiSolicitud().get(2).toString());
 					
 					//Cedula
 					txtCedula.setText(soli.getCedula());
@@ -1184,8 +1188,8 @@ public class SolicitantesVisual extends JDialog {
 									if(soli==null){
 										Bolsa.insertarSolicitante(s);
 										s.getMiSolicitud().add(u);}
-									if(soli!=null){
-										s.getMiSolicitud().add(u);}
+									if(!txtCedulaClienteAntiguo.getText().equalsIgnoreCase("   -       - ")){
+										soli.getMiSolicitud().add(u);}
 									//for(int h=0; h<idioma.size();h++)
 										//System.out.println(idioma.get(h)+" El numero"+h);
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
@@ -1215,8 +1219,8 @@ public class SolicitantesVisual extends JDialog {
 									if(soli==null){
 										Bolsa.insertarSolicitante(s);
 										s.getMiSolicitud().add(o);}
-									if(soli!=null){
-										s.getMiSolicitud().add(o);}
+									if(!txtCedulaClienteAntiguo.getText().equalsIgnoreCase("   -       - ")){
+										soli.getMiSolicitud().add(o);}
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 									limpiar();
 									
@@ -1245,8 +1249,8 @@ public class SolicitantesVisual extends JDialog {
 									if(soli==null){
 										Bolsa.insertarSolicitante(s);
 										s.getMiSolicitud().add(t);}
-									if(soli!=null){
-										s.getMiSolicitud().add(t);}
+									if(!txtCedulaClienteAntiguo.getText().equalsIgnoreCase("   -       - ")){
+										soli.getMiSolicitud().add(t);}
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);	
 									limpiar();
 									
@@ -1363,6 +1367,8 @@ public class SolicitantesVisual extends JDialog {
 		txtNombreReferente.setEnabled(true);
 		
 		txtNumeroReferente.setEnabled(true);
+		Jcaldate.setDate(null);
+		txtCedulaClienteAntiguo.setValue(null);
 		txtNumeroReferente.setValue(null);
 		txtCedula.setValue(null);
 		txtTelefono.setValue(null);
