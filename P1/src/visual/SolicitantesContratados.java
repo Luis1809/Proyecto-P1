@@ -223,8 +223,13 @@ public class SolicitantesContratados extends JDialog {
 								}					
 							}
 						}
+						
+						
 						loadTable();
+						
 					}
+
+			
 				});
 				buttonPane.add(btnDespedir);
 				okButton.setActionCommand("OK");
@@ -234,6 +239,9 @@ public class SolicitantesContratados extends JDialog {
 		}
 	}
 	public void loadTable() {
+		Principal p= new Principal();
+		p.cargarBarra();
+		p.cargarPIE();
 		int a=0;
 		model.setRowCount(0);
 		fila = new Object[model.getColumnCount()];
