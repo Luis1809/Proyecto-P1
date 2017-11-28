@@ -16,6 +16,7 @@ import logico.Bolsa;
 import logico.EmpresaSolicitadora;
 import logico.Obrero;
 import logico.Solicitantes;
+import logico.Solicitudes;
 import logico.Tecnico;
 import logico.Universitario;
 
@@ -49,8 +50,10 @@ public class SolicitantesContratados extends JDialog {
 	private EmpresaSolicitadora miEmpresa;
 	private JTable table;
 	private JButton btnDespedir;
-	private int codigo = -1;
+	private int index ;
 	public SolicitantesContratados() {
+		
+		
 		setResizable(false);
 		setBounds(100, 100, 678, 510);
 		getContentPane().setLayout(new BorderLayout());
@@ -171,8 +174,8 @@ public class SolicitantesContratados extends JDialog {
 		scrollPane.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				btnDespedir.setEnabled(false);
 				
+			
 				
 			}
 		});
@@ -186,21 +189,28 @@ public class SolicitantesContratados extends JDialog {
 			table.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					int aux = table.getSelectedRow();	
 					
-					if(aux > -1){
-						btnDespedir.setEnabled(true);	
-												
+					
+					
+					
+					
+					
+					 index=table.getSelectedRow();
+					 
+					 if (index!=-1) {
+						 
+						 btnDespedir.setEnabled(true);
 						
-						codigo = (int) table.getModel().getValueAt(aux, 0);
-
 					}else{
-						btnDespedir.setEnabled(false);;
-						codigo = -1;
 						
+						
+						btnDespedir.setEnabled(false);
 					}
+					
+					
 				}
 			});
+		
 			
 			
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -225,9 +235,50 @@ public class SolicitantesContratados extends JDialog {
 				btnDespedir = new JButton("Despedir");
 				btnDespedir.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+							EmpresaSolicitadora emp;
+						Solicitantes s = null;
+						Solicitantes aux;
+						emp=bolsa.buscarEmpresa(txtRNC.getText().toString());
+						s=	bolsa.getMiSolicitante().get(index);
+				        String cedula=	s.getCedula();
+			            
+					//	solicitudes.
+						
+						for (int i = 0; i < emp.getMiSolicitudes().size(); i++) {
+							
+									
+							for (int j = 0; j < emp.getMiSolicitudes().get(i).getMiSolicitantes().size(); j++) {
+								
+								
+								aux=emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j);
+								
+								if (aux==s) {	
+									emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j).setHabilitado(false);
+									System.out.println(true);
+									
+									
+									loadTable();
+									
+									
+									
+									
+									
+								}
+								
+								
+							}
+						
+							
+						}
 						
 						
 						
+				
+					
+						
+						
+						
+		
 						
 						
 					}
