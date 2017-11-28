@@ -244,6 +244,9 @@ public class Bolsa implements Serializable {
 					if(porciento>=solEmp.porcientoAceptable){
 						plazas--;
 						miSolicitante.get(i).getMiSolicitud().get(n).setPorciento(porciento);
+						for(int m=0;m<miSolicitante.get(i).getMiSolicitud().size();m++){
+							if(m!=n)
+								miSolicitante.get(i).getMiSolicitud().remove(m);}
 						Solicitud.miSolicitantes.add(miSolicitante.get(i));
 						miSolicitante.get(i).setHabilitado(false);
 					}
@@ -318,6 +321,10 @@ public class Bolsa implements Serializable {
 					if(porciento>=solEmp.porcientoAceptable){
 						plazas--;
 						miSolicitante.get(i).getMiSolicitud().get(n).setPorciento(porciento);
+						for(int m=0;m<miSolicitante.get(i).getMiSolicitud().size();m++){
+							if(m!=n)
+								miSolicitante.get(i).getMiSolicitud().remove(m);}
+						
 						Solicitud.miSolicitantes.add(miSolicitante.get(i));
 						miSolicitante.get(i).setHabilitado(false);
 					}
@@ -380,6 +387,10 @@ public class Bolsa implements Serializable {
 					if(porciento>=Solicitud.porcientoAceptable){
 						plazas--;
 						miSolicitante.get(i).getMiSolicitud().get(n).setPorciento(porciento);
+						
+						for(int m=0;m<miSolicitante.get(i).getMiSolicitud().size();m++){
+							if(m!=n)
+								miSolicitante.get(i).getMiSolicitud().remove(m);}
 						Solicitud.miSolicitantes.add(miSolicitante.get(i));
 						miSolicitante.get(i).setHabilitado(false);
 					}	
