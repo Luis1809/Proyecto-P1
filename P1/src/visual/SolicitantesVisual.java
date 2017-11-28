@@ -136,13 +136,20 @@ public class SolicitantesVisual extends JDialog {
 	private JPanel panelHombre;
 	private JPanel panelMujer;
 	private JLabel mujer;
+	private JPanel panel_Todos;
+	private JFormattedTextField txtCedulaClienteAntiguo;
+	private JCheckBox chxCuentaCreada;
+	private JLabel IngresarCedula;
+	private JButton btnBuscar;
+	private Solicitantes soli=null;
+	private JButton okButton;
 	
 	
 	public SolicitantesVisual() {
 		
 		
 		setResizable(false);
-		setBounds(100, 100, 794, 518);
+		setBounds(100, 100, 794, 616);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(null);
@@ -165,9 +172,29 @@ public class SolicitantesVisual extends JDialog {
 			panel_principal = new JPanel();
 			panel_principal.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Formulario", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 			panel_principal.setBackground(new Color(255, 255, 255));
-			panel_principal.setBounds(10, 80, 774, 366);
+			panel_principal.setBounds(9, 175, 774, 366);
 			panel.add(panel_principal);
 			panel_principal.setLayout(null);
+			
+			panel_Todos = new JPanel();
+			panel_Todos.setLayout(null);
+			panel_Todos.setBounds(15, 20, 152, 158);
+			panel_principal.add(panel_Todos);
+			
+			JLabel label_7 = new JLabel("");
+			label_7.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/red.png")));
+			label_7.setBounds(10, 11, 132, 128);
+			panel_Todos.add(label_7);
+			
+			panelMujer = new JPanel();
+			panelMujer.setLayout(null);
+			panelMujer.setBounds(15, 20, 152, 158);
+			panel_principal.add(panelMujer);
+			
+			mujer = new JLabel("");
+			mujer.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/mujer.png")));
+			mujer.setBounds(10, 6, 142, 141);
+			panelMujer.add(mujer);
 			
 			JPanel panel_1 = new JPanel();
 			panel_1.setBackground(new Color(255, 255, 255));
@@ -247,7 +274,7 @@ public class SolicitantesVisual extends JDialog {
 					
 					if(btnMasculino.isSelected()){
 						panelHombre.setVisible(true);
-						
+						panel_Todos.setVisible(false);
 						panelMujer.setVisible(false);
 						
 						
@@ -267,7 +294,7 @@ public class SolicitantesVisual extends JDialog {
 					
 					if(btnFemenino.isSelected()){
 						panelMujer.setVisible(true);
-						
+						panel_Todos.setVisible(false);
 						panelHombre.setVisible(false);
 						
 						
@@ -507,7 +534,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_4.setLayout(null);
 			
 			JLabel label_8 = new JLabel("Cuidad:");
-			label_8.setBounds(24, 26, 336, 14);
+			label_8.setBounds(50, 28, 67, 14);
 			panel_4.add(label_8);
 			
 			cbxCiudad = new JComboBox();
@@ -515,13 +542,13 @@ public class SolicitantesVisual extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
-			cbxCiudad.setBounds(95, 24, 190, 23);
+			cbxCiudad.setBounds(121, 26, 190, 23);
 			panel_4.add(cbxCiudad);
 			cbxCiudad.setBackground(new Color(211, 211, 211));
 			cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
 			
 			JLabel label_9 = new JLabel("Pais:");
-			label_9.setBounds(24, 63, 336, 14);
+			label_9.setBounds(50, 65, 67, 14);
 			panel_4.add(label_9);
 			
 			cbxPais = new JComboBox();
@@ -529,13 +556,13 @@ public class SolicitantesVisual extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
-			cbxPais.setBounds(95, 60, 190, 23);
+			cbxPais.setBounds(121, 62, 190, 23);
 			panel_4.add(cbxPais);
 			cbxPais.setBackground(new Color(211, 211, 211));
 			cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
 			
 			JLabel label_5 = new JLabel("Estado Civil:");
-			label_5.setBounds(24, 100, 336, 16);
+			label_5.setBounds(50, 102, 86, 16);
 			panel_4.add(label_5);
 			
 			cbxEstadoCivil = new JComboBox();
@@ -543,34 +570,28 @@ public class SolicitantesVisual extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
-			cbxEstadoCivil.setBounds(95, 96, 190, 23);
+			cbxEstadoCivil.setBounds(121, 98, 190, 23);
 			panel_4.add(cbxEstadoCivil);
 			cbxEstadoCivil.setBackground(new Color(211, 211, 211));
 			cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
 			
 			panelHombre = new JPanel();
-			panelHombre.setBounds(15, 20, 152, 159);
+			panelHombre.setBounds(15, 20, 152, 158);
 			panel_principal.add(panelHombre);
 			panelHombre.setLayout(null);
 			
 			JLabel lblNewLabel_1 = new JLabel("");
 			lblNewLabel_1.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/hombre.png")));
-			lblNewLabel_1.setBounds(6, 6, 137, 136);
+			lblNewLabel_1.setBounds(10, 6, 142, 142);
 			panelHombre.add(lblNewLabel_1);
 			
-			panelMujer = new JPanel();
-			panelMujer.setLayout(null);
-			panelMujer.setBounds(15, 20, 152, 158);
-			panel_principal.add(panelMujer);
-			
-			mujer = new JLabel("");
-			mujer.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/mujer.png")));
-			mujer.setBounds(6, 6, 146, 124);
-			panelMujer.add(mujer);
+			 panelMujer.setVisible(false);
+			 panelHombre.setVisible(false);
+			 panel_Todos.setVisible(true);
 			
 			panel_secundario = new JPanel();
 			panel_secundario.setBackground(new Color(255, 255, 255));
-			panel_secundario.setBounds(10, 80, 774, 329);
+			panel_secundario.setBounds(9, 175, 774, 329);
 			panel.add(panel_secundario);
 			panel_secundario.setLayout(null);
 			
@@ -730,7 +751,7 @@ public class SolicitantesVisual extends JDialog {
 						
 							
 						else
-						idioma.add(2, cbxIdioma1.getSelectedItem().toString());
+						idioma.add(2, cbxIdioma3.getSelectedItem().toString());
 					}
 				}
 			});
@@ -779,7 +800,7 @@ public class SolicitantesVisual extends JDialog {
 			
 			JPanel panel_7 = new JPanel();
 			panel_7.setBackground(new Color(255, 255, 255));
-			panel_7.setBounds(414, 2, 353, 204);
+			panel_7.setBounds(406, 2, 361, 214);
 			panel_secundario.add(panel_7);
 			panel_7.setLayout(null);
 			panel_7.setBorder(new TitledBorder(null, "Ocupacion anterior", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -879,6 +900,174 @@ public class SolicitantesVisual extends JDialog {
 			lblIngresarSolicitante.setFont(new Font("Cambria", Font.PLAIN, 27));
 			lblIngresarSolicitante.setBounds(285, 0, 231, 46);
 			panel_3.add(lblIngresarSolicitante);
+			
+			JPanel panel_5 = new JPanel();
+			panel_5.setBackground(Color.WHITE);
+			panel_5.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			panel_5.setBounds(9, 90, 774, 76);
+			panel.add(panel_5);
+			panel_5.setLayout(null);
+			
+			JLabel lblNewLabel = new JLabel("\u00BFYa posees una cuenta con nosotros?");
+			lblNewLabel.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+			lblNewLabel.setBounds(63, 5, 311, 31);
+			panel_5.add(lblNewLabel);
+			
+			chxCuentaCreada = new JCheckBox("");
+			chxCuentaCreada.setBackground(Color.WHITE);
+			chxCuentaCreada.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(chxCuentaCreada.isSelected()){
+						txtCedulaClienteAntiguo.setEnabled(true);
+						btnBuscar.setEnabled(true);
+						
+						//okButton.setEnabled(false);
+						}
+					else{
+						txtCedulaClienteAntiguo.setEnabled(false);
+						btnBuscar.setEnabled(false);
+						//okButton.setEnabled(true);
+						limpiar();
+						}	
+				}
+			});
+			chxCuentaCreada.setBounds(380, 13, 35, 23);
+			panel_5.add(chxCuentaCreada);
+			
+			txtCedulaClienteAntiguo = new JFormattedTextField(formatoCedula);
+			txtCedulaClienteAntiguo.setBounds(184, 42, 123, 23);
+			panel_5.add(txtCedulaClienteAntiguo);
+			txtCedulaClienteAntiguo.setColumns(10);
+			
+			IngresarCedula = new JLabel("Ingrese su cedula:");
+			IngresarCedula.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+			IngresarCedula.setBounds(50, 40, 124, 20);
+			panel_5.add(IngresarCedula);
+			
+			btnBuscar = new JButton("Buscar");
+			btnBuscar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					soli = Bolsa.buscarSolicitante(txtCedulaClienteAntiguo.getText());
+					//System.out.println(soli.getIdioma().get(2));
+					
+					//Cedula
+					txtCedula.setText(soli.getCedula());
+					txtCedula.setEnabled(false);
+					//Nombre
+					txtNombre.setText(soli.getNombre());
+					txtNombre.setEnabled(false);
+					//Apellido
+					txtApellido.setText(soli.getApellido());
+					txtApellido.setEnabled(false);
+					//Telefono
+					txtTelefono.setText(soli.getTelefono());
+					txtTelefono.setEnabled(false);
+					//Email
+					txtEmail.setText(soli.getEmail());
+					txtEmail.setEnabled(false);
+					//Sexo
+					if(soli.getSexo().equalsIgnoreCase("Masculino"))
+						btnMasculino.setSelected(true);
+					else
+						btnFemenino.setSelected(true);
+					btnMasculino.setEnabled(false);
+					btnFemenino.setEnabled(false);
+					//Nacionalidad
+					for(int u=0; u<cbxNacionalidad.getItemCount();u++){
+						if(cbxNacionalidad.getItemAt(u).toString().equalsIgnoreCase(soli.getNacionalidad()))
+						cbxNacionalidad.setSelectedIndex(u);
+					}
+					cbxNacionalidad.setEnabled(false);
+					//EstadoCivil
+					for(int u=0; u<cbxEstadoCivil.getItemCount();u++){
+						if(cbxEstadoCivil.getItemAt(u).toString().equalsIgnoreCase(soli.getEstadoCivil()))
+						cbxEstadoCivil.setSelectedIndex(u);
+					}
+					cbxEstadoCivil.setEnabled(false);
+					//Direccion
+					txtDireccion.setText(soli.getDireccion());
+					txtDireccion.setEnabled(false);
+					//Cuidad
+					for(int u=0; u<cbxCiudad.getItemCount();u++){
+						if(cbxCiudad.getItemAt(u).toString().equalsIgnoreCase(soli.getCuidad()))
+						cbxCiudad.setSelectedIndex(u);
+					}
+					cbxCiudad.setEnabled(false); 
+					//Pais
+					for(int u=0; u<cbxPais.getItemCount();u++){
+						if(cbxPais.getItemAt(u).toString().equalsIgnoreCase(soli.getPais()))
+						cbxPais.setSelectedIndex(u);
+					}
+					cbxPais.setEnabled(false);
+					//Fecha Nacimiento
+					Jcaldate.setDate(soli.getFechaNacimiento());
+					Jcaldate.setEnabled(false);
+					//Idioma
+				
+					int a=0;
+					for(int u=0; u<cbxIdioma1.getItemCount();u++){
+						if(cbxIdioma1.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(0))){
+							cbxIdioma1.setSelectedIndex(u);
+							a=u;
+						}
+					}
+						
+					for(int u=0; u<cbxIdioma2.getItemCount();u++){
+						if(u!=a){
+							if(cbxIdioma2.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(1))){
+								cbxIdioma2.setSelectedIndex(u);
+								a=u;
+							}
+						}
+					}
+						
+					for(int u=0; u<cbxIdioma3.getItemCount();u++){
+						if(u!=a){
+						if(cbxIdioma3.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(2)))
+						cbxIdioma3.setSelectedIndex(u);}
+					}
+						
+					cbxIdioma1.setEnabled(false);
+					cbxIdioma2.setEnabled(false);
+					cbxIdioma3.setEnabled(false);
+						
+					//Licencia
+					if(soli.isLicencia()==true)
+						btnLicenciaCY.setSelected(true);
+					else
+						btnLicenciaCN.setSelected(true);
+					btnLicenciaCN.setEnabled(false);
+					btnLicenciaCY.setEnabled(false);
+					
+					//NombreEmpresa
+					txtEmpresa.setText(soli.getNombreEmpresa());
+					txtEmpresa.setEnabled(false);
+					
+					//AreaTrabajo 
+					for(int u=0; u<cbxAreaTrabajo.getItemCount();u++){
+						if(cbxAreaTrabajo.getItemAt(u).toString().equalsIgnoreCase(soli.getAreaTrabajo1()))
+						cbxAreaTrabajo.setSelectedIndex(u);
+					}
+					cbxAreaTrabajo.setEnabled(false);
+							
+					//TiempoTrabajo
+					spnTiempoExperiencia.setValue(soli.getTiempotrabajoRealizado1());
+					spnTiempoExperiencia.setEnabled(false);
+					
+					//NombreReferente
+					txtNombreReferente.setText(soli.getNombreReferente());
+					txtNombreReferente.setEnabled(false);
+					//NumeroReferente
+					txtNumeroReferente.setText(soli.getNumeroReferente());
+					txtNumeroReferente.setEnabled(false);		
+				}
+			});
+			btnBuscar.setBounds(317, 41, 89, 26);
+			panel_5.add(btnBuscar);
+			
+			txtCedulaClienteAntiguo.setEnabled(false);
+			//IngresarCedula.setEnabled(false);
+			btnBuscar.setEnabled(false);
 		}
 		{
 			JPanel buttonPane = new JPanel();
@@ -887,7 +1076,7 @@ public class SolicitantesVisual extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton okButton = new JButton("Registrar");
+				okButton = new JButton("Registrar");
 				okButton.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/ok-appproval-aceptacion.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -970,11 +1159,11 @@ public class SolicitantesVisual extends JDialog {
 						if(btnUniversitario.isSelected()||btnObrero.isSelected()||btnTecnico.isSelected()){
 							if (tipo.equalsIgnoreCase("Universitario")){
 								if (txtNombre.getText().equalsIgnoreCase("")||txtCedula.getText().equalsIgnoreCase("   -       - ")||txtApellido.getText().equalsIgnoreCase("")||txtTelefono.getText().equalsIgnoreCase("(   ) -   -    ")||txtEmail.getText().equalsIgnoreCase("")||btnGroupSexo.isSelected(null)||cbxNacionalidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
-										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||Jcaldate.getDate()==null||btnGroupMudarse.isSelected(null)||btnGroupJornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma2.isSelected()
-										||cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()||areaInteres.equalsIgnoreCase("<Seleccionar>")||
+										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||Jcaldate.getDate()==null||btnGroupMudarse.isSelected(null)||btnGroupJornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma2.isSelected()&&soli==null
+										||cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()&&soli==null||areaInteres.equalsIgnoreCase("<Seleccionar>")||
 										btnGroupLicencia.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||cbxInstitucionUni.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxCarrera.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||
-										bolsa.SolicitanteRepetido(cedula)==true||mayorEdad()==false){
-									if (bolsa.SolicitanteRepetido(cedula)==true)
+										Bolsa.SolicitanteRepetido(cedula)==true&&soli==null||mayorEdad()==false){
+									if (Bolsa.SolicitanteRepetido(cedula)==true)
 										JOptionPane.showMessageDialog(null, "El solicitante ya esta ingresado, verifique su cedula", "Informacion", JOptionPane.WARNING_MESSAGE);
 									else
 										if(mayorEdad()==false)
@@ -987,8 +1176,13 @@ public class SolicitantesVisual extends JDialog {
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
 									Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
 									Universitario u = new Universitario(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), institucion, carrera);
-									Bolsa.insertarSolicitante(s);
-									s.getMiSolicitud().add(u);
+									if(soli==null){
+										Bolsa.insertarSolicitante(s);
+										s.getMiSolicitud().add(u);}
+									if(soli!=null){
+										s.getMiSolicitud().add(u);}
+									//for(int h=0; h<idioma.size();h++)
+										//System.out.println(idioma.get(h)+" El numero"+h);
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 									//clean();
 									limpiar();
@@ -998,9 +1192,9 @@ public class SolicitantesVisual extends JDialog {
 							if (tipo.equalsIgnoreCase("Obrero")){
 								if (txtNombre.getText().equalsIgnoreCase("")||txtCedula.getText().equalsIgnoreCase("   -       - ")||txtApellido.getText().equalsIgnoreCase("")||txtTelefono.getText().equalsIgnoreCase("(   ) -   -    ")||txtEmail.getText().equalsIgnoreCase("")||btnGroupSexo.isSelected(null)||cbxNacionalidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
 										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||Jcaldate.getDate()==null||btnGroupMudarse.isSelected(null)||btnGroupJornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||areaInteres.equalsIgnoreCase("<Seleccionar>")||
-										btnGroupLicencia.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||habilidad.get(0).equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma2.isSelected()||
-										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()||cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chckbxAadirOtro.isSelected()||mayorEdad()==false||bolsa.SolicitanteRepetido(cedula)==true){
-									if (bolsa.SolicitanteRepetido(cedula)==true)
+										btnGroupLicencia.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||habilidad.get(0).equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma2.isSelected()&&soli==null||
+										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()&&soli==null||cbxHabilidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxHabilidad2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chckbxAadirOtro.isSelected()||mayorEdad()==false||Bolsa.SolicitanteRepetido(cedula)==true){
+									if (Bolsa.SolicitanteRepetido(cedula)==true&&soli==null)
 										JOptionPane.showMessageDialog(null, "El solicitante ya esta ingresado, verifique su cedula", "Informacion", JOptionPane.WARNING_MESSAGE);
 									else
 										if(mayorEdad()==false)
@@ -1013,8 +1207,11 @@ public class SolicitantesVisual extends JDialog {
 									//String habilidad = cbxHabilidad.getSelectedItem().toString();
 									Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
 									Obrero o = new Obrero(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), habilidad);
-									Bolsa.insertarSolicitante(s);
-									s.getMiSolicitud().add(o);
+									if(soli==null){
+										Bolsa.insertarSolicitante(s);
+										s.getMiSolicitud().add(o);}
+									if(soli!=null){
+										s.getMiSolicitud().add(o);}
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 									limpiar();
 									
@@ -1024,9 +1221,9 @@ public class SolicitantesVisual extends JDialog {
 							if (tipo.equalsIgnoreCase("Tecnico")){
 								if (txtNombre.getText().equalsIgnoreCase("")||txtCedula.getText().equalsIgnoreCase("   -       - ")||txtApellido.getText().equalsIgnoreCase("")||txtTelefono.getText().equalsIgnoreCase("(   ) -   -    ")||txtEmail.getText().equalsIgnoreCase("")||btnGroupSexo.isSelected(null)||cbxNacionalidad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxEstadoCivil.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")
 										||txtDireccion.getText().equalsIgnoreCase("")||cbxCiudad.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxPais.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||Jcaldate.getDate()==null||btnGroupMudarse.isSelected(null)||btnGroupJornada.isSelected(null)||idioma.get(0).equalsIgnoreCase("<Seleccionar>")||areaInteres.equalsIgnoreCase("<Seleccionar>")||
-										btnGroupLicencia.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||txtInstitucionTecnico.getText().equalsIgnoreCase("")||cbxTecnico.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma2.isSelected()||
-										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()||mayorEdad()==false||bolsa.SolicitanteRepetido(cedula)==true){
-									if (bolsa.SolicitanteRepetido(cedula)==true)
+										btnGroupLicencia.isSelected(null)||txtEmpresa.getText().equalsIgnoreCase("")||cbxAreaTrabajo.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||txtNombreReferente.getText().equalsIgnoreCase("")||txtNumeroReferente.getText().equalsIgnoreCase("")||txtInstitucionTecnico.getText().equalsIgnoreCase("")||cbxTecnico.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma1.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")||cbxIdioma2.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma2.isSelected()&&soli==null||
+										cbxIdioma3.getSelectedItem().toString().equalsIgnoreCase("<Seleccionar>")&&chbIdioma3.isSelected()&&soli==null||mayorEdad()==false||Bolsa.SolicitanteRepetido(cedula)==true){
+									if (Bolsa.SolicitanteRepetido(cedula)==true&&soli==null)
 										JOptionPane.showMessageDialog(null, "El solicitante ya esta ingresado, verifique su cedula", "Informacion", JOptionPane.WARNING_MESSAGE);
 									else
 										if(mayorEdad()==false)
@@ -1040,8 +1237,11 @@ public class SolicitantesVisual extends JDialog {
 									String institucion = txtInstitucionTecnico.getText();	
 									Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
 									Tecnico t = new Tecnico(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), institucion, tecnico);							
-									Bolsa.insertarSolicitante(s);
-									s.getMiSolicitud().add(t);
+									if(soli==null){
+										Bolsa.insertarSolicitante(s);
+										s.getMiSolicitud().add(t);}
+									if(soli!=null){
+										s.getMiSolicitud().add(t);}
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);	
 									limpiar();
 									
@@ -1050,48 +1250,6 @@ public class SolicitantesVisual extends JDialog {
 						}
 						else 
 							JOptionPane.showMessageDialog(null, "Seleccione un nivel educativo", "Informacion", JOptionPane.WARNING_MESSAGE);
-					}
-
-					private void limpiar() {
-					     txtEmpresa.setText("");
-						 txtInstitucionTecnico.setText("");
-						 cbxAreaTrabajo.removeAll();
-						 txtNombreReferente.setText("");
-						 txtNombreReferente.setText("");
-						 txtNombre.setText("");
-					     txtApellido.setText("");
-						 txtTelefono.setText("");;
-						 txtEmail.setText("");
-						 txtCedula.setText("");
-						 txtDireccion.setText("");
-						 cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
-				         cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
-						 cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Patua", "Creoles", "Ruso"}));
-						 cbxHabilidad2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
-						 cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
-						 cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
-						 cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
-						 cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));	
-						 cbxNacionalidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Afganist\u00E1n\t", "Alemania\t", "Arabia Saudita\t", "Argentina\t", "Australia\t", "B\u00E9lgica\t", "Bolivia\t", "Brasil\t", "Camboya\t", "Canad\u00E1\t", "Chile\t", "China", "Colombia\t", "Corea\t", "Costa Rica", "Cuba\t", "Dinamarca\t", "Ecuador\t", "Egipto\t", "El Salvador\t", "Escocia\t", "Espa\u00F1a", "Estados Unidos\t", "Estonia\t", "Filipinas\t", "Francia\t", "Grecia", "Guatemala\t", "Hait\u00ED\t", "Holanda\t", "Honduras\t", "Indonesia\t", "Inglaterra\t", "Irak\t", "Ir\u00E1n", "Irlanda\t", "Israel\t", "Italia\t", "Jap\u00F3n\t", "Jordania\t", "Laos\t", "Letonia\t", "Lituania\t", "Malasia\t", "Marruecos\t", "M\u00E9xico\t", "Nicaragua\t", "Noruega\t", "Nueva Zelanda", "Panam\u00E1\t", "Paraguay\t", "Per\u00FA\t", "Polonia\t", "Portugal\t", "Puerto Rico", "Republica Dom.", "Rumania\t", "Rusia\t", "Suecia\t", "Suiza\t", "Tailandia\t", "Taiw\u00E1n\t", "Turqu\u00EDa\t", "Ucrania\t", "Uruguay\t", "Venezuela\t", "Vietnam"}));
-						 cbxHabilidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
-						 cbxAreaInteres.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));	
-						 cbxCarrera.setSelectedIndex(0);
-						 cbxInstitucionUni.setSelectedIndex(0);
-						 cbxTecnico.setSelectedIndex(0);
-						 
-						 
-						 panel_principal.setVisible(true);
-						 panel_secundario.setVisible(false);
-						
-						 btnGroupJornada.clearSelection();
-						 btnGroupLicencia.clearSelection();
-						 btnGroupMudarse.clearSelection();
-						 btnGroupNivelEducativo.clearSelection();
-						 btnGroupSexo.clearSelection();
-						 btnGroupViajar.clearSelection();
-						 btnPag.setEnabled(false);
-						 btnPag_1.setEnabled(true);
-						
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -1174,5 +1332,73 @@ public class SolicitantesVisual extends JDialog {
 		    	mayor=true;
 		 
 		    return mayor;
+	}
+	public void limpiar() {
+		txtCedula.setEnabled(true);
+		txtNombre.setEnabled(true);						
+		txtApellido.setEnabled(true);						
+		txtTelefono.setEnabled(true);						
+		txtEmail.setEnabled(true);						
+		btnMasculino.setEnabled(true);
+		btnFemenino.setEnabled(true);							
+		cbxNacionalidad.setEnabled(true);						
+		cbxEstadoCivil.setEnabled(true);
+		txtDireccion.setEnabled(true);
+		cbxCiudad.setEnabled(true); 
+		cbxPais.setEnabled(true);						
+		Jcaldate.setEnabled(true);							
+		cbxIdioma1.setEnabled(true);
+		cbxIdioma2.setEnabled(true);
+		cbxIdioma3.setEnabled(true);
+		btnLicenciaCN.setEnabled(true);
+		btnLicenciaCY.setEnabled(true);
+		txtEmpresa.setEnabled(true);
+		cbxAreaTrabajo.setEnabled(true);
+		spnTiempoExperiencia.setEnabled(true);
+		txtNombreReferente.setEnabled(true);
+		txtNumeroReferente.setEnabled(true);
+	     txtEmpresa.setText("");
+		 txtInstitucionTecnico.setText("");
+		 cbxAreaTrabajo.removeAll();
+		 txtNombreReferente.setText("");
+		 txtNombreReferente.setText("");
+		 txtNombre.setText("");
+	     txtApellido.setText("");
+		 txtTelefono.setText("");
+		 txtEmail.setText("");
+		 txtCedula.setText("");
+		 txtDireccion.setText("");
+		 cbxIdioma1.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+		 cbxIdioma3.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Creoles", "Ruso"}));
+		 cbxIdioma2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Ingles", "Espa\u00F1ol", "Frances", "Aleman", "Mandarin", "Italiano", "Japones", "Patua", "Creoles", "Ruso"}));
+		 cbxHabilidad2.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
+		 cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
+		 cbxPais.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Republica Dominicana"}));
+		 cbxEstadoCivil.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Soltero", "Casado", "Viudo", "Divorciado", "Union Libre"}));
+		 cbxAreaTrabajo.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));	
+		 cbxNacionalidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Afganist\u00E1n\t", "Alemania\t", "Arabia Saudita\t", "Argentina\t", "Australia\t", "B\u00E9lgica\t", "Bolivia\t", "Brasil\t", "Camboya\t", "Canad\u00E1\t", "Chile\t", "China", "Colombia\t", "Corea\t", "Costa Rica", "Cuba\t", "Dinamarca\t", "Ecuador\t", "Egipto\t", "El Salvador\t", "Escocia\t", "Espa\u00F1a", "Estados Unidos\t", "Estonia\t", "Filipinas\t", "Francia\t", "Grecia", "Guatemala\t", "Hait\u00ED\t", "Holanda\t", "Honduras\t", "Indonesia\t", "Inglaterra\t", "Irak\t", "Ir\u00E1n", "Irlanda\t", "Israel\t", "Italia\t", "Jap\u00F3n\t", "Jordania\t", "Laos\t", "Letonia\t", "Lituania\t", "Malasia\t", "Marruecos\t", "M\u00E9xico\t", "Nicaragua\t", "Noruega\t", "Nueva Zelanda", "Panam\u00E1\t", "Paraguay\t", "Per\u00FA\t", "Polonia\t", "Portugal\t", "Puerto Rico", "Republica Dom.", "Rumania\t", "Rusia\t", "Suecia\t", "Suiza\t", "Tailandia\t", "Taiw\u00E1n\t", "Turqu\u00EDa\t", "Ucrania\t", "Uruguay\t", "Venezuela\t", "Vietnam"}));
+		 cbxHabilidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Alba\u00F1il", "Artista", "Audiovisuales", "Cajero", "Carpintero", "Chofer", "Cocinero", "Contructor", "Delivery", "Ebanista", "Electricista", "Empacador", "Gu\u00E1", "Humorista", "Jardinero", "Mec\u00E1nico", "Mucama", "Pintor", "Plomero", "Rescatista", "Salva Vida", "Sastre", "Seguridad", "Vendedor"}));
+		 cbxAreaInteres.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Salud", "Educacion", "Turismo", "Ventas", "Comunicion", "Bancario", "Construccion", "Tecnologia", "Agricultura", "Gastronomia"}));	
+		 cbxCarrera.setSelectedIndex(0);
+		 cbxInstitucionUni.setSelectedIndex(0);
+		 cbxTecnico.setSelectedIndex(0);
+		 
+		 
+		 panel_principal.setVisible(true);
+		 panel_secundario.setVisible(false);
+		
+		 btnGroupJornada.clearSelection();
+		 btnGroupLicencia.clearSelection();
+		 btnGroupMudarse.clearSelection();
+		 btnGroupNivelEducativo.clearSelection();
+		 btnGroupSexo.clearSelection();
+		 btnGroupViajar.clearSelection();
+		 btnPag.setEnabled(false);
+		 btnPag_1.setEnabled(true);
+		 txtCedulaClienteAntiguo.setEnabled(false);
+		 //IngresarCedula.setEnabled(false);
+		 btnBuscar.setEnabled(false);
+		 chxCuentaCreada.setSelected(false);
+		 soli=null;	
 	}
 }

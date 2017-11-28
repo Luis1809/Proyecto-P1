@@ -138,6 +138,27 @@ public class RegistrarPlaza extends JDialog {
 		contentPanel.add(panel_principal);
 		panel_principal.setLayout(null);
 		
+		panelMujer = new JPanel();
+		panelMujer.setBounds(12, 17, 280, 138);
+		panel_principal.add(panelMujer);
+		panelMujer.setLayout(null);
+		
+		label_10 = new JLabel("");
+		label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
+		//label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
+		label_10.setBounds(66, 3, 214, 135);
+		panelMujer.add(label_10);
+		
+		panelHombre = new JPanel();
+		panelHombre.setBounds(12, 17, 280, 138);
+		panel_principal.add(panelHombre);
+		panelHombre.setLayout(null);
+		
+		label_11 = new JLabel("");
+		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/hombre.png")));
+		label_11.setBounds(66, 3, 214, 135);
+		panelHombre.add(label_11);
+		
 		panelNa = new JPanel();
 		panelNa.setBounds(12, 17, 280, 138);
 		panel_principal.add(panelNa);
@@ -440,27 +461,6 @@ public class RegistrarPlaza extends JDialog {
 		spnTiempoExp.setModel(new SpinnerNumberModel(1, 1, 50, 1));
 		spnTiempoExp.setBounds(159, 73, 110, 23);
 		panellaborlal.add(spnTiempoExp);
-		
-		panelHombre = new JPanel();
-		panelHombre.setBounds(12, 17, 280, 138);
-		panel_principal.add(panelHombre);
-		panelHombre.setLayout(null);
-		
-		label_11 = new JLabel("");
-		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/hombre.png")));
-		label_11.setBounds(66, 3, 214, 124);
-		panelHombre.add(label_11);
-		
-		panelMujer = new JPanel();
-		panelMujer.setBounds(12, 17, 280, 138);
-		panel_principal.add(panelMujer);
-		panelMujer.setLayout(null);
-		
-		label_10 = new JLabel("");
-		label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
-		//label_10.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/mujer.png")));
-		label_10.setBounds(66, 3, 214, 124);
-		panelMujer.add(label_10);
 		
 		panel_secundario = new JPanel();
 		panel_secundario.setBackground(new Color(255, 255, 255));
