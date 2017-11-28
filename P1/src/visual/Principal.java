@@ -279,11 +279,11 @@ public class Principal extends JFrame {
 		panelCurves.setLayout(null);
 		
 		panel_pie = new JPanel();
-		panel_pie.setBounds(21, 16, 482, 388);
+		panel_pie.setBounds(21, 42, 482, 388);
 		panelCurves.add(panel_pie);
 		
 		panel_bar = new JPanel();
-		panel_bar.setBounds(513, 16, 526, 388);
+		panel_bar.setBounds(513, 42, 526, 388);
 		panelCurves.add(panel_bar);
 		
 		ClockFace clockFace = new ClockFace();

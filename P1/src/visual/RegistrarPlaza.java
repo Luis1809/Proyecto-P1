@@ -138,6 +138,16 @@ public class RegistrarPlaza extends JDialog {
 		contentPanel.add(panel_principal);
 		panel_principal.setLayout(null);
 		
+		panelNa = new JPanel();
+		panelNa.setBounds(12, 17, 280, 138);
+		panel_principal.add(panelNa);
+		panelNa.setLayout(null);
+		
+		label_13 = new JLabel("");
+		label_13.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/red.png")));
+		label_13.setBounds(66, 0, 214, 124);
+		panelNa.add(label_13);
+		
 		panelMujer = new JPanel();
 		panelMujer.setBounds(12, 17, 280, 138);
 		panel_principal.add(panelMujer);
@@ -158,16 +168,6 @@ public class RegistrarPlaza extends JDialog {
 		label_11.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/hombre.png")));
 		label_11.setBounds(66, 3, 214, 135);
 		panelHombre.add(label_11);
-		
-		panelNa = new JPanel();
-		panelNa.setBounds(12, 17, 280, 138);
-		panel_principal.add(panelNa);
-		panelNa.setLayout(null);
-		
-		label_13 = new JLabel("");
-		label_13.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/red.png")));
-		label_13.setBounds(66, 0, 214, 124);
-		panelNa.add(label_13);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -792,6 +792,11 @@ public class RegistrarPlaza extends JDialog {
 		lblIngresarSolicitud.setBounds(234, 0, 316, 46);
 		panel_3.add(lblIngresarSolicitud);
 		
+		panelHombre.setVisible(false);
+		panelMujer.setVisible(false);
+		panelNa.setVisible(true);
+		
+		
 		JLabel label_12 = new JLabel("Fecha de Solicitud:");
 		label_12.setBounds(356, 171, 123, 16);
 		contentPanel.add(label_12);
@@ -1016,5 +1021,9 @@ public class RegistrarPlaza extends JDialog {
 		
 		btnPag.setEnabled(false);
 		btnPag_1.setEnabled(true);
+		
+		panelHombre.setVisible(false);
+		panelMujer.setVisible(false);
+		panelNa.setVisible(true);
 	}
 }
