@@ -197,15 +197,7 @@ public class SolicitantesContratados extends JDialog {
 					
 					 index=table.getSelectedRow();
 					 
-					 if (index!=-1) {
-						 
-						 btnDespedir.setEnabled(true);
-						
-					}else{
-						
-						
-						btnDespedir.setEnabled(false);
-					}
+					
 					
 					
 				}
@@ -235,6 +227,17 @@ public class SolicitantesContratados extends JDialog {
 				btnDespedir = new JButton("Despedir");
 				btnDespedir.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						
+						
+						if(index!=-1){
+							
+							btnDespedir.setEnabled(true);
+			
+						}else if(index==-1){
+														
+							btnDespedir.setEnabled(false);
+							
+						}
 							EmpresaSolicitadora emp;
 						Solicitantes s = null;
 						Solicitantes aux;
@@ -253,9 +256,9 @@ public class SolicitantesContratados extends JDialog {
 								aux=emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j);
 								
 								if (aux==s) {	
-									emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j).setHabilitado(false);
-									System.out.println(true);
-									
+									emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j).setHabilitado(false);//setiendo en el solicitante en desabilitado
+								
+									emp.eliminarSolicitud(s);///eliminando solicitud de la empresa
 									
 									loadTable();
 									
