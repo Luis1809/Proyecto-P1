@@ -1025,7 +1025,7 @@ public class SolicitantesVisual extends JDialog {
 						if(u!=a){
 							if(cbxIdioma2.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(1))){
 								cbxIdioma2.setSelectedIndex(u);
-								a=u;
+								a=u; 
 							}
 						}
 					}
