@@ -53,7 +53,9 @@ public abstract class Solicitudes implements Serializable {
 		this.id = "";
 	}
 	
-	
+	public void eliminarSolicitud(Solicitantes s){
+		getMiSolicitantes().remove(s);
+	}
 	public String getSexo() {
 		return sexo;
 	}

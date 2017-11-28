@@ -171,17 +171,6 @@ public class SolicitantesContratados extends JDialog {
 		model.setColumnIdentifiers(columnName);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-			
-				
-			}
-		});
-		
-		
-		
 		contentPanel.add(scrollPane);
 		scrollPane.setBounds(10, 166, 652, 250);
 		
@@ -189,17 +178,8 @@ public class SolicitantesContratados extends JDialog {
 			table.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					
-					
-					
-					
-					
-					
 					 index=table.getSelectedRow();
-					 
-					
-					
-					
+					 btnDespedir.setEnabled(true);	
 				}
 			});
 		
@@ -227,63 +207,23 @@ public class SolicitantesContratados extends JDialog {
 				btnDespedir = new JButton("Despedir");
 				btnDespedir.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
-						
-						if(index!=-1){
-							
-							btnDespedir.setEnabled(true);
-			
-						}else if(index==-1){
-														
-							btnDespedir.setEnabled(false);
-							
-						}
-							EmpresaSolicitadora emp;
+						EmpresaSolicitadora emp=bolsa.buscarEmpresa(txtRNC.getText().toString());
 						Solicitantes s = null;
-						Solicitantes aux;
-						emp=bolsa.buscarEmpresa(txtRNC.getText().toString());
-						s=	bolsa.getMiSolicitante().get(index);
-				        String cedula=	s.getCedula();
-			            
-					//	solicitudes.
-						
-						for (int i = 0; i < emp.getMiSolicitudes().size(); i++) {
-							
+						String cedula = (String) table.getModel().getValueAt(table.getSelectedRow(), 2);
 									
+						for (int i = 0; i < emp.getMiSolicitudes().size(); i++){		
 							for (int j = 0; j < emp.getMiSolicitudes().get(i).getMiSolicitantes().size(); j++) {
-								
-								
-								aux=emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j);
-								
-								if (aux==s) {	
-									emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j).setHabilitado(false);//setiendo en el solicitante en desabilitado
-								
-									emp.eliminarSolicitud(s);///eliminando solicitud de la empresa
-									
-									loadTable();
-									
-									
-									
-									
-									
-								}
-								
-								
+								if(emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j).getCedula().equalsIgnoreCase(cedula)){
+									emp.getMiSolicitudes().get(i).eliminarSolicitud(emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j));
+									Solicitantes sol = Bolsa.buscarSolicitante(cedula);
+									if(sol!=null)
+									{
+										sol.setHabilitado(true);
+									}	
+								}					
 							}
-						
-							
 						}
-						
-						
-						
-				
-					
-						
-						
-						
-		
-						
-						
+						loadTable();
 					}
 				});
 				buttonPane.add(btnDespedir);

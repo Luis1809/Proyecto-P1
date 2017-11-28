@@ -34,16 +34,7 @@ public class EmpresaSolicitadora implements Serializable {
 		this.miSolicitudes = new ArrayList<>();
 		//this.miSolicitantes = new ArrayList<>();
 	}
-	public void eliminarSolicitud(Solicitantes s){
-		
-		miSolicitudes.remove(s);
-		
-		
-		
-		
-		
-	}
-	
+
 	public void insertarSolicitante(Solicitudes solic){
 		miSolicitudes.add(solic);
 	}
