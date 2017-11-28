@@ -134,7 +134,7 @@ public class Principal extends JFrame {
 		contentPane.add(menuBar);
 		menuBar.setBackground(new Color(255, 0, 0));
 		menuBar.setForeground(new Color(255, 0, 0));
-		///
+		 ///
 		JMenu mnNewMenu = new JMenu("Ingresar datos");
 		mnNewMenu.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/usuario (1).png")));
 		mnNewMenu.setBackground(new Color(0, 0, 0));
