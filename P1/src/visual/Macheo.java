@@ -330,7 +330,7 @@ public class Macheo extends JDialog {
 		txtEstadoSolicitud.setColumns(10);
 		
 		progressBar = new JProgressBar();
-		progressBar.setBounds(40, 474, 601, 14);
+		progressBar.setBounds(26, 474, 616, 14);
 		contentPanel.add(progressBar);
 		{
 			JPanel buttonPane = new JPanel();

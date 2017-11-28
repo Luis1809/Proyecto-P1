@@ -1014,27 +1014,29 @@ public class SolicitantesVisual extends JDialog {
 					//Idioma
 				
 					int a=0;
+					
 					for(int u=0; u<cbxIdioma1.getItemCount();u++){
 						if(cbxIdioma1.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(0))){
 							cbxIdioma1.setSelectedIndex(u);
 							a=u;
-						}
-					}
+						}}
+					
 						
+					if(soli.getIdioma().size()==2){
 					for(int u=0; u<cbxIdioma2.getItemCount();u++){
 						if(u!=a){
 							if(cbxIdioma2.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(1))){
 								cbxIdioma2.setSelectedIndex(u);
 								a=u; 
-							}
+							}}}
 						}
-					}
-						
+					
+					if(soli.getIdioma().size()==3){
 					for(int u=0; u<cbxIdioma3.getItemCount();u++){
 						if(u!=a){
 						if(cbxIdioma3.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(2)))
 						cbxIdioma3.setSelectedIndex(u);}
-					}
+					}}
 						
 					cbxIdioma1.setEnabled(false);
 					cbxIdioma2.setEnabled(false);
@@ -1365,6 +1367,12 @@ public class SolicitantesVisual extends JDialog {
 		cbxAreaTrabajo.setEnabled(true);
 		spnTiempoExperiencia.setEnabled(true);
 		txtNombreReferente.setEnabled(true);
+		cbxIdioma2.setEnabled(false);
+		cbxIdioma3.setEnabled(false);
+		cbxHabilidad2.setEnabled(false);
+		chbIdioma2.setSelected(false);
+		chbIdioma3.setSelected(false);
+		chckbxAadirOtro.setSelected(false);
 		
 		txtNumeroReferente.setEnabled(true);
 		Jcaldate.setDate(null);
