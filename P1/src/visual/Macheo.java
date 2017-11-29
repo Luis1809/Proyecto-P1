@@ -128,7 +128,7 @@ public class Macheo extends JDialog {
 			}
 			{
 				JButton button = new JButton("Buscar");
-				button.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/buscador-de-lupa (1).png")));
+				button.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/buscando-archivo-simbolo-de-interfaz.png")));
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					if (txtRNC.getText().toString().equalsIgnoreCase("")||bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
