@@ -136,7 +136,7 @@ public class Principal extends JFrame {
 		menuBar.setForeground(new Color(255, 0, 0));
 		 ///
 		JMenu mnNewMenu = new JMenu("Ingresar datos");
-		mnNewMenu.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/usuario (1).png")));
+		mnNewMenu.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/usuario.png")));
 		mnNewMenu.setBackground(new Color(0, 0, 0));
 		mnNewMenu.setForeground(new Color(0, 0, 0));
 		mnNewMenu.setFont(new Font("Segoe UI", Font.BOLD, 18));
