@@ -59,6 +59,7 @@ public class ModificarSolicitantes extends JDialog {
 	ButtonGroup btnGroupJornada =new ButtonGroup();
 	ButtonGroup btnGroupNivelEducativo =new ButtonGroup();
 	String h;
+	
 	private Solicitantes soli=null;
 	/*//_____Solicitante_______________________//
 	private String nombreSolicitante;
