@@ -209,24 +209,29 @@ public class SolicitantesContratados extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 						EmpresaSolicitadora emp=bolsa.buscarEmpresa(txtRNC.getText().toString());
 						Solicitantes s = null;
-						String cedula = (String) table.getModel().getValueAt(table.getSelectedRow(), 2);
-									
-						for (int i = 0; i < emp.getMiSolicitudes().size(); i++){		
-							for (int j = 0; j < emp.getMiSolicitudes().get(i).getMiSolicitantes().size(); j++) {
-								if(emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j).getCedula().equalsIgnoreCase(cedula)){
-									emp.getMiSolicitudes().get(i).eliminarSolicitud(emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j));
-									Solicitantes sol = Bolsa.buscarSolicitante(cedula);
-									if(sol!=null)
-									{
-										sol.setHabilitado(true);
-									}	
-								}					
-							}
+						
+						if(table.getSelectedRow()==-1){
+							JOptionPane.showMessageDialog(null, "Seleccione un empleado", "Informacion", JOptionPane.WARNING_MESSAGE);
 						}
-						
-						
-						loadTable();
-						
+						else{	
+							String cedula = (String) table.getModel().getValueAt(table.getSelectedRow(), 2);
+							for (int i = 0; i < emp.getMiSolicitudes().size(); i++){		
+								for (int j = 0; j < emp.getMiSolicitudes().get(i).getMiSolicitantes().size(); j++) {
+									if(emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j).getCedula().equalsIgnoreCase(cedula)){
+										emp.getMiSolicitudes().get(i).eliminarSolicitud(emp.getMiSolicitudes().get(i).getMiSolicitantes().get(j));
+										Solicitantes sol = Bolsa.buscarSolicitante(cedula);
+										if(sol!=null)
+										{
+											sol.setHabilitado(true);
+										}	
+									}					
+								}
+							}
+							
+							loadTable();
+							Principal.cargarBarra();
+							Principal.cargarPIE();
+						}
 					}
 
 			
@@ -239,9 +244,6 @@ public class SolicitantesContratados extends JDialog {
 		}
 	}
 	public void loadTable() {
-		Principal p= new Principal();
-		p.cargarBarra();
-		p.cargarPIE();
 		int a=0;
 		model.setRowCount(0);
 		fila = new Object[model.getColumnCount()];
