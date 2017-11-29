@@ -59,6 +59,7 @@ public class ModificarSolicitantes extends JDialog {
 	ButtonGroup btnGroupJornada =new ButtonGroup();
 	ButtonGroup btnGroupNivelEducativo =new ButtonGroup();
 	String h;
+	private Solicitantes soli=null;
 	/*//_____Solicitante_______________________//
 	private String nombreSolicitante;
 	private String apellidoSolicitante;
@@ -142,13 +143,14 @@ public class ModificarSolicitantes extends JDialog {
 	private JButton btnModificar;
 	private JButton btnEliminar;
 	private JFormattedTextField txtBuscarCedula;
+	private JButton btnBuscar;
 	
 	
 	public ModificarSolicitantes() {
 		
 		
 		setResizable(false);
-		setBounds(100, 100, 794, 1060);
+		setBounds(100, 100, 794, 548);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(255, 255, 255));
 		contentPanel.setBorder(null);
@@ -171,7 +173,7 @@ public class ModificarSolicitantes extends JDialog {
 			panel_principal = new JPanel();
 			panel_principal.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Formulario", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 			panel_principal.setBackground(new Color(255, 255, 255));
-			panel_principal.setBounds(10, 580, 774, 366);
+			panel_principal.setBounds(10, 101, 774, 366);
 			panel.add(panel_principal);
 			panel_principal.setLayout(null);
 			
@@ -905,40 +907,135 @@ public class ModificarSolicitantes extends JDialog {
 			panel_5.add(txtBuscarCedula);
 			txtBuscarCedula.setColumns(10);
 			
-			JButton btnNewButton = new JButton("Buscar");
-			btnNewButton.addActionListener(new ActionListener() {
+			btnBuscar = new JButton("Buscar");
+			btnBuscar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					Solicitantes s;
+					if (txtBuscarCedula.getText().toString().equalsIgnoreCase("")||bolsa.buscarSolicitante(txtBuscarCedula.getText().toString())==null)
+						JOptionPane.showMessageDialog(null, "No se ha encontrado el cliente", "Informacion", JOptionPane.WARNING_MESSAGE);
+					else{
+					soli = Bolsa.buscarSolicitante(txtBuscarCedula.getText());
+					
+					//Cedula
+					txtCedula.setText(soli.getCedula());
+					txtCedula.setEnabled(true);
+					//Nombre
+					txtNombre.setText(soli.getNombre());
+					txtNombre.setEnabled(true);
+					//Apellido
+					txtApellido.setText(soli.getApellido());
+					txtApellido.setEnabled(true);
+					//Telefono
+					txtTelefono.setText(soli.getTelefono());
+					txtTelefono.setEnabled(true);
+					//Email
+					txtEmail.setText(soli.getEmail());
+					txtEmail.setEnabled(true);
+					//Sexo
+					if(soli.getSexo().equalsIgnoreCase("Masculino"))
+						btnMasculino.setSelected(true);
+					else
+						btnFemenino.setSelected(true);
+					btnMasculino.setEnabled(false);
+					//btnFemenino.setEnabled(false);
+					//Nacionalidad
+					for(int u=0; u<cbxNacionalidad.getItemCount();u++){
+						if(cbxNacionalidad.getItemAt(u).toString().equalsIgnoreCase(soli.getNacionalidad()))
+						cbxNacionalidad.setSelectedIndex(u);
+					}
+					cbxNacionalidad.setEnabled(true);
+					//EstadoCivil
+					for(int u=0; u<cbxEstadoCivil.getItemCount();u++){
+						if(cbxEstadoCivil.getItemAt(u).toString().equalsIgnoreCase(soli.getEstadoCivil()))
+						cbxEstadoCivil.setSelectedIndex(u);
+					}
+					cbxEstadoCivil.setEnabled(true);
+					//Direccion
+					txtDireccion.setText(soli.getDireccion());
+					txtDireccion.setEnabled(true);
+					//Cuidad
+					for(int u=0; u<cbxCiudad.getItemCount();u++){
+						if(cbxCiudad.getItemAt(u).toString().equalsIgnoreCase(soli.getCuidad()))
+						cbxCiudad.setSelectedIndex(u);
+					}
+					cbxCiudad.setEnabled(true); 
+					//Pais
+					for(int u=0; u<cbxPais.getItemCount();u++){
+						if(cbxPais.getItemAt(u).toString().equalsIgnoreCase(soli.getPais()))
+						cbxPais.setSelectedIndex(u);
+					}
+					cbxPais.setEnabled(true);
+					//Fecha Nacimiento
+					Jcaldate.setDate(soli.getFechaNacimiento());
+					Jcaldate.setEnabled(true);
+					//Idioma
 				
-				if (txtBuscarCedula.getText()==null||txtBuscarCedula.getText()=="") {
-					JOptionPane.showMessageDialog(null,"Ingrese una Cedula Valida");
-				}else{
-					s=	Bolsa.buscarSolicitante(txtBuscarCedula.getSelectedText().toString());
-					txtNombreReferente.setText(s.getNombreReferente());
-					txtNumeroReferente.setText(s.getNumeroReferente());
-					txtEmpresa.setText(s.getNombreEmpresa());
-					txtNombre.setText(s.getNombre());
-					txtApellido.setText(s.getApellido());
-					txtCedula.setText(s.getCedula());
-					txtTelefono.setText(s.getTelefono());
-					txtEmail.setText(s.getEmail());
-					txtDireccion.setText(s.getDireccion());
-					Jcaldate.setDate(s.getFechaNacimiento());
+					int a=0;
 					
+					for(int u=0; u<cbxIdioma1.getItemCount();u++){
+						if(cbxIdioma1.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(0))){
+							cbxIdioma1.setSelectedIndex(u);
+							a=u;
+						}}
 					
+						
+					if(soli.getIdioma().size()==2){
+					for(int u=0; u<cbxIdioma2.getItemCount();u++){
+						if(u!=a){
+							if(cbxIdioma2.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(1))){
+								cbxIdioma2.setSelectedIndex(u);
+								a=u; 
+							}}}
+						}
 					
+					if(soli.getIdioma().size()==3){
+					for(int u=0; u<cbxIdioma3.getItemCount();u++){
+						if(u!=a){
+						if(cbxIdioma3.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(2)))
+						cbxIdioma3.setSelectedIndex(u);}
+					}}
+						
+					cbxIdioma1.setEnabled(true);
+					cbxIdioma2.setEnabled(true);
+					cbxIdioma3.setEnabled(true);
+						
+					//Licencia
+					if(soli.isLicencia()==true)
+						btnLicenciaCY.setSelected(true);
+					else
+						btnLicenciaCN.setSelected(true);
+					btnLicenciaCN.setEnabled(false);
+					//btnLicenciaCY.setEnabled(false);
 					
+					//NombreEmpresa
+					txtEmpresa.setText(soli.getNombreEmpresa());
+					txtEmpresa.setEnabled(true);
 					
+					//AreaTrabajo 
+					for(int u=0; u<cbxAreaTrabajo.getItemCount();u++){
+						if(cbxAreaTrabajo.getItemAt(u).toString().equalsIgnoreCase(soli.getAreaTrabajo1()))
+						cbxAreaTrabajo.setSelectedIndex(u);
+					}
+					cbxAreaTrabajo.setEnabled(true);
+							
+					//TiempoTrabajo
+					spnTiempoExperiencia.setValue(soli.getTiempotrabajoRealizado1());
+					spnTiempoExperiencia.setEnabled(true);
 					
-				}	
+					//NombreReferente
+					txtNombreReferente.setText(soli.getNombreReferente());
+					txtNombreReferente.setEnabled(true);
+					//NumeroReferente
+					txtNumeroReferente.setText(soli.getNumeroReferente());
+					txtNumeroReferente.setEnabled(true);		
+				}
 					
-					
+			
 					
 					
 				}
 			});
-			btnNewButton.setBounds(285, 1, 117, 29);
-			panel_5.add(btnNewButton);
+			btnBuscar.setBounds(285, 1, 117, 29);
+			panel_5.add(btnBuscar);
 		}
 		{
 			JPanel buttonPane = new JPanel();
