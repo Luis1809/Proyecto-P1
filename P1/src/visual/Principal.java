@@ -143,6 +143,8 @@ public class Principal extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Solicitantes         ");
+		mntmNewMenuItem.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/archivo.png")));
+		mntmNewMenuItem.setBackground(new Color(0, 0, 128));
 		mntmNewMenuItem.setForeground(new Color(0, 0, 0));
 		mntmNewMenuItem.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
@@ -156,6 +158,7 @@ public class Principal extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Empresas");
+		mntmNewMenuItem_1.setBackground(new Color(0, 0, 128));
 		mntmNewMenuItem_1.setForeground(new Color(0, 0, 0));
 		mntmNewMenuItem_1.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
@@ -240,12 +243,15 @@ public class Principal extends JFrame {
 		mnModificar.add(menuItem_1);
 		
 		JMenu mnNewMenu_1 = new JMenu("Reportes");
+		mnNewMenu_1.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/archivo.png")));
 		mnNewMenu_1.setForeground(new Color(0, 0, 0));
 		mnNewMenu_1.setBackground(Color.BLACK);
 		mnNewMenu_1.setFont(new Font("Segoe UI", Font.BOLD, 18));
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Empleados contratados");
+		mntmNewMenuItem_4.setBackground(new Color(255, 255, 255));
+		mntmNewMenuItem_4.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/hombre-de-negocios (1).png")));
 		mntmNewMenuItem_4.setForeground(new Color(0, 0, 0));
 		mntmNewMenuItem_4.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
@@ -259,6 +265,7 @@ public class Principal extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Estado Solicitudes");
+		mntmNewMenuItem_5.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/lista-de-usuarios.png")));
 		mntmNewMenuItem_5.setForeground(new Color(0, 0, 0));
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
