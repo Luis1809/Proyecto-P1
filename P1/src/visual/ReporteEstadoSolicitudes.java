@@ -84,16 +84,16 @@ public class ReporteEstadoSolicitudes extends JDialog {
 		contentPanel.add(panel_1);
 		
 		JLabel label = new JLabel("Ingrese el RNC :");
-		label.setFont(new Font("Tahoma", Font.BOLD, 18));
+		label.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label.setBackground(Color.WHITE);
-		label.setBounds(10, 11, 191, 28);
+		label.setBounds(10, 14, 191, 28);
 		panel_1.add(label);
 		
 		JFormattedTextField txtRNC = new JFormattedTextField(formatoRNC);
 		txtRNC.setForeground(Color.BLACK);
 		txtRNC.setColumns(10);
 		txtRNC.setBackground(new Color(211, 211, 211));
-		txtRNC.setBounds(164, 18, 158, 23);
+		txtRNC.setBounds(138, 17, 158, 23);
 		panel_1.add(txtRNC);
 		
 		JButton button = new JButton("Buscar");
@@ -113,7 +113,7 @@ public class ReporteEstadoSolicitudes extends JDialog {
 		});
 		button.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		button.setActionCommand("OK");
-		button.setBounds(218, 42, 104, 27);
+		button.setBounds(192, 41, 104, 27);
 		panel_1.add(button);
 		
 		JLabel label_1 = new JLabel("Nombre:");

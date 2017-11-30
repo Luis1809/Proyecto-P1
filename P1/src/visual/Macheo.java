@@ -113,9 +113,9 @@ public class Macheo extends JDialog {
 			contentPanel.add(panel_1);
 			{
 				JLabel label = new JLabel("Ingrese el RNC :");
-				label.setFont(new Font("Tahoma", Font.BOLD, 18));
+				label.setFont(new Font("Tahoma", Font.BOLD, 13));
 				label.setBackground(Color.WHITE);
-				label.setBounds(10, 11, 191, 28);
+				label.setBounds(10, 14, 191, 28);
 				panel_1.add(label);
 			}
 			{
@@ -123,7 +123,7 @@ public class Macheo extends JDialog {
 				txtRNC.setForeground(Color.BLACK);
 				txtRNC.setColumns(10);
 				txtRNC.setBackground(new Color(211, 211, 211));
-				txtRNC.setBounds(164, 18, 158, 23);
+				txtRNC.setBounds(145, 18, 177, 23);
 				panel_1.add(txtRNC);
 			}
 			{
@@ -220,7 +220,7 @@ public class Macheo extends JDialog {
 					table.setForeground(Color.WHITE);
 					table.setBackground(new Color(220, 20, 60));
 					table.setModel(model);
-					scrollPane.setViewportView(table);//
+					scrollPane.setViewportView(table);
 				}
 			}
 		}

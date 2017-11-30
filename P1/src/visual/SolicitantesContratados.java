@@ -72,22 +72,22 @@ public class SolicitantesContratados extends JDialog {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBorder(null);
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 47, 675, 108);
 		contentPanel.add(panel);
 		
 		JLabel label = new JLabel("Ingrese el RNC :");
-		label.setFont(new Font("Tahoma", Font.BOLD, 18));
+		label.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label.setBackground(Color.WHITE);
-		label.setBounds(10, 11, 191, 28);
+		label.setBounds(10, 14, 191, 28);
 		panel.add(label);
 		
 		txtRNC = new JFormattedTextField(formatoRNC);
 		txtRNC.setForeground(Color.BLACK);
 		txtRNC.setColumns(10);
 		txtRNC.setBackground(new Color(211, 211, 211));
-		txtRNC.setBounds(164, 18, 158, 23);
+		txtRNC.setBounds(147, 17, 158, 23);
 		panel.add(txtRNC);
 		
 		JButton button = new JButton("Buscar");
@@ -107,7 +107,7 @@ public class SolicitantesContratados extends JDialog {
 		});
 		button.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		button.setActionCommand("OK");
-		button.setBounds(218, 42, 104, 27);
+		button.setBounds(201, 41, 104, 27);
 		panel.add(button);
 		
 		JLabel label_1 = new JLabel("Nombre:");
