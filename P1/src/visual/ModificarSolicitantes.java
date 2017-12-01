@@ -57,7 +57,7 @@ public class ModificarSolicitantes extends JDialog {
 	ButtonGroup btnGroupLicencia =new ButtonGroup();
 	String h;
 	
-	private Solicitantes soli=null;
+	private Solicitantes s=null;
 	/*//_____Solicitante_______________________//
 	private String nombreSolicitante;
 	private String apellidoSolicitante;
@@ -120,7 +120,7 @@ public class ModificarSolicitantes extends JDialog {
 	private JButton btnEliminar;
 	private JFormattedTextField txtBuscarCedula;
 	private JButton btnBuscar;
-	
+	private JPanel PanelTodos;
 	
 	public ModificarSolicitantes() {
 		setResizable(false);
@@ -143,174 +143,6 @@ public class ModificarSolicitantes extends JDialog {
 			}catch (Exception e){
 				e.printStackTrace();
 			}
-			
-			panel_principal = new JPanel();
-			panel_principal.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Formulario", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-			panel_principal.setBackground(new Color(255, 255, 255));
-			panel_principal.setBounds(10, 110, 774, 201);
-			panel.add(panel_principal);
-			panel_principal.setLayout(null);
-			
-			panelMujer = new JPanel();
-			panelMujer.setLayout(null);
-			panelMujer.setBounds(15, 20, 152, 158);
-			panel_principal.add(panelMujer);
-			
-			mujer = new JLabel("");
-			mujer.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/mujer.png")));
-			mujer.setBounds(10, 6, 142, 141);
-			panelMujer.add(mujer);
-			
-			JPanel panel_1 = new JPanel();
-			panel_1.setBackground(new Color(255, 255, 255));
-			panel_1.setBounds(182, 11, 582, 175);
-			panel_principal.add(panel_1);
-			panel_1.setLayout(null);
-			panel_1.setBorder(new TitledBorder(null, "Datos Personales", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			
-			JLabel label = new JLabel("Nombres:");
-			label.setBounds(30, 30, 61, 16);
-			panel_1.add(label);
-			
-			txtNombre = new JTextField();
-			txtNombre.setBackground(new Color(211, 211, 211));
-			txtNombre.addKeyListener(new KeyAdapter() {
-				@Override
-				public void keyPressed(KeyEvent e) {
-					if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
-						System.out.println("");
-					else {
-						JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Informaci�n", JOptionPane.WARNING_MESSAGE);
-						cleanNombre();}
-				}
-			});
-			txtNombre.setColumns(10);
-			txtNombre.setBounds(101, 28, 177, 23);
-			panel_1.add(txtNombre);
-			
-			JLabel label_1 = new JLabel("Apellidos:");
-			label_1.setBounds(300, 30, 73, 16);
-			panel_1.add(label_1);
-			
-			txtApellido = new JTextField();
-			txtApellido.setBackground(new Color(211, 211, 211));
-			txtApellido.addKeyListener(new KeyAdapter() {
-				@Override
-				public void keyPressed(KeyEvent e) {
-					if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
-						System.out.println("");
-					else {
-						JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Informaci�n", JOptionPane.WARNING_MESSAGE);
-						cleanApellido();}
-				}
-			});
-			txtApellido.setColumns(10);
-			txtApellido.setBounds(369, 28, 196, 23);
-			panel_1.add(txtApellido);
-			
-			JLabel label_2 = new JLabel("Cedula:");
-			label_2.setBounds(30, 59, 61, 16);
-			panel_1.add(label_2);
-			
-			txtCedula = new JFormattedTextField(formatoCedula);
-			txtCedula.setBackground(new Color(211, 211, 211));
-			txtCedula.setColumns(10);
-			txtCedula.setBounds(101, 57, 177, 23);
-			panel_1.add(txtCedula);
-			
-			JLabel label_3 = new JLabel("Sexo:");
-			label_3.setBounds(30, 116, 61, 16);
-			panel_1.add(label_3);
-			
-			JLabel label_4 = new JLabel("Telefono:");
-			label_4.setBounds(300, 59, 61, 16);
-			panel_1.add(label_4);
-			
-			txtTelefono = new JFormattedTextField(formatoNumero);
-			txtTelefono.setBackground(new Color(211, 211, 211));
-			txtTelefono.setColumns(10);
-			txtTelefono.setBounds(369, 59, 196, 23);
-			panel_1.add(txtTelefono);
-			
-			btnMasculino = new JRadioButton("Masculino");
-			btnMasculino.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(btnMasculino.isSelected()){
-						panelHombre.setVisible(true);
-						panelMujer.setVisible(false);
-					}
-				}
-			});
-			btnMasculino.setBackground(new Color(255, 255, 255));
-			btnGroupSexo.add(btnMasculino);
-			btnMasculino.setBounds(97, 113, 93, 23);
-			panel_1.add(btnMasculino);
-			
-			btnFemenino = new JRadioButton("Femenino");
-			btnFemenino.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(btnFemenino.isSelected()){
-						panelMujer.setVisible(true);
-						panelHombre.setVisible(false);	
-					}
-				}
-			});
-			btnFemenino.setBackground(new Color(255, 255, 255));
-			btnGroupSexo.add(btnFemenino);
-			btnFemenino.setBounds(192, 113, 94, 23);
-			panel_1.add(btnFemenino);
-			
-			JLabel label_6 = new JLabel("Direccion:");
-			label_6.setBounds(30, 91, 84, 16);
-			panel_1.add(label_6);
-			
-			txtDireccion = new JTextField();
-			txtDireccion.setBackground(new Color(211, 211, 211));
-			txtDireccion.setColumns(10);
-			txtDireccion.setBounds(101, 86, 177, 23);
-			panel_1.add(txtDireccion);
-			
-			JLabel label_11 = new JLabel("Email:");
-			label_11.setBounds(300, 91, 46, 14);
-			panel_1.add(label_11);
-			
-			txtEmail = new JTextField();
-			txtEmail.setBackground(new Color(211, 211, 211));
-			txtEmail.setColumns(10);
-			txtEmail.setBounds(369, 86, 196, 24);
-			panel_1.add(txtEmail);
-			
-			JLabel label_10 = new JLabel("Fecha Nacimiento:");
-			label_10.setBounds(300, 117, 107, 14);
-			panel_1.add(label_10);
-			
-			Jcaldate = new JDateChooser();
-			Jcaldate.setBounds(428, 116, 137, 22);
-			panel_1.add(Jcaldate);
-			
-			JLabel lblPaisDeNacimiento = new JLabel("Pais de Nacimiento:");
-			lblPaisDeNacimiento.setBounds(30, 145, 129, 16);
-			panel_1.add(lblPaisDeNacimiento);
-			
-			cbxNacionalidad = new JComboBox();
-			cbxNacionalidad.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
-			cbxNacionalidad.setBounds(147, 143, 137, 23);
-			panel_1.add(cbxNacionalidad);
-			cbxNacionalidad.setBackground(new Color(211, 211, 211));
-			cbxNacionalidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Afganist\u00E1n\t", "Alemania\t", "Arabia Saudita\t", "Argentina\t", "Australia\t", "B\u00E9lgica\t", "Bolivia\t", "Brasil\t", "Camboya\t", "Canad\u00E1\t", "Chile\t", "China", "Colombia\t", "Corea\t", "Costa Rica", "Cuba\t", "Dinamarca\t", "Ecuador\t", "Egipto\t", "El Salvador\t", "Escocia\t", "Espa\u00F1a", "Estados Unidos\t", "Estonia\t", "Filipinas\t", "Francia\t", "Grecia", "Guatemala\t", "Hait\u00ED\t", "Holanda\t", "Honduras\t", "Indonesia\t", "Inglaterra\t", "Irak\t", "Ir\u00E1n", "Irlanda\t", "Israel\t", "Italia\t", "Jap\u00F3n\t", "Jordania\t", "Laos\t", "Letonia\t", "Lituania\t", "Malasia\t", "Marruecos\t", "M\u00E9xico\t", "Nicaragua\t", "Noruega\t", "Nueva Zelanda", "Panam\u00E1\t", "Paraguay\t", "Per\u00FA\t", "Polonia\t", "Portugal\t", "Puerto Rico", "Republica Dom.", "Rumania\t", "Rusia\t", "Suecia\t", "Suiza\t", "Tailandia\t", "Taiw\u00E1n\t", "Turqu\u00EDa\t", "Ucrania\t", "Uruguay\t", "Venezuela\t", "Vietnam"}));
-			
-			panelHombre = new JPanel();
-			panelHombre.setBounds(15, 20, 152, 159);
-			panel_principal.add(panelHombre);
-			panelHombre.setLayout(null);
-			
-			JLabel lblNewLabel_1 = new JLabel("");
-			lblNewLabel_1.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/hombre.png")));
-			lblNewLabel_1.setBounds(6, 6, 137, 136);
-			panelHombre.add(lblNewLabel_1);
 			
 			panel_secundario = new JPanel();
 			panel_secundario.setBackground(new Color(255, 255, 255));
@@ -563,6 +395,191 @@ public class ModificarSolicitantes extends JDialog {
 			
 			panel_secundario.setVisible(false);
 			
+			panel_principal = new JPanel();
+			panel_principal.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Formulario", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+			panel_principal.setBackground(new Color(255, 255, 255));
+			panel_principal.setBounds(10, 110, 774, 201);
+			panel.add(panel_principal);
+			panel_principal.setLayout(null);
+			
+			panelHombre = new JPanel();
+			panelHombre.setBounds(15, 20, 152, 159);
+			panel_principal.add(panelHombre);
+			panelHombre.setLayout(null);
+			
+			panelHombre.setVisible(false);
+			
+			JLabel lblNewLabel_1 = new JLabel("");
+			lblNewLabel_1.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/hombre.png")));
+			lblNewLabel_1.setBounds(10, 11, 132, 137);
+			panelHombre.add(lblNewLabel_1);
+			
+			panelMujer = new JPanel();
+			panelMujer.setLayout(null);
+			panelMujer.setBounds(15, 20, 152, 158);
+			panel_principal.add(panelMujer);
+			
+			mujer = new JLabel("");
+			mujer.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/mujer.png")));
+			mujer.setBounds(10, 6, 142, 141);
+			panelMujer.add(mujer);
+			panelMujer.setVisible(false);
+			
+			PanelTodos = new JPanel();
+			PanelTodos.setBounds(15, 20, 152, 158);
+			panel_principal.add(PanelTodos);
+			PanelTodos.setLayout(null);
+			
+			JLabel lblNewLabel = new JLabel("New label");
+			lblNewLabel.setIcon(new ImageIcon(ModificarSolicitantes.class.getResource("/imagenes/red.png")));
+			lblNewLabel.setBounds(15, 11, 122, 136);
+			PanelTodos.add(lblNewLabel);
+			
+			JPanel panel_1 = new JPanel();
+			panel_1.setBackground(new Color(255, 255, 255));
+			panel_1.setBounds(182, 11, 582, 175);
+			panel_principal.add(panel_1);
+			panel_1.setLayout(null);
+			panel_1.setBorder(new TitledBorder(null, "Datos Personales", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			
+			JLabel label = new JLabel("Nombres:");
+			label.setBounds(30, 30, 61, 16);
+			panel_1.add(label);
+			
+			txtNombre = new JTextField();
+			txtNombre.setBackground(new Color(211, 211, 211));
+			txtNombre.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent e) {
+					if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
+						System.out.println("");
+					else {
+						JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Informaci�n", JOptionPane.WARNING_MESSAGE);
+						cleanNombre();}
+				}
+			});
+			txtNombre.setColumns(10);
+			txtNombre.setBounds(101, 28, 177, 23);
+			panel_1.add(txtNombre);
+			
+			JLabel label_1 = new JLabel("Apellidos:");
+			label_1.setBounds(300, 30, 73, 16);
+			panel_1.add(label_1);
+			
+			txtApellido = new JTextField();
+			txtApellido.setBackground(new Color(211, 211, 211));
+			txtApellido.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent e) {
+					if(e.getKeyCode()>=65&&e.getKeyCode()<=90||e.getKeyChar()==8||e.getKeyCode()==32||e.getKeyCode()==16)
+						System.out.println("");
+					else {
+						JOptionPane.showMessageDialog(null, "Solo caracteres de tipo letra", "Informaci�n", JOptionPane.WARNING_MESSAGE);
+						cleanApellido();}
+				}
+			});
+			txtApellido.setColumns(10);
+			txtApellido.setBounds(369, 28, 196, 23);
+			panel_1.add(txtApellido);
+			
+			JLabel label_2 = new JLabel("Cedula:");
+			label_2.setBounds(30, 59, 61, 16);
+			panel_1.add(label_2);
+			
+			txtCedula = new JFormattedTextField(formatoCedula);
+			txtCedula.setBackground(new Color(211, 211, 211));
+			txtCedula.setColumns(10);
+			txtCedula.setBounds(101, 57, 177, 23);
+			panel_1.add(txtCedula);
+			
+			JLabel label_3 = new JLabel("Sexo:");
+			label_3.setBounds(30, 116, 61, 16);
+			panel_1.add(label_3);
+			
+			JLabel label_4 = new JLabel("Telefono:");
+			label_4.setBounds(300, 59, 61, 16);
+			panel_1.add(label_4);
+			
+			txtTelefono = new JFormattedTextField(formatoNumero);
+			txtTelefono.setBackground(new Color(211, 211, 211));
+			txtTelefono.setColumns(10);
+			txtTelefono.setBounds(369, 59, 196, 23);
+			panel_1.add(txtTelefono);
+			
+			btnMasculino = new JRadioButton("Masculino");
+			btnMasculino.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(btnMasculino.isSelected()){
+						panelHombre.setVisible(true);
+						panelMujer.setVisible(false);
+						PanelTodos.setVisible(false);
+						
+					}
+				}
+			});
+			btnMasculino.setBackground(new Color(255, 255, 255));
+			btnGroupSexo.add(btnMasculino);
+			btnMasculino.setBounds(97, 113, 93, 23);
+			panel_1.add(btnMasculino);
+			
+			btnFemenino = new JRadioButton("Femenino");
+			btnFemenino.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(btnFemenino.isSelected()){
+						panelMujer.setVisible(true);
+						panelHombre.setVisible(false);	
+						PanelTodos.setVisible(false);
+					}
+				}
+			});
+			btnFemenino.setBackground(new Color(255, 255, 255));
+			btnGroupSexo.add(btnFemenino);
+			btnFemenino.setBounds(192, 113, 94, 23);
+			panel_1.add(btnFemenino);
+			
+			JLabel label_6 = new JLabel("Direccion:");
+			label_6.setBounds(30, 91, 84, 16);
+			panel_1.add(label_6);
+			
+			txtDireccion = new JTextField();
+			txtDireccion.setBackground(new Color(211, 211, 211));
+			txtDireccion.setColumns(10);
+			txtDireccion.setBounds(101, 86, 177, 23);
+			panel_1.add(txtDireccion);
+			
+			JLabel label_11 = new JLabel("Email:");
+			label_11.setBounds(300, 91, 46, 14);
+			panel_1.add(label_11);
+			
+			txtEmail = new JTextField();
+			txtEmail.setBackground(new Color(211, 211, 211));
+			txtEmail.setColumns(10);
+			txtEmail.setBounds(369, 86, 196, 24);
+			panel_1.add(txtEmail);
+			
+			JLabel label_10 = new JLabel("Fecha Nacimiento:");
+			label_10.setBounds(300, 117, 107, 14);
+			panel_1.add(label_10);
+			
+			Jcaldate = new JDateChooser();
+			Jcaldate.setBounds(428, 116, 137, 22);
+			panel_1.add(Jcaldate);
+			
+			JLabel lblPaisDeNacimiento = new JLabel("Pais de Nacimiento:");
+			lblPaisDeNacimiento.setBounds(30, 145, 129, 16);
+			panel_1.add(lblPaisDeNacimiento);
+			
+			cbxNacionalidad = new JComboBox();
+			cbxNacionalidad.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
+			cbxNacionalidad.setBounds(147, 143, 137, 23);
+			panel_1.add(cbxNacionalidad);
+			cbxNacionalidad.setBackground(new Color(211, 211, 211));
+			cbxNacionalidad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Afganist\u00E1n\t", "Alemania\t", "Arabia Saudita\t", "Argentina\t", "Australia\t", "B\u00E9lgica\t", "Bolivia\t", "Brasil\t", "Camboya\t", "Canad\u00E1\t", "Chile\t", "China", "Colombia\t", "Corea\t", "Costa Rica", "Cuba\t", "Dinamarca\t", "Ecuador\t", "Egipto\t", "El Salvador\t", "Escocia\t", "Espa\u00F1a", "Estados Unidos\t", "Estonia\t", "Filipinas\t", "Francia\t", "Grecia", "Guatemala\t", "Hait\u00ED\t", "Holanda\t", "Honduras\t", "Indonesia\t", "Inglaterra\t", "Irak\t", "Ir\u00E1n", "Irlanda\t", "Israel\t", "Italia\t", "Jap\u00F3n\t", "Jordania\t", "Laos\t", "Letonia\t", "Lituania\t", "Malasia\t", "Marruecos\t", "M\u00E9xico\t", "Nicaragua\t", "Noruega\t", "Nueva Zelanda", "Panam\u00E1\t", "Paraguay\t", "Per\u00FA\t", "Polonia\t", "Portugal\t", "Puerto Rico", "Republica Dom.", "Rumania\t", "Rusia\t", "Suecia\t", "Suiza\t", "Tailandia\t", "Taiw\u00E1n\t", "Turqu\u00EDa\t", "Ucrania\t", "Uruguay\t", "Venezuela\t", "Vietnam"}));
+			PanelTodos.setVisible(true);
+			
 			panel_3 = new JPanel();
 			panel_3.setLayout(null);
 			panel_3.setBackground(new Color(0, 0, 139));
@@ -612,69 +629,75 @@ public class ModificarSolicitantes extends JDialog {
 					if (txtBuscarCedula.getText().toString().equalsIgnoreCase("")||bolsa.buscarSolicitante(txtBuscarCedula.getText().toString())==null)
 						JOptionPane.showMessageDialog(null, "No se ha encontrado el cliente", "Informacion", JOptionPane.WARNING_MESSAGE);
 					else{
-					soli = Bolsa.buscarSolicitante(txtBuscarCedula.getText());
+					s = Bolsa.buscarSolicitante(txtBuscarCedula.getText());
 					
 					//Cedula
-					txtCedula.setText(soli.getCedula());
+					txtCedula.setText(s.getCedula());
 					//Nombre
-					txtNombre.setText(soli.getNombre());
+					txtNombre.setText(s.getNombre());
 					//Apellido
-					txtApellido.setText(soli.getApellido());
+					txtApellido.setText(s.getApellido());
 					//Telefono
-					txtTelefono.setText(soli.getTelefono());
+					txtTelefono.setText(s.getTelefono());
 					//Email
-					txtEmail.setText(soli.getEmail());
+					txtEmail.setText(s.getEmail());
 					//Sexo
-					if(soli.getSexo().equalsIgnoreCase("Masculino"))
+					if(s.getSexo().equalsIgnoreCase("Masculino")){
 						btnMasculino.setSelected(true);
-					else
+						PanelTodos.setVisible(false);
+						panelMujer.setVisible(false);
+						panelHombre.setVisible(true);}
+					if(s.getSexo().equalsIgnoreCase("Femenino")){
 						btnFemenino.setSelected(true);
+						PanelTodos.setVisible(false);
+						panelMujer.setVisible(true);
+						panelHombre.setVisible(false);}
 
 					//Nacionalidad
 					for(int u=0; u<cbxNacionalidad.getItemCount();u++){
-						if(cbxNacionalidad.getItemAt(u).toString().equalsIgnoreCase(soli.getNacionalidad()))
+						if(cbxNacionalidad.getItemAt(u).toString().equalsIgnoreCase(s.getNacionalidad()))
 						cbxNacionalidad.setSelectedIndex(u);
 					}
 					cbxNacionalidad.setEnabled(true);
 					//EstadoCivil
 					for(int u=0; u<cbxEstadoCivil.getItemCount();u++){
-						if(cbxEstadoCivil.getItemAt(u).toString().equalsIgnoreCase(soli.getEstadoCivil()))
+						if(cbxEstadoCivil.getItemAt(u).toString().equalsIgnoreCase(s.getEstadoCivil()))
 						cbxEstadoCivil.setSelectedIndex(u);
 					}
 					cbxEstadoCivil.setEnabled(true);
 					//Direccion
-					txtDireccion.setText(soli.getDireccion());
+					txtDireccion.setText(s.getDireccion());
 					txtDireccion.setEnabled(true);
 					//Cuidad
 					for(int u=0; u<cbxCiudad.getItemCount();u++){
-						if(cbxCiudad.getItemAt(u).toString().equalsIgnoreCase(soli.getCuidad()))
+						if(cbxCiudad.getItemAt(u).toString().equalsIgnoreCase(s.getCuidad()))
 						cbxCiudad.setSelectedIndex(u);
 					}
 					cbxCiudad.setEnabled(true); 
 					//Pais
 					for(int u=0; u<cbxPais.getItemCount();u++){
-						if(cbxPais.getItemAt(u).toString().equalsIgnoreCase(soli.getPais()))
+						if(cbxPais.getItemAt(u).toString().equalsIgnoreCase(s.getPais()))
 						cbxPais.setSelectedIndex(u);
 					}
 					cbxPais.setEnabled(true);
 					//Fecha Nacimiento
-					Jcaldate.setDate(soli.getFechaNacimiento());
+					Jcaldate.setDate(s.getFechaNacimiento());
 					Jcaldate.setEnabled(true);
 					//Idioma
 				
 					int a=0;
 					
 					for(int u=0; u<cbxIdioma1.getItemCount();u++){
-						if(cbxIdioma1.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(0))){
+						if(cbxIdioma1.getItemAt(u).toString().equalsIgnoreCase(s.getIdioma().get(0))){
 							cbxIdioma1.setSelectedIndex(u);
 							a=u;
 						}
 					}
 	
-					if(soli.getIdioma().size()==2){
+					if(s.getIdioma().size()==2){
 						for(int u=0; u<cbxIdioma2.getItemCount();u++){
 							if(u!=a){
-								if(cbxIdioma2.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(1))){
+								if(cbxIdioma2.getItemAt(u).toString().equalsIgnoreCase(s.getIdioma().get(1))){
 									cbxIdioma2.setSelectedIndex(u);
 									a=u; 
 								}
@@ -682,10 +705,10 @@ public class ModificarSolicitantes extends JDialog {
 						}
 					}
 					
-					if(soli.getIdioma().size()==3){
+					if(s.getIdioma().size()==3){
 					for(int u=0; u<cbxIdioma3.getItemCount();u++){
 						if(u!=a){
-						if(cbxIdioma3.getItemAt(u).toString().equalsIgnoreCase(soli.getIdioma().get(2)))
+						if(cbxIdioma3.getItemAt(u).toString().equalsIgnoreCase(s.getIdioma().get(2)))
 						cbxIdioma3.setSelectedIndex(u);}
 					}}
 						
@@ -694,37 +717,37 @@ public class ModificarSolicitantes extends JDialog {
 					cbxIdioma3.setEnabled(true);
 						
 					//Licencia
-					if(soli.isLicencia()==true)
+					if(s.isLicencia()==true)
 						btnLicenciaCY.setSelected(true);
 					else
 						btnLicenciaCN.setSelected(true);
 					
 					//NombreEmpresa
-					txtEmpresa.setText(soli.getNombreEmpresa());
+					txtEmpresa.setText(s.getNombreEmpresa());
 					txtEmpresa.setEnabled(true);
 					
 					//AreaTrabajo 
 					for(int u=0; u<cbxAreaTrabajo.getItemCount();u++){
-						if(cbxAreaTrabajo.getItemAt(u).toString().equalsIgnoreCase(soli.getAreaTrabajo1()))
+						if(cbxAreaTrabajo.getItemAt(u).toString().equalsIgnoreCase(s.getAreaTrabajo1()))
 						cbxAreaTrabajo.setSelectedIndex(u);
 					}
 					cbxAreaTrabajo.setEnabled(true);
 							
 					//TiempoTrabajo
-					spnTiempoExperiencia.setValue(soli.getTiempotrabajoRealizado1());
+					spnTiempoExperiencia.setValue(s.getTiempotrabajoRealizado1());
 					spnTiempoExperiencia.setEnabled(true);
 					
 					//NombreReferente
-					txtNombreReferente.setText(soli.getNombreReferente());
+					txtNombreReferente.setText(s.getNombreReferente());
 					txtNombreReferente.setEnabled(true);
 					//NumeroReferente
-					txtNumeroReferente.setText(soli.getNumeroReferente());
+					txtNumeroReferente.setText(s.getNumeroReferente());
 					txtNumeroReferente.setEnabled(true);		
 					}	
 				}
 			});
 			
-			btnBuscar.setBounds(285, 1, 117, 29);
+			btnBuscar.setBounds(290, 1, 117, 29);
 			panel_5.add(btnBuscar);
 		}
 		{
@@ -783,7 +806,7 @@ public class ModificarSolicitantes extends JDialog {
 										JOptionPane.showMessageDialog(null, "Completar todas las casillas con valores aceptables", "Informacion", JOptionPane.WARNING_MESSAGE);}
 							else{
 								java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
-								Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
+								//Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
 								s.setCedula(txtCedula.getText());
 								s.setNombre(txtNombre.getText());
 								s.setApellido(txtApellido.getText());
@@ -850,6 +873,9 @@ public class ModificarSolicitantes extends JDialog {
 						 btnGroupViajar.clearSelection();
 						 btnPag.setEnabled(false);
 						 btnPag_1.setEnabled(true);
+						 panelHombre.setVisible(false);
+						 panelMujer.setVisible(false);
+						 PanelTodos.setVisible(true);
 					}
 				});
 				
