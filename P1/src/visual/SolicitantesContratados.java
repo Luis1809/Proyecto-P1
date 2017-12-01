@@ -114,7 +114,7 @@ public class SolicitantesContratados extends JDialog {
 		
 		JLabel label_1 = new JLabel("Nombre:");
 		label_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_1.setBounds(360, 20, 68, 14);
+		label_1.setBounds(405, 16, 68, 14);
 		panel.add(label_1);
 		
 		txtnombreEmpresa = new JTextField();
@@ -122,12 +122,12 @@ public class SolicitantesContratados extends JDialog {
 		txtnombreEmpresa.setEditable(false);
 		txtnombreEmpresa.setColumns(10);
 		txtnombreEmpresa.setBackground(new Color(211, 211, 211));
-		txtnombreEmpresa.setBounds(438, 18, 177, 23);
+		txtnombreEmpresa.setBounds(483, 14, 177, 23);
 		panel.add(txtnombreEmpresa);
 		
 		JLabel label_2 = new JLabel("Telefono:");
 		label_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_2.setBounds(360, 75, 81, 14);
+		label_2.setBounds(405, 71, 81, 14);
 		panel.add(label_2);
 		
 		txtciudadEmpresa = new JTextField();
@@ -135,12 +135,12 @@ public class SolicitantesContratados extends JDialog {
 		txtciudadEmpresa.setEditable(false);
 		txtciudadEmpresa.setColumns(10);
 		txtciudadEmpresa.setBackground(new Color(211, 211, 211));
-		txtciudadEmpresa.setBounds(438, 45, 177, 23);
+		txtciudadEmpresa.setBounds(483, 41, 177, 23);
 		panel.add(txtciudadEmpresa);
 		
 		JLabel label_3 = new JLabel("Ciudad:");
 		label_3.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_3.setBounds(360, 49, 93, 14);
+		label_3.setBounds(405, 45, 93, 14);
 		panel.add(label_3);
 		
 		txttelefonoEmpresa = new JFormattedTextField();
@@ -148,7 +148,7 @@ public class SolicitantesContratados extends JDialog {
 		txttelefonoEmpresa.setEditable(false);
 		txttelefonoEmpresa.setColumns(10);
 		txttelefonoEmpresa.setBackground(new Color(211, 211, 211));
-		txttelefonoEmpresa.setBounds(438, 73, 177, 23);
+		txttelefonoEmpresa.setBounds(483, 69, 177, 23);
 		panel.add(txttelefonoEmpresa);
 		
 		JPanel panel_1 = new JPanel();

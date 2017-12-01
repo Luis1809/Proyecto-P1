@@ -262,6 +262,7 @@ public class Principal extends JFrame {
 		mntmNewMenuItem_4.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				SolicitantesContratados p=new SolicitantesContratados();
 				p.setModal(true);
 				p.setLocationRelativeTo(null);
