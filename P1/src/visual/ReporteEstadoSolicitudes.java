@@ -33,6 +33,7 @@ import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.ImageIcon;
 
 public class ReporteEstadoSolicitudes extends JDialog {
 
@@ -97,6 +98,7 @@ public class ReporteEstadoSolicitudes extends JDialog {
 		panel_1.add(txtRNC);
 		
 		JButton button = new JButton("Buscar");
+		button.setIcon(new ImageIcon(ReporteEstadoSolicitudes.class.getResource("/imagenes/busqueda-de-usuario.png")));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (txtRNC.getText().toString().equalsIgnoreCase("")||Bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
@@ -180,7 +182,8 @@ public class ReporteEstadoSolicitudes extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton okButton = new JButton("OK");
+				JButton okButton = new JButton("Salir");
+				okButton.setIcon(new ImageIcon(ReporteEstadoSolicitudes.class.getResource("/imagenes/creuz.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();

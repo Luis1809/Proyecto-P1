@@ -284,32 +284,18 @@ public class Principal extends JFrame {
 		mntmNewMenuItem_5.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		mnNewMenu_1.add(mntmNewMenuItem_5);
 		
-		PanelCurves panelCurves = new PanelCurves();
-		panelCurves.setForeground(new Color(0, 51, 0));
-		panelCurves.setBackground(new Color(0, 0, 0));
-		panelCurves.setBounds(0, 29, 1937, 558);
-		contentPane.add(panelCurves);
-		panelCurves.setLayout(null);
-		
 		panel_pie = new JPanel();
-		panel_pie.setBounds(21, 42, 482, 388);
-		panelCurves.add(panel_pie);
+		panel_pie.setBounds(15, 69, 482, 388);
+		contentPane.add(panel_pie);
 		
 		panel_bar = new JPanel();
-		panel_bar.setBounds(513, 42, 526, 388);
-		panelCurves.add(panel_bar);
+		panel_bar.setBounds(512, 69, 526, 388);
+		contentPane.add(panel_bar);
 		
 		ClockFace clockFace = new ClockFace();
+		clockFace.setBounds(1060, 69, 280, 297);
+		contentPane.add(clockFace);
 		clockFace.setBackground(new Color(255, 255, 255));
-		clockFace.setBounds(1063, 63, 280, 297);
-		panelCurves.add(clockFace);
-		
-		PanelCurves panelCurves_1 = new PanelCurves();
-		panelCurves_1.setLayout(null);
-		panelCurves_1.setForeground(new Color(0, 51, 0));
-		panelCurves_1.setBackground((Color) null);
-		panelCurves_1.setBounds(0, 571, 1914, 540);
-		contentPane.add(panelCurves_1);
 	}
 	public static void cargarBarra(){
 		panel_bar.removeAll();

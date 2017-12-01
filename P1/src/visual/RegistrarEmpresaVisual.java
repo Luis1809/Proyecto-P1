@@ -180,7 +180,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton btnCancel = new JButton("Cancelar");
-				btnCancel.setIcon(new ImageIcon(RegistrarEmpresaVisual.class.getResource("/imagenes/boton-cancelar.png")));
+				btnCancel.setIcon(new ImageIcon(RegistrarEmpresaVisual.class.getResource("/imagenes/creuz.png")));
 				btnCancel.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
@@ -188,6 +188,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 				});
 				
 				JButton btnRegistrar = new JButton("Registrar");
+				btnRegistrar.setIcon(new ImageIcon(RegistrarEmpresaVisual.class.getResource("/imagenes/registro (1).png")));
 				btnRegistrar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						String nombreEmpresa = txtNombreEmpresa.getText();

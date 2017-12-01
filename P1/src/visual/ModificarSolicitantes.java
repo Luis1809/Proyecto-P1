@@ -909,6 +909,7 @@ public class ModificarSolicitantes extends JDialog {
 			txtBuscarCedula.setColumns(10);
 			
 			btnBuscar = new JButton("Buscar");
+			btnBuscar.setIcon(new ImageIcon(ModificarSolicitantes.class.getResource("/imagenes/busqueda-de-usuario.png")));
 			btnBuscar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (txtBuscarCedula.getText().toString().equalsIgnoreCase("")||bolsa.buscarSolicitante(txtBuscarCedula.getText().toString())==null)
@@ -1046,7 +1047,7 @@ public class ModificarSolicitantes extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				btnModificar = new JButton("Modificar");
-				btnModificar.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/ok-appproval-aceptacion.png")));
+				btnModificar.setIcon(new ImageIcon(ModificarSolicitantes.class.getResource("/imagenes/cambiar.png")));
 				btnModificar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						//Datos Personales
@@ -1254,6 +1255,7 @@ public class ModificarSolicitantes extends JDialog {
 				});
 				
 				btnEliminar = new JButton("Eliminar");
+				btnEliminar.setIcon(new ImageIcon(ModificarSolicitantes.class.getResource("/imagenes/cubo-de-basurap.png")));
 				btnEliminar.setActionCommand("OK");
 				buttonPane.add(btnEliminar);
 				btnModificar.setActionCommand("OK");
@@ -1262,7 +1264,7 @@ public class ModificarSolicitantes extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancelar");
-				cancelButton.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/boton-cancelar.png")));
+				cancelButton.setIcon(new ImageIcon(ModificarSolicitantes.class.getResource("/imagenes/creuz.png")));
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();

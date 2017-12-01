@@ -719,7 +719,7 @@ public class RegistrarPlaza extends JDialog {
 		panel_2.add(txtRNC);
 		
 		btnBuscar = new JButton("Buscar");
-		btnBuscar.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/buscador-de-lupa (1).png")));
+		btnBuscar.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/busqueda-de-usuario.png")));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (txtRNC.getText().toString().equalsIgnoreCase("")||bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
@@ -813,7 +813,7 @@ public class RegistrarPlaza extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton btnRegistrar = new JButton("Registrar");
-				btnRegistrar.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/ok-appproval-aceptacion.png")));
+				btnRegistrar.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/registro (1).png")));
 				btnRegistrar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
@@ -949,7 +949,7 @@ public class RegistrarPlaza extends JDialog {
 			}
 			{
 				JButton btncancel = new JButton("Cancelar");
-				btncancel.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/boton-cancelar.png")));
+				btncancel.setIcon(new ImageIcon(RegistrarPlaza.class.getResource("/imagenes/creuz.png")));
 				btncancel.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();

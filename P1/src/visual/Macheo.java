@@ -355,7 +355,7 @@ public class Macheo extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/boton-cancelar.png")));
+				cancelButton.setIcon(new ImageIcon(Macheo.class.getResource("/imagenes/creuz.png")));
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();

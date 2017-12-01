@@ -34,6 +34,7 @@ import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class SolicitantesContratados extends JDialog {
 	private Bolsa bolsa = Bolsa.getIntance();
@@ -91,6 +92,7 @@ public class SolicitantesContratados extends JDialog {
 		panel.add(txtRNC);
 		
 		JButton button = new JButton("Buscar");
+		button.setIcon(new ImageIcon(SolicitantesContratados.class.getResource("/imagenes/buscando-archivo-simbolo-de-interfaz.png")));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (txtRNC.getText().toString().equalsIgnoreCase("")||bolsa.buscarEmpresa(txtRNC.getText().toString())==null){
@@ -197,7 +199,8 @@ public class SolicitantesContratados extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton okButton = new JButton("OK");
+				JButton okButton = new JButton("Salir\r\n");
+				okButton.setIcon(new ImageIcon(SolicitantesContratados.class.getResource("/imagenes/ccruz.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
@@ -205,6 +208,7 @@ public class SolicitantesContratados extends JDialog {
 				});
 				
 				btnDespedir = new JButton("Despedir");
+				btnDespedir.setIcon(new ImageIcon(SolicitantesContratados.class.getResource("/imagenes/despedido (1).png")));
 				btnDespedir.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						EmpresaSolicitadora emp=bolsa.buscarEmpresa(txtRNC.getText().toString());

@@ -194,6 +194,7 @@ public class ModificarEmpresa extends JDialog {
 		panel_3.add(txtBuscarRNC);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setIcon(new ImageIcon(ModificarEmpresa.class.getResource("/imagenes/busqueda-de-usuario.png")));
 		btnBuscar.setBounds(235, 11, 101, 29);
 		panel_3.add(btnBuscar);
 		btnBuscar.addActionListener(new ActionListener() {
@@ -261,7 +262,7 @@ public class ModificarEmpresa extends JDialog {
 						}
 					}
 				});
-				button_1.setIcon(new ImageIcon(ModificarEmpresa.class.getResource("/imagenes/un-par-de-flechas-cambiando-lugares.png")));
+				button_1.setIcon(new ImageIcon(ModificarEmpresa.class.getResource("/imagenes/cambiar.png")));
 				button_1.setActionCommand("OK");
 				buttonPane.add(button_1);
 				
@@ -278,13 +279,13 @@ public class ModificarEmpresa extends JDialog {
 						}	
 					}
 				});
-				button.setIcon(new ImageIcon(ModificarEmpresa.class.getResource("/imagenes/cubo-de-basura (1).png")));
+				button.setIcon(new ImageIcon(ModificarEmpresa.class.getResource("/imagenes/cubo-de-basurap.png")));
 				button.setActionCommand("OK");
 				buttonPane.add(button);
 			}
 			{
 				JButton btnCancel = new JButton("Cancelar");
-				btnCancel.setIcon(new ImageIcon(RegistrarEmpresaVisual.class.getResource("/imagenes/boton-cancelar.png")));
+				btnCancel.setIcon(new ImageIcon(ModificarEmpresa.class.getResource("/imagenes/creuz.png")));
 				btnCancel.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();

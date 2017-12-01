@@ -933,7 +933,7 @@ public class SolicitantesVisual extends JDialog {
 						}	
 				}
 			});
-			chxCuentaCreada.setBounds(340, 19, 35, 23);
+			chxCuentaCreada.setBounds(362, 19, 35, 23);
 			panel_5.add(chxCuentaCreada);
 			
 			txtCedulaClienteAntiguo = new JFormattedTextField(formatoCedula);
@@ -947,6 +947,7 @@ public class SolicitantesVisual extends JDialog {
 			panel_5.add(IngresarCedula);
 			
 			btnBuscar = new JButton("Buscar");
+			btnBuscar.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/busqueda-de-usuario.png")));
 			btnBuscar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (txtCedulaClienteAntiguo.getText().toString().equalsIgnoreCase("")||bolsa.buscarSolicitante(txtCedulaClienteAntiguo.getText().toString())==null)
@@ -1073,7 +1074,7 @@ public class SolicitantesVisual extends JDialog {
 					txtNumeroReferente.setEnabled(false);		
 				}}
 			});
-			btnBuscar.setBounds(277, 47, 89, 26);
+			btnBuscar.setBounds(277, 47, 114, 26);
 			panel_5.add(btnBuscar);
 			
 			txtCedulaClienteAntiguo.setEnabled(false);
@@ -1088,7 +1089,7 @@ public class SolicitantesVisual extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				okButton = new JButton("Registrar");
-				okButton.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/ok-appproval-aceptacion.png")));
+				okButton.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/registro (1).png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						//Datos Personales
@@ -1269,7 +1270,7 @@ public class SolicitantesVisual extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancelar");
-				cancelButton.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/boton-cancelar.png")));
+				cancelButton.setIcon(new ImageIcon(SolicitantesVisual.class.getResource("/imagenes/creuz.png")));
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
