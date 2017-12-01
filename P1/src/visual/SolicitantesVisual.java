@@ -1215,6 +1215,7 @@ public class SolicitantesVisual extends JDialog {
 									    // yes option
 										imprimirTXT();
 										
+										
 									} else {
 									    //no option
 									}
