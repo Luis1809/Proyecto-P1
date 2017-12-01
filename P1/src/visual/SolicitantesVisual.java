@@ -1329,6 +1329,7 @@ public class SolicitantesVisual extends JDialog {
 							String pais = cbxPais.getSelectedItem().toString();
 							String estadoCivil = cbxEstadoCivil.getSelectedItem().toString();
 							String nacionalidad = cbxNacionalidad.getSelectedItem().toString();
+							
 							String sexo=null;
 							
 							
@@ -1338,7 +1339,7 @@ public class SolicitantesVisual extends JDialog {
 								
 								
 								
-								f=new File("Revision.txt");
+								f=new File("Solicitate.txt");
 								w=new FileWriter(f);
 								bw=new BufferedWriter(w);
 								wr =new PrintWriter(bw);
@@ -1355,16 +1356,27 @@ public class SolicitantesVisual extends JDialog {
 										
 										String fecha=LocalDate.now().toString();
 										wr.write("|__________________________________________________"+"\n");
-										wr.write("|Cliente:"+nombre+"        Fecha:|"+fecha+""+"\n");
+										wr.write("|Cliente:"+nombre+"        \n");
+										wr.write("\n");
 										wr.write("|Apellido:"+apellido+"        \n");
-										wr.write("|telefono:"+telefono+"        Fecha:|"+fecha+""+"\n");
+										wr.write("\n");
+										wr.write("|telefono:"+telefono+"       \n");
+										wr.write("\n");
 										wr.write("|Email:"+email+"        \n");
-										wr.write("|Cedula:"+cedula+"        Fecha:|"+fecha+""+"\n");
+										wr.write("\n");
+										wr.write("|Cedula:"+cedula+"       \n");
+										wr.write("\n");
 										wr.write("|Direccion:"+direccion+"        \n");
-										wr.write("|Ciudad:"+cuidad+"        Fecha:"+fecha+""+"\n");
+										wr.write("\n");
+										wr.write("|Ciudad:"+cuidad+"        \n");
+										wr.write("\n");
 										wr.write("|Pais:"+pais+"        \n");
-										wr.write("|Estado Civil:"+estadoCivil+"        Fecha:"+fecha+""+"\n");
+										wr.write("\n");
+										wr.write("|Estado Civil:"+estadoCivil+"  \n");
+										wr.write("\n");
 										wr.write("|Nacionalid:"+nacionalidad+"        \n");
+									
+										
 										
 										if (btnGroupSexo.getSelection()!=null){
 											if(btnFemenino.isSelected())
@@ -1385,12 +1397,15 @@ public class SolicitantesVisual extends JDialog {
 											
 											
 										wr.write("|Area de Interes:"+t.getAreaInteres()+"        \n");
-										wr.write("|Fecha de Nacimiento:"+t.getFecha()+"        \n");
+										wr.write("\n");
 										wr.write("|Tecnico Realizado:"+t.getTecnico()+"        \n");
+										wr.write("\n");
 										wr.write("|Institucion:"+t.getInstitucion()+"        \n");
+										wr.write("\n");
 										wr.write("|Salario Solicitado:"+t.getSalirioSolicitado()+"        \n");
+										wr.write("\n");
 										wr.write("|Tipo de Jornada:"+t.getTipoJornada()+"        \n");
-										
+										wr.write("\n");
 											
 											
 											
@@ -1407,18 +1422,21 @@ public class SolicitantesVisual extends JDialog {
 											
 											
 										wr.write("|Area de Interes:"+o.getAreaInteres()+"        \n");
+										wr.write("\n");
 										wr.write("|Tipo de Jornada:"+o.getTipoJornada()+"        \n");
+										wr.write("\n");
 										wr.write("|Salario Solicitado:"+o.getSalirioSolicitado()+"        \n");
+										wr.write("\n");
 										wr.write("|Nacimiento:"+o.getFecha()+"        \n");
-									   for (String string : o.getListaHabilidades()) {
-										
+									  
+										wr.write("\n");
 										wr.write("|Habilidad:"+o.getListaHabilidades()+"        \n");
 										
 										
 										
 										
 										
-									}
+									
 											
 											
 											
@@ -1440,10 +1458,13 @@ public class SolicitantesVisual extends JDialog {
 											
 											
 										wr.write("|Area de Interes:"+u.getAreaInteres()+"        \n");
+										wr.write("\n");
 										wr.write("|Carrera:"+u.getCarrera()+"        \n");
+										wr.write("\n");
 										wr.write("|Institucion:"+u.getInstitucion()+"        \n");
+										wr.write("\n");
 										wr.write("|Salario Solitado:"+u.getSalirioSolicitado()+"        \n");
-										wr.write("|Nacimiento:"+u.getFecha()+"        \n");
+										wr.write("\n");
 										wr.write("|Tipo de Jornada:"+u.getTipoJornada()+"        \n");
 											
 											
