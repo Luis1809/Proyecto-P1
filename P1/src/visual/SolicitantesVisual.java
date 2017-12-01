@@ -28,11 +28,13 @@ import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
+import logico.AgregarSolicitudes;
 import logico.Bolsa;
 
 import logico.Obrero;
 import logico.Solicitantes;
 import logico.Tecnico;
+
 import logico.Universitario;
 
 import javax.swing.JCheckBox;
@@ -45,6 +47,11 @@ import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 import javax.swing.JFormattedTextField;
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
@@ -70,6 +77,11 @@ public class SolicitantesVisual extends JDialog {
     private String areTrabajo;
     private String nombreReferente;
     private String telReferente;*/
+	
+	Tecnico t;
+	Obrero o;
+	Universitario u;
+	Solicitantes s;
 	private Bolsa bolsa = Bolsa.getIntance();
 	private ArrayList<String> habi=new ArrayList<>();
 	private final JPanel contentPanel = new JPanel();
@@ -912,7 +924,7 @@ public class SolicitantesVisual extends JDialog {
 			
 			JLabel lblNewLabel = new JLabel("\u00BFYa posees una cuenta con nosotros?");
 			lblNewLabel.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-			lblNewLabel.setBounds(23, 11, 311, 31);
+			lblNewLabel.setBounds(23, 11, 327, 31);
 			panel_5.add(lblNewLabel);
 			
 			chxCuentaCreada = new JCheckBox("");
@@ -1186,8 +1198,8 @@ public class SolicitantesVisual extends JDialog {
 									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
 									String carrera = cbxCarrera.getSelectedItem().toString();
 									String institucion = cbxInstitucionUni.getSelectedItem().toString();
-									Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
-									Universitario u = new Universitario(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), institucion, carrera);
+									s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
+									u = new Universitario(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), institucion, carrera);
 									if(soli==null){
 										Bolsa.insertarSolicitante(s);
 										s.getMiSolicitud().add(u);}
@@ -1196,7 +1208,17 @@ public class SolicitantesVisual extends JDialog {
 									//for(int h=0; h<idioma.size();h++)
 										//System.out.println(idioma.get(h)+" El numero"+h);
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
-									//clean();
+									
+									
+									if (JOptionPane.showConfirmDialog(null, "Desea imprimir fichero texto de registro", "IMFORMACION",
+									        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+									    // yes option
+										imprimirTXT();
+										
+									} else {
+									    //no option
+									}
+									
 									limpiar();
 									
 								}
@@ -1217,14 +1239,24 @@ public class SolicitantesVisual extends JDialog {
 								else{
 									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
 									//String habilidad = cbxHabilidad.getSelectedItem().toString();
-									Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
-									Obrero o = new Obrero(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), habilidad);
+									s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
+								    o = new Obrero(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), habilidad);
 									if(soli==null){
 										Bolsa.insertarSolicitante(s);
 										s.getMiSolicitud().add(o);}
 									if(!txtCedulaClienteAntiguo.getText().equalsIgnoreCase("   -       - ")){
 										soli.getMiSolicitud().add(o);}
 									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+									
+									
+									if (JOptionPane.showConfirmDialog(null, "Desea imprimir fichero texto de registro", "IMFORMACION",
+									        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+									    // yes option
+										imprimirTXT();
+										
+									} else {
+									    //no option
+									}
 									limpiar();
 									
 								}
@@ -1247,14 +1279,23 @@ public class SolicitantesVisual extends JDialog {
 									java.sql.Date fechaNacimiento = new java.sql.Date(Jcaldate.getDate().getTime());
 									String tecnico = cbxTecnico.getSelectedItem().toString();
 									String institucion = txtInstitucionTecnico.getText();	
-									Solicitantes s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
-									Tecnico t = new Tecnico(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), institucion, tecnico);							
+									 s= new Solicitantes(cedula, nombre, apellido, telefono, email, sexo, nacionalidad, estadoCivil, direccion, cuidad, pais, fechaNacimiento, idioma, true, LicenciaConducir, nombreEmpresa, areaTrabajo, tiempoExp, nombreReferente, telefonoReferente);
+									 t = new Tecnico(salirioSolicitado, dispMudarse, dispViajar, TipoJornada, areaInteres, LocalDate.now(), institucion, tecnico);							
 									if(soli==null){
 										Bolsa.insertarSolicitante(s);
 										s.getMiSolicitud().add(t);}
 									if(!txtCedulaClienteAntiguo.getText().equalsIgnoreCase("   -       - ")){
 										soli.getMiSolicitud().add(t);}
-									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);	
+									JOptionPane.showMessageDialog(null, "Operacion satisfactoria", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+									
+									if (JOptionPane.showConfirmDialog(null, "Desea imprimir fichero texto de registro", "IMFORMACION",
+									        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+									    // yes option
+										imprimirTXT();
+										
+									} else {
+									    //no option
+									}
 									limpiar();
 									
 								}
@@ -1262,6 +1303,189 @@ public class SolicitantesVisual extends JDialog {
 						}
 						else 
 							JOptionPane.showMessageDialog(null, "Seleccione un nivel educativo", "Informacion", JOptionPane.WARNING_MESSAGE);
+					}
+
+					private void imprimirTXT() {
+					
+					
+						
+						
+						
+						    
+							File f;
+							FileWriter w;
+							BufferedWriter bw;
+							PrintWriter wr;
+							
+							
+							String nombre= txtNombre.getText();
+							String apellido = txtApellido.getText();
+							String telefono = txtTelefono.getText();
+							String email = txtEmail.getText();
+							String cedula = txtCedula.getText();
+							String direccion = txtDireccion.getText();
+							String cuidad = cbxCiudad.getSelectedItem().toString();
+							String pais = cbxPais.getSelectedItem().toString();
+							String estadoCivil = cbxEstadoCivil.getSelectedItem().toString();
+							String nacionalidad = cbxNacionalidad.getSelectedItem().toString();
+							String sexo=null;
+							
+							
+							
+							
+							try {
+								
+								
+								
+								f=new File("Revision.txt");
+								w=new FileWriter(f);
+								bw=new BufferedWriter(w);
+								wr =new PrintWriter(bw);
+								
+								
+								
+								
+								
+							       
+							    
+							    	   
+							       
+							    		
+										
+										String fecha=LocalDate.now().toString();
+										wr.write("|__________________________________________________"+"\n");
+										wr.write("|Cliente:"+nombre+"        Fecha:|"+fecha+""+"\n");
+										wr.write("|Apellido:"+apellido+"        \n");
+										wr.write("|telefono:"+telefono+"        Fecha:|"+fecha+""+"\n");
+										wr.write("|Email:"+email+"        \n");
+										wr.write("|Cedula:"+cedula+"        Fecha:|"+fecha+""+"\n");
+										wr.write("|Direccion:"+direccion+"        \n");
+										wr.write("|Ciudad:"+cuidad+"        Fecha:"+fecha+""+"\n");
+										wr.write("|Pais:"+pais+"        \n");
+										wr.write("|Estado Civil:"+estadoCivil+"        Fecha:"+fecha+""+"\n");
+										wr.write("|Nacionalid:"+nacionalidad+"        \n");
+										
+										if (btnGroupSexo.getSelection()!=null){
+											if(btnFemenino.isSelected())
+												sexo= "Femenino";
+											if(btnMasculino.isSelected())
+												sexo= "Masculino";
+										}
+						
+										wr.write("|Sexo:"+sexo+"        \n");
+										  
+								        
+										
+										if (btnTecnico.isSelected()) {
+											
+											
+											
+											
+											
+											
+										wr.write("|Area de Interes:"+t.getAreaInteres()+"        \n");
+										wr.write("|Fecha de Nacimiento:"+t.getFecha()+"        \n");
+										wr.write("|Tecnico Realizado:"+t.getTecnico()+"        \n");
+										wr.write("|Institucion:"+t.getInstitucion()+"        \n");
+										wr.write("|Salario Solicitado:"+t.getSalirioSolicitado()+"        \n");
+										wr.write("|Tipo de Jornada:"+t.getTipoJornada()+"        \n");
+										
+											
+											
+											
+											
+											
+											
+										}
+										
+										else if (btnObrero.isSelected()) {
+											
+											
+											
+											
+											
+											
+										wr.write("|Area de Interes:"+o.getAreaInteres()+"        \n");
+										wr.write("|Tipo de Jornada:"+o.getTipoJornada()+"        \n");
+										wr.write("|Salario Solicitado:"+o.getSalirioSolicitado()+"        \n");
+										wr.write("|Nacimiento:"+o.getFecha()+"        \n");
+									   for (String string : o.getListaHabilidades()) {
+										
+										wr.write("|Habilidad:"+o.getListaHabilidades()+"        \n");
+										
+										
+										
+										
+										
+									}
+											
+											
+											
+										
+											
+											
+												
+												
+												
+												
+												
+												
+											}
+										else if (btnUniversitario.isSelected()) {
+											
+											
+											
+											
+											
+											
+										wr.write("|Area de Interes:"+u.getAreaInteres()+"        \n");
+										wr.write("|Carrera:"+u.getCarrera()+"        \n");
+										wr.write("|Institucion:"+u.getInstitucion()+"        \n");
+										wr.write("|Salario Solitado:"+u.getSalirioSolicitado()+"        \n");
+										wr.write("|Nacimiento:"+u.getFecha()+"        \n");
+										wr.write("|Tipo de Jornada:"+u.getTipoJornada()+"        \n");
+											
+											
+											
+											
+											
+											
+										}
+										
+										
+									
+									
+									
+									
+
+							   
+								
+								
+								
+
+							
+								
+							   	wr.close();
+								bw.close();
+								
+							} catch (Exception e) {
+								// TODO: handle exception
+							}
+								
+								
+						      
+						       
+
+						
+						
+						
+						
+						
+						
+						
+						
+						// TODO Auto-generated method stub
+						
 					}
 				});
 				okButton.setActionCommand("OK");
