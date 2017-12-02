@@ -49,20 +49,27 @@ public class Principal extends JFrame {
 	private Dimension dim;
 	public static JPanel panel_bar;
 	public static JPanel panel_pie;
+	public static boolean Validacion=true;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+	
+		
+		
+		//look and feel
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		JDialog.setDefaultLookAndFeelDecorated(true);
+		
 		
 		PrincipalLogin p=new PrincipalLogin();
 		p.setModal(true);
 		p.setLocationRelativeTo(null);
 		p.setVisible(true);
 		
-		//look and feel
-		JFrame.setDefaultLookAndFeelDecorated(true);
-		JDialog.setDefaultLookAndFeelDecorated(true);
+		if(Validacion==false)
+			System.exit(0);
 		
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -75,10 +82,6 @@ public class Principal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-				
-					
-					
-					
 					bolsa.init();
 					Principal frame = new Principal();
 					frame.setVisible(true);

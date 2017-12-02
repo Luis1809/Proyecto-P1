@@ -16,11 +16,16 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import logico.Bolsa;
 import sun.security.jgss.LoginConfigImpl;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 public class PrincipalLogin extends JDialog {
 
@@ -28,42 +33,34 @@ public class PrincipalLogin extends JDialog {
 	private JTextField txtUsuario;
 	private JPasswordField txtPassword;
 	private JButton btnIniciar;
-	private Principal p= new Principal();
-	
+	private Dimension dim;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
+	public PrincipalLogin() {
 		
-		
-		//look and feel
-		JFrame.setDefaultLookAndFeelDecorated(true);
-		JDialog.setDefaultLookAndFeelDecorated(true);
-		
-		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PrincipalLogin frame = new PrincipalLogin();
-					frame.setVisible(true);
+					setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+					addWindowListener( new WindowAdapter() {
+						@Override
+						public void  windowClosing(WindowEvent we){
+							Principal.Validacion=false;
+							System.exit(0);
+						}
+					});
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public PrincipalLogin() {
 		
+		
+		
+		setBounds(100, 100, 1920, 1096);
+		dim = super.getToolkit().getScreenSize();
+		super.setSize(dim.width, (dim.height-50));
+		setLocationRelativeTo(null);
 		setResizable(false);
 		setTitle("                                                                            Iniciar sesion\r\n ");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PrincipalLogin.class.getResource("/imagenes/lista-de-usuarios.png")));
@@ -138,22 +135,11 @@ public class PrincipalLogin extends JDialog {
 				String clavedef=new String(clave);
 				
 				
-				if (txtUsuario.getText().equals("Administrador")&& clavedef.equals("12345")) {
-				
-					
-				
-					
+				if (txtUsuario.getText().equals("Administrador")&& clavedef.equals("12345")) {	
 			        dispose();
 					
 				}else{
-					
-					
-					
 					JOptionPane.showMessageDialog(null,"Contrasena incorrecta o Usuario incorrecto");
-					
-					
-					
-					
 				}
 			}
 		});
@@ -190,8 +176,6 @@ public class PrincipalLogin extends JDialog {
 		label.setIcon(new ImageIcon(PrincipalLogin.class.getResource("/imagenes/hombre-de-negocios (3).png")));
 		label.setBounds(0, 0, 504, 569);
 		panel_2.add(label);
-
-		
-		
 	}
+
 }
