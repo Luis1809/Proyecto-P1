@@ -55,6 +55,11 @@ public class Principal extends JFrame {
 	 */
 	public static void main(String[] args) {
 		
+		PrincipalLogin p=new PrincipalLogin();
+		p.setModal(true);
+		p.setLocationRelativeTo(null);
+		p.setVisible(true);
+		
 		//look and feel
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		JDialog.setDefaultLookAndFeelDecorated(true);

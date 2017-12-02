@@ -23,13 +23,13 @@ public class secondLogin extends JPanel {
 	private JTextField txtUsuario;
 	private JPasswordField txtPassword;
 	private JButton btnIniciar;
-
+	private Principal p= new Principal();
 
 	public secondLogin() {
 		
 		
 		//look and feel
-		JFrame.setDefaultLookAndFeelDecorated(true);
+		/*JFrame.setDefaultLookAndFeelDecorated(true);
 		JDialog.setDefaultLookAndFeelDecorated(true);
 		
 		try {
@@ -37,7 +37,7 @@ public class secondLogin extends JPanel {
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		} 
+		} */
 		setBackground(new Color(0, 0, 102));
 		setLayout(null);
 		
@@ -103,9 +103,9 @@ public class secondLogin extends JPanel {
 				if (txtUsuario.getText().equals("Administrador")&& clavedef.equals("12345")) {
 				
 					
-					Principal p= new Principal();
+				
 					p.setVisible(true);
-					
+			
 					
 				}else{
 					
