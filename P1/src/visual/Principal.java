@@ -38,6 +38,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import org.edisoncor.gui.varios.ClockFace;
 import org.edisoncor.gui.panel.PanelCurves;
+import java.awt.Toolkit;
 
 
 public class Principal extends JFrame {
@@ -113,6 +114,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/imagenes/periodico (2).png")));
 		//bolsa.LeerBolsa();
 		setTitle("Bolsa laboral V1.0");
 		setResizable(false);
@@ -132,19 +134,19 @@ public class Principal extends JFrame {
 		menuBar.setBorderPainted(false);
 		menuBar.setBounds(0, 0, 1914, 31);
 		contentPane.add(menuBar);
-		menuBar.setBackground(new Color(255, 0, 0));
-		menuBar.setForeground(new Color(255, 0, 0));
+		menuBar.setBackground(Color.WHITE);
+		menuBar.setForeground(Color.WHITE);
 		 ///
 		JMenu mnNewMenu = new JMenu("Ingresar datos");
 		mnNewMenu.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/usuario.png")));
-		mnNewMenu.setBackground(new Color(0, 0, 0));
+		mnNewMenu.setBackground(Color.WHITE);
 		mnNewMenu.setForeground(new Color(0, 0, 0));
 		mnNewMenu.setFont(new Font("Segoe UI", Font.BOLD, 18));
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Solicitantes         ");
 		mntmNewMenuItem.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/lista-de-control-en-un-papel-con-un-lapiz.png")));
-		mntmNewMenuItem.setBackground(new Color(0, 0, 128));
+		mntmNewMenuItem.setBackground(Color.WHITE);
 		mntmNewMenuItem.setForeground(new Color(0, 0, 0));
 		mntmNewMenuItem.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
@@ -159,7 +161,7 @@ public class Principal extends JFrame {
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Empresas");
 		mntmNewMenuItem_1.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/fabrica.png")));
-		mntmNewMenuItem_1.setBackground(new Color(0, 0, 128));
+		mntmNewMenuItem_1.setBackground(Color.WHITE);
 		mntmNewMenuItem_1.setForeground(new Color(0, 0, 0));
 		mntmNewMenuItem_1.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
@@ -176,7 +178,7 @@ public class Principal extends JFrame {
 		JMenu mnNewMenu_2 = new JMenu("Solicitudes");
 		mnNewMenu_2.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/archivo (1).png")));
 		mnNewMenu_2.setForeground(new Color(0, 0, 0));
-		mnNewMenu_2.setBackground(new Color(0, 0, 0));
+		mnNewMenu_2.setBackground(Color.WHITE);
 		mnNewMenu_2.setFont(new Font("Segoe UI", Font.BOLD, 18));
 		menuBar.add(mnNewMenu_2);
 		
@@ -212,7 +214,7 @@ public class Principal extends JFrame {
 		mnModificar.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/barajar.png")));
 		mnModificar.setForeground(new Color(0, 0, 0));
 		mnModificar.setFont(new Font("Segoe UI", Font.BOLD, 18));
-		mnModificar.setBackground(Color.BLACK);
+		mnModificar.setBackground(Color.WHITE);
 		menuBar.add(mnModificar);
 		
 		JMenuItem menuItem = new JMenuItem("Solicitantes         ");
@@ -251,7 +253,7 @@ public class Principal extends JFrame {
 		JMenu mnNewMenu_1 = new JMenu("Reportes");
 		mnNewMenu_1.setIcon(new ImageIcon(Principal.class.getResource("/imagenes/periodico (2).png")));
 		mnNewMenu_1.setForeground(new Color(0, 0, 0));
-		mnNewMenu_1.setBackground(Color.BLACK);
+		mnNewMenu_1.setBackground(Color.WHITE);
 		mnNewMenu_1.setFont(new Font("Segoe UI", Font.BOLD, 18));
 		menuBar.add(mnNewMenu_1);
 		

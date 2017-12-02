@@ -30,6 +30,7 @@ import javax.swing.JFormattedTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 
 public class ModificarEmpresa extends JDialog {
@@ -50,6 +51,7 @@ public class ModificarEmpresa extends JDialog {
 	private JFormattedTextField txtBuscarRNC;
 	
 	public ModificarEmpresa() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ModificarEmpresa.class.getResource("/imagenes/fabrica.png")));
 		setResizable(false);
 		setTitle("Modificar /Eliminar Empresa");
 		setBounds(100, 100, 490, 448);

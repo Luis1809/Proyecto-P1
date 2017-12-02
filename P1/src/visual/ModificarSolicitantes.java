@@ -51,6 +51,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFormattedTextField;
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class ModificarSolicitantes extends JDialog {
 	ButtonGroup btnGroupSexo =new ButtonGroup();
@@ -123,6 +124,8 @@ public class ModificarSolicitantes extends JDialog {
 	private JPanel PanelTodos;
 	
 	public ModificarSolicitantes() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ModificarSolicitantes.class.getResource("/imagenes/equipo.png")));
+		setTitle("Modificar/Eliminar Solicitante");
 		setResizable(false);
 		setBounds(100, 100, 794, 386);
 		getContentPane().setLayout(new BorderLayout());

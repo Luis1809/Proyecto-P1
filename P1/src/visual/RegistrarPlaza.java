@@ -42,6 +42,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 
 public class RegistrarPlaza extends JDialog {
@@ -114,6 +115,8 @@ public class RegistrarPlaza extends JDialog {
 	private JLabel label_13;
 	
 	public RegistrarPlaza() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(RegistrarPlaza.class.getResource("/imagenes/archivo (3).png")));
+		setTitle("Ingresar Solicitud");
 		setResizable(false);
 		setBounds(100, 100, 678, 594);
 		getContentPane().setLayout(new BorderLayout());

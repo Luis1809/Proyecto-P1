@@ -50,6 +50,7 @@ import javax.swing.JSpinner;
 import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
 import javax.swing.JProgressBar;
+import java.awt.Toolkit;
 
 public class Macheo extends JDialog {
 	private Bolsa bolsa = Bolsa.getIntance();
@@ -75,6 +76,7 @@ public class Macheo extends JDialog {
 	private JProgressBar progressBar;
 
 	public Macheo() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Macheo.class.getResource("/imagenes/buscando-archivo-simbolo-de-interfaz.png")));
 		setTitle("Datos");
 		setResizable(false);
 		setBounds(100, 100, 678, 563);
