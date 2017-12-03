@@ -55,6 +55,7 @@ import java.io.PrintWriter;
 import javax.swing.JFormattedTextField;
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class SolicitantesVisual extends JDialog {
 	ButtonGroup btnGroupSexo =new ButtonGroup();
@@ -158,6 +159,8 @@ public class SolicitantesVisual extends JDialog {
 	
 	
 	public SolicitantesVisual() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SolicitantesVisual.class.getResource("/imagenes/archivo (2).png")));
+		setTitle("                                                         Ingresar Solicitante\r\n");
 		
 		
 		setResizable(false);

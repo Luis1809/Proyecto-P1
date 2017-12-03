@@ -34,6 +34,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class ReporteEstadoSolicitudes extends JDialog {
 
@@ -48,6 +49,8 @@ public class ReporteEstadoSolicitudes extends JDialog {
 	private static DefaultTableModel model;
 
 	public ReporteEstadoSolicitudes() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ReporteEstadoSolicitudes.class.getResource("/imagenes/hombre-de-negocios (1).png")));
+		setTitle("                                                    Estado de Solicitud\r\n");
 		setResizable(false);
 		setBounds(100, 100, 681, 474);
 		getContentPane().setLayout(new BorderLayout());

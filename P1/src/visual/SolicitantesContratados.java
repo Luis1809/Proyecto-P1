@@ -35,6 +35,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class SolicitantesContratados extends JDialog {
 	private Bolsa bolsa = Bolsa.getIntance();
@@ -53,6 +54,8 @@ public class SolicitantesContratados extends JDialog {
 	private JButton btnDespedir;
 	private int index ;
 	public SolicitantesContratados() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SolicitantesContratados.class.getResource("/imagenes/lista-de-control-en-un-papel-con-un-lapiz.png")));
+		setTitle("                                                Solicitantes Contratados\r\n");
 		
 		
 		setResizable(false);

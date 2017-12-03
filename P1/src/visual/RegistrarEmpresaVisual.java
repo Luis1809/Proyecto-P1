@@ -31,6 +31,7 @@ import javax.swing.JFormattedTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class RegistrarEmpresaVisual extends JDialog {
 	private Bolsa bolsa = Bolsa.getIntance();
@@ -48,6 +49,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 	private JComboBox cbxCiudad;   
 	
 	public RegistrarEmpresaVisual() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(RegistrarEmpresaVisual.class.getResource("/imagenes/archivo (1).png")));
 		setResizable(false);
 		setTitle("Registrar Empresa");
 		setBounds(100, 100, 463, 382);
