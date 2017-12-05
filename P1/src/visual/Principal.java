@@ -89,7 +89,9 @@ public class Principal extends JFrame {
 						Bolsa.CargarEmpresa();
 					if(Bolsa.archivoCreadoSolicitante())
 						Bolsa.Cargarsolicitante();
-					  cargarPIE();
+					if(Bolsa.archivoCreadoSolic())
+						Bolsa.CargarSolic();
+					cargarPIE();
 					cargarBarra();
 					
 					frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -103,6 +105,7 @@ public class Principal extends JFrame {
 						try {
 							Bolsa.GuardarEmpresa();
 							Bolsa.GuardarSolicitante();
+							Bolsa.GuardarSolic();
 						} catch (IOException e) {
 							 //TODO Auto-generated catch block
 							e.printStackTrace();
