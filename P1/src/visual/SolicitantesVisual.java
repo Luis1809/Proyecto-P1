@@ -1359,6 +1359,8 @@ public class SolicitantesVisual extends JDialog {
 										
 										String fecha=LocalDate.now().toString();
 										wr.write("|__________________________________________________"+"\n");
+										wr.write("|Cedula:"+cedula+"       \n");
+										wr.write("\n");
 										wr.write("|Cliente:"+nombre+"        \n");
 										wr.write("\n");
 										wr.write("|Apellido:"+apellido+"        \n");
@@ -1366,8 +1368,6 @@ public class SolicitantesVisual extends JDialog {
 										wr.write("|telefono:"+telefono+"       \n");
 										wr.write("\n");
 										wr.write("|Email:"+email+"        \n");
-										wr.write("\n");
-										wr.write("|Cedula:"+cedula+"       \n");
 										wr.write("\n");
 										wr.write("|Direccion:"+direccion+"        \n");
 										wr.write("\n");
@@ -1379,7 +1379,7 @@ public class SolicitantesVisual extends JDialog {
 										wr.write("\n");
 										wr.write("|Nacionalid:"+nacionalidad+"        \n");
 									
-										
+										///ready
 										
 										if (btnGroupSexo.getSelection()!=null){
 											if(btnFemenino.isSelected())
