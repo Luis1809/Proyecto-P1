@@ -18,6 +18,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class Login extends JDialog {
 
@@ -34,6 +36,7 @@ public class Login extends JDialog {
 	 * Create the frame.
 	 */
 	public Login() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/imagenes/lista-de-usuarios.png")));
 		
 		
 		
@@ -56,7 +59,7 @@ public class Login extends JDialog {
 			}
 		});
 		//setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 648, 600);
+		setBounds(100, 100, 662, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -68,13 +71,30 @@ public class Login extends JDialog {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(0, 0, 102));
-		panel_1.setBounds(0, 0, 299, 562);
+		panel_1.setBounds(0, 0, 299, 547);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(0, 0, 102));
+		panel_3.setBounds(57, 105, 183, 229);
+		panel_1.add(panel_3);
+		panel_3.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/imagenes/hombre-de-negocios (2).png")));
+		lblNewLabel.setBounds(28, 16, 168, 197);
+		panel_3.add(lblNewLabel);
+		
+		JLabel lblBancoPopular = new JLabel("Bolsa de Empleados 1.0");
+		lblBancoPopular.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblBancoPopular.setForeground(new Color(255, 255, 255));
+		lblBancoPopular.setBounds(39, 477, 225, 20);
+		panel_1.add(lblBancoPopular);
+		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(297, 0, 338, 562);
+		panel_2.setBounds(297, 0, 345, 562);
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -109,6 +129,7 @@ public class Login extends JDialog {
 		panel_2.add(txtPassword);
 		
 		JButton button = new JButton("Iniciar Seccion");
+		button.setIcon(new ImageIcon(Login.class.getResource("/imagenes/login.png")));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -130,7 +151,7 @@ public class Login extends JDialog {
 		});
 		button.setForeground(new Color(0, 0, 102));
 		button.setFont(new Font("Tahoma", Font.BOLD, 20));
-		button.setBounds(85, 473, 185, 48);
+		button.setBounds(76, 473, 219, 48);
 		panel_2.add(button);
 		
 		JLabel label_3 = new JLabel("Si desea Registrarse comunicese con soporte tecnico");
