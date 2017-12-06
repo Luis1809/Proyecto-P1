@@ -63,10 +63,18 @@ public class Principal extends JFrame {
 		JDialog.setDefaultLookAndFeelDecorated(true);
 		
 		
-		PrincipalLogin p=new PrincipalLogin();
+		/*PrincipalLogin p=new PrincipalLogin();
 		p.setModal(true);
 		p.setLocationRelativeTo(null);
 		p.setVisible(true);
+		*/
+		
+		
+		
+		Login L= new Login();
+		L.setModal(true);
+		L.setLocationRelativeTo(null);
+		L.setVisible(true);
 		
 		if(Validacion==false)
 			System.exit(0);
