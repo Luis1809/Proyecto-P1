@@ -151,7 +151,7 @@ public class Login extends JDialog {
 		});
 		button.setForeground(new Color(0, 0, 102));
 		button.setFont(new Font("Tahoma", Font.BOLD, 20));
-		button.setBounds(76, 473, 219, 48);
+		button.setBounds(65, 473, 238, 48);
 		panel_2.add(button);
 		
 		JLabel label_3 = new JLabel("Si desea Registrarse comunicese con soporte tecnico");
