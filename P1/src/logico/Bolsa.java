@@ -70,6 +70,27 @@ public class Bolsa implements Serializable {
  		f.close();
  	}
  	
+ 	public static void GuardarSolic() throws IOException{
+ 		FileOutputStream f = new FileOutputStream("Solic.dat");
+ 		ObjectOutputStream oos = new ObjectOutputStream(f);
+ 		
+ 		oos.writeInt(solic);
+ 		oos.writeObject(solic);
+ 
+ 		
+ 		f.close();
+ 	}
+ 			
+ 	public static void CargarSolic() throws ClassNotFoundException, IOException{
+ 		FileInputStream f = new FileInputStream("Solic.dat");
+ 		ObjectInputStream oos = new ObjectInputStream(f);
+ 	
+ 		int s=((int)oos.readInt());
+ 		solic=s;
+ 			
+ 		f.close();
+ 	}
+ 	
  	public static void GuardarSolicitante() throws IOException{
  		FileOutputStream f = new FileOutputStream("Solicitante.dat");
  		ObjectOutputStream oos = new ObjectOutputStream(f);
@@ -105,6 +126,15 @@ public class Bolsa implements Serializable {
 	public static boolean archivoCreadoSolicitante() throws IOException{
  		boolean creado=false;
  		File f = new File("Solicitante.dat");
+ 		//System.out.println(f.length());
+ 		if(f.exists() && !f.isDirectory() && f.length()!=4) 
+ 			creado=true;
+ 		return creado;
+ 	}
+	
+	public static boolean archivoCreadoSolic() throws IOException{
+ 		boolean creado=false;
+ 		File f = new File("Solic.dat");
  		//System.out.println(f.length());
  		if(f.exists() && !f.isDirectory() && f.length()!=4) 
  			creado=true;
