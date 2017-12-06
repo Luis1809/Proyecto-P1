@@ -256,8 +256,11 @@ public class ModificarEmpresa extends JDialog {
 							emp.setNombreEmpresa(txtNombreEmpresa.getText());
 							emp.setRNC(txtRNC.getText());
 							emp.setTelefonoEmpresa(txtTelefonoEmpresa.getText());
-							clean();
+							emp.setCiudad(cbxCiudad.getSelectedItem().toString());
+							emp.setAreaTrabajo(cbxArea.getSelectedItem().toString());
+							emp.setEmailEmpresa(txtEmailEmpresa.getText());
 							JOptionPane.showMessageDialog(null, "Operacion Satisfactoria");
+							clean();
 						}else{
 
 							JOptionPane.showMessageDialog(null,"No se encontro la Empresa");

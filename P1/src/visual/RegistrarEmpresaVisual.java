@@ -90,7 +90,7 @@ public class RegistrarEmpresaVisual extends JDialog {
 		
 		cbxCiudad = new JComboBox();
 		cbxCiudad.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>", "Santo Domingo de Guzm\u00E1n", "Azua ", "Neiba", "Barahona", "Dajab\u00F3n", "San Francisco de Macor\u00EDs", "Comendador", "El Seibo", "Moca", "Jiman\u00ED", "Hig\u00FCey", "La Romana", "La Vega", "Nagua", "Monte Cristi", "Pedernales", "Ban\u00ED", "Puerto Plata", "Salcedo", "Saman\u00E1", "San Crist\u00F3bal", "San Juan", "San Pedro de Macor\u00EDs", "Cotu\u00ED", "Santiago de los Caballeros", "Sabaneta", "Mao", "Bonao", "Monte Plata\t", "Hato Mayor", "San Jos\u00E9 de Ocoa", "Santo Domingo Este"}));
-		cbxCiudad.setBounds(70, 95, 148, 23);
+		cbxCiudad.setBounds(70, 95, 186, 23);
 		panel.add(cbxCiudad);
 		
 		JLabel lblDireccion = new JLabel("Direccion:");
